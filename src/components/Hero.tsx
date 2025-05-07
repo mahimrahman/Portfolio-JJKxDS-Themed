@@ -3,13 +3,22 @@ import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-deep-charcoal">
-      {/* Subtle background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-domain-violet/5 via-deep-charcoal to-deep-charcoal" />
-        <div className="absolute inset-0 grid-pattern" />
-      </div>
-      
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Video background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+       <source src="/Hero.mp4" type="video/mp4" />
+
+        Your browser does not support the video tag.
+      </video>
+
+
+      {/* Main content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -61,32 +70,18 @@ const Hero: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Decorative elements */}
+      {/* Decorative emojis */}
       <motion.div
-        animate={{ 
-          y: [0, -20, 0],
-          rotate: [0, 5, 0]
-        }}
-        transition={{ 
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        className="absolute top-1/4 left-1/4 w-16 h-16 text-rengoku-flame opacity-30"
+        animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/4 left-1/4 w-16 h-16 text-rengoku-flame opacity-30 z-10"
       >
         ⚔️
       </motion.div>
       <motion.div
-        animate={{ 
-          y: [0, 20, 0],
-          rotate: [0, -5, 0]
-        }}
-        transition={{ 
-          duration: 7,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        className="absolute bottom-1/4 right-1/4 w-16 h-16 text-cursed-blue opacity-30"
+        animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-1/4 right-1/4 w-16 h-16 text-cursed-blue opacity-30 z-10"
       >
         🗡️
       </motion.div>
@@ -94,4 +89,4 @@ const Hero: React.FC = () => {
   );
 };
 
-export default Hero; 
+export default Hero;
