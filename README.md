@@ -68,10 +68,9 @@ src/
 
 ## License
 
-MIT License - feel free to use this template for your own portfolio!
+MIT License
 
 ## Acknowledgments
 
 - Inspired by Demon Slayer and Jujutsu Kaisen
 - Built with modern web technologies
-- Special thanks to the anime community for inspiration 
