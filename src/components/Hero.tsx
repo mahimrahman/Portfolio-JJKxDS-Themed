@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <span className="bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
-              Cursed Blades
+              Cursed Blades of Mahim
             </span>
           </motion.h1>
           <motion.p 

@@ -36,7 +36,7 @@ const Navigation: React.FC = () => {
             className="flex-shrink-0"
           >
             <a href="#home" className="text-2xl font-bold bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
-              Cursed Blades
+              Mahim
             </a>
           </motion.div>
 
