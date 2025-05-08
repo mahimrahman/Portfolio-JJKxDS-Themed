@@ -3,23 +3,42 @@ import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      >
-       <source src="/Hero.mp4" type="video/mp4" />
-
-        Your browser does not support the video tag.
-      </video>
-
+    <div className="relative w-screen h-screen min-h-screen min-w-full flex items-center justify-center overflow-hidden">
+      {/* Video/Image background with aspect ratio preserved */}
+      <div className="absolute inset-0 w-full h-full flex items-center justify-center z-0 bg-black">
+        {/* Responsive video: desktop uses /Hero.mp4, mobile uses /hero_mobile.mp4 */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-contain max-w-full max-h-full"
+          style={{ background: 'black' }}
+          poster="/Hero.png"
+        >
+          <source src="/hero_mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
+          <source src="/Hero.mp4" type="video/mp4" media="(min-width: 769px)" />
+          <img
+            src="/Hero.png"
+            alt="Hero background"
+            className="w-full h-full object-contain"
+          />
+        </video>
+        {/* Semi-transparent overlay for readability */}
+        <div className="absolute inset-0 w-full h-full bg-black/60 z-10 pointer-events-none" />
+      </div>
 
       {/* Main content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+        <motion.h2
+          className="text-4xl md:text-6xl font-extrabold mb-8 text-center bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent drop-shadow-lg animate-pulse"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          Domain Entrance
+          <span className="block w-24 h-1 mx-auto mt-2 bg-zenitsu-lightning rounded-full animate-pulse" />
+        </motion.h2>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -27,44 +46,82 @@ const Hero: React.FC = () => {
           className="text-center"
         >
           <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-6"
+            className="text-4xl md:text-6xl font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <span className="bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
-              Cursed Blades of Mahim
+              MAHIMUR RAHMAN KHAN
             </span>
           </motion.h1>
           <motion.p 
-            className="text-xl md:text-2xl text-snow-white mb-8"
+            className="text-lg md:text-2xl text-snow-white mb-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Frontend Developer & UI/UX Designer
+            Software Engineering Graduate | Web Developer & Designer
+          </motion.p>
+          <motion.p className="text-md md:text-lg text-ash-gray mb-6" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}>
+            Montreal, QC · +1 438 596 5091 · mahimrk.a@gmail.com
+          </motion.p>
+          <motion.p className="text-base md:text-lg text-snow-white mb-8 max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }}>
+            Software Engineering graduate with a strong foundation in IT solutions, project management, and data analysis. Eager to apply academic knowledge to real-world challenges, focusing on delivering quality software and optimizing processes. Passionate about continuous learning, teamwork, and contributing to impactful projects.
           </motion.p>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="flex justify-center gap-4"
+            className="flex flex-wrap justify-center gap-4"
           >
             <motion.a
-              href="#contact"
+              href="mailto:mahimrk.a@gmail.com"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 rounded-md bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white hover:shadow-lg hover:shadow-rengoku-flame/20 transition-all duration-300"
+              className="px-6 py-2 rounded-md bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white font-semibold hover:shadow-lg hover:shadow-rengoku-flame/20 transition-all duration-300"
             >
-              Contact Me
+              Email Me
             </motion.a>
             <motion.a
-              href="#projects"
+              href="https://linkedin.com/in/mahimrk"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 rounded-md border-2 border-zenitsu-lightning text-snow-white hover:bg-zenitsu-lightning/10 transition-all duration-300"
+              className="px-6 py-2 rounded-md border-2 border-zenitsu-lightning text-snow-white font-semibold hover:bg-zenitsu-lightning/10 transition-all duration-300"
             >
-              View Projects
+              LinkedIn
+            </motion.a>
+            <motion.a
+              href="https://www.behance.net/mahimrk"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-2 rounded-md border-2 border-domain-violet text-snow-white font-semibold hover:bg-domain-violet/10 transition-all duration-300"
+            >
+              Behance
+            </motion.a>
+            <motion.a
+              href="https://github.com/mahimrk"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-2 rounded-md border-2 border-cursed-blue text-snow-white font-semibold hover:bg-cursed-blue/10 transition-all duration-300"
+            >
+              GitHub
+            </motion.a>
+            <motion.a
+              href="https://instagram.com/mahimrk.agm"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-2 rounded-md border-2 border-rengoku-flame text-snow-white font-semibold hover:bg-rengoku-flame/10 transition-all duration-300"
+            >
+              Instagram
             </motion.a>
           </motion.div>
         </motion.div>

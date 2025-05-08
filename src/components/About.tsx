@@ -47,9 +47,9 @@ const About: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
-            Origin Scroll
+            The Path of the Slayer
           </h2>
-          <div className="w-24 h-1 bg-zenitsu-lightning mx-auto mb-8" />
+          <span className="block w-24 h-1 mx-auto mb-8 bg-zenitsu-lightning rounded-full animate-pulse" />
         </motion.div>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -60,12 +60,10 @@ const About: React.FC = () => {
             className="space-y-6"
           >
             <p className="text-lg text-snow-white leading-relaxed">
-              As a modern-day digital sorcerer, I wield the power of code and design to create immersive web experiences. 
-              My journey began in the realm of front-end development, where I mastered the art of breathing life into pixels.
+              Software Engineering graduate with a strong foundation in IT solutions, project management, and data analysis. Eager to apply academic knowledge to real-world challenges, focusing on delivering quality software and optimizing processes. Passionate about continuous learning, teamwork, and contributing to impactful projects.
             </p>
             <p className="text-lg text-snow-white leading-relaxed">
-              Like a Hashira of the digital world, I combine technical prowess with creative vision to craft solutions 
-              that not only function flawlessly but also enchant users with their aesthetic appeal.
+              Experienced in web development, UI/UX design, and digital communications. Adept at collaborating with teams to deliver impactful results and drive engagement.
             </p>
           </motion.div>
           <motion.div
@@ -75,25 +73,42 @@ const About: React.FC = () => {
             viewport={{ once: true }}
             className="grid grid-cols-1 gap-6"
           >
-            {aboutCards.map((card, index) => (
-              <motion.div
-                key={card.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.03 }}
-                className={`bg-gradient-to-r ${card.color} p-6 rounded-lg border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-colors duration-300 cursor-pointer`}
-              >
-                <Link to={card.link} className="flex items-center gap-4">
-                  <span className="text-3xl">{card.icon}</span>
-                  <div>
-                    <h3 className="text-snow-white font-bold text-lg">{card.title}</h3>
-                    <p className="text-zenitsu-lightning text-base">{card.subtitle}</p>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
+            <motion.div className="bg-gradient-to-r from-checkered-green to-domain-violet p-6 rounded-lg border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-colors duration-300 cursor-pointer">
+              <div className="flex items-center gap-4">
+                <span className="text-3xl">💻</span>
+                <div>
+                  <h3 className="text-snow-white font-bold text-lg">Web Development</h3>
+                  <p className="text-zenitsu-lightning text-base">React, TypeScript, HTML, CSS, Node.js</p>
+                </div>
+              </div>
+            </motion.div>
+            <motion.div className="bg-gradient-to-r from-zenitsu-lightning to-rengoku-flame p-6 rounded-lg border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-colors duration-300 cursor-pointer">
+              <div className="flex items-center gap-4">
+                <span className="text-3xl">🧠</span>
+                <div>
+                  <h3 className="text-snow-white font-bold text-lg">UI/UX & Graphic Design</h3>
+                  <p className="text-zenitsu-lightning text-base">Figma, Adobe Suite, Canva, Branding</p>
+                </div>
+              </div>
+            </motion.div>
+            <motion.div className="bg-gradient-to-r from-cursed-blue to-domain-violet p-6 rounded-lg border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-colors duration-300 cursor-pointer">
+              <div className="flex items-center gap-4">
+                <span className="text-3xl">📊</span>
+                <div>
+                  <h3 className="text-snow-white font-bold text-lg">Data Analysis</h3>
+                  <p className="text-zenitsu-lightning text-base">Python, Power BI, Pandas, SQL</p>
+                </div>
+              </div>
+            </motion.div>
+            <motion.div className="bg-gradient-to-r from-rengoku-flame to-zenitsu-lightning p-6 rounded-lg border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-colors duration-300 cursor-pointer">
+              <div className="flex items-center gap-4">
+                <span className="text-3xl">🗂️</span>
+                <div>
+                  <h3 className="text-snow-white font-bold text-lg">Project Management</h3>
+                  <p className="text-zenitsu-lightning text-base">Agile, Scrum, Jira, Trello</p>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

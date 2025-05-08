@@ -13,11 +13,12 @@ const Navigation: React.FC = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
+    { name: 'Domain', href: '#home' },
+    { name: 'Path', href: '#about' },
+    { name: 'Missions', href: '#experience' },
+    { name: 'Records', href: '#portfolio' },
     { name: 'Realms', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Summon', href: '#contact' },
   ];
 
   return (

@@ -6,25 +6,25 @@ const Contact: React.FC = () => {
     {
       name: 'GitHub',
       icon: '🐙',
-      url: 'https://github.com/yourusername',
+      url: 'https://github.com/mahimrk',
       color: 'from-ghost-black to-domain-violet',
     },
     {
       name: 'LinkedIn',
       icon: '💼',
-      url: 'https://linkedin.com/in/yourusername',
+      url: 'https://linkedin.com/in/mahimrk',
       color: 'from-cursed-blue to-domain-violet',
     },
     {
-      name: 'Twitter',
-      icon: '🐦',
-      url: 'https://twitter.com/yourusername',
-      color: 'from-domain-violet to-rengoku-flame',
+      name: 'Behance',
+      icon: '🎨',
+      url: 'https://www.behance.net/mahimrk',
+      color: 'from-rengoku-flame to-domain-violet',
     },
     {
       name: 'Instagram',
       icon: '📸',
-      url: 'https://instagram.com/yourusername',
+      url: 'https://instagram.com/mahimrk.agm',
       color: 'from-rengoku-flame to-zenitsu-lightning',
     },
   ];
@@ -43,9 +43,9 @@ const Contact: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
-            Summon Me
+            Summon the Sorcerer
           </h2>
-          <div className="w-24 h-1 bg-zenitsu-lightning mx-auto mb-8" />
+          <span className="block w-24 h-1 mx-auto mb-8 bg-zenitsu-lightning rounded-full animate-pulse" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
@@ -121,7 +121,9 @@ const Contact: React.FC = () => {
             <div>
               <h3 className="text-2xl font-bold text-snow-white mb-4">Location</h3>
               <p className="text-ash-gray">
-                Currently residing in the Digital Realm, ready to answer your summons from anywhere in the world.
+                Montreal, QC, Canada<br />
+                <span className='block'>Phone: <a href="tel:+14385965091" className="text-zenitsu-lightning">+1 438 596 5091</a></span>
+                <span className='block'>Email: <a href="mailto:mahimrk.a@gmail.com" className="text-zenitsu-lightning">mahimrk.a@gmail.com</a></span>
               </p>
             </div>
           </motion.div>
