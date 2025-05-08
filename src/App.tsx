@@ -6,6 +6,12 @@ import About from './components/About';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import DevelopmentRecord from './components/records/DevelopmentRecord';
+import GraphicDesignRecord from './components/records/GraphicDesignRecord';
+import PhotographyRecord from './components/records/PhotographyRecord';
+import UIUXRecord from './components/records/UIUXRecord';
+import Portfolio from './components/Portfolio';
+import Training from './components/Training';
 
 const Placeholder: React.FC<{ title: string }> = ({ title }) => (
   <div className="min-h-screen flex items-center justify-center bg-deep-charcoal text-snow-white text-4xl font-bold">
@@ -65,11 +71,21 @@ const App: React.FC = () => {
                 <section id="projects" className="relative">
                   <Projects />
                 </section>
+                <section id="portfolio" className="relative">
+                  <Portfolio />
+                </section>
+                <section id="training" className="relative">
+                  <Training />
+                </section>
                 <section id="contact" className="relative">
                   <Contact />
                 </section>
               </>
             } />
+            <Route path="/records/development" element={<DevelopmentRecord />} />
+            <Route path="/records/graphic-design" element={<GraphicDesignRecord />} />
+            <Route path="/records/photography" element={<PhotographyRecord />} />
+            <Route path="/records/uiux" element={<UIUXRecord />} />
             <Route path="/development" element={<Placeholder title="Development: Code Sorcery" />} />
             <Route path="/uiux" element={<Placeholder title="UI/UX: User Alchemy" />} />
             <Route path="/photography" element={<Placeholder title="Photography: Lens Chronicles" />} />

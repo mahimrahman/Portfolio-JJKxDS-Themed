@@ -64,11 +64,9 @@ const Hero: React.FC = () => {
             Software Engineering Graduate | Web Developer & Designer
           </motion.p>
           <motion.p className="text-md md:text-lg text-ash-gray mb-6" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}>
-            Montreal, QC · +1 438 596 5091 · mahimrk.a@gmail.com
+             
           </motion.p>
-          <motion.p className="text-base md:text-lg text-snow-white mb-8 max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }}>
-            Software Engineering graduate with a strong foundation in IT solutions, project management, and data analysis. Eager to apply academic knowledge to real-world challenges, focusing on delivering quality software and optimizing processes. Passionate about continuous learning, teamwork, and contributing to impactful projects.
-          </motion.p>
+         
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

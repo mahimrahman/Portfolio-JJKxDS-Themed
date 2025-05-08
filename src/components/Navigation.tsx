@@ -16,8 +16,9 @@ const Navigation: React.FC = () => {
     { name: 'Domain', href: '#home' },
     { name: 'Path', href: '#about' },
     { name: 'Missions', href: '#experience' },
-    { name: 'Records', href: '#portfolio' },
+    { name: 'Records', href: '#battle-records' },
     { name: 'Realms', href: '#projects' },
+    { name: 'Training', href: '#training' },
     { name: 'Summon', href: '#contact' },
   ];
 
