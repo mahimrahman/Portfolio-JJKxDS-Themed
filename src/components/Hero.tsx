@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
           poster="/Hero.png"
         >
           <source src="/hero_mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
-          <source src="/Hero.mp4" type="video/mp4" media="(min-width: 769px)" />
+          <source src="/Hero.mp4" type="video/mp4" media="(min-width: 769px)"  />
           <img
             src="/Hero.png"
             alt="Hero background"
@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Software Engineering Graduate | Web Developer & Designer
+            Software Engineering Graduate | Web Developer & Designer | UI/UX Designer
           </motion.p>
           <motion.p className="text-md md:text-lg text-ash-gray mb-6" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}>
              
