@@ -35,6 +35,7 @@ yarn install
 3. Start the development server:
 ```bash
 npm start
+npm start -- --host=0.0.0.0
 # or
 yarn start
 ```
