@@ -53,11 +53,6 @@ src/
   └── index.tsx       # Application entry point
 ```
 
-## Customization
-
-- Update the content in `src/App.tsx` to personalize your portfolio
-- Modify colors in `tailwind.config.js`
-- Add your own images and assets in the `public` directory
 
 ## Technologies Used
 
