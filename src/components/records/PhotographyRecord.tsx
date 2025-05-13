@@ -1,9 +1,24 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Pagination, Navigation, Mousewheel } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import japaneseBg from '../../japanese.jpg';
 
 interface Photo {
   src: string;
   location: string;
+}
+
+interface SakuraPetalProps {
+  delay: number;
+  size: number;
+  duration: number;
+  xOffset: number;
+  swayAmount: number;
 }
 
 const locations = [
@@ -14,142 +29,51 @@ const locations = [
 ];
 
 const photos: Photo[] = Array.from({ length: 40 }).map((_, i) => ({
-  src: `https://placehold.co/600x${400 + (i % 5) * 40}/1a1a2e/fff?text=Photo+${i + 1}`,
+  src: `https://placehold.co/600x750/1a1a2e/fff?text=Photo+${i + 1}`,
   location: locations[i % locations.length],
 }));
 
-const CIRCLE_RADIUS = 1200; // px
-const IMAGE_WIDTH = 340;
-const IMAGE_HEIGHT = 220;
-const STAR_COUNT = 120;
-
-// Starfield background component
-const Starfield: React.FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let animationId: number;
-    let stars: { x: number; y: number; z: number; size: number; speed: number }[] = [];
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-    canvas.width = w;
-    canvas.height = h;
-    for (let i = 0; i < STAR_COUNT; i++) {
-      stars.push({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        z: Math.random() * 1 + 0.5,
-        size: Math.random() * 1.2 + 0.3,
-        speed: Math.random() * 0.2 + 0.05,
-      });
-    }
-    const animate = () => {
-      ctx!.clearRect(0, 0, w, h);
-      for (let star of stars) {
-        ctx!.save();
-        ctx!.globalAlpha = 0.7 + 0.3 * Math.sin(Date.now() * 0.001 + star.x);
-        ctx!.beginPath();
-        ctx!.arc(star.x, star.y, star.size, 0, 2 * Math.PI);
-        ctx!.fillStyle = '#fff';
-        ctx!.shadowColor = '#fff';
-        ctx!.shadowBlur = 8;
-        ctx!.fill();
-        ctx!.restore();
-        // Move star gently
-        star.x += Math.sin(Date.now() * 0.0002 + star.y) * star.speed;
-        star.y += Math.cos(Date.now() * 0.0002 + star.x) * star.speed;
-        // Wrap around
-        if (star.x < 0) star.x = w;
-        if (star.x > w) star.x = 0;
-        if (star.y < 0) star.y = h;
-        if (star.y > h) star.y = 0;
-      }
-      animationId = requestAnimationFrame(animate);
-    };
-    animate();
-    return () => cancelAnimationFrame(animationId);
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 w-full h-full z-0 pointer-events-none"
-      style={{ background: 'radial-gradient(ellipse at center, #181825 80%, #0a0a16 100%)' }}
-    />
-  );
-};
-
-const getCircularStyle = (i: number, total: number, rotationY: number) => {
-  // Place each image at an angle around the Y axis
-  const angle = (360 / total) * i;
-  // Calculate relative angle to camera
-  let relAngle = ((angle - rotationY + 360) % 360);
-  if (relAngle > 180) relAngle -= 360;
-  // Perspective scaling: center images are larger, sides are smaller
-  const scale = 1.1 - Math.abs(relAngle) / 180 * 0.55;
-  const opacity = 0.25 + 0.75 * (1 - Math.abs(relAngle) / 180);
-  const zIndex = 1000 - Math.abs(relAngle) * 10;
-  return {
-    transform: `rotateY(${angle}deg) translateZ(${CIRCLE_RADIUS}px) scale(${scale})`,
-    width: IMAGE_WIDTH,
-    height: IMAGE_HEIGHT,
-    position: 'absolute' as const,
-    top: '50%',
-    left: '50%',
-    marginLeft: -IMAGE_WIDTH / 2,
-    marginTop: -IMAGE_HEIGHT / 2,
-    boxShadow: '0 16px 48px 0 #000a, 0 0 0 2px #3a86ff33',
-    background: 'linear-gradient(to bottom right, rgba(58,134,255,0.10), rgba(108,91,255,0.18))',
-    border: '3px solid #FFD00044',
-    borderRadius: '1.5rem',
-    cursor: 'pointer',
-    zIndex,
-    opacity,
-    transition: 'box-shadow 0.3s, border 0.3s, transform 0.5s cubic-bezier(.77,0,.18,1), opacity 0.5s',
-    willChange: 'transform, opacity',
-    filter: relAngle > 90 || relAngle < -90 ? 'blur(2px) grayscale(0.5)' : '',
-    pointerEvents: (opacity < 0.3 ? 'none' : 'auto') as any,
-  };
-};
+const SakuraPetal: React.FC<SakuraPetalProps> = ({ delay, size, duration, xOffset, swayAmount }) => (
+  <motion.div
+    className="absolute pointer-events-none"
+    style={{ width: size, height: size }}
+    initial={{ 
+      x: xOffset,
+      y: -20,
+      rotate: 0,
+      opacity: 0.6
+    }}
+    animate={{
+      y: window.innerHeight + 20,
+      x: xOffset + swayAmount,
+      rotate: 360,
+      opacity: 0
+    }}
+    transition={{
+      duration,
+      delay,
+      repeat: Infinity,
+      ease: "linear"
+    }}
+  >
+    <div className="w-full h-full bg-gradient-to-r from-pink-300/80 to-pink-500/80 rounded-full transform rotate-45 blur-[0.5px]" />
+  </motion.div>
+);
 
 const PhotographyRecord: React.FC = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
-  const [carouselIdx, setCarouselIdx] = useState(0);
-  const [rotationY, setRotationY] = useState(0); // degrees
-  const galleryRef = useRef<HTMLDivElement>(null);
-  const lightboxRef = useRef<HTMLDivElement>(null);
+  const [swiper, setSwiper] = useState<any>(null);
 
-  // Scroll handler to rotate the gallery
-  useEffect(() => {
-    const handleScroll = () => {
-      // Map scrollY to rotationY (0 to 360deg for a full circle)
-      const maxScroll = window.innerHeight * 2;
-      const scroll = window.scrollY;
-      const rot = (scroll / maxScroll) * 360;
-      setRotationY(rot);
-    };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleOpen = (idx: number) => {
-    setOpenIdx(idx);
-    setCarouselIdx(idx);
-  };
-  const handleClose = () => setOpenIdx(null);
-  const handleNext = () => setCarouselIdx((prev) => (prev + 1) % photos.length);
-  const handlePrev = () => setCarouselIdx((prev) => (prev - 1 + photos.length) % photos.length);
-
-  // Keyboard navigation for lightbox
   const handleKey = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') handleClose();
-    if (e.key === 'ArrowRight') handleNext();
-    if (e.key === 'ArrowLeft') handlePrev();
-  }, []);
+    if (openIdx === null) return;
+    if (e.key === 'ArrowLeft') {
+      setOpenIdx((prev) => (prev === 0 ? photos.length - 1 : prev! - 1));
+    } else if (e.key === 'ArrowRight') {
+      setOpenIdx((prev) => (prev === photos.length - 1 ? 0 : prev! + 1));
+    } else if (e.key === 'Escape') {
+      setOpenIdx(null);
+    }
+  }, [openIdx]);
 
   useEffect(() => {
     if (openIdx === null) return;
@@ -158,113 +82,148 @@ const PhotographyRecord: React.FC = () => {
   }, [openIdx, handleKey]);
 
   return (
-    <section className="min-h-screen py-20 px-4 bg-deep-charcoal relative overflow-x-hidden overflow-y-auto" style={{ perspective: '1800px', height: '300vh', fontFamily: 'inherit' }}>
-      <Starfield />
-      <div className="text-center mb-16 sticky top-0 z-30">
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-cursed-blue to-domain-violet bg-clip-text text-transparent drop-shadow-lg tracking-wider anime-heading">
-          Photography
-        </h1>
-        <span className="block w-24 h-1 mx-auto mt-2 bg-zenitsu-lightning rounded-full animate-pulse" />
-      </div>
-      <div
-        ref={galleryRef}
-        className="relative w-full h-[900px] z-10"
-        style={{
-          perspective: '1800px',
-          transformStyle: 'preserve-3d',
-        }}
-      >
-        <div
-          style={{
-            width: '100%',
-            height: '100%',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            transformStyle: 'preserve-3d',
-            transform: `rotateY(${-rotationY}deg)`,
-            transition: 'transform 0.5s cubic-bezier(.77,0,.18,1)',
-          }}
+    <div className="relative h-screen bg-deep-charcoal overflow-hidden">
+      {/* Enhanced Sakura petals */}
+      {Array.from({ length: 30 }).map((_, i) => (
+        <SakuraPetal 
+          key={i} 
+          delay={i * 0.3} 
+          size={16 + Math.random() * 16}
+          duration={15 + Math.random() * 20}
+          xOffset={Math.random() * window.innerWidth}
+          swayAmount={Math.random() * 200 - 100}
+        />
+      ))}
+
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-gradient-to-b from-deep-charcoal via-cursed-blue/20 to-deep-charcoal" />
+      <div 
+        className="absolute inset-0 opacity-5 pointer-events-none"
+        style={{ backgroundImage: `url(${japaneseBg})` }}
+      />
+
+      <div className="relative z-10 h-full flex flex-col">
+        <motion.h2 
+          className="text-4xl md:text-5xl font-mochiy text-snow-white py-8 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
-          {photos.map((photo, i) => (
-            <div
-              key={i}
-              style={getCircularStyle(i, photos.length, rotationY)}
-              tabIndex={0}
-              aria-label={`Open photo of ${photo.location}`}
-              onClick={() => handleOpen(i)}
-              onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && handleOpen(i)}
-              className="group focus:outline-none hover:shadow-2xl hover:border-zenitsu-lightning transition-all duration-300"
-            >
-              <img
-                src={photo.src}
-                alt={`Photo taken in ${photo.location}`}
-                loading="lazy"
-                className="w-full h-full object-cover rounded-2xl transition-transform duration-300 group-hover:scale-105"
-                style={{ boxShadow: '0 4px 24px 0 #3a86ff44' }}
-              />
-              <span className="absolute left-3 bottom-3 bg-black/70 text-zenitsu-lightning text-xs md:text-sm px-3 py-1 rounded-full font-bold shadow-md animate-pulse pointer-events-none">
-                {photo.location}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <AnimatePresence>
-        {openIdx !== null && (
-          <motion.div
-            ref={lightboxRef}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-lg"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            tabIndex={-1}
-            aria-modal="true"
-            role="dialog"
+          Photography
+        </motion.h2>
+
+        <div className="flex-1 relative max-h-[calc(100vh-12rem)]">
+          <Swiper
+            effect={'coverflow'}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={5}
+            initialSlide={0}
+            spaceBetween={40}
+            coverflowEffect={{
+              rotate: 25,
+              stretch: 0,
+              depth: 300,
+              modifier: 1.5,
+              slideShadows: true,
+            }}
+            mousewheel={{
+              forceToAxis: true,
+              sensitivity: 1,
+              releaseOnEdges: true
+            }}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+            }}
+            navigation={true}
+            modules={[EffectCoverflow, Pagination, Navigation, Mousewheel]}
+            className="h-full"
+            onSwiper={setSwiper}
+            breakpoints={{
+              320: {
+                slidesPerView: 3,
+                spaceBetween: 20
+              },
+              640: {
+                slidesPerView: 3,
+                spaceBetween: 30
+              },
+              768: {
+                slidesPerView: 5,
+                spaceBetween: 40
+              }
+            }}
           >
-            <motion.div
-              className="relative w-full max-w-4xl mx-auto flex flex-col items-center"
-              initial={{ scale: 0.95, y: 40 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95, y: 40 }}
-              transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}
-            >
-              <button onClick={handleClose} className="absolute top-4 right-4 text-3xl text-snow-white hover:text-zenitsu-lightning z-10" aria-label="Close">×</button>
-              <button onClick={handlePrev} className="absolute left-2 top-1/2 -translate-y-1/2 text-4xl text-snow-white hover:text-zenitsu-lightning px-4 py-2 z-10 bg-black/40 rounded-full" aria-label="Previous">‹</button>
-              <button onClick={handleNext} className="absolute right-2 top-1/2 -translate-y-1/2 text-4xl text-snow-white hover:text-zenitsu-lightning px-4 py-2 z-10 bg-black/40 rounded-full" aria-label="Next">›</button>
-              <div className="text-center mt-8 mb-4">
-                <span className="text-xl md:text-2xl font-bold text-snow-white drop-shadow-lg">
-                  {photos[carouselIdx].location}
-                </span>
-              </div>
-              <motion.img
-                key={photos[carouselIdx].src}
-                src={photos[carouselIdx].src}
-                alt={`Photo of ${photos[carouselIdx].location}`}
-                className="w-full max-h-[60vh] object-contain rounded-xl shadow-2xl border-4 border-cursed-blue bg-black"
-                initial={{ opacity: 0, x: 80 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -80 }}
-                transition={{ duration: 0.5 }}
-              />
-              <div className="flex justify-center gap-2 mt-6">
-                {photos.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCarouselIdx(i)}
-                    className={`w-3 h-3 rounded-full border-2 ${i === carouselIdx ? 'bg-zenitsu-lightning border-zenitsu-lightning' : 'bg-ghost-black border-cursed-blue'} transition-all`}
-                    aria-label={`Go to slide ${i + 1}`}
+            {photos.map((photo, idx) => (
+              <SwiperSlide key={idx} className="w-[240px] h-[300px]">
+                <motion.div
+                  className="relative w-full h-full rounded-lg overflow-hidden cursor-pointer"
+                  whileHover={{ scale: 1.05, zIndex: 10 }}
+                  onClick={() => setOpenIdx(idx)}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img
+                    src={photo.src}
+                    alt={`Photo ${idx + 1}`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
                   />
-                ))}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                    <p className="text-snow-white font-anime text-sm">{photo.location}</p>
+                  </div>
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        <AnimatePresence>
+          {openIdx !== null && (
+            <motion.div
+              className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <button
+                className="absolute top-4 right-4 text-snow-white text-2xl hover:text-zenitsu-lightning transition-colors"
+                onClick={() => setOpenIdx(null)}
+              >
+                ×
+              </button>
+              <button
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-snow-white text-4xl hover:text-zenitsu-lightning transition-colors"
+                onClick={() => setOpenIdx((prev) => (prev === 0 ? photos.length - 1 : prev! - 1))}
+              >
+                ‹
+              </button>
+              <button
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-snow-white text-4xl hover:text-zenitsu-lightning transition-colors"
+                onClick={() => setOpenIdx((prev) => (prev === photos.length - 1 ? 0 : prev! + 1))}
+              >
+                ›
+              </button>
+              <motion.img
+                key={openIdx}
+                src={photos[openIdx].src}
+                alt={`Photo ${openIdx + 1}`}
+                className="max-h-[90vh] max-w-[90vw] object-contain"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3 }}
+              />
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-snow-white font-anime">
+                {photos[openIdx].location}
               </div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <style>{`
-        body { background: #181825; }
-      `}</style>
-    </section>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
   );
 };
 
