@@ -122,7 +122,6 @@ const Contact: React.FC = () => {
               <h3 className="text-2xl font-bold text-snow-white mb-4">Location</h3>
               <p className="text-ash-gray">
                 Montreal, QC, Canada<br />
-                <span className='block'>Phone: <a href="tel:+14385965091" className="text-zenitsu-lightning">+1 438 596 5091</a></span>
                 <span className='block'>Email: <a href="mailto:mahimrk.a@gmail.com" className="text-zenitsu-lightning">mahimrk.a@gmail.com</a></span>
               </p>
             </div>
