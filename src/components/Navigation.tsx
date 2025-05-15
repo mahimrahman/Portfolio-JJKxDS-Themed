@@ -1,8 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+
+const navItems = [
+  { name: 'Domain', href: '#home' },
+  { name: 'Path', href: '#about' },
+  { name: 'Missions', href: '#experience' },
+  { name: 'Records', href: '#battle-records' },
+  { name: 'Realms', href: '#projects' },
+  { name: 'Training', href: '#training' },
+  { name: 'Summon', href: '#contact' },
+];
 
 const Navigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const pendingHash = useRef<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,15 +26,33 @@ const Navigation: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { name: 'Domain', href: '#home' },
-    { name: 'Path', href: '#about' },
-    { name: 'Missions', href: '#experience' },
-    { name: 'Records', href: '#battle-records' },
-    { name: 'Realms', href: '#projects' },
-    { name: 'Training', href: '#training' },
-    { name: 'Summon', href: '#contact' },
-  ];
+  // Scroll to section after navigation if needed
+  useEffect(() => {
+    if (pendingHash.current) {
+      const id = pendingHash.current.replace('#', '');
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        pendingHash.current = null;
+      }
+    }
+  }, [location]);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      if (location.pathname !== '/') {
+        pendingHash.current = href;
+        navigate('/');
+      } else {
+        const id = href.replace('#', '');
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  };
 
   return (
     <motion.nav
@@ -30,64 +62,38 @@ const Navigation: React.FC = () => {
         isScrolled ? 'bg-deep-charcoal/90 backdrop-blur-md' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex-shrink-0"
-          >
-            <a href="#home" className="text-2xl font-bold bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
-              Mahim
-            </a>
-          </motion.div>
-
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-8">
-              {navItems.map((item) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="text-snow-white hover:text-zenitsu-lightning transition-colors duration-300"
-                >
-                  {item.name}
-                </motion.a>
-              ))}
-              <motion.a
-                href="/cv.pdf"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-4 py-2 rounded-md bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white hover:shadow-lg hover:shadow-rengoku-flame/20 transition-all duration-300"
-              >
-                Download CV
-              </motion.a>
-            </div>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              type="button"
-              className="text-snow-white hover:text-zenitsu-lightning focus:outline-none"
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-2 md:py-3">
+        {/* Logo */}
+        <span
+          className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent cursor-pointer select-none"
+          onClick={() => navigate('/')}
+        >
+          Mahim
+        </span>
+        {/* Navigation Links */}
+        <div className="hidden md:flex gap-8 items-center">
+          {navItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              onClick={e => handleNavClick(e, item.href)}
+              className={`text-snow-white font-medium transition-colors duration-200 px-2 py-1 ${
+                location.hash === item.href ? 'text-zenitsu-lightning underline underline-offset-8' : 'hover:text-zenitsu-lightning'
+              }`}
             >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-          </div>
+              {item.name}
+            </a>
+          ))}
         </div>
+        {/* Download CV Button */}
+        <a
+          href="/assets/Mahim-CV.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="ml-4 px-6 py-2 rounded-md bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white font-semibold hover:opacity-90 transition-all duration-300 shadow-lg"
+        >
+          Download CV
+        </a>
       </div>
     </motion.nav>
   );
