@@ -4,7 +4,7 @@ import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
-import Projects from './components/Projects';
+import Blog from './components/Projects';
 import Contact from './components/Contact';
 import DevelopmentRecord from './components/records/DevelopmentRecord';
 import GraphicDesignRecord from './components/records/GraphicDesignRecord';
@@ -68,14 +68,14 @@ const App: React.FC = () => {
                 <section id="experience" className="relative">
                   <Experience />
                 </section>
-                <section id="projects" className="relative">
-                  <Projects />
-                </section>
                 <section id="portfolio" className="relative">
                   <Portfolio />
                 </section>
                 <section id="training" className="relative">
                   <Training />
+                </section>
+                <section id="blog" className="relative">
+                  <Blog />
                 </section>
                 <section id="contact" className="relative">
                   <Contact />

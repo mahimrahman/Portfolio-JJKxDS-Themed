@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Projects: React.FC = () => {
+export const Projects: React.FC = () => {
   const projects = [
     {
       title: 'Demon Slayer UI Kit',
@@ -87,4 +87,59 @@ const Projects: React.FC = () => {
   );
 };
 
-export default Projects;
+const blogPosts = [
+  {
+    title: 'How I Slayed My First Project',
+    excerpt: 'A journey through my first big project, the challenges, and the victories along the way.',
+  },
+  {
+    title: 'Lessons from the Code Battlefield',
+    excerpt: 'Reflections on debugging, teamwork, and the art of never giving up.',
+  },
+  {
+    title: 'Anime & Engineering: My Inspirations',
+    excerpt: 'How anime themes and characters inspire my approach to software engineering.',
+  },
+];
+
+const Blog: React.FC = () => (
+  <section id="blog" className="min-h-screen py-20 px-4 bg-deep-charcoal relative overflow-hidden">
+    {/* No section background gradient */}
+    <div className="max-w-6xl mx-auto relative z-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
+          Blog of the Slayer
+        </h2>
+        <span className="block w-24 h-1 mx-auto mb-8 bg-zenitsu-lightning rounded-full animate-pulse" />
+      </motion.div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {blogPosts.map((post, idx) => (
+          <motion.div
+            key={post.title}
+            className="bg-gradient-to-br from-checkered-green to-ghost-black rounded-2xl shadow-xl p-8 flex flex-col justify-between text-snow-white"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: idx * 0.1 }}
+            viewport={{ once: true }}
+          >
+            <div>
+              <h3 className="text-xl font-bold mb-2">{post.title}</h3>
+              <p className="mb-4 text-ash-gray">{post.excerpt}</p>
+            </div>
+            <button className="mt-auto px-6 py-2 rounded-3xl bg-gradient-to-r from-checkered-green to-zenitsu-lightning text-deep-charcoal font-bold shadow hover:opacity-90 transition-all duration-200">
+              Read more
+            </button>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+export default Blog;
