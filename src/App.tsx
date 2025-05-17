@@ -4,7 +4,7 @@ import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
-import Blog from './components/Projects';
+import Blog from './components/Blogs';
 import Contact from './components/Contact';
 import DevelopmentRecord from './components/records/DevelopmentRecord';
 import GraphicDesignRecord from './components/records/GraphicDesignRecord';
