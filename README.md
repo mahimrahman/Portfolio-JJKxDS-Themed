@@ -60,6 +60,7 @@ src/
 - TypeScript
 - Tailwind CSS
 - Framer Motion
+- SwiperJS
 - Hero Icons
 
 ## License
