@@ -69,7 +69,289 @@ const blogData = {
       },
     ],
   },
-  // Add more blog posts here
+  'lessons-from-the-code-battlefield': {
+    title: 'Lessons from the Code Battlefield',
+    date: 'March 10, 2024',
+    author: 'The Slayer',
+    category: 'Lessons',
+    readTime: '6 min read',
+    content: `
+      <p class="mb-6 text-lg leading-relaxed">Debugging is like facing a demon - it requires patience, strategy, and sometimes, a bit of luck. Here's what I learned from my toughest coding battles.</p>
+      
+      <div class="my-12 p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
+        <blockquote class="text-xl italic text-zenitsu-lightning">
+          "In the heat of battle, a calm mind is your greatest weapon. The same applies to debugging."
+        </blockquote>
+      </div>
+      
+      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">The Art of Debugging</h2>
+      <p class="mb-6 text-lg leading-relaxed">Every bug is unique, like a demon with its own cursed technique. Understanding the nature of the problem is the first step to victory.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
+        <div class="p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
+          <h3 class="text-xl font-bold mb-4 text-snow-white">Step 1: Observe</h3>
+          <p class="text-ash-gray">Like a Hashira studying their opponent, carefully observe the bug's behavior.</p>
+        </div>
+        <div class="p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
+          <h3 class="text-xl font-bold mb-4 text-snow-white">Step 2: Analyze</h3>
+          <p class="text-ash-gray">Break down the problem into smaller parts, just as you would analyze a demon's weak points.</p>
+        </div>
+        <div class="p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
+          <h3 class="text-xl font-bold mb-4 text-snow-white">Step 3: Execute</h3>
+          <p class="text-ash-gray">Apply your solution with precision, like a perfectly executed breathing technique.</p>
+        </div>
+      </div>
+      
+      <div class="my-12">
+        <img src="https://placehold.co/1200x600/121212/3A86FF" alt="Debugging Process" class="rounded-xl shadow-2xl" />
+        <p class="text-center text-ash-gray mt-4">The debugging process visualized</p>
+      </div>
+    `,
+    image: 'https://placehold.co/1200x600/121212/3A86FF',
+    tags: ['Debugging', 'Problem Solving', 'Best Practices', 'Development'],
+    relatedPosts: [
+      {
+        title: 'Debugging: The Demon Within',
+        excerpt: 'How to face and conquer the toughest bugs in your code.',
+        image: 'https://placehold.co/600x400/121212/FFD93D',
+      },
+      {
+        title: 'The Art of Clean Code',
+        excerpt: 'Why writing clean code is like mastering a sword technique.',
+        image: 'https://placehold.co/600x400/121212/FF6B6B',
+      },
+    ],
+  },
+  'anime-and-engineering': {
+    title: 'Anime & Engineering: My Inspirations',
+    date: 'March 5, 2024',
+    author: 'The Slayer',
+    category: 'Inspiration',
+    readTime: '5 min read',
+    content: `
+      <p class="mb-6 text-lg leading-relaxed">The world of anime has taught me more about software engineering than I ever expected. Let's explore how these two seemingly different worlds connect.</p>
+      
+      <div class="my-12 p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
+        <blockquote class="text-xl italic text-zenitsu-lightning">
+          "The principles of growth and perseverance in anime mirror the journey of becoming a better developer."
+        </blockquote>
+      </div>
+      
+      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">Lessons from the Screen</h2>
+      <p class="mb-6 text-lg leading-relaxed">From the determination of Tanjiro to the strategic mind of Shikamaru, anime characters embody qualities that make great developers.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
+        <div class="p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
+          <h3 class="text-xl font-bold mb-4 text-snow-white">Character Traits</h3>
+          <ul class="space-y-3 text-ash-gray">
+            <li>• Tanjiro's Perseverance</li>
+            <li>• Shikamaru's Strategy</li>
+            <li>• Naruto's Determination</li>
+            <li>• Lelouch's Planning</li>
+          </ul>
+        </div>
+        <div class="p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
+          <h3 class="text-xl font-bold mb-4 text-snow-white">Developer Skills</h3>
+          <ul class="space-y-3 text-ash-gray">
+            <li>• Problem Solving</li>
+            <li>• Strategic Thinking</li>
+            <li>• Continuous Learning</li>
+            <li>• Project Planning</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="my-12">
+        <img src="https://placehold.co/1200x600/121212/00A676" alt="Anime Inspiration" class="rounded-xl shadow-2xl" />
+        <p class="text-center text-ash-gray mt-4">Finding inspiration in unexpected places</p>
+      </div>
+    `,
+    image: 'https://placehold.co/1200x600/121212/00A676',
+    tags: ['Inspiration', 'Anime', 'Development', 'Learning'],
+    relatedPosts: [
+      {
+        title: 'React vs. Vue: A Duel',
+        excerpt: 'Comparing two frontend frameworks in a battle of features and style.',
+        image: 'https://placehold.co/600x400/121212/4ECDC4',
+      },
+      {
+        title: 'The Art of Clean Code',
+        excerpt: 'Why writing clean code is like mastering a sword technique.',
+        image: 'https://placehold.co/600x400/121212/FF6B6B',
+      },
+    ],
+  },
+  'the-art-of-clean-code': {
+    title: 'The Art of Clean Code',
+    date: 'March 1, 2024',
+    author: 'The Slayer',
+    category: 'Craft',
+    readTime: '7 min read',
+    content: `
+      <p class="mb-6 text-lg leading-relaxed">Writing clean code is like mastering a sword technique - it requires discipline, practice, and a deep understanding of the fundamentals.</p>
+      
+      <div class="my-12 p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
+        <blockquote class="text-xl italic text-zenitsu-lightning">
+          "Clean code is not just about making it work - it's about making it beautiful and maintainable."
+        </blockquote>
+      </div>
+      
+      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">The Principles</h2>
+      <p class="mb-6 text-lg leading-relaxed">Just as a Hashira masters their breathing technique, a developer must master the principles of clean code.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
+        <div class="p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
+          <h3 class="text-xl font-bold mb-4 text-snow-white">Code Structure</h3>
+          <ul class="space-y-3 text-ash-gray">
+            <li>• Single Responsibility</li>
+            <li>• DRY Principle</li>
+            <li>• Meaningful Names</li>
+            <li>• Small Functions</li>
+          </ul>
+        </div>
+        <div class="p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
+          <h3 class="text-xl font-bold mb-4 text-snow-white">Best Practices</h3>
+          <ul class="space-y-3 text-ash-gray">
+            <li>• Consistent Formatting</li>
+            <li>• Proper Documentation</li>
+            <li>• Error Handling</li>
+            <li>• Testing</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="my-12">
+        <img src="https://placehold.co/1200x600/121212/FF6B6B" alt="Clean Code Example" class="rounded-xl shadow-2xl" />
+        <p class="text-center text-ash-gray mt-4">The beauty of well-structured code</p>
+      </div>
+    `,
+    image: 'https://placehold.co/1200x600/121212/FF6B6B',
+    tags: ['Clean Code', 'Best Practices', 'Development', 'Craft'],
+    relatedPosts: [
+      {
+        title: 'Debugging: The Demon Within',
+        excerpt: 'How to face and conquer the toughest bugs in your code.',
+        image: 'https://placehold.co/600x400/121212/FFD93D',
+      },
+      {
+        title: 'React vs. Vue: A Duel',
+        excerpt: 'Comparing two frontend frameworks in a battle of features and style.',
+        image: 'https://placehold.co/600x400/121212/4ECDC4',
+      },
+    ],
+  },
+  'react-vs-vue-duel': {
+    title: 'React vs. Vue: A Duel',
+    date: 'February 25, 2024',
+    author: 'The Slayer',
+    category: 'Tech',
+    readTime: '10 min read',
+    content: `
+      <p class="mb-6 text-lg leading-relaxed">In the world of frontend frameworks, React and Vue are like two powerful Hashira, each with their own unique techniques and strengths.</p>
+      
+      <div class="my-12 p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
+        <blockquote class="text-xl italic text-zenitsu-lightning">
+          "Choosing between React and Vue is like choosing between water and flame breathing - both are powerful, but serve different purposes."
+        </blockquote>
+      </div>
+      
+      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">The Comparison</h2>
+      <p class="mb-6 text-lg leading-relaxed">Let's analyze these frameworks like a battle between two master swordsmen.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
+        <div class="p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
+          <h3 class="text-xl font-bold mb-4 text-snow-white">React's Strengths</h3>
+          <ul class="space-y-3 text-ash-gray">
+            <li>• Large Ecosystem</li>
+            <li>• Strong Community</li>
+            <li>• Flexible Architecture</li>
+            <li>• Job Market</li>
+          </ul>
+        </div>
+        <div class="p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
+          <h3 class="text-xl font-bold mb-4 text-snow-white">Vue's Advantages</h3>
+          <ul class="space-y-3 text-ash-gray">
+            <li>• Gentle Learning Curve</li>
+            <li>• Built-in Features</li>
+            <li>• Documentation</li>
+            <li>• Performance</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="my-12">
+        <img src="https://placehold.co/1200x600/121212/4ECDC4" alt="Framework Comparison" class="rounded-xl shadow-2xl" />
+        <p class="text-center text-ash-gray mt-4">A visual comparison of React and Vue</p>
+      </div>
+    `,
+    image: 'https://placehold.co/1200x600/121212/4ECDC4',
+    tags: ['React', 'Vue', 'Frontend', 'Frameworks'],
+    relatedPosts: [
+      {
+        title: 'The Art of Clean Code',
+        excerpt: 'Why writing clean code is like mastering a sword technique.',
+        image: 'https://placehold.co/600x400/121212/FF6B6B',
+      },
+      {
+        title: 'Anime & Engineering: My Inspirations',
+        excerpt: 'How anime themes and characters inspire my approach to software engineering.',
+        image: 'https://placehold.co/600x400/121212/00A676',
+      },
+    ],
+  },
+  'debugging-the-demon-within': {
+    title: 'Debugging: The Demon Within',
+    date: 'February 20, 2024',
+    author: 'The Slayer',
+    category: 'Lessons',
+    readTime: '9 min read',
+    content: `
+      <p class="mb-6 text-lg leading-relaxed">Every developer faces their own inner demons when debugging. Here's how to conquer them and emerge victorious.</p>
+      
+      <div class="my-12 p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
+        <blockquote class="text-xl italic text-zenitsu-lightning">
+          "The greatest demon is not the bug itself, but the fear and frustration it creates within us."
+        </blockquote>
+      </div>
+      
+      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">Facing the Demon</h2>
+      <p class="mb-6 text-lg leading-relaxed">Like a demon slayer facing a powerful opponent, we must approach debugging with strategy and calm.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
+        <div class="p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
+          <h3 class="text-xl font-bold mb-4 text-snow-white">Mindset</h3>
+          <p class="text-ash-gray">Stay calm and focused, like a Hashira in battle.</p>
+        </div>
+        <div class="p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
+          <h3 class="text-xl font-bold mb-4 text-snow-white">Strategy</h3>
+          <p class="text-ash-gray">Break down the problem and attack systematically.</p>
+        </div>
+        <div class="p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
+          <h3 class="text-xl font-bold mb-4 text-snow-white">Tools</h3>
+          <p class="text-ash-gray">Use your debugging tools like a demon slayer's sword.</p>
+        </div>
+      </div>
+      
+      <div class="my-12">
+        <img src="https://placehold.co/1200x600/121212/FFD93D" alt="Debugging Process" class="rounded-xl shadow-2xl" />
+        <p class="text-center text-ash-gray mt-4">The path to debugging mastery</p>
+      </div>
+    `,
+    image: 'https://placehold.co/1200x600/121212/FFD93D',
+    tags: ['Debugging', 'Problem Solving', 'Development', 'Mindset'],
+    relatedPosts: [
+      {
+        title: 'Lessons from the Code Battlefield',
+        excerpt: 'Reflections on debugging, teamwork, and the art of never giving up.',
+        image: 'https://placehold.co/600x400/121212/3A86FF',
+      },
+      {
+        title: 'The Art of Clean Code',
+        excerpt: 'Why writing clean code is like mastering a sword technique.',
+        image: 'https://placehold.co/600x400/121212/FF6B6B',
+      },
+    ],
+  },
 };
 
 export const BlogPost: React.FC = () => {
