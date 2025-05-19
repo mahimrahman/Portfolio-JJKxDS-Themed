@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 export const Projects: React.FC = () => {
   const projects = [
@@ -89,34 +90,58 @@ export const Projects: React.FC = () => {
 
 const blogPosts = [
   {
+    id: 'how-i-slayed-my-first-project',
     title: 'How I Slayed My First Project',
     excerpt: 'A journey through my first big project, the challenges, and the victories along the way.',
     category: 'Journey',
+    date: 'March 15, 2024',
+    readTime: '8 min read',
+    image: 'https://placehold.co/600x400/121212/FFD000',
   },
   {
+    id: 'lessons-from-the-code-battlefield',
     title: 'Lessons from the Code Battlefield',
     excerpt: 'Reflections on debugging, teamwork, and the art of never giving up.',
     category: 'Lessons',
+    date: 'March 10, 2024',
+    readTime: '6 min read',
+    image: 'https://placehold.co/600x400/121212/3A86FF',
   },
   {
+    id: 'anime-and-engineering',
     title: 'Anime & Engineering: My Inspirations',
     excerpt: 'How anime themes and characters inspire my approach to software engineering.',
     category: 'Inspiration',
+    date: 'March 5, 2024',
+    readTime: '5 min read',
+    image: 'https://placehold.co/600x400/121212/00A676',
   },
   {
+    id: 'the-art-of-clean-code',
     title: 'The Art of Clean Code',
     excerpt: 'Why writing clean code is like mastering a sword technique.',
     category: 'Craft',
+    date: 'March 1, 2024',
+    readTime: '7 min read',
+    image: 'https://placehold.co/600x400/121212/FF6B6B',
   },
   {
+    id: 'react-vs-vue-duel',
     title: 'React vs. Vue: A Duel',
     excerpt: 'Comparing two frontend frameworks in a battle of features and style.',
     category: 'Tech',
+    date: 'February 25, 2024',
+    readTime: '10 min read',
+    image: 'https://placehold.co/600x400/121212/4ECDC4',
   },
   {
+    id: 'debugging-the-demon-within',
     title: 'Debugging: The Demon Within',
     excerpt: 'How to face and conquer the toughest bugs in your code.',
     category: 'Lessons',
+    date: 'February 20, 2024',
+    readTime: '9 min read',
+    image: 'https://placehold.co/600x400/121212/FFD93D',
   },
 ];
 
@@ -126,6 +151,7 @@ const BlogPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [showRows, setShowRows] = useState(1);
   const [columns, setColumns] = useState(1);
+  const navigate = useNavigate();
 
   // Responsive columns calculation
   useEffect(() => {
@@ -198,24 +224,41 @@ const BlogPage: React.FC = () => {
         <AnimatePresence>
           {shown.map((post, idx) => (
             <motion.div
-              key={post.title}
-              className="bg-gradient-to-br from-checkered-green to-ghost-black rounded-2xl shadow-xl p-8 flex flex-col justify-between text-snow-white hover:scale-[1.03] transition-transform duration-200"
+              key={post.id}
+              className="bg-gradient-to-br from-checkered-green to-ghost-black rounded-2xl shadow-xl overflow-hidden hover:scale-[1.03] transition-transform duration-200"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.04 }}
             >
-              <div className="flex flex-col gap-2 mb-4">
-                <span className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-zenitsu-lightning to-checkered-green text-deep-charcoal text-xs font-bold mb-2 w-fit mx-auto">
-                  {post.category}
-                </span>
-                <h3 className="text-xl font-bold mb-1 text-center">{post.title}</h3>
-                <p className="mb-2 text-ash-gray text-center">{post.excerpt}</p>
+              <div className="aspect-video relative overflow-hidden">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
               </div>
-              <button className="mt-auto px-6 py-2 rounded-3xl bg-gradient-to-r from-checkered-green to-zenitsu-lightning text-deep-charcoal font-bold shadow hover:opacity-90 transition-all duration-200">
-                Read more
-              </button>
+              <div className="p-6 flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
+                  <span className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-zenitsu-lightning to-checkered-green text-deep-charcoal text-xs font-bold w-fit">
+                    {post.category}
+                  </span>
+                  <h3 className="text-xl font-bold text-snow-white">{post.title}</h3>
+                  <div className="flex items-center gap-2 text-ash-gray text-sm">
+                    <span>{post.date}</span>
+                    <span>•</span>
+                    <span>{post.readTime}</span>
+                  </div>
+                  <p className="text-ash-gray">{post.excerpt}</p>
+                </div>
+                <button
+                  onClick={() => navigate(`/blog/${post.id}`)}
+                  className="mt-auto px-6 py-2 rounded-3xl bg-gradient-to-r from-checkered-green to-zenitsu-lightning text-deep-charcoal font-bold shadow hover:opacity-90 transition-all duration-200"
+                >
+                  Read more
+                </button>
+              </div>
             </motion.div>
           ))}
         </AnimatePresence>

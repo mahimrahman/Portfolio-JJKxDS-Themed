@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
 import Blog from './components/Blogs';
+import BlogPost from './components/BlogPost';
 import Contact from './components/Contact';
 import DevelopmentRecord from './components/records/DevelopmentRecord';
 import GraphicDesignRecord from './components/records/GraphicDesignRecord';
@@ -90,6 +91,8 @@ const App: React.FC = () => {
             <Route path="/uiux" element={<Placeholder title="UI/UX: User Alchemy" />} />
             <Route path="/photography" element={<Placeholder title="Photography: Lens Chronicles" />} />
             <Route path="/design" element={<Placeholder title="Graphic Design: Visual Symmetry" />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
           </Routes>
         </main>
       </div>
