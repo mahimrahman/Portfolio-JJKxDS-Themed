@@ -77,13 +77,31 @@ export const BlogPost: React.FC = () => {
   const navigate = useNavigate();
   const post = blogData[slug as keyof typeof blogData];
 
+  const handleBack = () => {
+    // Check if we came from the blog list page or the home page
+    const fromBlogList = document.referrer.includes('/blog');
+    if (fromBlogList) {
+      navigate('/blog');
+    } else {
+      // If we came from the home page, scroll to the blog section
+      navigate('/');
+      // Use setTimeout to ensure the navigation completes before scrolling
+      setTimeout(() => {
+        const blogSection = document.getElementById('blog');
+        if (blogSection) {
+          blogSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
+
   if (!post) {
     return (
       <div className="min-h-screen bg-deep-charcoal flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-snow-white mb-4">404 - Post Not Found</h1>
           <button
-            onClick={() => navigate('/blog')}
+            onClick={handleBack}
             className="px-6 py-2 rounded-full bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white font-bold shadow-lg hover:opacity-90 transition-all duration-300"
           >
             Return to Blog
@@ -188,7 +206,7 @@ export const BlogPost: React.FC = () => {
         {/* Navigation */}
         <div className="mt-12 flex justify-between">
           <button
-            onClick={() => navigate('/blog')}
+            onClick={handleBack}
             className="px-6 py-2 rounded-full bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white font-bold shadow-lg hover:opacity-90 transition-all duration-300"
           >
             ← Back to Blog
