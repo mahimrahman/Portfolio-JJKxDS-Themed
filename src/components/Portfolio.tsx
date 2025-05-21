@@ -12,7 +12,7 @@ const Portfolio: React.FC = () => {
   ];
 
   return (
-    <section id="battle-records" className="min-h-screen py-20 px-4 bg-deep-charcoal relative overflow-hidden">
+    <section id="battle-records" className="min-h-[80vh] py-12 px-4 bg-deep-charcoal relative overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: -30, scale: 0.95 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}

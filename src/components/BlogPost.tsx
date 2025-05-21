@@ -394,7 +394,7 @@ export const BlogPost: React.FC = () => {
   }
 
   return (
-    <article className="min-h-screen bg-deep-charcoal py-20 px-4">
+    <article className="min-h-[80vh] bg-deep-charcoal py-8 px-4">
       {/* Hero Section */}
       <div className="max-w-4xl mx-auto">
         <motion.div
@@ -464,7 +464,7 @@ export const BlogPost: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {post.relatedPosts.map((relatedPost) => {
                   // Find the related post's id by matching the title in blogData
-                  const relatedId = Object.keys(blogData).find(
+                  const relatedId = (Object.keys(blogData) as Array<keyof typeof blogData>).find(
                     key => blogData[key].title === relatedPost.title
                   );
                   return (

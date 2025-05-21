@@ -31,7 +31,7 @@ export const Projects: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="min-h-screen py-20 px-4 bg-deep-charcoal relative overflow-hidden">
+    <section id="projects" className="min-h-[80vh] py-12 px-4 bg-deep-charcoal relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-domain-violet/2 via-deep-charcoal to-deep-charcoal pointer-events-none" />
       <div className="max-w-6xl mx-auto relative z-10">
@@ -180,7 +180,7 @@ const BlogPage: React.FC = () => {
   }, [columns, activeCategory]);
 
   return (
-    <section id="blog" className="min-h-screen py-20 px-4 bg-deep-charcoal relative overflow-hidden">
+    <section id="blog" className="min-h-[80vh] py-12 px-4 bg-deep-charcoal relative overflow-hidden">
       {/* Hero/Intro Section */}
       <div className="max-w-4xl mx-auto text-center mb-16 flex flex-col items-center gap-6">
         <motion.div

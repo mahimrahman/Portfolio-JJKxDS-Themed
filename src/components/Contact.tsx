@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section className="min-h-screen py-20 px-4 bg-deep-charcoal relative overflow-hidden">
+    <section className="min-h-[80vh] py-12 px-4 bg-deep-charcoal relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-domain-violet/2 via-deep-charcoal to-deep-charcoal pointer-events-none" />
       

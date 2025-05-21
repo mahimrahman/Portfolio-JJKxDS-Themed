@@ -56,7 +56,7 @@ const tagVariants = {
 };
 
 const Training: React.FC = () => (
-  <section id="training" className="min-h-screen py-20 px-2 md:px-4 bg-deep-charcoal relative overflow-hidden">
+  <section id="training" className="min-h-[80vh] py-12 px-2 md:px-4 bg-deep-charcoal relative overflow-hidden">
     {/* Timeline Header */}
     <div className="text-center mb-16">
       <h2 className="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent drop-shadow-lg tracking-wider anime-heading">
