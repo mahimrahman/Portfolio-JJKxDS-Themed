@@ -14,6 +14,7 @@ const navItems = [
 
 const Navigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const pendingHash = useRef<string | null>(null);
@@ -25,6 +26,11 @@ const Navigation: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location]);
 
   // Scroll to section after navigation if needed
   useEffect(() => {
@@ -52,6 +58,7 @@ const Navigation: React.FC = () => {
         }
       }
     }
+    setMobileOpen(false);
   };
 
   return (
@@ -70,7 +77,7 @@ const Navigation: React.FC = () => {
         >
           Mahim
         </span>
-        {/* Navigation Links */}
+        {/* Navigation Links (Desktop) */}
         <div className="hidden md:flex gap-8 items-center">
           {navItems.map((item) => (
             <a
@@ -85,15 +92,62 @@ const Navigation: React.FC = () => {
             </a>
           ))}
         </div>
-        {/* Download CV Button */}
+        {/* Download CV Button (Desktop) */}
         <a
           href="/assets/Mahim-CV.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="ml-4 px-6 py-2 rounded-md bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white font-semibold hover:opacity-90 transition-all duration-300 shadow-lg"
+          className="ml-4 px-6 py-2 rounded-md bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white font-semibold hover:opacity-90 transition-all duration-300 shadow-lg hidden md:inline-block"
         >
           Download CV
         </a>
+        {/* Hamburger (Mobile) */}
+        <button
+          className="md:hidden flex items-center justify-center p-2 rounded focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60"
+          aria-label="Open navigation menu"
+          onClick={() => setMobileOpen((v) => !v)}
+        >
+          <motion.span
+            initial={false}
+            animate={mobileOpen ? { rotate: 90 } : { rotate: 0 }}
+            className="block text-3xl text-snow-white"
+          >
+            {mobileOpen ? '✖' : '☰'}
+          </motion.span>
+        </button>
+        {/* Mobile Menu */}
+        <motion.div
+          initial={false}
+          animate={mobileOpen ? 'open' : 'closed'}
+          variants={{
+            open: { opacity: 1, pointerEvents: 'auto', y: 0 },
+            closed: { opacity: 0, pointerEvents: 'none', y: -20 },
+          }}
+          transition={{ duration: 0.3 }}
+          className="fixed top-0 left-0 w-full h-full bg-deep-charcoal/95 backdrop-blur-lg z-50 flex flex-col items-center justify-center gap-8 md:hidden"
+          style={{ display: mobileOpen ? 'flex' : 'none' }}
+        >
+          {navItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              onClick={e => handleNavClick(e, item.href)}
+              className="text-2xl font-bold text-snow-white hover:text-zenitsu-lightning transition-colors duration-200"
+              tabIndex={mobileOpen ? 0 : -1}
+            >
+              {item.name}
+            </a>
+          ))}
+          <a
+            href="/assets/Mahim-CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-2xl font-bold text-snow-white hover:text-zenitsu-lightning transition-colors duration-200 border-t border-zenitsu-lightning/20 pt-6 mt-4"
+            tabIndex={mobileOpen ? 0 : -1}
+          >
+            Download CV
+          </a>
+        </motion.div>
       </div>
     </motion.nav>
   );
