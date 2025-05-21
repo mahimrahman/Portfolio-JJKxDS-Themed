@@ -462,24 +462,34 @@ export const BlogPost: React.FC = () => {
             <div className="mt-12 pt-8 border-t border-zenitsu-lightning/20">
               <h3 className="text-2xl font-bold mb-6 text-snow-white">Related Posts</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {post.relatedPosts.map((relatedPost) => (
-                  <div
-                    key={relatedPost.title}
-                    className="bg-ghost-black/30 rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-200"
-                  >
-                    <div className="aspect-video relative overflow-hidden">
-                      <img
-                        src={relatedPost.image}
-                        alt={relatedPost.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-6">
-                      <h4 className="text-xl font-bold text-snow-white mb-2">{relatedPost.title}</h4>
-                      <p className="text-ash-gray">{relatedPost.excerpt}</p>
-                    </div>
-                  </div>
-                ))}
+                {post.relatedPosts.map((relatedPost) => {
+                  // Find the related post's id by matching the title in blogData
+                  const relatedId = Object.keys(blogData).find(
+                    key => blogData[key].title === relatedPost.title
+                  );
+                  return (
+                    <button
+                      key={relatedPost.title}
+                      className="bg-ghost-black/30 rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-200 text-left focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60"
+                      style={{ cursor: relatedId ? 'pointer' : 'default' }}
+                      onClick={() => relatedId && navigate(`/blog/${relatedId}`)}
+                      tabIndex={0}
+                      aria-label={`Read ${relatedPost.title}`}
+                    >
+                      <div className="aspect-video relative overflow-hidden">
+                        <img
+                          src={relatedPost.image}
+                          alt={relatedPost.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="p-6">
+                        <h4 className="text-xl font-bold text-snow-white mb-2">{relatedPost.title}</h4>
+                        <p className="text-ash-gray">{relatedPost.excerpt}</p>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           )}
