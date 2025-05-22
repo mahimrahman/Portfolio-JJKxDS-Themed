@@ -394,7 +394,7 @@ export const BlogPost: React.FC = () => {
   }
 
   return (
-    <article className="min-h-[80vh] bg-deep-charcoal py-8 px-4">
+    <article className="min-h-[80vh] py-8 px-4">
       {/* Hero Section */}
       <div className="max-w-4xl mx-auto">
         <motion.div

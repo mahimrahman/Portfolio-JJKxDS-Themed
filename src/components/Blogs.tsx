@@ -180,8 +180,7 @@ const BlogPage: React.FC = () => {
   }, [columns, activeCategory]);
 
   return (
-    <section id="blog" className="min-h-[80vh] py-12 px-4 bg-deep-charcoal relative overflow-hidden">
-      {/* Hero/Intro Section */}
+    <section id="blog" className="min-h-[80vh] py-12 px-4 relative overflow-hidden">
       <div className="max-w-4xl mx-auto text-center mb-16 flex flex-col items-center gap-6">
         <motion.div
           initial={{ opacity: 0, y: -30 }}

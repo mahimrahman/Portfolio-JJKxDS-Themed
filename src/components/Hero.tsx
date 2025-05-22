@@ -5,15 +5,14 @@ const Hero: React.FC = () => {
   return (
     <div className="relative w-screen h-screen min-h-screen min-w-full flex items-center justify-center overflow-hidden">
       {/* Video/Image background with aspect ratio preserved */}
-      <div className="absolute inset-0 w-full h-full flex items-center justify-center z-0 bg-black">
+      <div className="absolute inset-0 w-full h-full flex items-center justify-center z-0">
         {/* Responsive video: desktop uses /Hero.mp4, mobile uses /hero_mobile.mp4 */}
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-contain max-w-full max-h-full"
-          style={{ background: 'black' }}
+          className="w-full h-full object-contain max-w-full max-h-full opacity-80"
           poster="/Hero.png"
         >
           <source src="/hero_mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
@@ -21,11 +20,10 @@ const Hero: React.FC = () => {
           <img
             src="/Hero.png"
             alt="Hero background"
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain opacity-80"
           />
         </video>
-        {/* Semi-transparent overlay for readability */}
-        <div className="absolute inset-0 w-full h-full bg-black/60 z-10 pointer-events-none" />
+        {/* Remove any solid or gradient overlays */}
       </div>
 
       {/* Main content */}

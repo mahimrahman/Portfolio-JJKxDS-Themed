@@ -467,18 +467,7 @@ const UIUXRecord: React.FC = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   return (
-    <div className="relative min-h-screen bg-deep-charcoal overflow-hidden">
-      {/* Parallax Background Layers */}
-      <ParallaxSection speed={0.5}>
-        <div className="absolute inset-0 bg-gradient-to-b from-deep-charcoal via-cursed-blue/20 to-deep-charcoal" />
-      </ParallaxSection>
-      <ParallaxSection speed={0.8}>
-        <div className="absolute inset-0 grid-pattern opacity-5" />
-      </ParallaxSection>
-      <ParallaxSection speed={1.2}>
-        <div className="absolute inset-0 bg-gradient-to-r from-domain-violet/10 to-rengoku-flame/10" />
-      </ParallaxSection>
-
+    <div className="relative min-h-screen overflow-hidden">
       {/* Content */}
       <div className="relative z-10">
         <motion.div

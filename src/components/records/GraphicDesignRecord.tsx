@@ -83,7 +83,7 @@ const GraphicDesignRecord: React.FC = () => {
   }, [openIdx, carouselIdx]);
 
   return (
-    <section className="min-h-screen py-20 px-4 bg-deep-charcoal relative overflow-hidden">
+    <section className="min-h-screen py-20 px-4 relative overflow-hidden">
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent drop-shadow-lg tracking-wider anime-heading">
           Graphic Design

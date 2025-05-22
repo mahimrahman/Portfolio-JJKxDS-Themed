@@ -13,9 +13,10 @@ import PhotographyRecord from './components/records/PhotographyRecord';
 import UIUXRecord from './components/records/UIUXRecord';
 import Portfolio from './components/Portfolio';
 import Training from './components/Training';
+import AnimatedBlobBackground from './components/AnimatedBlobBackground';
 
 const Placeholder: React.FC<{ title: string }> = ({ title }) => (
-  <div className="min-h-screen flex items-center justify-center bg-deep-charcoal text-snow-white text-4xl font-bold">
+  <div className="min-h-screen flex items-center justify-center text-snow-white text-4xl font-bold">
     {title}
   </div>
 );
@@ -53,32 +54,33 @@ const particles = Array.from({ length: 18 }).map((_, i) => {
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="relative min-h-screen bg-deep-charcoal">
-        <div className="anime-particles">{particles}</div>
+      <div className="relative min-h-screen">
+        <AnimatedBlobBackground />
+        <div className="anime-particles relative z-0">{particles}</div>
         <Navigation />
         <main className="relative z-10">
           <Routes>
             <Route path="/" element={
               <>
-                <section id="home" className="relative">
+                <section id="home" className="relative z-10">
                   <Hero />
                 </section>
-                <section id="about" className="relative">
+                <section id="about" className="relative z-10">
                   <About />
                 </section>
-                <section id="experience" className="relative">
+                <section id="experience" className="relative z-10">
                   <Experience />
                 </section>
-                <section id="portfolio" className="relative">
+                <section id="portfolio" className="relative z-10">
                   <Portfolio />
                 </section>
-                <section id="training" className="relative">
+                <section id="training" className="relative z-10">
                   <Training />
                 </section>
-                <section id="blog" className="relative">
+                <section id="blog" className="relative z-10">
                   <Blog />
                 </section>
-                <section id="contact" className="relative">
+                <section id="contact" className="relative z-10">
                   <Contact />
                 </section>
               </>
