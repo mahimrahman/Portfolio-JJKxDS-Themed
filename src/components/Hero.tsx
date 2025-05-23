@@ -3,31 +3,34 @@ import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
   return (
-    <div className="relative w-screen h-screen min-h-screen min-w-full flex items-center justify-center overflow-hidden">
+    <div className="relative w-full flex items-center justify-center overflow-hidden" style={{ minHeight: '100vh' }}>
       {/* Video/Image background with aspect ratio preserved */}
-      <div className="absolute inset-0 w-full h-full flex items-center justify-center z-0">
-        {/* Responsive video: desktop uses /Hero.mp4, mobile uses /hero_mobile.mp4 */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-contain max-w-full max-h-full opacity-80"
-          poster="/Hero.png"
-        >
-          <source src="/hero_mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
-          <source src="/Hero.mp4" type="video/mp4" media="(min-width: 769px)"  />
-          <img
-            src="/Hero.png"
-            alt="Hero background"
-            className="w-full h-full object-contain opacity-80"
-          />
-        </video>
-        {/* Remove any solid or gradient overlays */}
+      <div className="absolute inset-0 flex items-center justify-center z-0 w-full h-full">
+        {/* Responsive video: desktop uses /Hero_large.mp4, mac uses /hero_mac.mp4, mobile uses /hero_mobile.mp4 */}
+        <div className="w-full h-full aspect-[16/9] mx-auto">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover max-w-full max-h-full opacity-80"
+            poster="/Hero.png"
+          >
+            <source src="/hero_mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
+            <source src="/hero_mac.mp4" type="video/mp4" media="(min-width: 769px) and (max-width: 1439px)" />
+            <source src="/Hero_large.mp4" type="video/mp4" media="(min-width: 1440px)" />
+            <source src="/Hero.mp4" type="video/mp4" />
+            <img
+              src="/Hero.png"
+              alt="Hero background"
+              className="w-full h-full object-cover opacity-80"
+            />
+          </video>
+        </div>
       </div>
 
       {/* Main content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 absolute inset-0 flex flex-col items-center justify-center z-20">
         <motion.h2
           className="text-4xl md:text-6xl font-extrabold mb-8 text-center bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent drop-shadow-lg animate-pulse"
           initial={{ opacity: 0, y: -20 }}
