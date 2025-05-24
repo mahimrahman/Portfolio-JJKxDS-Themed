@@ -200,23 +200,29 @@ const Experience: React.FC = () => {
             ))}
           </AnimatePresence>
         </div>
-        {/* Show More Button */}
-        {showCount < filtered.length && (
-          <div className="flex justify-center mt-8">
+        {/* Show More / Show Less Buttons */}
+        <div className="flex justify-center mt-8 gap-4">
+          {showCount < filtered.length && (
             <button
               onClick={() => setShowRows(r => r + 1)}
               className="px-6 py-2 rounded-full bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white font-bold shadow-lg hover:opacity-90 transition-all duration-300"
             >
               Show More
             </button>
-          </div>
-        )}
+          )}
+          {showRows > 1 && (
+            <button
+              onClick={() => setShowRows(1)}
+              className="px-6 py-2 rounded-full bg-gradient-to-r from-domain-violet to-rengoku-flame text-snow-white font-bold shadow-lg hover:opacity-90 transition-all duration-300"
+            >
+              Show Less
+            </button>
+          )}
+        </div>
       </div>
-      <style>{`
-        .perspective { perspective: 1200px; }
-      `}</style>
+      <style>{`.perspective { perspective: 1200px; }`}</style>
     </section>
   );
 };
 
-export default Experience; 
+export default Experience;
