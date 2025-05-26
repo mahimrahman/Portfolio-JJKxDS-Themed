@@ -1,73 +1,41 @@
-# Cursed Blades Portfolio
+# My Anime Themed Portfolio
 
-An anime-themed portfolio website inspired by Demon Slayer and Jujutsu Kaisen aesthetics. Built with React, TypeScript, and Tailwind CSS.
+A modern, anime-themed portfolio website built with React, Tailwind CSS, and Framer Motion.
 
 ## Features
 
-- 🎨 Dark-themed, anime-inspired design
-- ⚡ Smooth animations and transitions
-- 📱 Fully responsive layout
-- 🎭 Thematic sections with unique styling
-- ✨ Interactive elements and hover effects
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/cursed-blades-portfolio.git
-cd cursed-blades-portfolio
-```
-
-2. Install dependencies:
-```bash
-npm install
-# or
-yarn install
-```
-
-3. Start the development server:
-```bash
-npm start
-npm start -- --host=0.0.0.0
-# or
-yarn start
-```
-
-The application will be available at `http://localhost:3000`.
-
-## Project Structure
-
-```
-src/
-  ├── components/     # Reusable components
-  ├── sections/       # Page sections
-  ├── styles/         # Global styles
-  ├── App.tsx         # Main application component
-  └── index.tsx       # Application entry point
-```
-
+- **Animated Blob Background**: A dynamic, morphing, and parallax-interactive background using SVG and Framer Motion.
+- **Responsive Hero Section**: Different videos for different screen sizes (mobile, MacBook, large screens).
+- **Improved UX**: Enhanced 'Show More' and 'Show Less' buttons in sections like Blog and Experience.
+- **Modern Mobile Navigation**: Animated hamburger menu with a custom SVG icon, glowing effects, and smooth transitions.
+- **Anime-Inspired Design**: Unique color themes, gradients, and animations throughout the site.
 
 ## Technologies Used
 
 - React
-- TypeScript
 - Tailwind CSS
 - Framer Motion
-- SwiperJS
-- Hero Icons
+- TypeScript
+
+## Getting Started
+
+1. Clone the repository.
+2. Install dependencies: `npm install`
+3. Run the development server: `npm start`
+
+## Project Structure
+
+- `src/components/`: Contains all React components.
+- `src/assets/`: Stores images, videos, and other static assets.
+- `public/`: Public assets and index.html.
+
+## Recent Updates
+
+- Added an animated blob gradient background.
+- Implemented responsive video hero with different videos for various screen sizes.
+- Enhanced UX for sections with 'Show More' buttons.
+- Improved mobile hamburger menu with animations and accessibility features.
 
 ## License
 
-MIT License
-
-## Acknowledgments
-
-- Inspired by Demon Slayer and Jujutsu Kaisen
-- Built with modern web technologies
+MIT
