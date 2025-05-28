@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navigation from './components/Navigation';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Navigation, { MobileMenuOverlay } from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
@@ -51,53 +51,68 @@ const particles = Array.from({ length: 18 }).map((_, i) => {
   );
 });
 
+const AppContent: React.FC = () => {
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const location = useLocation();
+
+  // handleNavClick logic (copy from Navigation or refactor to share)
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
+    // ...copy the logic from Navigation...
+  };
+
+  return (
+    <div className="relative min-h-screen">
+      <AnimatedBlobBackground />
+      <div className="anime-particles relative z-0">{particles}</div>
+      <Navigation mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
+      <MobileMenuOverlay mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} handleNavClick={handleNavClick} location={location} />
+      <main className="relative z-10">
+        <Routes>
+          <Route path="/" element={
+            <>
+              <section id="home" className="relative z-10">
+                <Hero />
+              </section>
+              <section id="about" className="relative z-10">
+                <About />
+              </section>
+              <section id="experience" className="relative z-10">
+                <Experience />
+              </section>
+              <section id="portfolio" className="relative z-10">
+                <Portfolio />
+              </section>
+              <section id="training" className="relative z-10">
+                <Training />
+              </section>
+              <section id="blog" className="relative z-10">
+                <Blog />
+              </section>
+              <section id="contact" className="relative z-10">
+                <Contact />
+              </section>
+            </>
+          } />
+          <Route path="/records/development" element={<DevelopmentRecord />} />
+          <Route path="/records/graphic-design" element={<GraphicDesignRecord />} />
+          <Route path="/records/photography" element={<PhotographyRecord />} />
+          <Route path="/records/uiux" element={<UIUXRecord />} />
+          <Route path="/development" element={<Placeholder title="Development: Code Sorcery" />} />
+          <Route path="/uiux" element={<Placeholder title="UI/UX: User Alchemy" />} />
+          <Route path="/photography" element={<Placeholder title="Photography: Lens Chronicles" />} />
+          <Route path="/design" element={<Placeholder title="Graphic Design: Visual Symmetry" />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+        </Routes>
+      </main>
+    </div>
+  );
+};
+
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="relative min-h-screen">
-        <AnimatedBlobBackground />
-        <div className="anime-particles relative z-0">{particles}</div>
-        <Navigation />
-        <main className="relative z-10">
-          <Routes>
-            <Route path="/" element={
-              <>
-                <section id="home" className="relative z-10">
-                  <Hero />
-                </section>
-                <section id="about" className="relative z-10">
-                  <About />
-                </section>
-                <section id="experience" className="relative z-10">
-                  <Experience />
-                </section>
-                <section id="portfolio" className="relative z-10">
-                  <Portfolio />
-                </section>
-                <section id="training" className="relative z-10">
-                  <Training />
-                </section>
-                <section id="blog" className="relative z-10">
-                  <Blog />
-                </section>
-                <section id="contact" className="relative z-10">
-                  <Contact />
-                </section>
-              </>
-            } />
-            <Route path="/records/development" element={<DevelopmentRecord />} />
-            <Route path="/records/graphic-design" element={<GraphicDesignRecord />} />
-            <Route path="/records/photography" element={<PhotographyRecord />} />
-            <Route path="/records/uiux" element={<UIUXRecord />} />
-            <Route path="/development" element={<Placeholder title="Development: Code Sorcery" />} />
-            <Route path="/uiux" element={<Placeholder title="UI/UX: User Alchemy" />} />
-            <Route path="/photography" element={<Placeholder title="Photography: Lens Chronicles" />} />
-            <Route path="/design" element={<Placeholder title="Graphic Design: Visual Symmetry" />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-          </Routes>
-        </main>
-      </div>
+      <AppContent />
     </Router>
   );
 };

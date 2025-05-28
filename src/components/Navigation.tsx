@@ -12,9 +12,20 @@ const navItems = [
   { name: 'Summon', href: '#contact' },
 ];
 
-const Navigation: React.FC = () => {
+export interface NavigationProps {
+  mobileOpen: boolean;
+  setMobileOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface MobileMenuOverlayProps {
+  mobileOpen: boolean;
+  setMobileOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  handleNavClick: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => void;
+  location: ReturnType<typeof useLocation>;
+}
+
+const Navigation: React.FC<NavigationProps> = ({ mobileOpen, setMobileOpen }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const pendingHash = useRef<string | null>(null);
@@ -44,6 +55,15 @@ const Navigation: React.FC = () => {
     }
   }, [location]);
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+    return () => document.body.classList.remove('overflow-hidden');
+  }, [mobileOpen]);
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
     if (href.startsWith('#')) {
       e.preventDefault();
@@ -59,6 +79,24 @@ const Navigation: React.FC = () => {
       }
     }
     setMobileOpen(false);
+  };
+
+  // Animate hamburger/X icon state
+  const hamburgerVariants = {
+    closed: { rotate: 0 },
+    open: { rotate: 90 },
+  };
+  const line1 = {
+    closed: { rotate: 0, y: 0 },
+    open: { rotate: 45, y: 8 },
+  };
+  const line2 = {
+    closed: { opacity: 1, scaleX: 1 },
+    open: { opacity: 0, scaleX: 0.5 },
+  };
+  const line3 = {
+    closed: { rotate: 0, y: 0 },
+    open: { rotate: -45, y: -8 },
   };
 
   return (
@@ -107,7 +145,7 @@ const Navigation: React.FC = () => {
           aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
-          onClick={() => setMobileOpen((v) => !v)}
+          onClick={() => setMobileOpen((v: boolean) => !v)}
         >
           {/* Animated Hamburger/X Icon */}
           <motion.svg
@@ -116,33 +154,25 @@ const Navigation: React.FC = () => {
             className="block"
             initial={false}
             animate={mobileOpen ? 'open' : 'closed'}
+            variants={hamburgerVariants}
           >
             <motion.rect
               x="6" y="10" width="20" height="3" rx="1.5"
               fill="#FFF"
-              variants={{
-                closed: { rotate: 0, y: 0 },
-                open: { rotate: 45, y: 8 },
-              }}
-              transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-            />
-            <motion.rect
-              x="6" y="19" width="20" height="3" rx="1.5"
-              fill="#FFF"
-              variants={{
-                closed: { rotate: 0, y: 0, opacity: 1 },
-                open: { rotate: -45, y: -8 },
-              }}
+              variants={line1}
               transition={{ type: 'spring', stiffness: 400, damping: 30 }}
             />
             <motion.rect
               x="6" y="14.5" width="20" height="3" rx="1.5"
               fill="#FFF"
-              variants={{
-                closed: { opacity: 1, scaleX: 1 },
-                open: { opacity: 0, scaleX: 0.5 },
-              }}
+              variants={line2}
               transition={{ duration: 0.2 }}
+            />
+            <motion.rect
+              x="6" y="19" width="20" height="3" rx="1.5"
+              fill="#FFF"
+              variants={line3}
+              transition={{ type: 'spring', stiffness: 400, damping: 30 }}
             />
             {/* Glow effect */}
             <motion.rect
@@ -161,48 +191,107 @@ const Navigation: React.FC = () => {
             </defs>
           </motion.svg>
         </button>
-        {/* Mobile Menu */}
-        <motion.div
-          id="mobile-menu"
-          initial={false}
-          animate={mobileOpen ? 'open' : 'closed'}
-          variants={{
-            open: { opacity: 1, pointerEvents: 'auto', y: 0, scale: 1 },
-            closed: { opacity: 0, pointerEvents: 'none', y: -40, scale: 0.98 },
-          }}
-          transition={{ duration: 0.35, type: 'spring', stiffness: 120, damping: 18 }}
-          className="fixed top-0 left-0 w-full h-full bg-gradient-to-br from-domain-violet/95 via-deep-charcoal/95 to-rengoku-flame/90 backdrop-blur-2xl z-50 flex flex-col items-center justify-center gap-6 md:hidden shadow-2xl border-t-4 border-zenitsu-lightning/30"
-          style={{ display: mobileOpen ? 'flex' : 'none' }}
-          tabIndex={-1}
-          aria-modal="true"
-          role="dialog"
-        >
-          {navItems.map((item, idx) => (
-            <a
-              key={item.name}
-              href={item.href}
-              onClick={e => handleNavClick(e, item.href)}
-              className="text-xl font-bold text-snow-white hover:text-zenitsu-lightning transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60 px-6 py-2 rounded-lg shadow-md bg-gradient-to-r from-ghost-black/40 to-domain-violet/30 hover:from-rengoku-flame/30 hover:to-domain-violet/40"
-              tabIndex={mobileOpen ? 0 : -1}
-              style={{ transitionDelay: mobileOpen ? `${idx * 0.05 + 0.1}s` : '0s' }}
-            >
-              {item.name}
-            </a>
-          ))}
-          <a
-            href="/assets/Mahim-CV.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xl font-bold text-snow-white hover:text-zenitsu-lightning transition-colors duration-200 border-t border-zenitsu-lightning/20 pt-6 mt-4 focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60 px-6 py-2 rounded-lg shadow-md bg-gradient-to-r from-rengoku-flame/40 to-domain-violet/40 hover:from-rengoku-flame/60 hover:to-domain-violet/60"
-            tabIndex={mobileOpen ? 0 : -1}
-            style={{ transitionDelay: mobileOpen ? `${navItems.length * 0.05 + 0.1}s` : '0s' }}
-          >
-            Download CV
-          </a>
-        </motion.div>
       </div>
     </motion.nav>
   );
 };
+
+export const MobileMenuOverlay: React.FC<MobileMenuOverlayProps> = ({ mobileOpen, setMobileOpen, handleNavClick, location }) => (
+  <motion.div
+    id="mobile-menu"
+    initial={false}
+    animate={mobileOpen ? 'open' : 'closed'}
+    variants={{
+      open: { opacity: 1, pointerEvents: 'auto', y: 0, scale: 1 },
+      closed: { opacity: 0, pointerEvents: 'none', y: -40, scale: 0.98 },
+    }}
+    transition={{ duration: 0.35, type: 'spring', stiffness: 120, damping: 18 }}
+    className="fixed inset-0 w-full h-full bg-gradient-to-br from-domain-violet/95 via-deep-charcoal/95 to-rengoku-flame/90 backdrop-blur-2xl z-[9999] flex flex-col items-center md:hidden shadow-2xl border-t-4 border-zenitsu-lightning/30 px-4 pt-8 pb-8 overflow-y-hidden"
+    style={{ display: mobileOpen ? 'flex' : 'none', position: 'fixed' }}
+    tabIndex={-1}
+    aria-modal="true"
+    role="dialog"
+  >
+    {/* Close Button (Top Right) */}
+    <motion.button
+      onClick={() => setMobileOpen(false)}
+      aria-label="Close navigation menu"
+      className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-full border-2 border-zenitsu-lightning bg-gradient-to-br from-domain-violet/80 to-rengoku-flame/80 shadow-xl focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60 hover:scale-105 transition-all duration-200 z-50"
+      tabIndex={mobileOpen ? 0 : -1}
+      initial={false}
+      animate={mobileOpen ? { rotate: 180, scale: 1.1 } : { rotate: 0, scale: 1 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+    >
+      <motion.svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <motion.line x1="8" y1="8" x2="24" y2="24" stroke="#FFD000" strokeWidth="3" strokeLinecap="round" />
+        <motion.line x1="24" y1="8" x2="8" y2="24" stroke="#FFD000" strokeWidth="3" strokeLinecap="round" />
+      </motion.svg>
+    </motion.button>
+    {/* Profile Section */}
+    <motion.div
+      className="flex flex-col items-center mt-16 mb-8"
+      initial={{ opacity: 0, y: 30 }}
+      animate={mobileOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ delay: 0.1, duration: 0.5, type: 'spring' }}
+    >
+      <div className="w-24 h-24 rounded-full border-4 border-zenitsu-lightning shadow-lg overflow-hidden mb-4 bg-snow-white/10">
+        <img
+          src="https://randomuser.me/api/portraits/men/32.jpg"
+          alt="Profile"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="text-center">
+        <div className="text-xl font-extrabold text-snow-white drop-shadow-md">Mahim Rahman</div>
+        <div className="text-sm font-medium text-zenitsu-lightning/90 tracking-wide">Web Developer</div>
+      </div>
+    </motion.div>
+    {/* Nav Links */}
+    <motion.nav
+      className="flex flex-col items-center justify-center gap-4 w-full mb-8"
+      initial="closed"
+      animate={mobileOpen ? "open" : "closed"}
+      variants={{
+        closed: {},
+        open: { transition: { staggerChildren: 0.07, delayChildren: 0.2 } },
+      }}
+    >
+      {navItems.map((item, idx) => (
+        <motion.a
+          key={item.name}
+          href={item.href}
+          onClick={e => handleNavClick(e, item.href)}
+          className={`w-full text-center text-lg font-semibold px-2 py-2 rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60
+            ${location.hash === item.href ? 'text-zenitsu-lightning font-bold' : 'text-snow-white hover:text-zenitsu-lightning/80'}
+          `}
+          tabIndex={mobileOpen ? 0 : -1}
+          style={{ transitionDelay: mobileOpen ? `${idx * 0.05 + 0.1}s` : '0s' }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={mobileOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.4, type: 'spring' }}
+        >
+          {item.name}
+        </motion.a>
+      ))}
+    </motion.nav>
+    <motion.div
+      className="w-full flex flex-col items-center gap-8 mb-8"
+      initial={{ opacity: 0, y: 20 }}
+      animate={mobileOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ delay: 0.3, duration: 0.5, type: 'spring' }}
+    >
+      <a
+        href="/assets/Mahim-CV.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full text-center text-base font-bold px-0 py-3 rounded-full bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white shadow-lg border-2 border-zenitsu-lightning/60 hover:from-domain-violet hover:to-rengoku-flame hover:text-zenitsu-lightning transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60"
+        tabIndex={mobileOpen ? 0 : -1}
+        style={{ transitionDelay: mobileOpen ? `${navItems.length * 0.05 + 0.1}s` : '0s' }}
+      >
+        Download CV
+      </a>
+    </motion.div>
+  </motion.div>
+);
 
 export default Navigation; 
