@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Navigation, { MobileMenuOverlay } from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -54,10 +54,36 @@ const particles = Array.from({ length: 18 }).map((_, i) => {
 const AppContent: React.FC = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const pendingHash = React.useRef<string | null>(null);
 
-  // handleNavClick logic (copy from Navigation or refactor to share)
+  // Scroll to section after navigation if needed
+  React.useEffect(() => {
+    if (pendingHash.current) {
+      const id = pendingHash.current.replace('#', '');
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        pendingHash.current = null;
+      }
+    }
+  }, [location]);
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
-    // ...copy the logic from Navigation...
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      if (location.pathname !== '/') {
+        pendingHash.current = href;
+        navigate('/');
+      } else {
+        const id = href.replace('#', '');
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+    setMobileOpen(false);
   };
 
   return (
