@@ -178,7 +178,7 @@ const Experience: React.FC = () => {
               >
                 {/* Front */}
                 <motion.div
-                  className="absolute inset-0 w-full h-full min-h-[20rem] sm:min-h-[22rem] md:min-h-[24rem] bg-gradient-to-br from-rengoku-flame to-domain-violet rounded-2xl shadow-xl p-6 md:p-8 flex flex-col justify-center items-center text-center cursor-pointer select-none transition-all duration-300 text-snow-white overflow-hidden"
+                  className="absolute inset-0 w-full h-full min-h-[20rem] sm:min-h-[22rem] md:min-h-[24rem] bg-gradient-to-br from-rengoku-flame to-domain-violet rounded-2xl shadow-xl p-6 md:p-8 flex flex-col justify-center items-center text-center cursor-pointer select-none transition-all duration-300 text-snow-white overflow-hidden break-words whitespace-normal min-w-0"
                   style={{ backfaceVisibility: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}
                   aria-hidden={!!flipped[idx]}
                 >
@@ -189,7 +189,7 @@ const Experience: React.FC = () => {
                 </motion.div>
                 {/* Back */}
                 <motion.div
-                  className="absolute inset-0 w-full h-full min-h-[20rem] sm:min-h-[22rem] md:min-h-[24rem] bg-gradient-to-br from-domain-violet to-rengoku-flame rounded-2xl shadow-xl p-6 md:p-8 flex flex-col justify-center items-center text-center cursor-pointer select-none transition-all duration-300 text-snow-white overflow-hidden"
+                  className="absolute inset-0 w-full h-full min-h-[20rem] sm:min-h-[22rem] md:min-h-[24rem] bg-gradient-to-br from-domain-violet to-rengoku-flame rounded-2xl shadow-xl p-6 md:p-8 flex flex-col justify-center items-center text-center cursor-pointer select-none transition-all duration-300 text-snow-white overflow-hidden break-words whitespace-normal min-w-0"
                   style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)', display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}
                   aria-hidden={!flipped[idx]}
                 >

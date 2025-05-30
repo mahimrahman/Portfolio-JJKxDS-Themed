@@ -187,7 +187,7 @@ const ProjectCard: React.FC<{ project: Project; onClick: () => void }> = ({ proj
 
   return (
     <motion.div
-      className="relative bg-deep-charcoal/50 backdrop-blur-sm rounded-xl overflow-hidden border border-domain-violet/20 cursor-pointer group"
+      className="relative bg-deep-charcoal/50 backdrop-blur-sm rounded-xl overflow-hidden border border-domain-violet/20 cursor-pointer group break-words whitespace-normal min-w-0"
       style={{ scale }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
@@ -214,17 +214,17 @@ const ProjectCard: React.FC<{ project: Project; onClick: () => void }> = ({ proj
       </div>
       <div className="p-6">
         <motion.span
-          className="inline-block px-3 py-1 bg-domain-violet/20 text-snow-white rounded-full text-sm mb-3"
+          className="inline-block px-3 py-1 bg-domain-violet/20 text-snow-white rounded-full text-sm mb-3 break-words whitespace-normal min-w-0"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
           {project.category}
         </motion.span>
-        <h3 className="text-xl font-mochiy text-snow-white mb-2 group-hover:text-zenitsu-lightning transition-colors">
+        <h3 className="text-xl font-mochiy text-snow-white mb-2 group-hover:text-zenitsu-lightning transition-colors break-words whitespace-normal min-w-0">
           {project.title}
         </h3>
-        <p className="text-snow-white/80 text-sm">{project.shortDescription}</p>
+        <p className="text-snow-white/80 text-sm break-words whitespace-normal min-w-0">{project.shortDescription}</p>
       </div>
     </motion.div>
   );

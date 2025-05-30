@@ -104,7 +104,7 @@ const GraphicDesignRecord: React.FC = () => {
               <img src={project.cover} alt={project.name + ' cover'} className="object-cover w-full h-full" />
             </div>
             <div className="flex-1 flex flex-col items-center justify-center p-4">
-              <span className="text-2xl md:text-2xl font-bold text-snow-white drop-shadow-lg text-center mb-2">
+              <span className="text-2xl md:text-2xl font-bold text-snow-white drop-shadow-lg text-center mb-2 break-words whitespace-normal min-w-0">
                 {project.name}
               </span>
               <span className="text-5xl mb-2 drop-shadow-lg">📁</span>
@@ -154,7 +154,7 @@ const GraphicDesignRecord: React.FC = () => {
                 ›
               </button>
               <div className="flex items-center justify-between w-full mb-4 mt-8">
-                <span className="text-xl md:text-2xl font-bold text-snow-white drop-shadow-lg text-center mx-auto">
+                <span className="text-xl md:text-2xl font-bold text-snow-white drop-shadow-lg text-center mx-auto break-words whitespace-normal min-w-0">
                   {projects[openIdx].name}
                 </span>
               </div>

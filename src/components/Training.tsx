@@ -75,7 +75,7 @@ const Training: React.FC = () => (
           whileHover="hover"
           viewport={{ once: true, amount: 0.5 }}
           variants={cardVariants}
-          className={`flex-1 max-w-xl bg-gradient-to-br ${deg.color} p-8 md:p-10 rounded-3xl shadow-2xl border border-zenitsu-lightning/30 hover:border-zenitsu-lightning/80 transition-all duration-300 relative z-10 flex flex-col gap-2`}
+          className={`flex-1 max-w-xl bg-gradient-to-br ${deg.color} p-8 md:p-10 rounded-3xl shadow-2xl border border-zenitsu-lightning/30 hover:border-zenitsu-lightning/80 transition-all duration-300 relative z-10 flex flex-col gap-2 break-words whitespace-normal min-w-0`}
         >
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-2">
             <div>
@@ -110,7 +110,7 @@ const Training: React.FC = () => (
               key={skill}
               custom={i}
               variants={tagVariants}
-              className="inline-block w-full mb-4 px-4 py-3 text-xs md:text-base bg-gradient-to-br from-rengoku-flame to-domain-violet text-snow-white rounded-2xl shadow-lg font-bold flex items-center justify-center select-none transition-all duration-200 border border-domain-violet/30 cursor-pointer anime-heading"
+              className="inline-block w-full mb-4 px-4 py-3 text-xs md:text-base bg-gradient-to-br from-rengoku-flame to-domain-violet text-snow-white rounded-2xl shadow-lg font-bold flex items-center justify-center select-none transition-all duration-200 border border-domain-violet/30 cursor-pointer anime-heading break-words whitespace-normal min-w-0"
               whileHover={{
                 scale: 1.08,
                 background: 'linear-gradient(135deg, #FFD000 0%, #3A86FF 100%)',
