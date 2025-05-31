@@ -5,7 +5,7 @@ A modern, anime-themed portfolio website built with React, Tailwind CSS, and Fra
 ## Features
 
 - **Animated Blob Background**: A dynamic, morphing, and parallax-interactive background using SVG and Framer Motion.
-- **Responsive Hero Section**: Different videos for different screen sizes (mobile, MacBook, large screens).
+- **Responsive Hero Section**: Different videos for different screen sizes (mobile, MacBook, large screens etc).
 - **Improved UX**: Enhanced navigation & interaction in sections like Blog and Experience.
 - **Modern Mobile Navigation**: Animated hamburger menu with a custom SVG icon, glowing effects, and smooth transitions.
 - **Anime-Inspired Design**: Unique color themes, gradients, and animations throughout the site.
