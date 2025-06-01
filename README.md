@@ -9,6 +9,8 @@ A modern, anime-themed portfolio website built with React, Tailwind CSS, and Fra
 - **Improved UX**: Enhanced navigation & interaction in sections like Blog and Experience.
 - **Modern Mobile Navigation**: Animated hamburger menu with a custom SVG icon, glowing effects, and smooth transitions.
 - **Anime-Inspired Design**: Unique color themes, gradients, and animations throughout the site.
+- **Responsive Card Text**: All card and section text is now fully responsive and will never overflow or be cut off on small screens.
+- **Improved Mobile & Accessibility**: Card layouts and text wrapping are optimized for all devices and screen sizes.
 
 ## Technologies Used
 
