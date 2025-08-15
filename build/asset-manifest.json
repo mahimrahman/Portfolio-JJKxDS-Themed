@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.1a7d3002.css",
-    "main.js": "/static/js/main.04c632b6.js",
+    "main.css": "/static/css/main.1428cc9f.css",
+    "main.js": "/static/js/main.86be296f.js",
+    "static/media/japanese.jpg": "/static/media/japanese.9c64d0a3a4d1da04ff03.jpg",
     "static/media/mochiy-pop-one-6-400-normal.woff": "/static/media/mochiy-pop-one-6-400-normal.85e85177a13efa96f32e.woff",
     "static/media/mochiy-pop-one-31-400-normal.woff": "/static/media/mochiy-pop-one-31-400-normal.48ca05f5bc632c2df694.woff",
     "static/media/mochiy-pop-one-24-400-normal.woff": "/static/media/mochiy-pop-one-24-400-normal.1a72bb82c234906461c1.woff",
@@ -239,11 +240,11 @@
     "static/media/mochiy-pop-one-57-400-normal.woff2": "/static/media/mochiy-pop-one-57-400-normal.985a8cebb523d5561da6.woff2",
     "static/media/mochiy-pop-one-58-400-normal.woff2": "/static/media/mochiy-pop-one-58-400-normal.c2b9f374b44dc730e3b1.woff2",
     "index.html": "/index.html",
-    "main.1a7d3002.css.map": "/static/css/main.1a7d3002.css.map",
-    "main.04c632b6.js.map": "/static/js/main.04c632b6.js.map"
+    "main.1428cc9f.css.map": "/static/css/main.1428cc9f.css.map",
+    "main.86be296f.js.map": "/static/js/main.86be296f.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a7d3002.css",
-    "static/js/main.04c632b6.js"
+    "static/css/main.1428cc9f.css",
+    "static/js/main.86be296f.js"
   ]
 }
