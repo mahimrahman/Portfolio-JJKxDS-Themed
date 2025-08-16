@@ -83,7 +83,7 @@ const Hero: React.FC = () => {
               Email Me
             </motion.a>
             <motion.a
-              href="https://linkedin.com/in/mahimrk"
+              href="https://www.linkedin.com/in/mahimur-rahman-khan-50a553183/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
