@@ -2,6 +2,9 @@
 
 A modern, anime-themed portfolio website built with React, TypeScript, Tailwind CSS, and Framer Motion. This portfolio showcases a unique blend of anime aesthetics with professional web development practices, featuring dynamic animations, responsive design, and an immersive user experience.
 
+**Developer**: Mahimur Rahman Khan  
+**Role**: Software Engineering Graduate | Web Developer & Designer | UI/UX Designer
+
 ## ✨ Features
 
 ### 🎨 Visual & Animation
@@ -139,6 +142,15 @@ The portfolio features a cohesive anime-inspired design system with:
 - Safari (latest)
 - Edge (latest)
 
+## 🌐 Live Demo & Social Links
+
+- **Portfolio**: [Live Demo](https://your-portfolio-url.com)
+- **LinkedIn**: [Mahimur Rahman Khan](https://www.linkedin.com/in/mahimur-rahman-khan-50a553183/)
+- **GitHub**: [@mahimrk](https://github.com/mahimrk)
+- **Behance**: [@mahimrk](https://www.behance.net/mahimrk)
+- **Instagram**: [@mahimrk.agm](https://instagram.com/mahimrk.agm)
+- **Email**: mahimrk.a@gmail.com
+
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -159,4 +171,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Built with ❤️ and cursed energy**
+**Built with ❤️ and cursed energy by Mahimur Rahman Khan**
