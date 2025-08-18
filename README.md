@@ -13,17 +13,25 @@ A modern, anime-themed portfolio website built with React, TypeScript, Tailwind 
 - **Anime Particles**: Energy-themed particle system with cursed energy colors
 - **Responsive Hero Section**: Optimized video backgrounds for different screen sizes (mobile, desktop, large displays)
 - **Smooth Transitions**: Framer Motion-powered page transitions and component animations
+- **Sakura Petals**: Animated cherry blossom effects in the photography section
 
 ### 🚀 User Experience
 - **Modern Navigation**: Animated hamburger menu with custom SVG icons and glowing effects
 - **Responsive Design**: Fully responsive layout optimized for all devices and screen sizes
 - **Interactive Elements**: Hover effects, smooth scrolling, and engaging micro-interactions
 - **Accessibility**: Optimized for screen readers and keyboard navigation
+- **Modal System**: Enhanced photo viewer with navigation controls and keyboard shortcuts
 
 ### 📱 Mobile-First Approach
 - **Mobile Navigation**: Custom mobile menu overlay with smooth animations
 - **Responsive Cards**: Text and layout optimization preventing overflow on small screens
 - **Touch-Friendly**: Optimized touch interactions and mobile-specific features
+
+### 🖼️ Portfolio Sections
+- **Development**: Code showcase with interactive elements
+- **Graphic Design**: Visual design portfolio with smooth transitions
+- **Photography**: Enhanced photo gallery with modal viewer and navigation
+- **UI/UX Design**: User interface and experience design showcase
 
 ## 🛠️ Technologies Used
 
@@ -34,7 +42,7 @@ A modern, anime-themed portfolio website built with React, TypeScript, Tailwind 
 - **Routing**: React Router DOM 7.5.3
 - **Icons**: Heroicons 2.1.1
 - **Fonts**: Mochiy Pop One (Japanese-style font)
-- **Carousel**: Swiper 11.2.6
+- **Carousel**: Swiper 11.2.6 with EffectCoverflow, Pagination, Navigation, and Mousewheel modules
 - **Build Tool**: Create React App 5.0.1
 
 ## 🚀 Getting Started
@@ -76,7 +84,7 @@ src/
 │   ├── records/         # Portfolio record components
 │   │   ├── DevelopmentRecord.tsx
 │   │   ├── GraphicDesignRecord.tsx
-│   │   ├── PhotographyRecord.tsx
+│   │   ├── PhotographyRecord.tsx      # Enhanced photo gallery with modal
 │   │   └── UIUXRecord.tsx
 │   ├── About.tsx        # About section component
 │   ├── AnimatedBackground.tsx      # Background animations
@@ -90,12 +98,12 @@ src/
 │   ├── Navigation.tsx   # Navigation and mobile menu
 │   ├── Portfolio.tsx    # Portfolio showcase component
 │   └── Training.tsx     # Training/education component
-├── App.tsx              # Main application component
+├── App.tsx              # Main application component with routing
 ├── index.tsx            # Application entry point
 └── index.css            # Global styles and Tailwind imports
 
 public/
-├── assets/              # Static assets
+├── assets/              # Static assets including seal patterns
 ├── Hero_large.mp4       # Large screen hero video
 ├── Hero_mac.mp4         # MacBook hero video
 ├── hero_mobile.mp4      # Mobile hero video
@@ -110,6 +118,7 @@ public/
 - **Experience**: Interactive timeline of professional experience
 - **Blog**: Content management system for articles and posts
 - **Contact**: Professional contact form with validation
+- **Photography Gallery**: Enhanced photo viewer with modal, navigation, and keyboard controls
 
 ## 🔧 Development
 
@@ -127,13 +136,21 @@ The project uses Node.js legacy OpenSSL provider for compatibility:
 set NODE_OPTIONS=--openssl-legacy-provider
 ```
 
+### Recent Updates & Fixes
+
+- **Photography Modal**: Fixed close button functionality and enhanced user experience
+- **Enhanced Navigation**: Improved modal navigation with keyboard shortcuts (Arrow keys, Escape)
+- **Performance**: Optimized animations and transitions for better performance
+- **Accessibility**: Enhanced keyboard navigation and screen reader support
+
 ## 🎨 Design System
 
 The portfolio features a cohesive anime-inspired design system with:
-- **Color Palette**: Dark themes with vibrant accent colors
+- **Color Palette**: Dark themes with vibrant accent colors (cursed blue, rengoku flame, zenitsu lightning)
 - **Typography**: Japanese-style fonts combined with modern web fonts
 - **Animations**: Smooth, performant animations using Framer Motion
 - **Layout**: Grid-based responsive layouts with Tailwind CSS
+- **Interactive Elements**: Hover effects, scale animations, and smooth transitions
 
 ## 📱 Browser Support
 
@@ -168,7 +185,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Inspired by anime aesthetics and modern web design principles
 - Built with modern web technologies and best practices
 - Special thanks to the open-source community for the amazing tools and libraries
+- Enhanced with user feedback and continuous improvement
 
 ---
 
 **Built with ❤️ and cursed energy by Mahimur Rahman Khan**
+
+*Last updated: December 2024*
