@@ -192,3 +192,54 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Built with ❤️ and cursed energy by Mahimur Rahman Khan**
 
 *Last updated: December 2024*
+
+## 🚀 Deployment
+
+You can deploy this Create React App SPA to any static host.
+
+- Netlify
+  - Build command: `npm run build`
+  - Publish directory: `build`
+  - SPA fallback: add a `_redirects` file with `/* /index.html 200`
+  - Node version: 16–18 recommended
+
+- Vercel
+  - Framework preset: Other
+  - Build command: `npm run build`
+  - Output directory: `build`
+  - Enable SPA fallback to `index.html` for client-side routing (or add a 404 rewrite)
+
+- GitHub Pages / Static servers
+  - Build locally: `npm run build`
+  - Preview locally: `npx serve -s build`
+  - For GitHub Pages, use any GH Pages workflow or a custom server that serves `index.html` for unknown routes
+
+### SPA Fallback (_redirects)
+If using Netlify, create `public/_redirects` containing:
+```
+/* /index.html 200
+```
+
+## 🧰 Troubleshooting
+
+- OpenSSL error on Node 20+
+  - The scripts already set `NODE_OPTIONS=--openssl-legacy-provider` on Windows
+  - macOS/Linux (if needed):
+    - bash/zsh: `export NODE_OPTIONS=--openssl-legacy-provider`
+
+- Port 3000 already in use
+  - Close the running app using that port or run on a different port: `set PORT=3001 && npm start`
+
+- Tailwind styles not applied
+  - Ensure `src/index.css` contains `@tailwind base; @tailwind components; @tailwind utilities;`
+  - Restart the dev server after config changes
+
+- Swiper styles missing
+  - Ensure the following CSS is imported where the carousel is used:
+    - `import 'swiper/css'`
+    - `import 'swiper/css/effect-coverflow'`
+    - `import 'swiper/css/pagination'`
+    - `import 'swiper/css/navigation'`
+
+- 404 on refresh (client-side routing)
+  - Configure SPA fallback (see Deployment section). On Netlify use `_redirects`; on other hosts ensure unknown routes serve `index.html`.
