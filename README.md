@@ -1,4 +1,4 @@
-# Cursed Blades Portfolio
+# JJK × DS Themed Portfolio (Cursed Blades)
 
 A modern, anime-themed portfolio website built with React, TypeScript, Tailwind CSS, and Framer Motion. This portfolio showcases a unique blend of anime aesthetics with professional web development practices, featuring dynamic animations, responsive design, and an immersive user experience.
 
@@ -65,14 +65,24 @@ A modern, anime-themed portfolio website built with React, TypeScript, Tailwind 
    ```
 
 3. **Start development server**
-   ```bash
-   npm start
-   ```
+   - Windows (PowerShell / CMD):
+     ```bash
+     npm start
+     ```
+   - macOS/Linux (scripts are Windows-specific):
+     ```bash
+     NODE_OPTIONS=--openssl-legacy-provider react-scripts start
+     ```
 
 4. **Build for production**
-   ```bash
-   npm run build
-   ```
+   - Windows (PowerShell / CMD):
+     ```bash
+     npm run build
+     ```
+   - macOS/Linux (scripts are Windows-specific):
+     ```bash
+     NODE_OPTIONS=--openssl-legacy-provider react-scripts build
+     ```
 
 The application will open at `http://localhost:3000`
 
@@ -131,10 +141,18 @@ public/
 
 ### Environment Setup
 
-The project uses Node.js legacy OpenSSL provider for compatibility:
-```bash
-set NODE_OPTIONS=--openssl-legacy-provider
-```
+- The `package.json` scripts are configured for Windows using `set`.
+- On macOS/Linux, either run the commands shown above directly, or export the variable in your shell before running `react-scripts`:
+  ```bash
+  export NODE_OPTIONS=--openssl-legacy-provider
+  ```
+  Then run:
+  ```bash
+  react-scripts start
+  # or
+  react-scripts build
+  ```
+  Optionally, add `cross-env` to make scripts cross-platform.
 
 ### Recent Updates & Fixes
 
@@ -191,7 +209,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Built with ❤️ and cursed energy by Mahimur Rahman Khan**
 
-*Last updated: December 2024*
+*Last updated: August 2025*
 
 ## 🚀 Deployment
 
