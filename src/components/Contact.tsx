@@ -6,13 +6,13 @@ const Contact: React.FC = () => {
     {
       name: 'GitHub',
       icon: '🐙',
-      url: 'https://github.com/mahimrk',
+      url: 'https://github.com/mahim',
       color: 'from-ghost-black to-domain-violet',
     },
     {
       name: 'LinkedIn',
       icon: '💼',
-      url: 'https://linkedin.com/in/mahimrk',
+      url: 'https://www.linkedin.com/in/mahimur-rahman-khan-50a553183/',
       color: 'from-cursed-blue to-domain-violet',
     },
     {
