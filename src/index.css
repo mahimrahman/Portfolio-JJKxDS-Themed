@@ -55,6 +55,32 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Lightweight breathe animation */
+@keyframes breathe {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-2px) scale(1.015);
+    opacity: 0.98;
+  }
+}
+
+.animate-breathe {
+  animation: breathe 6s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-breathe-slow {
+  animation: breathe 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
 /* Custom Animations */
 @keyframes float {
   0%, 100% {
