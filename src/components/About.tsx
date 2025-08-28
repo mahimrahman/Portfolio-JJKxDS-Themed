@@ -94,7 +94,7 @@ const AboutBase: React.FC = () =>
           <div className="grid grid-cols-2 gap-3 md:gap-4 h-auto lg:h-full">
             {/* Top Left Card */}
             <motion.div 
-              className="min-h-[140px] md:min-h-[160px] lg:h-auto bg-gradient-to-br from-checkered-green/20 to-domain-violet/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-3 md:p-4 flex flex-col justify-center group hover:shadow-xl hover:shadow-checkered-green/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
+              className="min-h-[140px] md:min-h-[160px] lg:h-auto bg-gradient-to-br from-checkered-green/80 to-domain-violet/30 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-3 md:p-4 flex flex-col justify-center group hover:shadow-xl hover:shadow-checkered-green/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.1 }}
@@ -115,7 +115,7 @@ const AboutBase: React.FC = () =>
             
             {/* Top Right Card */}
             <motion.div 
-              className="min-h-[140px] md:min-h-[160px] lg:h-auto bg-gradient-to-br from-zenitsu-lightning/20 to-rengoku-flame/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-3 md:p-4 flex flex-col justify-center group hover:shadow-xl hover:shadow-zenitsu-lightning/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
+              className="min-h-[140px] md:min-h-[160px] lg:h-auto bg-gradient-to-br from-zenitsu-lightning/50 to-rengoku-flame/50 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-3 md:p-4 flex flex-col justify-center group hover:shadow-xl hover:shadow-zenitsu-lightning/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.15 }}
@@ -136,7 +136,7 @@ const AboutBase: React.FC = () =>
 
             {/* Bottom Left Card */}
             <motion.div 
-              className="min-h-[140px] md:min-h-[160px] lg:h-auto bg-gradient-to-br from-cursed-blue/20 to-domain-violet/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-3 md:p-4 flex flex-col justify-center group hover:shadow-xl hover:shadow-cursed-blue/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
+              className="min-h-[140px] md:min-h-[160px] lg:h-auto bg-gradient-to-br from-cursed-blue/30 to-domain-violet/80 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-3 md:p-4 flex flex-col justify-center group hover:shadow-xl hover:shadow-cursed-blue/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.2 }}
@@ -157,7 +157,7 @@ const AboutBase: React.FC = () =>
             
             {/* Bottom Right Card */}
             <motion.div 
-              className="min-h-[140px] md:min-h-[160px] lg:h-auto bg-gradient-to-br from-rengoku-flame/20 to-zenitsu-lightning/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-3 md:p-4 flex flex-col justify-center group hover:shadow-xl hover:shadow-rengoku-flame/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
+              className="min-h-[140px] md:min-h-[160px] lg:h-auto bg-gradient-to-br from-rengoku-flame/80 to-zenitsu-lightning/40 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-3 md:p-4 flex flex-col justify-center group hover:shadow-xl hover:shadow-rengoku-flame/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.25 }}
