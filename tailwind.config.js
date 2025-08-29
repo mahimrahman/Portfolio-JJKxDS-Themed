@@ -25,6 +25,9 @@ module.exports = {
         'flame-flicker': 'flameFlicker 2s infinite',
         'water-flow': 'waterFlow 3s infinite',
         'wind-sweep': 'windSweep 4s infinite',
+        'star-twinkle': 'starTwinkle 2s ease-in-out infinite',
+        'star-pulse': 'starPulse 3s ease-in-out infinite',
+        'meteor': 'meteor 20s linear infinite',
       },
       keyframes: {
         cursedPulse: {
@@ -42,6 +45,27 @@ module.exports = {
         windSweep: {
           '0%, 100%': { transform: 'rotate(0deg)' },
           '50%': { transform: 'rotate(5deg)' },
+        },
+        starTwinkle: {
+          '0%, 100%': { opacity: 1, transform: 'scale(1)' },
+          '50%': { opacity: 0.7, transform: 'scale(0.8)' },
+        },
+        starPulse: {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(127, 0, 255, 0.4)' },
+          '50%': { boxShadow: '0 0 0 10px rgba(127, 0, 255, 0)' },
+        },
+        meteor: {
+          '0%': { 
+            transform: 'rotate(215deg) translateX(0)', 
+            opacity: 1 
+          },
+          '70%': { 
+            opacity: 1 
+          },
+          '100%': { 
+            transform: 'rotate(215deg) translateX(-500px)', 
+            opacity: 0 
+          },
         },
       },
     },
