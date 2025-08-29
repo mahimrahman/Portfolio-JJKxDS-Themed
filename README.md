@@ -75,7 +75,7 @@ The portfolio demonstrates advanced frontend development skills including:
 
 ### Development Tools
 - **Package Manager**: npm with lockfile for consistent installations
-- **CSS Processing**: PostCSS with Autoprefixer for cross-browser compatibility
+- **CSS Processing**: PostCSS 8.4.31 with Autoprefixer 10.4.16 for cross-browser compatibility
 - **Linting**: ESLint with React App configuration and TypeScript support
 - **Type Checking**: TypeScript compiler with strict mode enabled
 
@@ -498,7 +498,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Built with ❤️ and cursed energy by Mahimur Rahman Khan**
 
-*Last updated: August 2025*
+*Last updated: December 2024*
 
 [⬆️ Back to Top](#jjk--ds-themed-portfolio-cursed-blades)
 
