@@ -28,6 +28,10 @@ module.exports = {
         'star-twinkle': 'starTwinkle 2s ease-in-out infinite',
         'star-pulse': 'starPulse 3s ease-in-out infinite',
         'meteor': 'meteor 20s linear infinite',
+        'line-pulse': 'linePulse 2s ease-in-out infinite',
+        'fade-in': 'fadeIn 0.8s ease-out forwards',
+        'fade-in-delay-1': 'fadeIn 0.8s ease-out 0.2s forwards',
+        'fade-in-delay-2': 'fadeIn 0.8s ease-out 0.4s forwards',
       },
       keyframes: {
         cursedPulse: {
