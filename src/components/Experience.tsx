@@ -361,27 +361,12 @@ const Experience: React.FC = () => {
 
       {/* Foreground Content - Center aligned and mobile optimized */}
       <div className="relative z-10 text-center w-full max-w-6xl mx-auto px-2 sm:px-4">
-        {/* Filter Buttons with Gojo purple theme - Moved to top */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-          {filterButtons.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-bold rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-ghost-black border ${
-                activeFilter === filter
-                  ? 'bg-gradient-to-r from-purple-400 to-domain-violet text-snow-white shadow-lg shadow-purple-500/40 border-purple-400'
-                  : 'bg-ghost-black/60 text-purple-300 hover:bg-purple-400/20 hover:text-snow-white border-purple-300/30 hover:border-purple-400/60'
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
+       
 
         {/* Title and Subtitles - Center aligned and mobile optimized */}
         <div className="text-center mb-6 sm:mb-8">
           <motion.h1 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-domain-violet to-purple-600 mb-3 sm:mb-4 leading-tight px-2"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-domain-violet to-purple-600 pb-3 sm:pb-4 leading-tight px-2 "
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -407,6 +392,23 @@ const Experience: React.FC = () => {
           >
             Navigate the stars to discover your journey.
           </motion.p>
+        </div>
+
+         {/* Filter Buttons with Gojo purple theme - Moved to top */}
+         <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+          {filterButtons.map((filter) => (
+            <button
+              key={filter}
+              onClick={() => setActiveFilter(filter)}
+              className={`px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-bold rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-ghost-black border ${
+                activeFilter === filter
+                  ? 'bg-gradient-to-r from-purple-400 to-domain-violet text-snow-white shadow-lg shadow-purple-500/40 border-purple-400'
+                  : 'bg-ghost-black/60 text-purple-300 hover:bg-purple-400/20 hover:text-snow-white border-purple-300/30 hover:border-purple-400/60'
+              }`}
+            >
+              {filter}
+            </button>
+          ))}
         </div>
       </div>
 
