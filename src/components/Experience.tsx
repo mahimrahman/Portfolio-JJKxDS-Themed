@@ -288,7 +288,7 @@ const ExperienceModal: React.FC<{
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button with Gojo style - Mobile optimized */}
-        <button 
+            <button
           onClick={handleClose} 
           className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 text-purple-400 hover:text-snow-white hover:bg-gradient-to-r from-domain-violet/20 to-purple-400/20 rounded-full p-1.5 sm:p-2 transition-all duration-200 z-10 border border-domain-violet/30 hover:border-purple-400/60"
           aria-label="Close"
@@ -296,7 +296,7 @@ const ExperienceModal: React.FC<{
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
-        </button>
+            </button>
         
         <div className="p-4 sm:p-6 lg:p-8">
           <h2 id="experience-title" className="text-xl sm:text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-domain-violet via-purple-400 to-snow-white leading-tight">
