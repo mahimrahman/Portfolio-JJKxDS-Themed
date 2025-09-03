@@ -7,15 +7,15 @@ const AnimatedBackground: React.FC = () => {
       {/* Base gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-deep-charcoal via-ghost-black to-deep-charcoal" />
       
-      {/* Animated gradient overlay */}
+      {/* Animated gradient overlay - Blue and Purple only */}
       <motion.div
         className="absolute inset-0 opacity-30"
         animate={{
           background: [
             'radial-gradient(circle at 20% 20%, theme(colors.domain-violet) 0%, transparent 50%)',
             'radial-gradient(circle at 80% 20%, theme(colors.cursed-blue) 0%, transparent 50%)',
-            'radial-gradient(circle at 20% 80%, theme(colors.rengoku-flame) 0%, transparent 50%)',
-            'radial-gradient(circle at 80% 80%, theme(colors.zenitsu-lightning) 0%, transparent 50%)',
+            'radial-gradient(circle at 20% 80%, theme(colors.domain-violet) 0%, transparent 50%)',
+            'radial-gradient(circle at 80% 80%, theme(colors.cursed-blue) 0%, transparent 50%)',
             'radial-gradient(circle at 20% 20%, theme(colors.domain-violet) 0%, transparent 50%)',
           ],
         }}
@@ -26,7 +26,7 @@ const AnimatedBackground: React.FC = () => {
         }}
       />
 
-      {/* Floating orbs */}
+      {/* Floating orbs - Blue and Purple only */}
       {[...Array(15)].map((_, i) => (
         <motion.div
           key={i}
@@ -37,7 +37,7 @@ const AnimatedBackground: React.FC = () => {
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
             background: `radial-gradient(circle, ${
-              ['domain-violet', 'cursed-blue', 'rengoku-flame', 'zenitsu-lightning'][i % 4]
+              ['domain-violet', 'cursed-blue'][i % 2]
             } 0%, transparent 70%)`,
             opacity: 0.15,
             filter: 'blur(40px)',
@@ -56,7 +56,7 @@ const AnimatedBackground: React.FC = () => {
         />
       ))}
 
-      {/* Animated grid */}
+      {/* Animated grid - Purple only */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 grid-pattern opacity-5" />
         <motion.div
@@ -77,17 +77,17 @@ const AnimatedBackground: React.FC = () => {
         />
       </div>
 
-      {/* Glowing particles */}
+      {/* Glowing particles - Blue and Purple only */}
       {[...Array(20)].map((_, i) => (
         <motion.div
           key={`particle-${i}`}
           className="absolute w-1 h-1 rounded-full"
           style={{
-            background: ['domain-violet', 'cursed-blue', 'rengoku-flame', 'zenitsu-lightning'][i % 4],
+            background: ['domain-violet', 'cursed-blue'][i % 2],
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
             boxShadow: `0 0 ${Math.random() * 20 + 10}px ${
-              ['domain-violet', 'cursed-blue', 'rengoku-flame', 'zenitsu-lightning'][i % 4]
+              ['domain-violet', 'cursed-blue'][i % 2]
             }`,
           }}
           animate={{
@@ -103,7 +103,7 @@ const AnimatedBackground: React.FC = () => {
         />
       ))}
 
-      {/* Cursed energy waves */}
+      {/* Cursed energy waves - Blue only */}
       <motion.div
         className="absolute inset-0"
         style={{

@@ -19,13 +19,13 @@ const Contact: React.FC = () => {
       name: 'Behance',
       icon: '🎨',
       url: 'https://www.behance.net/mahimrk',
-      color: 'from-rengoku-flame to-domain-violet',
+      color: 'from-domain-violet to-cursed-blue',
     },
     {
       name: 'Instagram',
       icon: '📸',
       url: 'https://instagram.com/mahimrk.agm',
-      color: 'from-rengoku-flame to-zenitsu-lightning',
+      color: 'from-cursed-blue to-domain-violet',
     },
   ];
 
@@ -39,10 +39,10 @@ const Contact: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-domain-violet to-cursed-blue bg-clip-text text-transparent">
             Summon the Sorcerer
           </h2>
-          <span className="block w-24 h-1 mx-auto mb-8 bg-zenitsu-lightning rounded-full animate-pulse" />
+          <span className="block w-24 h-1 mx-auto mb-8 bg-domain-violet rounded-full animate-pulse" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
@@ -59,28 +59,28 @@ const Contact: React.FC = () => {
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="w-full px-4 py-3 bg-ghost-black/50 border border-zenitsu-lightning/20 rounded-lg text-snow-white placeholder-ash-gray focus:outline-none focus:border-zenitsu-lightning/40 transition-colors duration-300"
+                  className="w-full px-4 py-3 bg-ghost-black/50 border border-domain-violet/20 rounded-lg text-snow-white placeholder-ash-gray focus:outline-none focus:border-domain-violet/40 transition-colors duration-300"
                 />
               </div>
               <div>
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="w-full px-4 py-3 bg-ghost-black/50 border border-zenitsu-lightning/20 rounded-lg text-snow-white placeholder-ash-gray focus:outline-none focus:border-zenitsu-lightning/40 transition-colors duration-300"
+                  className="w-full px-4 py-3 bg-ghost-black/50 border border-domain-violet/20 rounded-lg text-snow-white placeholder-ash-gray focus:outline-none focus:border-domain-violet/40 transition-colors duration-300"
                 />
               </div>
               <div>
                 <textarea
                   placeholder="Your Message"
                   rows={4}
-                  className="w-full px-4 py-3 bg-ghost-black/50 border border-zenitsu-lightning/20 rounded-lg text-snow-white placeholder-ash-gray focus:outline-none focus:border-zenitsu-lightning/40 transition-colors duration-300"
+                  className="w-full px-4 py-3 bg-ghost-black/50 border border-domain-violet/20 rounded-lg text-snow-white placeholder-ash-gray focus:outline-none focus:border-domain-violet/40 transition-colors duration-300"
                 />
               </div>
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full px-6 py-3 bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white rounded-lg hover:opacity-90 transition-opacity duration-300"
+                className="w-full px-6 py-3 bg-gradient-to-r from-domain-violet to-cursed-blue text-snow-white rounded-lg hover:opacity-90 transition-opacity duration-300"
               >
                 Send Message
               </motion.button>
@@ -104,7 +104,7 @@ const Contact: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
-                    className={`p-4 rounded-lg bg-gradient-to-r ${link.color} border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-colors duration-300`}
+                    className={`p-4 rounded-lg bg-gradient-to-r ${link.color} border border-domain-violet/20 hover:border-domain-violet/40 transition-colors duration-300`}
                   >
                     <div className="flex items-center gap-2">
                       <span className="text-2xl">{link.icon}</span>
@@ -119,7 +119,7 @@ const Contact: React.FC = () => {
               <h3 className="text-2xl font-bold text-snow-white mb-4">Location</h3>
               <p className="text-ash-gray">
                 Montreal, QC, Canada<br />
-                <span className='block'>Email: <a href="mailto:mahimrk.a@gmail.com" className="text-zenitsu-lightning">mahimrk.a@gmail.com</a></span>
+                <span className='block'>Email: <a href="mailto:mahimrk.a@gmail.com" className="text-domain-violet">mahimrk.a@gmail.com</a></span>
               </p>
             </div>
           </motion.div>

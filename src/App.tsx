@@ -21,16 +21,13 @@ const Placeholder: React.FC<{ title: string }> = ({ title }) => (
   </div>
 );
 
-// Generate random particles for the anime energy effect
+// Generate random particles for the anime energy effect - Blue and Purple only
 const particles = Array.from({ length: 18 }).map((_, i) => {
   const colors = [
     'rgba(58,134,255,0.7)', // blue (cursed energy)
-    'rgba(255,78,0,0.7)',   // orange (flame)
     'rgba(127,0,255,0.7)',  // purple (domain)
-    'rgba(255,208,0,0.7)',  // gold (lightning)
-    'rgba(255,0,64,0.7)',   // red (blood)
   ];
-  const color = colors[i % colors.length];
+  const color = colors[i % 2];
   const size = Math.random() * 32 + 24;
   const left = Math.random() * 100;
   const top = Math.random() * 100;

@@ -135,7 +135,7 @@ const Portfolio: React.FC = () => {
                     <div className={`relative flex items-center justify-center w-12 h-12 rounded-lg transition-all duration-300 ${
                       isActive 
                         ? 'bg-deep-charcoal/20 shadow-lg' 
-                        : 'bg-zenitsu-lightning/10 group-hover:bg-zenitsu-lightning/20'
+                        : 'bg-domain-violet/10 group-hover:bg-domain-violet/20'
                     }`}>
                       <span className={`text-2xl transition-transform duration-300 ${
                         isActive ? 'scale-110' : 'group-hover:scale-105'
@@ -147,12 +147,12 @@ const Portfolio: React.FC = () => {
                     {/* Content */}
                     <div className="flex-1 text-left">
                       <h4 className={`text-lg md:text-xl font-bold transition-colors duration-300 ${
-                        isActive ? 'text-deep-charcoal' : 'text-snow-white group-hover:text-zenitsu-lightning'
+                        isActive ? 'text-snow-white' : 'text-snow-white group-hover:text-domain-violet'
                       }`}>
                         {section.title}
                       </h4>
                       <p className={`text-sm transition-colors duration-300 ${
-                        isActive ? 'text-deep-charcoal/80' : 'text-ash-gray group-hover:text-ash-gray/80'
+                        isActive ? 'text-snow-white/80' : 'text-ash-gray group-hover:text-ash-gray/80'
                       }`}>
                         {section.description}
                       </p>
@@ -163,7 +163,7 @@ const Portfolio: React.FC = () => {
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
-                        className="w-3 h-3 bg-deep-charcoal rounded-full shadow-lg"
+                        className="w-3 h-3 bg-snow-white rounded-full shadow-lg"
                       />
                     )}
                   </div>
@@ -171,7 +171,7 @@ const Portfolio: React.FC = () => {
                   {/* Route Indicator */}
                   {isCurrentRoute && !isActive && (
                     <div className="absolute top-2 right-2">
-                      <span className="px-2 py-1 text-xs bg-domain-violet text-snow-white rounded-full font-bold shadow-md">
+                      <span className="px-2 py-1 text-xs bg-cursed-blue text-snow-white rounded-full font-bold shadow-md">
                         Current
                       </span>
                     </div>
@@ -180,7 +180,7 @@ const Portfolio: React.FC = () => {
                   {/* Hover Effect */}
                   <div className={`absolute inset-0 rounded-xl transition-opacity duration-300 ${
                     isActive ? 'opacity-0' : 'opacity-0 group-hover:opacity-10'
-                  } bg-zenitsu-lightning`} />
+                  } bg-domain-violet`} />
                 </motion.div>
               );
             })}
