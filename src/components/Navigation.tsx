@@ -7,7 +7,7 @@ const navItems = [
   { name: 'Path', href: '#about' },
   { name: 'Missions', href: '#experience' },
   { name: 'Records', href: '#battle-records' },
-  { name: 'Training', href: '#training' },
+  { name: 'Education', href: '#education' },
   { name: 'Blog', href: '#blog' },
   { name: 'Summon', href: '#contact' },
 ];

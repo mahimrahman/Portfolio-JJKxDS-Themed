@@ -12,7 +12,7 @@ import GraphicDesignRecord from './components/records/GraphicDesignRecord';
 import PhotographyRecord from './components/records/PhotographyRecord';
 import UIUXRecord from './components/records/UIUXRecord';
 import Portfolio from './components/Portfolio';
-import Training from './components/Training';
+import Education from './components/Education';
 import AnimatedBlobBackground from './components/AnimatedBlobBackground';
 
 const Placeholder: React.FC<{ title: string }> = ({ title }) => (
@@ -105,8 +105,8 @@ const AppContent: React.FC = () => {
               <section id="portfolio" className="relative z-10">
                 <Portfolio />
               </section>
-              <section id="training" className="relative z-10">
-                <Training />
+              <section id="education" className="relative z-10">
+                <Education />
               </section>
               <section id="blog" className="relative z-10">
                 <Blog />
