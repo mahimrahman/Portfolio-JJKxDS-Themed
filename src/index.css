@@ -46,8 +46,7 @@
 
 /* Focus Outline */
 *:focus {
-  outline: 2px solid theme('colors.zenitsu-lightning');
-  outline-offset: 2px;
+  outline: none;
 }
 
 /* Smooth Scrolling */

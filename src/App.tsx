@@ -12,7 +12,7 @@ import GraphicDesignRecord from './components/records/GraphicDesignRecord';
 import PhotographyRecord from './components/records/PhotographyRecord';
 import UIUXRecord from './components/records/UIUXRecord';
 import Portfolio from './components/Portfolio';
-import Training from './components/Training';
+import Education from './components/Education';
 import AnimatedBlobBackground from './components/AnimatedBlobBackground';
 
 const Placeholder: React.FC<{ title: string }> = ({ title }) => (
@@ -21,16 +21,13 @@ const Placeholder: React.FC<{ title: string }> = ({ title }) => (
   </div>
 );
 
-// Generate random particles for the anime energy effect
+// Generate random particles for the anime energy effect - Blue and Purple only
 const particles = Array.from({ length: 18 }).map((_, i) => {
   const colors = [
     'rgba(58,134,255,0.7)', // blue (cursed energy)
-    'rgba(255,78,0,0.7)',   // orange (flame)
     'rgba(127,0,255,0.7)',  // purple (domain)
-    'rgba(255,208,0,0.7)',  // gold (lightning)
-    'rgba(255,0,64,0.7)',   // red (blood)
   ];
-  const color = colors[i % colors.length];
+  const color = colors[i % 2];
   const size = Math.random() * 32 + 24;
   const left = Math.random() * 100;
   const top = Math.random() * 100;
@@ -108,8 +105,8 @@ const AppContent: React.FC = () => {
               <section id="portfolio" className="relative z-10">
                 <Portfolio />
               </section>
-              <section id="training" className="relative z-10">
-                <Training />
+              <section id="education" className="relative z-10">
+                <Education />
               </section>
               <section id="blog" className="relative z-10">
                 <Blog />

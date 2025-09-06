@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, useAnimation, AnimationControls, useViewportScroll, useTransform } from 'framer-motion';
 
-// 3D-like radial gradients for blobs
+// 3D-like radial gradients for blobs - Blue and Purple only
 const gradients = [
   [
     { offset: '0%', color: '#3A86FF', opacity: 1 },
@@ -9,28 +9,28 @@ const gradients = [
     { offset: '100%', color: '#121212', opacity: 0.0 },
   ],
   [
-    { offset: '0%', color: '#FF4E00', opacity: 1 },
-    { offset: '60%', color: '#FFD000', opacity: 0.85 },
-    { offset: '100%', color: '#121212', opacity: 0.0 },
-  ],
-  [
     { offset: '0%', color: '#7F00FF', opacity: 1 },
-    { offset: '60%', color: '#FF4E00', opacity: 0.85 },
+    { offset: '60%', color: '#3A86FF', opacity: 0.85 },
     { offset: '100%', color: '#121212', opacity: 0.0 },
   ],
   [
     { offset: '0%', color: '#3A86FF', opacity: 1 },
-    { offset: '60%', color: '#FFD000', opacity: 0.85 },
+    { offset: '60%', color: '#7F00FF', opacity: 0.85 },
+    { offset: '100%', color: '#121212', opacity: 0.0 },
+  ],
+  [
+    { offset: '0%', color: '#7F00FF', opacity: 1 },
+    { offset: '60%', color: '#3A86FF', opacity: 0.85 },
     { offset: '100%', color: '#121212', opacity: 0.0 },
   ],
 ];
 
 const baseGradients = [
-  // These are the base gradients for different scroll positions
-  'radial-gradient(ellipse at 60% 20%, #3A86FF33 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, #FF4E0033 0%, transparent 70%), linear-gradient(120deg, #1A1A2E 60%, #3A86FF 100%)',
-  'radial-gradient(ellipse at 60% 20%, #FFD00033 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, #7F00FF33 0%, transparent 70%), linear-gradient(120deg, #1A1A2E 60%, #FFD000 100%)',
-  'radial-gradient(ellipse at 60% 20%, #FF4E0033 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, #3A86FF33 0%, transparent 70%), linear-gradient(120deg, #1A1A2E 60%, #FF4E00 100%)',
-  'radial-gradient(ellipse at 60% 20%, #7F00FF33 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, #FFD00033 0%, transparent 70%), linear-gradient(120deg, #1A1A2E 60%, #7F00FF 100%)',
+  // These are the base gradients for different scroll positions - Blue and Purple only
+  'radial-gradient(ellipse at 60% 20%, #3A86FF33 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, #7F00FF33 0%, transparent 70%), linear-gradient(120deg, #1A1A2E 60%, #3A86FF 100%)',
+  'radial-gradient(ellipse at 60% 20%, #7F00FF33 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, #3A86FF33 0%, transparent 70%), linear-gradient(120deg, #1A1A2E 60%, #7F00FF 100%)',
+  'radial-gradient(ellipse at 60% 20%, #3A86FF33 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, #7F00FF33 0%, transparent 70%), linear-gradient(120deg, #1A1A2E 60%, #3A86FF 100%)',
+  'radial-gradient(ellipse at 60% 20%, #7F00FF33 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, #3A86FF33 0%, transparent 70%), linear-gradient(120deg, #1A1A2E 60%, #7F00FF 100%)',
 ];
 
 // Blob shapes (SVG paths)
