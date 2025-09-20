@@ -29,6 +29,13 @@ The portfolio demonstrates advanced frontend development skills including:
 **Developer**: Mahimur Rahman Khan  
 **Role**: Software Engineering Graduate | Web Developer & Designer | UI/UX Designer
 
+### 🆕 Recent Updates
+- **Education Section**: Enhanced with animated mastery seals and interactive cards
+- **Portfolio Records**: Detailed project showcases with statistics and highlights
+- **Education UI**: Separate Vite-based project for enhanced education experience
+- **TypeScript**: Full type safety with custom interfaces and type definitions
+- **Performance**: Optimized animations and improved mobile responsiveness
+
 ## ✨ Key Features
 
 ### 🎨 Visual & Animation
@@ -69,7 +76,7 @@ The portfolio demonstrates advanced frontend development skills including:
 
 ### Additional Libraries
 - **Icons**: Heroicons 2.1.1 for consistent and scalable iconography
-- **Fonts**: Mochiy Pop One (Japanese-style font) for authentic anime aesthetics
+- **Fonts**: @fontsource/mochiy-pop-one 5.2.5 (Japanese-style font) for authentic anime aesthetics
 - **Carousel**: Swiper 11.2.6 with EffectCoverflow, Pagination, Navigation, and Mousewheel modules
 - **Build Tool**: Create React App 5.0.1 with optimized build configuration
 
@@ -78,6 +85,27 @@ The portfolio demonstrates advanced frontend development skills including:
 - **CSS Processing**: PostCSS 8.4.31 with Autoprefixer 10.4.16 for cross-browser compatibility
 - **Linting**: ESLint with React App configuration and TypeScript support
 - **Type Checking**: TypeScript compiler with strict mode enabled
+
+## 🎓 Education UI Project
+
+This repository includes a separate **Education UI** project built with Vite, React 19, and TypeScript. This standalone application focuses specifically on the education section with enhanced animations and interactive elements.
+
+### Education UI Features
+- **Modern Vite Setup**: Fast development with hot module replacement
+- **React 19**: Latest React features and performance improvements
+- **TypeScript**: Full type safety and enhanced developer experience
+- **Animated Cards**: Interactive education cards with smooth transitions
+- **Mastery Seals**: Custom SVG animations inspired by anime breathing techniques
+- **Responsive Design**: Optimized for all screen sizes and devices
+
+### Running the Education UI
+```bash
+cd "education UI"
+npm install
+npm run dev
+```
+
+The education UI will be available at `http://localhost:5173`
 
 ## 🚀 Getting Started
 
@@ -162,16 +190,28 @@ Portfolio-JJKxDS-Themed/
 │   │   ├── 📝 Blogs.tsx         # Blog listing component
 │   │   ├── 📄 BlogPost.tsx      # Individual blog post component
 │   │   ├── 📧 Contact.tsx       # Contact form component
+│   │   ├── 🎓 Education.tsx     # Education section component
 │   │   ├── ⏰ Experience.tsx    # Experience timeline component
 │   │   ├── 🏮 FloatingSeals.tsx # Floating seal animations
 │   │   ├── 🎬 Hero.tsx          # Hero section with video background
 │   │   ├── 🧭 Navigation.tsx    # Navigation and mobile menu
 │   │   ├── 💼 Portfolio.tsx     # Portfolio showcase component
-│   │   └── 🎓 Training.tsx      # Training/education component
+│   │   └── 📜 ScrollCard.tsx    # Reusable scroll card component
+│   ├── 📁 constants/            # Application constants and data
+│   │   └── education.tsx        # Education data and components
+│   ├── 📁 types/                # TypeScript type definitions
+│   │   └── education.ts         # Education-related types
 │   ├── 🚀 App.tsx               # Main application component with routing
 │   ├── 📍 index.tsx             # Application entry point
 │   ├── 🎨 index.css             # Global styles and Tailwind imports
 │   └── 🖼️ japanese.jpg          # Japanese-themed background image
+├── 📁 education UI/             # Separate Vite-based education UI project
+│   ├── 📁 components/           # Education-specific components
+│   ├── 📄 App.tsx               # Education UI main component
+│   ├── 📄 package.json          # Vite project dependencies
+│   └── 📄 vite.config.ts        # Vite configuration
+├── 📁 build/                    # Production build output
+├── 📁 dist/                     # Distribution build output
 ├── 📄 package.json              # Dependencies, scripts, and project metadata
 ├── 🎨 tailwind.config.js        # Tailwind CSS configuration with custom theme
 ├── 🔧 tsconfig.json             # TypeScript configuration
@@ -186,6 +226,7 @@ Portfolio-JJKxDS-Themed/
 - **Navigation**: Sticky navigation with mobile-responsive menu and smooth animations
 - **Portfolio**: Interactive showcase of development, design, photography, and UI/UX work
 - **Experience**: Interactive timeline of professional experience with smooth scrolling
+- **Education**: Comprehensive education section with animated cards and mastery seals
 - **Blog**: Content management system for articles and posts with rich text support
 - **Contact**: Professional contact form with validation and user feedback
 
@@ -194,6 +235,9 @@ Portfolio-JJKxDS-Themed/
 - **Animated Backgrounds**: Multiple layered animation systems with performance optimization
 - **Responsive Videos**: Optimized video backgrounds for different screen sizes and bandwidth conditions
 - **Interactive Elements**: Hover effects, scale animations, and smooth transitions throughout
+- **Education Cards**: Animated mastery seals and interactive education timeline
+- **Portfolio Records**: Detailed project showcases with statistics and highlights
+- **Mobile Navigation**: Custom mobile menu overlay with smooth animations
 
 ## 🔧 Development
 
@@ -285,10 +329,11 @@ Then update scripts in package.json:
 - **Semantic Colors**: Success (#00A676), Warning (#FFD000), Error (#FF4E00)
 
 ### Typography
-- **Japanese Style**: Mochiy Pop One for headings and display text
-- **Modern Web**: Noto Sans JP for body text and UI elements
+- **Japanese Style**: Mochiy Pop One (via @fontsource) for headings and display text
+- **Modern Web**: System fonts for body text and UI elements
 - **Fallbacks**: System fonts for optimal performance and consistency
 - **Font Weights**: Light (300), Regular (400), Medium (500), Bold (700)
+- **Font Loading**: Optimized with @fontsource for better performance
 
 ### Animations
 - **Performance**: Optimized animations using Framer Motion with 60fps target
@@ -318,12 +363,17 @@ Then update scripts in package.json:
 
 ## 🌐 Live Demo & Social Links
 
-- **Portfolio**: [Live Demo](https://your-portfolio-url.com)
+- **Portfolio**: [Live Demo](https://your-portfolio-url.com) *(Update with actual deployment URL)*
 - **LinkedIn**: [Mahimur Rahman Khan](https://www.linkedin.com/in/mahimur-rahman-khan-50a553183/)
 - **GitHub**: [@mahimrk](https://github.com/mahimrk)
 - **Behance**: [@mahimrk](https://www.behance.net/mahimrk)
 - **Instagram**: [@mahimrk.agm](https://instagram.com/mahimrk.agm)
 - **Email**: mahimrk.a@gmail.com
+
+### Repository Information
+- **Main Repository**: [Portfolio-JJKxDS-Themed](https://github.com/mahimrk/Portfolio-JJKxDS-Themed)
+- **Education UI**: Separate Vite-based project for enhanced education section
+- **License**: MIT License - See [LICENSE](LICENSE) file for details
 
 ## 🚀 Deployment
 
@@ -436,8 +486,27 @@ import 'swiper/css/navigation'
 
 ### API Reference
 - **Framer Motion**: Animation API and custom hooks
-- **React Router**: Routing configuration and navigation
+- **React Router**: Routing configuration and navigation with nested routes
 - **Tailwind CSS**: Custom theme and utility classes
+
+### Routing Structure
+The application uses React Router with the following route structure:
+- **Home (`/`)**: Main portfolio page with all sections
+  - `#home` - Hero section
+  - `#about` - About section
+  - `#experience` - Experience timeline
+  - `#portfolio` - Portfolio showcase
+  - `#education` - Education section
+  - `#blog` - Blog listing
+  - `#contact` - Contact form
+- **Portfolio Records**:
+  - `/records/development` - Development portfolio
+  - `/records/graphic-design` - Graphic design showcase
+  - `/records/photography` - Photography gallery
+  - `/records/uiux` - UI/UX design portfolio
+- **Blog Routes**:
+  - `/blog` - Blog listing page
+  - `/blog/:slug` - Individual blog post
 
 ### Best Practices
 - **Performance**: Animation optimization and bundle size management

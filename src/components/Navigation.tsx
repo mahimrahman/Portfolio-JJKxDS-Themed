@@ -8,6 +8,7 @@ const navItems = [
   { name: 'Missions', href: '#experience' },
   { name: 'Records', href: '#battle-records' },
   { name: 'Education', href: '#education' },
+  { name: 'Skills', href: '#skills' },
   { name: 'Blog', href: '#blog' },
   { name: 'Summon', href: '#contact' },
 ];
