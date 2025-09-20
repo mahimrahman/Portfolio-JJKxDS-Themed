@@ -46,7 +46,7 @@ const skills = [
 
 const cardVariants = {
   hidden: (i: number) => ({ opacity: 0, y: 40, scale: 0.95 }),
-  visible: (i: number) => ({ opacity: 1, y: 0, scale: 1, transition: { delay: i * 0.2, duration: 0.8, type: 'spring' } }),
+  visible: (i: number) => ({ opacity: 1, y: 0, scale: 1, transition: { delay: i * 0.2, duration: 0.8, type: 'spring' as const } }),
   hover: { scale: 1.03, boxShadow: '0 8px 32px 0 rgba(255,208,0,0.15)' },
 };
 

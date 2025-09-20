@@ -387,7 +387,7 @@ const Experience: React.FC = () => {
         {/* Title and Subtitles - Mobile-optimized typography */}
         <div className="text-center mb-4 sm:mb-6 lg:mb-8">
           <h1 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-domain-violet to-purple-600 pb-2 sm:pb-3 lg:pb-4 leading-tight px-2 animate-fade-in"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-rengoku-flame to-domain-violet pb-2 sm:pb-3 lg:pb-4 leading-tight px-2 animate-fade-in"
           >
             Constellation of Experience
           </h1>
