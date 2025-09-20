@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, MapPin, Send, Github, Linkedin, Instagram, Palette, MessageSquare } from 'lucide-react';
+import { Mail, MapPin, Send, Linkedin, Instagram, MessageSquare } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -9,30 +9,9 @@ const Contact: React.FC = () => {
 
   const socialLinks = [
     {
-      name: 'GitHub',
-      icon: <Github size={24} />,
-      url: 'https://github.com/mahimrahman',
-      color: 'from-ghost-black to-domain-violet',
-      hoverColor: 'from-domain-violet/20 to-ghost-black/20',
-    },
-    {
       name: 'LinkedIn',
       icon: <Linkedin size={24} />,
       url: 'https://www.linkedin.com/in/mahimurrahman-khan',
-      color: 'from-cursed-blue to-domain-violet',
-      hoverColor: 'from-cursed-blue/20 to-domain-violet/20',
-    },
-    {
-      name: 'Behance',
-      icon: <Palette size={24} />,
-      url: 'https://www.behance.net/mahimrahman',
-      color: 'from-domain-violet to-cursed-blue',
-      hoverColor: 'from-domain-violet/20 to-cursed-blue/20',
-    },
-    {
-      name: 'Instagram',
-      icon: <Instagram size={24} />,
-      url: 'https://www.instagram.com/snazzy_memories/',
       color: 'from-cursed-blue to-domain-violet',
       hoverColor: 'from-cursed-blue/20 to-domain-violet/20',
     },
@@ -42,6 +21,13 @@ const Contact: React.FC = () => {
       url: 'https://discord.com/users/1196964174530629725',
       color: 'from-domain-violet to-cursed-blue',
       hoverColor: 'from-domain-violet/20 to-cursed-blue/20',
+    },
+    {
+      name: 'Instagram',
+      icon: <Instagram size={24} />,
+      url: 'https://www.instagram.com/snazzy_memories/',
+      color: 'from-cursed-blue to-domain-violet',
+      hoverColor: 'from-cursed-blue/20 to-domain-violet/20',
     },
   ];
 
@@ -267,14 +253,8 @@ const Contact: React.FC = () => {
             <div className="bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 p-8 shadow-2xl">
               <h3 className="text-xl font-bold text-snow-white mb-6">Connect on Social</h3>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {[
-                  { 
-                    icon: <Github size={24} />, 
-                    name: "GitHub",
-                    url: "https://github.com/mahimrahman",
-                    gradient: "from-ghost-black to-domain-violet"
-                  },
                   { 
                     icon: <Linkedin size={24} />, 
                     name: "LinkedIn",
@@ -282,9 +262,9 @@ const Contact: React.FC = () => {
                     gradient: "from-cursed-blue to-domain-violet"
                   },
                   { 
-                    icon: <Palette size={24} />, 
-                    name: "Behance",
-                    url: "https://www.behance.net/mahimrahman",
+                    icon: <MessageSquare size={24} />, 
+                    name: "Discord",
+                    url: "https://discord.com/users/1196964174530629725",
                     gradient: "from-domain-violet to-cursed-blue"
                   },
                   { 
@@ -292,12 +272,6 @@ const Contact: React.FC = () => {
                     name: "Instagram",
                     url: "https://www.instagram.com/snazzy_memories/",
                     gradient: "from-rengoku-flame to-cursed-blue"
-                  },
-                  { 
-                    icon: <MessageSquare size={24} />, 
-                    name: "Discord",
-                    url: "https://discord.com/users/1196964174530629725",
-                    gradient: "from-domain-violet to-cursed-blue"
                   }
                 ].map((social, index) => (
                   <motion.a
