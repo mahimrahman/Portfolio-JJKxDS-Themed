@@ -143,20 +143,29 @@ const blogPosts = [
     readTime: '9 min read',
     image: 'https://placehold.co/600x400/121212/FFD93D',
   },
+  {
+    id: 'the-path-to-mastery',
+    title: 'The Path to Mastery',
+    excerpt: 'Understanding the journey from novice to expert in software development.',
+    category: 'Journey',
+    date: 'February 15, 2024',
+    readTime: '6 min read',
+    image: 'https://placehold.co/600x400/121212/8B5CF6',
+  },
 ];
 
 const categories = ['All', ...Array.from(new Set(blogPosts.map(p => p.category)))];
 
 const BlogPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [showRows, setShowRows] = useState(1);
+  const [showRows, setShowRows] = useState(1); // Start with 1 full row
   const [columns, setColumns] = useState(1);
   const navigate = useNavigate();
 
   // Responsive columns calculation
   useEffect(() => {
     const calcCols = () => {
-      if (window.innerWidth >= 1024) setColumns(3);
+      if (window.innerWidth >= 1024) setColumns(4);
       else if (window.innerWidth >= 640) setColumns(2);
       else setColumns(1);
     };
@@ -167,7 +176,7 @@ const BlogPage: React.FC = () => {
 
   // Determine how many posts to show per 'Show More' click
   const isMobile = columns === 1;
-  const postsPerShow = isMobile ? 3 : columns;
+  const postsPerShow = isMobile ? 4 : columns; // Show complete rows
   const showCount = postsPerShow * showRows;
   const filtered = blogPosts.filter(
     (post) => activeCategory === 'All' || post.category === activeCategory
@@ -181,79 +190,75 @@ const BlogPage: React.FC = () => {
 
   return (
     <section id="blog" className="min-h-[80vh] py-12 px-4 relative overflow-hidden">
-      <div className="max-w-4xl mx-auto text-center mb-16 flex flex-col items-center gap-6">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-domain-violet/2 via-deep-charcoal to-deep-charcoal pointer-events-none" />
+      <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
             Blog of the Slayer
           </h2>
-          <p className="text-lg md:text-xl text-ash-gray mb-4">Insights, stories, and lessons from my journey</p>
+          <span className="block w-24 h-1 mx-auto mb-8 bg-zenitsu-lightning rounded-full animate-pulse" />
+          <p className="text-lg md:text-xl text-ash-gray">Insights, stories, and lessons from my journey</p>
         </motion.div>
-        {/* Hero Illustration (placeholder) */}
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-checkered-green to-ghost-black flex items-center justify-center shadow-2xl border-4 border-domain-violet mb-2"
-        >
-          <span className="text-6xl md:text-7xl">⚔️</span>
-        </motion.div>
-      </div>
-      {/* Category Filter */}
-      <div className="flex flex-wrap gap-3 justify-center mb-10">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => { setActiveCategory(cat); setShowRows(1); }}
-            className={`px-5 py-2 rounded-full font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60 text-base
-              ${activeCategory === cat
-                ? 'bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white shadow-lg'
-                : 'bg-ghost-black/60 text-zenitsu-lightning hover:bg-zenitsu-lightning/10'}`}
-            tabIndex={0}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-      {/* Blog Post Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Category Filter */}
+        <div className="flex flex-wrap gap-3 justify-center mb-10">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => { setActiveCategory(cat); setShowRows(1); }}
+              className={`px-5 py-2 rounded-full font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60 text-base
+                ${activeCategory === cat
+                  ? 'bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white shadow-lg'
+                  : 'bg-ghost-black/60 text-zenitsu-lightning hover:bg-zenitsu-lightning/10'}`}
+              tabIndex={0}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+        {/* Blog Post Grid - 4 columns for landscape cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <AnimatePresence>
           {shown.map((post, idx) => (
             <motion.div
               key={post.id}
-              className="bg-gradient-to-br from-checkered-green to-ghost-black rounded-2xl shadow-xl overflow-hidden hover:scale-[1.03] transition-transform duration-200"
+              className="bg-gradient-to-br from-ghost-black/80 to-deep-charcoal/80 backdrop-blur-sm rounded-xl overflow-hidden border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-all duration-300 hover:shadow-lg hover:shadow-zenitsu-lightning/20"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.04 }}
+              whileHover={{ scale: 1.02 }}
             >
-              <div className="aspect-video relative overflow-hidden">
+              <div className="aspect-[4/3] relative overflow-hidden">
                 <img
                   src={post.image}
                   alt={post.title}
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-deep-charcoal/60 to-transparent" />
               </div>
-              <div className="p-6 flex flex-col gap-4">
+              <div className="p-4 flex flex-col gap-3">
                 <div className="flex flex-col gap-2">
-                  <span className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-zenitsu-lightning to-checkered-green text-deep-charcoal text-xs font-bold w-fit">
+                  <span className="inline-block px-2 py-1 rounded-full bg-gradient-to-r from-zenitsu-lightning to-checkered-green text-deep-charcoal text-xs font-bold w-fit">
                     {post.category}
                   </span>
-                  <h3 className="text-xl font-bold text-snow-white">{post.title}</h3>
-                  <div className="flex items-center gap-2 text-ash-gray text-sm">
+                  <h3 className="text-sm font-bold text-snow-white leading-tight">{post.title}</h3>
+                  <div className="flex items-center gap-1 text-ash-gray text-xs">
                     <span>{post.date}</span>
                     <span>•</span>
                     <span>{post.readTime}</span>
                   </div>
-                  <p className="text-ash-gray">{post.excerpt}</p>
+                  <p className="text-ash-gray text-xs leading-relaxed line-clamp-2">{post.excerpt}</p>
                 </div>
                 <button
                   onClick={() => navigate(`/blog/${post.id}`)}
-                  className="mt-auto px-6 py-2 rounded-3xl bg-gradient-to-r from-checkered-green to-zenitsu-lightning text-deep-charcoal font-bold shadow hover:opacity-90 transition-all duration-200"
+                  className="mt-auto px-3 py-1 rounded-full bg-gradient-to-r from-checkered-green to-zenitsu-lightning text-deep-charcoal font-bold text-xs shadow hover:opacity-90 transition-all duration-200"
                 >
                   Read more
                 </button>
@@ -261,9 +266,9 @@ const BlogPage: React.FC = () => {
             </motion.div>
           ))}
         </AnimatePresence>
-      </div>
-      {/* Show More / Show Less Buttons */}
-      <div className="flex justify-center mt-8 gap-4">
+        </div>
+        {/* Show More / Show Less Buttons */}
+        <div className="flex justify-center mt-8 gap-4">
         {showCount < filtered.length && (
           <button
             onClick={() => setShowRows(r => r + 1)}
@@ -280,6 +285,7 @@ const BlogPage: React.FC = () => {
             Show Less
           </button>
         )}
+        </div>
       </div>
     </section>
   );

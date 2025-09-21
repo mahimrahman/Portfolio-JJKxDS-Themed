@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { motion, useAnimation, AnimationControls, useViewportScroll, useTransform } from 'framer-motion';
+import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
 
 // 3D-like radial gradients for blobs - Blue and Purple only
 const gradients = [
@@ -58,11 +58,11 @@ const AnimatedBlobBackground: React.FC = () => {
   const controlsArray = [controls0, controls1, controls2, controls3, controls4, controls5];
 
   // Scroll-based gradient
-  const { scrollYProgress } = useViewportScroll();
+  const { scrollYProgress } = useScroll();
   const gradientIndex = useTransform(scrollYProgress, [0, 0.33, 0.66, 1], [0, 1, 2, 3]);
   const [currentGradient, setCurrentGradient] = useState(baseGradients[0]);
   useEffect(() => {
-    const unsubscribe = gradientIndex.onChange((v) => {
+    const unsubscribe = gradientIndex.on("change", (v) => {
       const idx = Math.round(v);
       setCurrentGradient(baseGradients[idx]);
     });
@@ -90,13 +90,13 @@ const AnimatedBlobBackground: React.FC = () => {
         while (mounted) {
           await controls.start({
             d: blobPaths[(i + 1) % blobPaths.length],
-            transition: { duration: 12 + i * 2, yoyo: Infinity, ease: 'easeInOut' },
+            transition: { duration: 12 + i * 2, repeat: Infinity, repeatType: "reverse", ease: 'easeInOut' },
             rotate: [0, 360],
             scale: [1, 1.15, 1],
           });
           await controls.start({
             d: blobPaths[i % blobPaths.length],
-            transition: { duration: 12 + i * 2, yoyo: Infinity, ease: 'easeInOut' },
+            transition: { duration: 12 + i * 2, repeat: Infinity, repeatType: "reverse", ease: 'easeInOut' },
             rotate: [360, 0],
             scale: [1.15, 1, 1.15],
           });
