@@ -7,6 +7,7 @@ import Experience from './components/Experience';
 import Blog from './components/Blogs';
 import BlogPost from './components/BlogPost';
 import Contact from './components/Contact';
+import Development from './components/Development';
 import DevelopmentRecord from './components/records/DevelopmentRecord';
 import GraphicDesignRecord from './components/records/GraphicDesignRecord';
 import PhotographyRecord from './components/records/PhotographyRecord';
@@ -54,30 +55,91 @@ const AppContent: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const pendingHash = React.useRef<string | null>(null);
+  const scrollTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
-  // Scroll to section after navigation if needed
+  // Enhanced scroll management with browser history integration
   React.useEffect(() => {
-    if (pendingHash.current) {
-      const id = pendingHash.current.replace('#', '');
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-        pendingHash.current = null;
-      }
+    // Clear any pending scroll timeout
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
     }
+
+    const handlePageNavigation = () => {
+      if (location.pathname === '/') {
+        // Handle homepage navigation
+        if (pendingHash.current) {
+          // Navigate to pending section
+          const id = pendingHash.current.replace('#', '');
+          const el = document.getElementById(id);
+          if (el) {
+            scrollTimeoutRef.current = setTimeout(() => {
+              el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+          }
+          pendingHash.current = null;
+        } else if (location.hash) {
+          // Navigate to URL hash section
+          const id = location.hash.replace('#', '');
+          const el = document.getElementById(id);
+          if (el) {
+            scrollTimeoutRef.current = setTimeout(() => {
+              el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+          }
+        } else {
+          // Default to top of homepage if no hash
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      } else {
+        // For all other pages, scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+
+    handlePageNavigation();
+
+    return () => {
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, [location.pathname, location.hash]);
+
+  // Handle browser back/forward button
+  React.useEffect(() => {
+    const handlePopState = (event: PopStateEvent) => {
+      // Let React Router handle the navigation, but ensure proper scrolling
+      if (location.pathname === '/' && location.hash) {
+        const id = location.hash.replace('#', '');
+        const el = document.getElementById(id);
+        if (el) {
+          setTimeout(() => {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        }
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
   }, [location]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
     if (href.startsWith('#')) {
       e.preventDefault();
+      const sectionId = href.replace('#', '');
+      
       if (location.pathname !== '/') {
+        // Store the target section and navigate to home with proper history
         pendingHash.current = href;
-        navigate('/');
+        navigate('/', { replace: false });
       } else {
-        const id = href.replace('#', '');
-        const el = document.getElementById(id);
+        // Already on home page, scroll to section and update URL
+        const el = document.getElementById(sectionId);
         if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Update URL with hash using navigate to create proper history entry
+          navigate(href, { replace: false });
         }
       }
     }
@@ -88,7 +150,7 @@ const AppContent: React.FC = () => {
     <div className="relative min-h-screen">
       <AnimatedBlobBackground />
       <div className="anime-particles relative z-0">{particles}</div>
-      <Navigation mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
+      <Navigation mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} handleNavClick={handleNavClick} />
       <MobileMenuOverlay mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} handleNavClick={handleNavClick} location={location} />
       <main className="relative z-10">
         <Routes>
@@ -120,11 +182,11 @@ const AppContent: React.FC = () => {
               </section>
             </>
           } />
-          <Route path="/records/development" element={<DevelopmentRecord />} />
+          <Route path="/records/development" element={<Development />} />
           <Route path="/records/graphic-design" element={<GraphicDesignRecord />} />
           <Route path="/records/photography" element={<PhotographyRecord />} />
           <Route path="/records/uiux" element={<UIUXRecord />} />
-          <Route path="/development" element={<Placeholder title="Development: Code Sorcery" />} />
+          <Route path="/development" element={<Development />} />
           <Route path="/uiux" element={<Placeholder title="UI/UX: User Alchemy" />} />
           <Route path="/photography" element={<Placeholder title="Photography: Lens Chronicles" />} />
           <Route path="/design" element={<Placeholder title="Graphic Design: Visual Symmetry" />} />
@@ -137,6 +199,13 @@ const AppContent: React.FC = () => {
 };
 
 const App: React.FC = () => {
+  // Disable browser's automatic scroll restoration to handle it manually
+  React.useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
+
   return (
     <Router>
       <AppContent />

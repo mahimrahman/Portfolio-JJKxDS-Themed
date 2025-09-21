@@ -2,6 +2,8 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+import { Link, useNavigate, useLocation, useSearchParams } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
@@ -373,6 +375,32 @@ const ProjectDetail: React.FC<{ project: Project; onClose: () => void }> = ({ pr
       exit={{ opacity: 0 }}
     >
       <AnimatedBackground />
+      
+      {/* Back Button */}
+      <motion.div
+        className="fixed top-6 left-6 z-50"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.button
+          onClick={() => {
+            // Use browser's native back for better history integration
+            if (window.history.length > 1) {
+              window.history.back();
+            } else {
+              onClose();
+            }
+          }}
+          className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 rounded-xl text-zenitsu-lightning hover:text-snow-white transition-all duration-300 font-medium shadow-lg"
+          whileHover={{ scale: 1.05, x: -2 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <ArrowLeft size={18} />
+          <span>Back to Projects</span>
+        </motion.button>
+      </motion.div>
+
       {/* Parallax Hero Section */}
       <ParallaxSection speed={0.5} className="relative pt-28 pb-10 flex flex-col items-center text-center min-h-[40vh] md:min-h-[30vh]">
         <motion.h1 className="text-4xl md:text-6xl font-mochiy bg-gradient-to-r from-zenitsu-lightning to-rengoku-flame bg-clip-text text-transparent mb-2 drop-shadow-lg" initial={{ y: -40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7 }}>
@@ -462,14 +490,79 @@ const ProjectDetail: React.FC<{ project: Project; onClose: () => void }> = ({ pr
 
 const UIUXRecord: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const location = useLocation();
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -300]);
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+
+  // Handle project selection from URL parameters
+  useEffect(() => {
+    const projectId = searchParams.get('project');
+    if (projectId) {
+      const project = projects.find(p => p.id === projectId);
+      if (project) {
+        setSelectedProject(project);
+      } else {
+        // Invalid project ID, remove from URL
+        setSearchParams({});
+      }
+    } else {
+      setSelectedProject(null);
+    }
+  }, [searchParams, setSearchParams]);
+
+  // Handle browser back/forward for project modal
+  useEffect(() => {
+    const handlePopState = () => {
+      // This will be handled by the useEffect above when searchParams changes
+    };
+    
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const handleProjectOpen = (project: Project) => {
+    setSearchParams({ project: project.id });
+  };
+
+  const handleProjectClose = () => {
+    setSearchParams({});
+  };
 
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Content */}
       <div className="relative z-10">
+        {/* Back to Portfolio Button */}
+        <motion.div
+          className="absolute top-6 left-6 z-40"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Link
+            to="/#portfolio"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 rounded-xl text-zenitsu-lightning hover:text-snow-white transition-all duration-300 font-medium shadow-lg group"
+            onClick={(e) => {
+              // Use browser's native back if coming from portfolio
+              if (window.history.length > 1 && document.referrer.includes('#portfolio')) {
+                e.preventDefault();
+                window.history.back();
+              }
+            }}
+          >
+            <motion.div
+              whileHover={{ x: -2 }}
+              transition={{ type: "spring", stiffness: 400 }}
+            >
+              <ArrowLeft size={18} />
+            </motion.div>
+            <span className="group-hover:underline">Back to Portfolio</span>
+          </Link>
+        </motion.div>
+
         <motion.div
           className="py-20 text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -490,7 +583,7 @@ const UIUXRecord: React.FC = () => {
               <ProjectCard
                 key={project.id}
                 project={project}
-                onClick={() => setSelectedProject(project)}
+                onClick={() => handleProjectOpen(project)}
               />
             ))}
           </div>
@@ -500,7 +593,7 @@ const UIUXRecord: React.FC = () => {
           {selectedProject && (
             <ProjectDetail
               project={selectedProject}
-              onClose={() => setSelectedProject(null)}
+              onClose={handleProjectClose}
             />
           )}
         </AnimatePresence>
