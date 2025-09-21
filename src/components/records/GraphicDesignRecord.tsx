@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 
 const projects = [
   {
@@ -84,6 +86,27 @@ const GraphicDesignRecord: React.FC = () => {
 
   return (
     <section className="min-h-screen py-20 px-4 relative overflow-hidden">
+      {/* Back to Portfolio Button */}
+      <motion.div
+        className="absolute top-6 left-6 z-40"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Link
+          to="/#portfolio"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 rounded-xl text-zenitsu-lightning hover:text-snow-white transition-all duration-300 font-medium shadow-lg group"
+        >
+          <motion.div
+            whileHover={{ x: -2 }}
+            transition={{ type: "spring", stiffness: 400 }}
+          >
+            <ArrowLeft size={18} />
+          </motion.div>
+          <span className="group-hover:underline">Back to Portfolio</span>
+        </Link>
+      </motion.div>
+
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent drop-shadow-lg tracking-wider anime-heading">
           Graphic Design

@@ -6,7 +6,7 @@ const navItems = [
   { name: 'Domain', href: '#home' },
   { name: 'Path', href: '#about' },
   { name: 'Missions', href: '#experience' },
-  { name: 'Records', href: '#battle-records' },
+  { name: 'Records', href: '#portfolio' },
   { name: 'Education', href: '#education' },
   { name: 'Skills', href: '#skills' },
   { name: 'Blog', href: '#blog' },
@@ -16,6 +16,7 @@ const navItems = [
 export interface NavigationProps {
   mobileOpen: boolean;
   setMobileOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  handleNavClick: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => void;
 }
 
 export interface MobileMenuOverlayProps {
@@ -25,11 +26,10 @@ export interface MobileMenuOverlayProps {
   location: ReturnType<typeof useLocation>;
 }
 
-const Navigation: React.FC<NavigationProps> = ({ mobileOpen, setMobileOpen }) => {
+const Navigation: React.FC<NavigationProps> = ({ mobileOpen, setMobileOpen, handleNavClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const pendingHash = useRef<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,19 +42,7 @@ const Navigation: React.FC<NavigationProps> = ({ mobileOpen, setMobileOpen }) =>
   // Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false);
-  }, [location]);
-
-  // Scroll to section after navigation if needed
-  useEffect(() => {
-    if (pendingHash.current) {
-      const id = pendingHash.current.replace('#', '');
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-        pendingHash.current = null;
-      }
-    }
-  }, [location]);
+  }, [location, setMobileOpen]);
 
   useEffect(() => {
     if (mobileOpen) {
@@ -64,23 +52,6 @@ const Navigation: React.FC<NavigationProps> = ({ mobileOpen, setMobileOpen }) =>
     }
     return () => document.body.classList.remove('overflow-hidden');
   }, [mobileOpen]);
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
-    if (href.startsWith('#')) {
-      e.preventDefault();
-      if (location.pathname !== '/') {
-        pendingHash.current = href;
-        navigate('/');
-      } else {
-        const id = href.replace('#', '');
-        const el = document.getElementById(id);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    }
-    setMobileOpen(false);
-  };
 
   // Animate hamburger/X icon state
   const hamburgerVariants = {
