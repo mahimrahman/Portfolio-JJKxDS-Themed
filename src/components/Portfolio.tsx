@@ -397,22 +397,63 @@ const Portfolio: React.FC = () => {
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.8 }}
                     >
-                      <Link 
-                        to={selectedTab.link}
-                        className={`inline-flex items-center px-8 py-4 bg-gradient-to-r ${selectedTab.selectedColor} text-deep-charcoal font-bold rounded-2xl shadow-xl backdrop-blur-sm border border-white/20`}
-                      >
-                        <span>Explore {selectedTab.title}</span>
-                        <motion.svg 
-                          className="ml-3 w-5 h-5" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                          whileHover={{ x: 3 }}
-                          transition={{ type: "spring", stiffness: 400 }}
+                      {/* Conditional rendering for external links */}
+                      {selectedTab.title === 'Graphic Design' ? (
+                        <a 
+                          href="https://www.behance.net/mahimrahman"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`inline-flex items-center px-8 py-4 bg-gradient-to-r ${selectedTab.selectedColor} text-deep-charcoal font-bold rounded-2xl shadow-xl backdrop-blur-sm border border-white/20 hover:shadow-2xl transition-all duration-300`}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                        </motion.svg>
-                      </Link>
+                          <span>Explore {selectedTab.title}</span>
+                          <motion.svg 
+                            className="ml-3 w-5 h-5" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                            whileHover={{ x: 3 }}
+                            transition={{ type: "spring", stiffness: 400 }}
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </motion.svg>
+                        </a>
+                      ) : selectedTab.title === 'Photography' ? (
+                        <a 
+                          href="https://www.instagram.com/snazzy_memories/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`inline-flex items-center px-8 py-4 bg-gradient-to-r ${selectedTab.selectedColor} text-deep-charcoal font-bold rounded-2xl shadow-xl backdrop-blur-sm border border-white/20 hover:shadow-2xl transition-all duration-300`}
+                        >
+                          <span>Explore {selectedTab.title}</span>
+                          <motion.svg 
+                            className="ml-3 w-5 h-5" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                            whileHover={{ x: 3 }}
+                            transition={{ type: "spring", stiffness: 400 }}
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </motion.svg>
+                        </a>
+                      ) : (
+                        <Link 
+                          to={selectedTab.link}
+                          className={`inline-flex items-center px-8 py-4 bg-gradient-to-r ${selectedTab.selectedColor} text-deep-charcoal font-bold rounded-2xl shadow-xl backdrop-blur-sm border border-white/20 hover:shadow-2xl transition-all duration-300`}
+                        >
+                          <span>Explore {selectedTab.title}</span>
+                          <motion.svg 
+                            className="ml-3 w-5 h-5" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                            whileHover={{ x: 3 }}
+                            transition={{ type: "spring", stiffness: 400 }}
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                          </motion.svg>
+                        </Link>
+                      )}
                     </motion.div>
                   </div>
                 </motion.div>

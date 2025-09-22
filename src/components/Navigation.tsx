@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -104,7 +104,7 @@ const Navigation: React.FC<NavigationProps> = ({ mobileOpen, setMobileOpen, hand
         </div>
         {/* Download CV Button (Desktop) */}
         <a
-          href="/assets/Mahim-CV.pdf"
+          href="/assets/CV/Mahim.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="ml-4 px-6 py-2 rounded-md bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white font-semibold hover:opacity-90 transition-all duration-300 shadow-lg hidden md:inline-block"
@@ -253,7 +253,7 @@ export const MobileMenuOverlay: React.FC<MobileMenuOverlayProps> = ({ mobileOpen
       transition={{ delay: 0.3, duration: 0.5, type: 'spring' }}
     >
       <a
-        href="/assets/Mahim-CV.pdf"
+        href="/assets/CV/Mahim.pdf"
         target="_blank"
         rel="noopener noreferrer"
         className="w-full text-center text-base font-bold px-0 py-3 rounded-full bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white shadow-lg border-2 border-zenitsu-lightning/60 hover:from-domain-violet hover:to-rengoku-flame hover:text-zenitsu-lightning transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60"
