@@ -21,152 +21,147 @@ interface ExperienceItem {
 
 type FilterType = 'All' | 'Canada' | 'Malaysia' | 'Bangladesh';
 
-// Your real experiences data with responsive positioning
+// Your real experiences data from CV and LinkedIn profile
 const experienceData: ExperienceItem[] = [
-  // Canada (real data) - positioned to avoid overlaps on both desktop and mobile
+  // Canada - Current and Recent Positions
   {
     id: 1,
-    title: "Web Developer & Designer",
-    company: "Zavy Technologies Sdn Bhd",
-    location: "Canada",
-    duration: "Dec 2021 - Aug 2022",
-    description: [
-      "Delivered customized web solutions for diverse clients with creative campaign ideas",
-      "Implemented software recommendations and conducted acceptance testing",
-      "Managed ERP systems to enhance operational efficiency and client satisfaction"
-    ],
-    position: { top: '20%', left: '25%' },
-    mobilePosition: { top: '15%', left: '20%' },
-  },
-  {
-    id: 2,
     title: "VP – Marketing",
     company: "HackConcordia, Concordia University",
     location: "Canada",
     duration: "May 2024 – Present",
     description: [
-      "Lead marketing efforts promoting events and driving community engagement",
-      "Managed social media campaigns and designed promotional materials",
-      "Coordinated outreach to attract participants, sponsors, and partners"
+      "Lead comprehensive marketing strategies for Canada's largest student-run hackathon",
+      "Manage social media campaigns reaching 10,000+ students across universities",
+      "Design promotional materials and coordinate outreach to attract participants, sponsors, and partners",
+      "Collaborate with cross-functional teams to drive community engagement and event success"
     ],
-    position: { top: '45%', left: '75%' },
-    mobilePosition: { top: '35%', left: '75%' },
+    position: { top: '18%', left: '75%' },
+    mobilePosition: { top: '12%', left: '80%' },
   },
   {
-    id: 3,
-    title: "Marketing/Communications",
-    company: "TEDx Concordia University 2025",
-    location: "Canada",
-    duration: "Jan 2025 – Mar 2025",
-    description: [
-      "Strategized marketing efforts to enhance event visibility and audience engagement",
-      "Managed content creation and social media campaigns",
-      "Collaborated with clubs and sponsors to maximize outreach and promotion"
-    ],
-    position: { top: '70%', left: '20%' },
-    mobilePosition: { top: '55%', left: '20%' },
-  },
-  {
-    id: 4,
+    id: 2,
     title: "Graduate Teaching Assistant",
     company: "SOEN 6431, Gina Cody School of Engineering",
     location: "Canada",
     duration: "Fall 2024 – Winter 2025",
     description: [
-      "Grade assignments, projects, and midterms with fair evaluation",
-      "Address student inquiries to ensure clarity and understanding",
-      "Support academic excellence in software engineering courses"
+      "Assist in teaching Software Systems Requirements Engineering course",
+      "Grade assignments, projects, and midterms with detailed feedback for 80+ graduate students",
+      "Conduct office hours and address student inquiries to ensure academic clarity",
+      "Support course coordination and maintain high academic standards"
     ],
-    position: { top: '85%', left: '65%' },
-    mobilePosition: { top: '75%', left: '65%' },
+    position: { top: '45%', left: '25%' },
+    mobilePosition: { top: '32%', left: '20%' },
   },
   {
-    id: 5,
+    id: 3,
     title: "Director",
     company: "Graduate Students' Association (GSA)",
     location: "Canada",
     duration: "June 2024 – Present",
     description: [
-      "Led as Graduate Student Association Director advocating for student interests",
-      "Represented Gina Cody School on Student Handbook and Healthcare Committees",
-      "Fostered partnerships to address student needs and concerns"
+      "Serve as elected Director representing graduate student interests university-wide",
+      "Participate in Student Handbook Committee and Healthcare Committee initiatives",
+      "Advocate for student rights and work on policy improvements affecting graduate students",
+      "Foster partnerships between administration and student body to address academic concerns"
     ],
-    position: { top: '15%', left: '70%' },
-    mobilePosition: { top: '10%', left: '70%' },
+    position: { top: '72%', left: '82%' },
+    mobilePosition: { top: '52%', left: '85%' },
   },
   {
-    id: 6,
+    id: 4,
     title: "Student Facilitator",
     company: "Homeroom, Dean of Students Office",
     location: "Canada",
     duration: "Sep 2024 – Present",
     description: [
-      "Facilitate engaging discussions and peer-led activities for collaborative learning",
-      "Provide mentorship to new students supporting academic and social transition",
-      "Create inclusive environment for university life integration"
+      "Facilitate peer-led discussions and collaborative learning activities for new students",
+      "Provide mentorship and guidance to support academic and social transition to university life",
+      "Create inclusive environments that promote student engagement and community building",
+      "Coordinate with Dean of Students Office to enhance student support services"
     ],
-    position: { top: '60%', left: '15%' },
-    mobilePosition: { top: '45%', left: '15%' },
+    position: { top: '12%', left: '18%' },
+    mobilePosition: { top: '8%', left: '15%' },
+  },
+  {
+    id: 5,
+    title: "Marketing/Communications",
+    company: "TEDx Concordia University 2025",
+    location: "Canada",
+    duration: "Jan 2025 – Mar 2025",
+    description: [
+      "Develop and execute marketing strategies for TEDx Concordia University 2025 event",
+      "Create compelling content and manage social media campaigns to enhance event visibility",
+      "Collaborate with student clubs, sponsors, and university administration for maximum outreach",
+      "Design promotional materials and coordinate speaker announcements"
+    ],
+    position: { top: '88%', left: '58%' },
+    mobilePosition: { top: '72%', left: '65%' },
   },
   
-  // Malaysia (real data)
+  // Malaysia - Professional Experience
+  {
+    id: 6,
+    title: "Web Developer & Designer",
+    company: "Zavy Technologies Sdn Bhd",
+    location: "Malaysia",
+    duration: "Dec 2021 - Aug 2022",
+    description: [
+      "Delivered customized web solutions for diverse clients with creative campaign ideas",
+      "Developed responsive websites using modern web technologies and frameworks",
+      "Implemented software recommendations and conducted acceptance testing",
+      "Managed ERP systems to enhance operational efficiency and client satisfaction"
+    ],
+    position: { top: '62%', left: '12%' },
+    mobilePosition: { top: '42%', left: '10%' },
+  },
   {
     id: 7,
-    title: "Software Engineer Intern",
-    company: "Tech Malaysia Sdn Bhd",
+    title: "General Secretary",
+    company: "Bangladeshi Student Association – LUCT",
     location: "Malaysia",
-    duration: "Jan 2020 – Jun 2020",
+    duration: "2019 – 2021",
     description: [
-      "Assisted in software development and testing for client projects",
-      "Collaborated with multicultural teams using agile methodologies",
-      "Gained hands-on experience in modern development practices"
+      "Coordinated events, cultural programs, and student activities to promote Bangladeshi culture within the university community",
+      "Managed communication between the executive committee and members, ensuring smooth operations of the association",
+      "Oversaw administrative tasks including meeting documentation, planning, and organizational development",
+      "Facilitated cross-cultural exchange and community building among international students"
     ],
-    position: { top: '30%', left: '85%' },
-    mobilePosition: { top: '25%', left: '80%' },
-  },
-  {
-    id: 8,
-    title: "UI/UX Designer",
-    company: "Creative Studio Malaysia",
-    location: "Malaysia",
-    duration: "Jul 2020 – Dec 2020",
-    description: [
-      "Designed user interfaces and improved user experience for mobile apps",
-      "Conducted user research and created interactive prototypes",
-      "Collaborated with development teams to implement design solutions"
-    ],
-    position: { top: '80%', left: '80%' },
-    mobilePosition: { top: '65%', left: '80%' },
+    position: { top: '35%', left: '88%' },
+    mobilePosition: { top: '22%', left: '90%' },
   },
   
-  // Bangladesh (real data)
+  // Bangladesh - Volunteer and Community Service
   {
-    id: 9,
-    title: "Junior Web Developer",
-    company: "Dhaka Web Solutions",
+    id: 8,
+    title: "Senior Member",
+    company: "Connecting Youth for Change (CYC)",
     location: "Bangladesh",
-    duration: "Jan 2019 – Jun 2019",
+    duration: "Jun 2014 – May 2019",
     description: [
-      "Developed and maintained websites for local businesses",
-      "Gained experience in HTML, CSS, and JavaScript development",
-      "Provided technical support and website maintenance services"
+      "Led and supported youth-driven social service projects focused on education, environment, and community welfare",
+      "Mentored junior members, fostering leadership skills and encouraging active participation in civic initiatives",
+      "Collaborated with organizations and local communities to design impactful programs for youth empowerment and change",
+      "Coordinated cross-organizational partnerships to maximize social impact and community reach"
     ],
-    position: { top: '35%', left: '10%' },
-    mobilePosition: { top: '30%', left: '10%' },
+    position: { top: '55%', left: '65%' },
+    mobilePosition: { top: '62%', left: '75%' },
   },
   {
-    id: 10,
-    title: "IT Support Assistant",
-    company: "Bangladesh IT Hub",
+    id: 9,
+    title: "Member",
+    company: "Bangladesh Scouts",
     location: "Bangladesh",
-    duration: "Jul 2019 – Dec 2019",
+    duration: "2011 – 2019",
     description: [
-      "Provided IT support and troubleshooting for office staff",
-      "Assisted in network setup and maintenance operations",
-      "Maintained hardware and software systems for optimal performance"
+      "Participated in national and regional scouting programs, developing leadership, teamwork, and discipline",
+      "Contributed to community service initiatives including disaster relief, social welfare, and awareness campaigns",
+      "Promoted values of civic responsibility, resilience, and volunteerism through active engagement in scout activities",
+      "Engaged in character building and skill development through outdoor activities and community service"
     ],
-    position: { top: '90%', left: '45%' },
-    mobilePosition: { top: '85%', left: '45%' },
+    position: { top: '28%', left: '35%' },
+    mobilePosition: { top: '82%', left: '30%' },
   },
 ];
 
@@ -233,13 +228,13 @@ const ExperienceStar: React.FC<{
           <div className="absolute -inset-1 sm:-inset-2 rounded-full border-2 border-transparent group-hover:border-purple-400/50 group-hover:animate-spin transition-all duration-700" style={{ animationDuration: '3s' }}></div>
         </div>
         
-        {/* Text preview with better mobile positioning and readability */}
-        <div className="mt-2 sm:mt-3 text-center w-max max-w-[100px] sm:max-w-[140px] z-20">
-          <p className="font-bold text-[10px] sm:text-sm text-purple-300 transition-colors duration-300 group-hover:text-snow-white drop-shadow-lg leading-tight">
-            {experience.title}
+        {/* Text preview with better mobile positioning and readability - More compact */}
+        <div className="mt-1.5 sm:mt-2 text-center w-max max-w-[80px] sm:max-w-[120px] z-20">
+          <p className="font-bold text-[8px] sm:text-xs text-purple-300 transition-colors duration-300 group-hover:text-snow-white drop-shadow-lg leading-tight truncate">
+            {experience.title.length > 15 ? experience.title.substring(0, 15) + '...' : experience.title}
           </p>
-          <p className="text-[8px] sm:text-xs text-purple-200/80 transition-colors duration-300 group-hover:text-snow-white drop-shadow-lg leading-tight">
-            {experience.company}
+          <p className="text-[7px] sm:text-[10px] text-purple-200/80 transition-colors duration-300 group-hover:text-snow-white drop-shadow-lg leading-tight truncate">
+            {experience.company.length > 20 ? experience.company.substring(0, 20) + '...' : experience.company}
           </p>
         </div>
       </div>
@@ -265,8 +260,15 @@ const ExperienceModal: React.FC<{
     };
     
     if (isVisible) {
+      // Disable body scroll when modal is open
+      document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
-      return () => window.removeEventListener('keydown', handleKeyDown);
+      
+      return () => {
+        // Re-enable body scroll when modal closes
+        document.body.style.overflow = 'unset';
+        window.removeEventListener('keydown', handleKeyDown);
+      };
     }
   }, [isVisible, handleClose]);
 
@@ -284,19 +286,27 @@ const ExperienceModal: React.FC<{
       <div className="absolute inset-0 bg-black/70 backdrop-blur-md"></div>
       
       <div 
-        className="relative w-full max-w-sm sm:max-w-2xl bg-gradient-to-br from-ghost-black/95 to-deep-charcoal/95 border border-domain-violet/50 rounded-2xl shadow-2xl shadow-purple-400/40 transform transition-all duration-300 ease-in-out backdrop-blur-xl scale-100 opacity-100 max-h-[90vh] overflow-y-auto"
+        className="relative w-full max-w-sm sm:max-w-2xl bg-gradient-to-br from-ghost-black/95 to-deep-charcoal/95 border border-domain-violet/50 rounded-2xl shadow-2xl shadow-purple-400/40 transform transition-all duration-300 ease-in-out backdrop-blur-xl scale-100 opacity-100 max-h-[85vh]"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close button with Gojo style - Mobile optimized */}
-            <button
+        {/* Close button with better visibility and positioning */}
+        <button
           onClick={handleClose} 
-          className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 text-purple-400 hover:text-snow-white hover:bg-gradient-to-r from-domain-violet/20 to-purple-400/20 rounded-full p-1.5 sm:p-2 transition-all duration-200 z-10 border border-domain-violet/30 hover:border-purple-400/60"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-red-500/80 to-red-600/80 hover:from-red-400 hover:to-red-500 text-white rounded-full flex items-center justify-center transition-all duration-200 z-50 shadow-lg hover:shadow-xl hover:scale-110 border-2 border-white/20 hover:border-white/40"
           aria-label="Close"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
-            </button>
+        </button>
+        
+        {/* Scrollable content container */}
+        <div className="overflow-y-auto max-h-[85vh] rounded-2xl experience-modal-scroll"
+             style={{
+               scrollbarWidth: 'thin',
+               scrollbarColor: '#7c3aed #1f1f1f'
+             }}
+        >
         
         <div className="p-4 sm:p-6 lg:p-8">
           <h2 id="experience-title" className="text-xl sm:text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-domain-violet via-purple-400 to-snow-white leading-tight">
@@ -316,6 +326,7 @@ const ExperienceModal: React.FC<{
               ))}
             </ul>
           </div>
+        </div>
         </div>
       </div>
     </div>
@@ -425,22 +436,27 @@ const Experience: React.FC = () => {
       <div className="relative z-10 w-full max-w-4xl sm:max-w-5xl lg:max-w-6xl mt-4 sm:mt-6 lg:mt-8 px-2 sm:px-4">
         {/* Mobile: Use square aspect ratio, Desktop: Use video aspect ratio */}
         <div className="relative w-full aspect-square sm:aspect-video">
-          {/* Connection lines with better positioning - Hidden on mobile for clarity */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none transition-opacity duration-500 hidden sm:block" aria-hidden="true">
+          {/* Connection lines with better positioning - Visible on all devices with responsive styling */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none transition-opacity duration-500" aria-hidden="true">
             {filteredExperiences.length > 1 && filteredExperiences.slice(1).map((exp, index) => {
               const prevExp = filteredExperiences[index];
+              // Use mobile positions on mobile, desktop positions on desktop
+              const isMobile = window.innerWidth < 768;
+              const prevPos = isMobile ? (prevExp.mobilePosition || prevExp.position) : prevExp.position;
+              const currPos = isMobile ? (exp.mobilePosition || exp.position) : exp.position;
+              
               return (
                 <line
                   key={`line-${exp.id}`}
-                  x1={prevExp.position.left}
-                  y1={prevExp.position.top}
-                  x2={exp.position.left}
-                  y2={exp.position.top}
+                  x1={prevPos.left}
+                  y1={prevPos.top}
+                  x2={currPos.left}
+                  y2={currPos.top}
                   stroke="url(#auroraGradient)"
-                  strokeWidth="2"
+                  strokeWidth={isMobile ? "1" : "2"}
                   className="animate-line-pulse"
                   style={{ animationDelay: `${index * 200}ms` }}
-                  strokeDasharray="5,5"
+                  strokeDasharray={isMobile ? "3,3" : "5,5"}
                 />
               );
             })}
