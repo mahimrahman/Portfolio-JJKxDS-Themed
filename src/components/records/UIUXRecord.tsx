@@ -249,7 +249,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
       {/* Project thumbnail */}
       <div className="relative h-64 overflow-hidden">
         <img 
-          src={project.thumbnail} 
+          src={project.thumbnail}
           alt={project.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
@@ -391,16 +391,16 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {project.title}
-            </motion.h1>
+          {project.title}
+        </motion.h1>
             <motion.p 
               className="text-xl text-ash-gray mb-6 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              {project.tagline}
-            </motion.p>
+          {project.tagline}
+        </motion.p>
             
             {/* Project meta */}
             <div className="flex flex-wrap justify-center gap-6 text-sm">
@@ -432,7 +432,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
               >
                 <h3 className="text-2xl font-bold text-snow-white mb-4">Project Overview</h3>
                 <p className="text-ash-gray leading-relaxed text-lg">
-                  {project.fullDescription}
+          {project.fullDescription}
                 </p>
               </motion.div>
 
@@ -461,9 +461,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                         <p className="text-ash-gray text-sm">{step.description}</p>
                       </div>
                     </motion.div>
-                  ))}
-                </div>
-              </motion.div>
+            ))}
+          </div>
+        </motion.div>
             </div>
 
             {/* Sidebar */}
@@ -484,9 +484,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                     >
                       {tool}
                     </span>
-                  ))}
-                </div>
-              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
               {/* Role */}
               <motion.div
@@ -502,8 +502,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                       <span className="w-2 h-2 bg-zenitsu-lightning rounded-full"></span>
                       <span className="text-ash-gray text-sm">{role}</span>
                     </div>
-                  ))}
-                </div>
+          ))}
+        </div>
               </motion.div>
             </div>
           </div>
@@ -518,11 +518,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
             <h3 className="text-3xl font-bold text-snow-white mb-8 text-center">Project Gallery</h3>
             
             <div className="relative">
-              <Swiper
+        <Swiper
                 modules={[EffectCoverflow, Pagination, Navigation]}
                 effect="coverflow"
-                grabCursor={true}
-                centeredSlides={true}
+          grabCursor={true}
+          centeredSlides={true}
                 slidesPerView="auto"
                 coverflowEffect={{
                   rotate: 50,
@@ -535,7 +535,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                   clickable: true,
                   dynamicBullets: true,
                 }}
-                navigation={true}
+          navigation={true}
                 className="project-swiper"
                 style={{
                   paddingBottom: '50px',
@@ -564,13 +564,13 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                           </svg>
                         </div>
                       </div>
-                    </motion.div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+              </motion.div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
               {/* Carousel Overlay Lightbox */}
-              <AnimatePresence>
+      <AnimatePresence>
                 {lightboxIndex !== null && (
                   <motion.div
                     className="absolute inset-0 bg-black/90 backdrop-blur-xl rounded-2xl z-50 flex items-center justify-center p-4"
@@ -657,8 +657,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                       />
                     </div>
                   </motion.div>
-                )}
-              </AnimatePresence>
+        )}
+      </AnimatePresence>
             </div>
           </motion.div>
         </motion.div>
@@ -780,4 +780,4 @@ const UIUXRecord: React.FC = () => {
   );
 };
 
-export default UIUXRecord;
+export default UIUXRecord; 

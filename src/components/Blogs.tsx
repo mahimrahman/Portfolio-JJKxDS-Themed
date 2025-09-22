@@ -90,67 +90,67 @@ export const Projects: React.FC = () => {
 
 const blogPosts = [
   {
-    id: 'how-i-slayed-my-first-project',
-    title: 'How I Slayed My First Project',
-    excerpt: 'A journey through my first big project, the challenges, and the victories along the way.',
-    category: 'Journey',
-    date: 'March 15, 2024',
+    id: 'design-beyond-aesthetics',
+    title: 'How to Design Beyond Aesthetics: Creating Meaningful User Experiences',
+    excerpt: 'Discover how to create designs that go beyond visual appeal to deliver truly impactful user experiences that solve real problems.',
+    category: 'Design',
+    date: 'January 15, 2025',
     readTime: '8 min read',
-    image: 'https://placehold.co/600x400/121212/FFD000',
+    image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
   },
   {
-    id: 'lessons-from-the-code-battlefield',
-    title: 'Lessons from the Code Battlefield',
-    excerpt: 'Reflections on debugging, teamwork, and the art of never giving up.',
-    category: 'Lessons',
-    date: 'March 10, 2024',
+    id: 'wireframes-still-matter-2025',
+    title: 'Why Wireframes Still Matter in 2025: A Guide for UI/UX Designers',
+    excerpt: 'In an age of rapid prototyping tools, learn why wireframes remain essential for creating thoughtful, user-centered designs.',
+    category: 'Design',
+    date: 'January 10, 2025',
     readTime: '6 min read',
-    image: 'https://placehold.co/600x400/121212/3A86FF',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
   },
   {
-    id: 'anime-and-engineering',
-    title: 'Anime & Engineering: My Inspirations',
-    excerpt: 'How anime themes and characters inspire my approach to software engineering.',
-    category: 'Inspiration',
-    date: 'March 5, 2024',
-    readTime: '5 min read',
-    image: 'https://placehold.co/600x400/121212/00A676',
-  },
-  {
-    id: 'the-art-of-clean-code',
-    title: 'The Art of Clean Code',
-    excerpt: 'Why writing clean code is like mastering a sword technique.',
-    category: 'Craft',
-    date: 'March 1, 2024',
+    id: 'creativity-usability-balance',
+    title: 'Balancing Creativity and Usability: 5 Tips for Better UI/UX Design',
+    excerpt: 'Learn how to strike the perfect balance between creative expression and functional design that users actually want to use.',
+    category: 'Design',
+    date: 'January 5, 2025',
     readTime: '7 min read',
-    image: 'https://placehold.co/600x400/121212/FF6B6B',
+    image: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
   },
   {
-    id: 'react-vs-vue-duel',
-    title: 'React vs. Vue: A Duel',
-    excerpt: 'Comparing two frontend frameworks in a battle of features and style.',
-    category: 'Tech',
-    date: 'February 25, 2024',
-    readTime: '10 min read',
-    image: 'https://placehold.co/600x400/121212/4ECDC4',
-  },
-  {
-    id: 'debugging-the-demon-within',
-    title: 'Debugging: The Demon Within',
-    excerpt: 'How to face and conquer the toughest bugs in your code.',
-    category: 'Lessons',
-    date: 'February 20, 2024',
+    id: 'agile-project-management-lessons',
+    title: 'Agile in Action: 7 Project Management Lessons for Faster Delivery',
+    excerpt: 'Practical insights from managing multiple projects using Agile methodologies, with real-world examples and actionable tips.',
+    category: 'Management',
+    date: 'December 28, 2024',
     readTime: '9 min read',
-    image: 'https://placehold.co/600x400/121212/FFD93D',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
   },
   {
-    id: 'the-path-to-mastery',
-    title: 'The Path to Mastery',
-    excerpt: 'Understanding the journey from novice to expert in software development.',
+    id: 'data-to-decisions-analysis',
+    title: 'Turning Data into Decisions: Business Analysis Tips for Product Success',
+    excerpt: 'Master the art of transforming raw data into actionable insights that drive product strategy and business growth.',
+    category: 'Analysis',
+    date: 'December 20, 2024',
+    readTime: '10 min read',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+  },
+  {
+    id: 'dhaka-to-montreal-journey',
+    title: 'From Dhaka to Montreal: My Journey into Design, Tech, and Leadership',
+    excerpt: 'A personal story of growth, challenges, and discoveries across two continents, from Bangladesh to Canada.',
     category: 'Journey',
-    date: 'February 15, 2024',
-    readTime: '6 min read',
-    image: 'https://placehold.co/600x400/121212/8B5CF6',
+    date: 'December 15, 2024',
+    readTime: '12 min read',
+    image: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+  },
+  {
+    id: 'wearing-many-hats-reflection',
+    title: 'What I Learned from Wearing Many Hats: Designer, Manager, Analyst',
+    excerpt: 'Reflections on juggling multiple roles and how each perspective enriched my understanding of product development.',
+    category: 'Reflection',
+    date: 'December 10, 2024',
+    readTime: '8 min read',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
   },
 ];
 
@@ -201,7 +201,7 @@ const BlogPage: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
-            Blog of the Slayer
+            Knowledge Chronicles
           </h2>
           <span className="block w-24 h-1 mx-auto mb-8 bg-zenitsu-lightning rounded-full animate-pulse" />
           <p className="text-lg md:text-xl text-ash-gray">Insights, stories, and lessons from my journey</p>
@@ -212,10 +212,10 @@ const BlogPage: React.FC = () => {
             <button
               key={cat}
               onClick={() => { setActiveCategory(cat); setShowRows(1); }}
-              className={`px-5 py-2 rounded-full font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60 text-base
+              className={`px-5 py-2 rounded-full font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400/60 text-base
                 ${activeCategory === cat
-                  ? 'bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white shadow-lg'
-                  : 'bg-ghost-black/60 text-zenitsu-lightning hover:bg-zenitsu-lightning/10'}`}
+                  ? 'bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-lg'
+                  : 'bg-ghost-black/60 text-slate-300 hover:bg-blue-500/10 hover:text-blue-300'}`}
               tabIndex={0}
             >
               {cat}
@@ -228,7 +228,7 @@ const BlogPage: React.FC = () => {
           {shown.map((post, idx) => (
             <motion.div
               key={post.id}
-              className="bg-gradient-to-br from-ghost-black/80 to-deep-charcoal/80 backdrop-blur-sm rounded-xl overflow-hidden border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-all duration-300 hover:shadow-lg hover:shadow-zenitsu-lightning/20"
+              className="bg-gradient-to-br from-ghost-black/80 to-deep-charcoal/80 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-400/20 hover:border-blue-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/20"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
@@ -245,7 +245,7 @@ const BlogPage: React.FC = () => {
               </div>
               <div className="p-4 flex flex-col gap-3">
                 <div className="flex flex-col gap-2">
-                  <span className="inline-block px-2 py-1 rounded-full bg-gradient-to-r from-zenitsu-lightning to-checkered-green text-deep-charcoal text-xs font-bold w-fit">
+                  <span className="inline-block px-2 py-1 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-xs font-bold w-fit">
                     {post.category}
                   </span>
                   <h3 className="text-sm font-bold text-snow-white leading-tight">{post.title}</h3>
@@ -258,7 +258,7 @@ const BlogPage: React.FC = () => {
                 </div>
                 <button
                   onClick={() => navigate(`/blog/${post.id}`)}
-                  className="mt-auto px-3 py-1 rounded-full bg-gradient-to-r from-checkered-green to-zenitsu-lightning text-deep-charcoal font-bold text-xs shadow hover:opacity-90 transition-all duration-200"
+                  className="mt-auto px-3 py-1 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold text-xs shadow hover:opacity-90 transition-all duration-200"
                 >
                   Read more
                 </button>
@@ -272,7 +272,7 @@ const BlogPage: React.FC = () => {
         {showCount < filtered.length && (
           <button
             onClick={() => setShowRows(r => r + 1)}
-            className="px-6 py-2 rounded-full bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white font-bold shadow-lg hover:opacity-90 transition-all duration-300"
+            className="px-6 py-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold shadow-lg hover:opacity-90 transition-all duration-300"
           >
             Show More
           </button>
@@ -280,7 +280,7 @@ const BlogPage: React.FC = () => {
         {showRows > 1 && (
           <button
             onClick={() => setShowRows(1)}
-            className="px-6 py-2 rounded-full bg-gradient-to-r from-domain-violet to-rengoku-flame text-snow-white font-bold shadow-lg hover:opacity-90 transition-all duration-300"
+            className="px-6 py-2 rounded-full bg-gradient-to-r from-indigo-600 to-blue-500 text-white font-bold shadow-lg hover:opacity-90 transition-all duration-300"
           >
             Show Less
           </button>
