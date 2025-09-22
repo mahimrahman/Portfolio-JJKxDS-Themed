@@ -70,9 +70,10 @@ const CategoryCard: React.FC<{
 }> = ({ title, skills, icon, isExpanded, onToggle, categoryColor }) => {
   return (
     <motion.div
-      className="relative cursor-pointer group"
+      className="relative cursor-pointer group touch-manipulation"
       onClick={onToggle}
       whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.2 }}
     >
       {/* Category Container */}

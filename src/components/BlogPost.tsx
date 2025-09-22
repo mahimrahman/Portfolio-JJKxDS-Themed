@@ -134,7 +134,7 @@ const blogData = {
       },
     ],
   },
-  'anime-and-engineering': {
+  'creativity-usability-balance': {
     title: 'Anime & Engineering: My Inspirations',
     date: 'March 5, 2024',
     author: 'The Slayer',
@@ -193,7 +193,7 @@ const blogData = {
       },
     ],
   },
-  'the-art-of-clean-code': {
+  'agile-project-management-lessons': {
     title: 'The Art of Clean Code',
     date: 'March 1, 2024',
     author: 'The Slayer',
@@ -252,7 +252,7 @@ const blogData = {
       },
     ],
   },
-  'react-vs-vue-duel': {
+  'data-to-decisions-analysis': {
     title: 'React vs. Vue: A Duel',
     date: 'February 25, 2024',
     author: 'The Slayer',
@@ -311,7 +311,7 @@ const blogData = {
       },
     ],
   },
-  'debugging-the-demon-within': {
+  'dhaka-to-montreal-journey': {
     title: 'Debugging: The Demon Within',
     date: 'February 20, 2024',
     author: 'The Slayer',
@@ -361,6 +361,55 @@ const blogData = {
         title: 'The Art of Clean Code',
         excerpt: 'Why writing clean code is like mastering a sword technique.',
         image: 'https://placehold.co/600x400/121212/FF6B6B',
+      },
+    ],
+  },
+  'wearing-many-hats-reflection': {
+    title: 'What I Learned from Wearing Many Hats: Designer, Manager, Analyst',
+    date: 'December 10, 2024',
+    author: 'Mahimur Rahman Khan',
+    category: 'Reflection',
+    readTime: '8 min read',
+    content: `
+      <p class="mb-6 text-lg leading-relaxed">Throughout my career, I've had the privilege of wearing many hats – from a UI/UX Designer crafting intuitive interfaces to a Project Manager orchestrating complex deliveries, and a Business Analyst translating data into strategic decisions. Each role has offered a unique lens through which to view product development, and the cumulative experience has been invaluable in shaping a holistic understanding of the tech landscape.</p>
+      
+      <div class="my-12 p-6 bg-ghost-black/30 rounded-xl border border-blue-400/20">
+        <blockquote class="text-xl italic text-blue-300">
+          "The more perspectives you gain, the clearer the overall vision becomes."
+        </blockquote>
+      </div>
+      
+      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-slate-300 via-blue-200 to-indigo-300 bg-clip-text text-transparent">The Designer's Eye</h2>
+      <p class="mb-6 text-lg leading-relaxed">As a UI/UX Designer, my focus was on empathy – understanding user needs, crafting seamless flows, and creating visually appealing interfaces. This role taught me the importance of user-centered design principles and the power of intuitive interactions. It's where I learned to speak the language of visuals and user journeys.</p>
+      
+      <div class="my-12">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Designer at Work" class="rounded-xl shadow-2xl" />
+        <p class="text-center text-ash-gray mt-4">The creative process of a UI/UX designer</p>
+      </div>
+      
+      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-slate-300 via-blue-200 to-indigo-300 bg-clip-text text-transparent">The Manager's Orchestration</h2>
+      <p class="mb-6 text-lg leading-relaxed">Stepping into Project Management, my perspective shifted to orchestration. Here, it was about coordinating teams, managing timelines, mitigating risks, and ensuring that projects were delivered on time and within scope. This role honed my organizational skills, my ability to motivate teams, and my understanding of the broader project lifecycle.</p>
+      
+      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-slate-300 via-blue-200 to-indigo-300 bg-clip-text text-transparent">The Analyst's Insight</h2>
+      <p class="mb-6 text-lg leading-relaxed">My experience as a Business Analyst taught me the critical skill of data interpretation. It was about diving deep into metrics, identifying trends, and translating complex data into clear, actionable insights for stakeholders. This role reinforced the importance of data-driven decision-making and strategic thinking.</p>
+      
+      <div class="my-12 p-6 bg-blue-500/10 rounded-xl border border-blue-400/30">
+        <h3 class="text-xl font-bold mb-4 text-blue-300">The Synergy of Roles</h3>
+        <p class="text-ash-gray">What I've learned most profoundly is how these roles are interconnected. A designer who understands project constraints and business metrics creates more realistic and impactful designs. A manager who appreciates user experience and data insights can guide a team more effectively. An analyst who understands design principles can better articulate the 'why' behind the numbers. This multi-faceted experience allows me to approach challenges with a comprehensive understanding, fostering better collaboration and more successful outcomes.</p>
+      </div>
+    `,
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    tags: ['Career Development', 'Multidisciplinary', 'Product Development', 'Leadership'],
+    relatedPosts: [
+      {
+        title: 'From Dhaka to Montreal: My Journey into Design, Tech, and Leadership',
+        excerpt: 'A personal story of growth, challenges, and discoveries across two continents, from Bangladesh to Canada.',
+        image: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      },
+      {
+        title: 'Agile in Action: 7 Project Management Lessons for Faster Delivery',
+        excerpt: 'Practical insights from managing multiple projects using Agile methodologies, with real-world examples and actionable tips.',
+        image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
       },
     ],
   },
@@ -482,9 +531,15 @@ export const BlogPost: React.FC = () => {
                   return (
                     <button
                       key={relatedPost.title}
-                      className="bg-ghost-black/30 rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-200 text-left focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60"
+                      className="bg-ghost-black/30 rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-200 text-left focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60 touch-manipulation w-full"
                       style={{ cursor: relatedId ? 'pointer' : 'default' }}
-                      onClick={() => relatedId && navigate(`/blog/${relatedId}`)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (relatedId) {
+                          navigate(`/blog/${relatedId}`);
+                        }
+                      }}
                       tabIndex={0}
                       aria-label={`Read ${relatedPost.title}`}
                     >

@@ -587,7 +587,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                     {/* Close button */}
                     <motion.button
                       onClick={handleLightboxClose}
-                      className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors shadow-lg"
+                      className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors shadow-lg touch-manipulation"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       initial={{ opacity: 0, scale: 0.8 }}

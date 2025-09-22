@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from 'react';
+import React, { useMemo, useCallback, useState } from 'react';
 import { motion } from 'framer-motion';
 
 // Animation variants for better performance
@@ -142,7 +142,7 @@ const SocialButton: React.FC<{
         target={link.name === 'Email Me' ? undefined : '_blank'}
         rel={link.name === 'Email Me' ? undefined : 'noopener noreferrer'}
         onClick={handleClick}
-        className={`relative flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${link.gradient} text-snow-white shadow-lg ${link.shadow} transition-all duration-300 group-hover:shadow-2xl`}
+        className={`relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br ${link.gradient} text-snow-white shadow-lg ${link.shadow} transition-all duration-300 group-hover:shadow-2xl touch-manipulation`}
         variants={rotateVariants}
         whileHover="hover"
       >
@@ -213,63 +213,142 @@ DecorativeEmoji.displayName = 'DecorativeEmoji';
 
 // Main Hero Component
 const Hero: React.FC = () => {
-  // Memoize video sources for better performance
-  const videoSources = useMemo(() => [
-    { src: '/hero_mobile.mp4', media: '(max-width: 768px)' },
-    { src: '/hero_mac.mp4', media: '(min-width: 769px) and (max-width: 1439px)' },
-    { src: '/Hero_large.mp4', media: '(min-width: 1440px)' },
-    { src: '/Hero.mp4', media: undefined }
-  ], []);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  
+  // Determine which video to load based on screen size with responsive updates
+  const [videoSource, setVideoSource] = useState('/Hero_mac.mp4');
+  
+  const updateVideoSource = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      const width = window.innerWidth;
+      let newSource = '/Hero_mac.mp4'; // Default for laptops/MacBooks
+      
+      if (width <= 768) {
+        newSource = '/hero_mobile.mp4';
+      } else if (width >= 1440) {
+        newSource = '/Hero_large.mp4';
+      }
+      
+      if (newSource !== videoSource) {
+        setVideoSource(newSource);
+        setVideoLoaded(false);
+        setVideoError(false);
+      }
+    }
+  }, [videoSource]);
+
+  // Update video source on window resize
+  React.useEffect(() => {
+    updateVideoSource();
+    
+    const handleResize = () => {
+      updateVideoSource();
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [updateVideoSource]);
 
   // Memoize particle array
   const particles = useMemo(() => Array.from({ length: 6 }, (_, i) => i), []);
 
+  const handleVideoLoad = useCallback(() => {
+    setVideoLoaded(true);
+    setVideoError(false);
+  }, []);
+
+  const handleVideoError = useCallback(() => {
+    setVideoError(true);
+    setVideoLoaded(false);
+  }, []);
+
+  // Timeout mechanism for slow loading videos
+  React.useEffect(() => {
+    if (!videoLoaded && !videoError) {
+      const timeout = setTimeout(() => {
+        if (!videoLoaded) {
+          console.warn('Video loading timeout, showing fallback background');
+          setVideoError(true);
+        }
+      }, 10000); // 10 second timeout
+
+      return () => clearTimeout(timeout);
+    }
+  }, [videoLoaded, videoError, videoSource]);
+
   return (
     <div className="relative w-full flex items-center justify-center overflow-hidden" style={{ minHeight: '100vh' }}>
-      {/* Video/Image background with aspect ratio preserved */}
+      {/* Video/Image background with optimized loading */}
       <div className="absolute inset-0 flex items-center justify-center z-0 w-full h-full">
-        <div className="w-full h-full aspect-[16/9] bg-black mx-auto">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover max-w-full max-h-full opacity-40"
-            poster="/Hero.png"
-          >
-            {videoSources.map((source, index) => (
-              <source 
-                key={index}
-                src={source.src} 
-                type="video/mp4" 
-                media={source.media} 
-              />
-            ))}
-            <img
-              src="/Hero.png"
-              alt="Hero background"
-              className="w-full h-full object-cover opacity-80"
-            />
-          </video>
+        <div className="w-full h-full bg-gradient-to-br from-ghost-black via-deep-charcoal to-ghost-black">
+          {!videoError && (
+            <video
+              key={videoSource} // Force re-render when source changes
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              className={`w-full h-full object-cover transition-opacity duration-1000 ${
+                videoLoaded ? 'opacity-40' : 'opacity-0'
+              }`}
+              onLoadedData={handleVideoLoad}
+              onError={handleVideoError}
+              onLoadStart={() => setVideoLoaded(false)}
+            >
+              <source src={videoSource} type="video/mp4" />
+            </video>
+          )}
+          
+          {/* Fallback background gradient when video fails or is loading */}
+          {(videoError || !videoLoaded) && (
+            <div className="absolute inset-0 bg-gradient-to-br from-ghost-black via-deep-charcoal to-ghost-black opacity-90">
+              {/* Loading indicator */}
+              {!videoError && !videoLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="flex items-center space-x-2 text-domain-violet">
+                    <div className="w-2 h-2 bg-current rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                    <div className="w-2 h-2 bg-current rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                    <div className="w-2 h-2 bg-current rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+          
+          {/* Animated background pattern overlay */}
+          <div className="absolute inset-0 opacity-20">
+            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="heroPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                  <circle cx="50" cy="50" r="2" fill="currentColor" className="text-domain-violet">
+                    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite" />
+                  </circle>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#heroPattern)" />
+            </svg>
+          </div>
         </div>
       </div>
 
       {/* Main content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 absolute inset-0 flex flex-col items-center justify-center z-20">
         <motion.h2
-          className="text-4xl md:text-6xl font-extrabold mb-8 text-center bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent drop-shadow-lg animate-pulse"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-extrabold mb-6 sm:mb-8 text-center bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent drop-shadow-lg animate-pulse"
           {...fadeInDown}
         >
           Domain Entrance
-          <span className="block w-24 h-1 mx-auto mt-2 bg-zenitsu-lightning rounded-full animate-pulse" />
+          <span className="block w-16 sm:w-20 md:w-24 h-1 mx-auto mt-2 bg-zenitsu-lightning rounded-full animate-pulse" />
         </motion.h2>
         
         <motion.div
           {...fadeInUp}
-          className="text-center"
+          className="text-center px-2"
         >
           <motion.h1 
-            className="text-4xl md:text-6xl font-bold mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight"
             {...fadeInUpDelayed(0.2)}
           >
             <span className="bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
@@ -278,14 +357,18 @@ const Hero: React.FC = () => {
           </motion.h1>
           
           <motion.p 
-            className="text-lg md:text-2xl text-snow-white mb-2"
+            className="text-sm sm:text-base md:text-lg lg:text-2xl text-snow-white mb-2 px-2 leading-relaxed"
             {...fadeInUpDelayed(0.3)}
           >
-            Software Engineering Graduate | Web Developer & Designer | UI/UX Designer
+            <span className="block sm:inline">Software Engineering Graduate</span>
+            <span className="hidden sm:inline"> | </span>
+            <span className="block sm:inline">Web Developer & Designer</span>
+            <span className="hidden sm:inline"> | </span>
+            <span className="block sm:inline">UI/UX Designer</span>
           </motion.p>
           
           <motion.p 
-            className="text-md md:text-lg text-ash-gray mb-6"
+            className="text-xs sm:text-sm md:text-base lg:text-lg text-ash-gray mb-4 sm:mb-6"
             {...fadeInUpDelayed(0.4)}
           >
              
@@ -302,8 +385,8 @@ const Hero: React.FC = () => {
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cursed-blue/20 via-domain-violet/20 to-rengoku-flame/20 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
               
               {/* Dock Content */}
-              <div className="relative px-6 py-4">
-                <div className="flex items-center justify-center gap-6">
+              <div className="relative px-3 sm:px-4 md:px-6 py-3 sm:py-4">
+                <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-6 flex-wrap">
                   {socialLinks.map((link, index) => (
                     <SocialButton key={link.name} link={link} index={index} />
                   ))}

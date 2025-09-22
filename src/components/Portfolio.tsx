@@ -131,7 +131,7 @@ const Portfolio: React.FC = () => {
                     }
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className={`relative group cursor-pointer transition-all duration-500 ease-out
+                  className={`relative group cursor-pointer transition-all duration-500 ease-out touch-manipulation
                     ${isActive 
                       ? `bg-gradient-to-r ${section.selectedColor} shadow-2xl shadow-lg` 
                       : 'bg-gradient-to-r from-ghost-black/80 to-deep-charcoal/80 hover:bg-gradient-to-r hover:from-ghost-black hover:to-deep-charcoal'

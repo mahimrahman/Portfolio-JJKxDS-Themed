@@ -228,12 +228,14 @@ const BlogPage: React.FC = () => {
           {shown.map((post, idx) => (
             <motion.div
               key={post.id}
-              className="bg-gradient-to-br from-ghost-black/80 to-deep-charcoal/80 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-400/20 hover:border-blue-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/20"
+              className="bg-gradient-to-br from-ghost-black/80 to-deep-charcoal/80 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-400/20 hover:border-blue-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/20 cursor-pointer touch-manipulation"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => navigate(`/blog/${post.id}`)}
             >
               <div className="aspect-[4/3] relative overflow-hidden">
                 <img
@@ -256,12 +258,9 @@ const BlogPage: React.FC = () => {
                   </div>
                   <p className="text-ash-gray text-xs leading-relaxed line-clamp-2">{post.excerpt}</p>
                 </div>
-                <button
-                  onClick={() => navigate(`/blog/${post.id}`)}
-                  className="mt-auto px-3 py-1 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold text-xs shadow hover:opacity-90 transition-all duration-200"
-                >
+                <div className="mt-auto px-3 py-1 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold text-xs shadow transition-all duration-200 text-center">
                   Read more
-                </button>
+                </div>
               </div>
             </motion.div>
           ))}
