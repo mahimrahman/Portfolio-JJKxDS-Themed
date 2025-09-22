@@ -142,7 +142,7 @@ const SocialButton: React.FC<{
         target={link.name === 'Email Me' ? undefined : '_blank'}
         rel={link.name === 'Email Me' ? undefined : 'noopener noreferrer'}
         onClick={handleClick}
-        className={`relative flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${link.gradient} text-snow-white shadow-lg ${link.shadow} transition-all duration-300 group-hover:shadow-2xl`}
+        className={`relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br ${link.gradient} text-snow-white shadow-lg ${link.shadow} transition-all duration-300 group-hover:shadow-2xl touch-manipulation`}
         variants={rotateVariants}
         whileHover="hover"
       >
@@ -257,19 +257,19 @@ const Hero: React.FC = () => {
       {/* Main content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 absolute inset-0 flex flex-col items-center justify-center z-20">
         <motion.h2
-          className="text-4xl md:text-6xl font-extrabold mb-8 text-center bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent drop-shadow-lg animate-pulse"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-extrabold mb-6 sm:mb-8 text-center bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent drop-shadow-lg animate-pulse"
           {...fadeInDown}
         >
           Domain Entrance
-          <span className="block w-24 h-1 mx-auto mt-2 bg-zenitsu-lightning rounded-full animate-pulse" />
+          <span className="block w-16 sm:w-20 md:w-24 h-1 mx-auto mt-2 bg-zenitsu-lightning rounded-full animate-pulse" />
         </motion.h2>
         
         <motion.div
           {...fadeInUp}
-          className="text-center"
+          className="text-center px-2"
         >
           <motion.h1 
-            className="text-4xl md:text-6xl font-bold mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight"
             {...fadeInUpDelayed(0.2)}
           >
             <span className="bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
@@ -278,14 +278,18 @@ const Hero: React.FC = () => {
           </motion.h1>
           
           <motion.p 
-            className="text-lg md:text-2xl text-snow-white mb-2"
+            className="text-sm sm:text-base md:text-lg lg:text-2xl text-snow-white mb-2 px-2 leading-relaxed"
             {...fadeInUpDelayed(0.3)}
           >
-            Software Engineering Graduate | Web Developer & Designer | UI/UX Designer
+            <span className="block sm:inline">Software Engineering Graduate</span>
+            <span className="hidden sm:inline"> | </span>
+            <span className="block sm:inline">Web Developer & Designer</span>
+            <span className="hidden sm:inline"> | </span>
+            <span className="block sm:inline">UI/UX Designer</span>
           </motion.p>
           
           <motion.p 
-            className="text-md md:text-lg text-ash-gray mb-6"
+            className="text-xs sm:text-sm md:text-base lg:text-lg text-ash-gray mb-4 sm:mb-6"
             {...fadeInUpDelayed(0.4)}
           >
              
@@ -302,8 +306,8 @@ const Hero: React.FC = () => {
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cursed-blue/20 via-domain-violet/20 to-rengoku-flame/20 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
               
               {/* Dock Content */}
-              <div className="relative px-6 py-4">
-                <div className="flex items-center justify-center gap-6">
+              <div className="relative px-3 sm:px-4 md:px-6 py-3 sm:py-4">
+                <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-6 flex-wrap">
                   {socialLinks.map((link, index) => (
                     <SocialButton key={link.name} link={link} index={index} />
                   ))}

@@ -292,7 +292,7 @@ const ExperienceModal: React.FC<{
         {/* Close button with better visibility and positioning */}
         <button
           onClick={handleClose} 
-          className="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-red-500/80 to-red-600/80 hover:from-red-400 hover:to-red-500 text-white rounded-full flex items-center justify-center transition-all duration-200 z-50 shadow-lg hover:shadow-xl hover:scale-110 border-2 border-white/20 hover:border-white/40"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-red-500/80 to-red-600/80 hover:from-red-400 hover:to-red-500 text-white rounded-full flex items-center justify-center transition-all duration-200 z-50 shadow-lg hover:shadow-xl hover:scale-110 border-2 border-white/20 hover:border-white/40 touch-manipulation"
           aria-label="Close"
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5">
