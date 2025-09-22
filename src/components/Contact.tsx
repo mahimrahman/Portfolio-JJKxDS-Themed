@@ -210,40 +210,40 @@ const Contact: React.FC = () => {
           >
             {/* Quick Contact Info */}
             <div className="bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 p-8 shadow-2xl flex-grow mb-6">
-              <h3 className="text-2xl font-bold text-snow-white mb-6">Get in Touch</h3>
+              <h3 className="text-2xl font-bold text-snow-white mb-8">Get in Touch</h3>
               
-              <div className="space-y-6 h-full flex flex-col justify-center">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-rengoku-flame/20 to-zenitsu-lightning/20 flex items-center justify-center">
+              <div className="space-y-8">
+                <div className="flex items-start gap-6">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-rengoku-flame/20 to-zenitsu-lightning/20 flex items-center justify-center flex-shrink-0">
                     <Mail size={24} className="text-zenitsu-lightning" />
                   </div>
-                  <div>
-                    <p className="text-snow-white font-medium">Email</p>
-                    <p className="text-ash-gray text-sm">mahimrk.a@gmail.com</p>
+                  <div className="flex-1">
+                    <p className="text-snow-white font-semibold text-lg mb-1">Email</p>
+                    <p className="text-ash-gray text-base">mahimrk.a@gmail.com</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cursed-blue/20 to-domain-violet/20 flex items-center justify-center">
+                <div className="flex items-start gap-6">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cursed-blue/20 to-domain-violet/20 flex items-center justify-center flex-shrink-0">
                     <MapPin size={24} className="text-domain-violet" />
                   </div>
-                  <div>
-                    <p className="text-snow-white font-medium">Location</p>
-                    <p className="text-ash-gray text-sm">Montreal, QC, Canada</p>
+                  <div className="flex-1">
+                    <p className="text-snow-white font-semibold text-lg mb-1">Location</p>
+                    <p className="text-ash-gray text-base">Montreal, QC, Canada</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-checkered-green/20 to-zenitsu-lightning/20 flex items-center justify-center">
+                <div className="flex items-start gap-6">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-checkered-green/20 to-zenitsu-lightning/20 flex items-center justify-center flex-shrink-0">
                     <motion.div
                       className="w-3 h-3 bg-checkered-green rounded-full"
                       animate={{ opacity: [0.5, 1, 0.5] }}
                       transition={{ duration: 2, repeat: Infinity }}
                     />
                   </div>
-                  <div>
-                    <p className="text-snow-white font-medium">Status</p>
-                    <p className="text-ash-gray text-sm">Available for new projects</p>
+                  <div className="flex-1">
+                    <p className="text-snow-white font-semibold text-lg mb-1">Status</p>
+                    <p className="text-ash-gray text-base">Available for new projects</p>
                   </div>
                 </div>
               </div>

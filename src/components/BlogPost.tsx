@@ -2,123 +2,135 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
 
-// Sample blog data - in a real app, this would come from an API or CMS
+// Blog data - Professional content for portfolio
 const blogData = {
-  'how-i-slayed-my-first-project': {
-    title: 'How I Slayed My First Project',
-    date: 'March 15, 2024',
-    author: 'The Slayer',
-    category: 'Journey',
+  'design-beyond-aesthetics': {
+    title: 'How to Design Beyond Aesthetics: Creating Meaningful User Experiences',
+    date: 'January 15, 2025',
+    author: 'Mahimur Rahman Khan',
+    category: 'Design',
     readTime: '8 min read',
     content: `
-      <p class="mb-6 text-lg leading-relaxed">In the world of software development, every project is like a demon waiting to be slayed. My first major project was no different - a beast that seemed impossible to conquer at first glance.</p>
+      <p class="mb-6 text-lg leading-relaxed">Great design goes far beyond making things look beautiful. It's about creating experiences that solve real problems, serve user needs, and drive meaningful outcomes. In my journey as a UI/UX designer, I've learned that the most impactful designs are those that seamlessly blend form with function.</p>
       
-      <div class="my-12 p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
-        <blockquote class="text-xl italic text-zenitsu-lightning">
-          "The path to becoming a Hashira is paved with countless battles. Each line of code is a swing of your sword."
+      <div class="my-12 p-6 bg-ghost-black/30 rounded-xl border border-blue-400/20">
+        <blockquote class="text-xl italic text-blue-300">
+          "Design is not just what it looks like and feels like. Design is how it works." - Steve Jobs
         </blockquote>
       </div>
       
-      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">The Challenge</h2>
-      <p class="mb-6 text-lg leading-relaxed">The project started as a simple idea: create a UI component library inspired by the Demon Slayer universe. Little did I know, this would become my first true test as a developer.</p>
+      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-slate-300 via-blue-200 to-indigo-300 bg-clip-text text-transparent">Understanding User Needs First</h2>
+      <p class="mb-6 text-lg leading-relaxed">Before diving into visual design, I always start with understanding the user's context, goals, and pain points. This foundation ensures that every design decision serves a purpose beyond aesthetics.</p>
       
       <div class="my-12">
-        <img src="https://placehold.co/1200x600/121212/FFD000" alt="Project Screenshot" class="rounded-xl shadow-2xl" />
-        <p class="text-center text-ash-gray mt-4">The Demon Slayer UI Kit in action</p>
+        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="User Research Process" class="rounded-xl shadow-2xl" />
+        <p class="text-center text-ash-gray mt-4">User research forms the foundation of meaningful design</p>
       </div>
       
-      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">The Battle</h2>
-      <p class="mb-6 text-lg leading-relaxed">The first challenge was creating a design system that captured the essence of the anime while maintaining modern web standards. I spent weeks studying the show's visual language, from the distinctive patterns of the Hashira uniforms to the elemental effects of their breathing techniques.</p>
+      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-slate-300 via-blue-200 to-indigo-300 bg-clip-text text-transparent">The Five Pillars of Meaningful Design</h2>
+      <p class="mb-6 text-lg leading-relaxed">Through my work on projects like LeGym and Artemis Arthouse, I've identified five key principles that transform good-looking designs into meaningful experiences:</p>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
-        <div class="p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
-          <h3 class="text-xl font-bold mb-4 text-snow-white">Key Challenges</h3>
-          <ul class="space-y-3 text-ash-gray">
-            <li>• Creating responsive animations</li>
-            <li>• Maintaining performance</li>
-            <li>• Ensuring accessibility</li>
-            <li>• Cross-browser compatibility</li>
-          </ul>
+        <div class="p-6 bg-ghost-black/30 rounded-xl border border-blue-400/20">
+          <h3 class="text-xl font-bold mb-4 text-snow-white">1. Purpose-Driven</h3>
+          <p class="text-ash-gray mb-4">Every element serves a specific user need or business goal.</p>
+          <h3 class="text-xl font-bold mb-4 text-snow-white">2. Accessible</h3>
+          <p class="text-ash-gray mb-4">Design that works for everyone, regardless of ability or context.</p>
+          <h3 class="text-xl font-bold mb-4 text-snow-white">3. Intuitive</h3>
+          <p class="text-ash-gray">Users should understand how to interact without instruction.</p>
         </div>
-        <div class="p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
-          <h3 class="text-xl font-bold mb-4 text-snow-white">Solutions</h3>
-          <ul class="space-y-3 text-ash-gray">
-            <li>• Framer Motion for animations</li>
-            <li>• Code splitting</li>
-            <li>• ARIA labels</li>
-            <li>• Progressive enhancement</li>
-          </ul>
+        <div class="p-6 bg-ghost-black/30 rounded-xl border border-blue-400/20">
+          <h3 class="text-xl font-bold mb-4 text-snow-white">4. Consistent</h3>
+          <p class="text-ash-gray mb-4">Patterns and behaviors remain predictable throughout.</p>
+          <h3 class="text-xl font-bold mb-4 text-snow-white">5. Measurable</h3>
+          <p class="text-ash-gray">Success can be tracked through user behavior and feedback.</p>
         </div>
       </div>
       
-      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">The Victory</h2>
-      <p class="mb-6 text-lg leading-relaxed">After months of development, the UI kit was complete. It featured components that could transform like a demon slayer's blade, animations that flowed like water breathing techniques, and a color palette that captured the essence of the show's most iconic moments.</p>
+      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-slate-300 via-blue-200 to-indigo-300 bg-clip-text text-transparent">Practical Application</h2>
+      <p class="mb-6 text-lg leading-relaxed">When designing the LeGym mobile app, I didn't start with colors or layouts. I began by understanding how students actually use gym facilities, what frustrates them, and what would make their experience better. This led to features like real-time equipment availability and personalized workout tracking - solutions that addressed real pain points.</p>
+      
+      <div class="my-12 p-6 bg-blue-500/10 rounded-xl border border-blue-400/30">
+        <h3 class="text-xl font-bold mb-4 text-blue-300">Key Takeaway</h3>
+        <p class="text-ash-gray">Meaningful design starts with empathy, is guided by data, and is validated by user behavior. Beautiful aesthetics are the reward for solving real problems effectively.</p>
+      </div>
     `,
-    image: 'https://placehold.co/1200x600/121212/FFD000',
-    tags: ['React', 'Design Systems', 'Animation', 'UI/UX'],
+    image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    tags: ['UX Design', 'User Research', 'Design Thinking', 'Problem Solving'],
     relatedPosts: [
       {
-        title: 'The Art of Clean Code',
-        excerpt: 'Why writing clean code is like mastering a sword technique.',
-        image: 'https://placehold.co/600x400/121212/FF6B6B',
+        title: 'Why Wireframes Still Matter in 2025: A Guide for UI/UX Designers',
+        excerpt: 'In an age of rapid prototyping tools, learn why wireframes remain essential for creating thoughtful, user-centered designs.',
+        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
       },
       {
-        title: 'Debugging: The Demon Within',
-        excerpt: 'How to face and conquer the toughest bugs in your code.',
-        image: 'https://placehold.co/600x400/121212/FFD93D',
+        title: 'Balancing Creativity and Usability: 5 Tips for Better UI/UX Design',
+        excerpt: 'Learn how to strike the perfect balance between creative expression and functional design that users actually want to use.',
+        image: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
       },
     ],
   },
-  'lessons-from-the-code-battlefield': {
-    title: 'Lessons from the Code Battlefield',
-    date: 'March 10, 2024',
-    author: 'The Slayer',
-    category: 'Lessons',
+  'wireframes-still-matter-2025': {
+    title: 'Why Wireframes Still Matter in 2025: A Guide for UI/UX Designers',
+    date: 'January 10, 2025',
+    author: 'Mahimur Rahman Khan',
+    category: 'Design',
     readTime: '6 min read',
     content: `
-      <p class="mb-6 text-lg leading-relaxed">Debugging is like facing a demon - it requires patience, strategy, and sometimes, a bit of luck. Here's what I learned from my toughest coding battles.</p>
+      <p class="mb-6 text-lg leading-relaxed">In an era of sophisticated prototyping tools and AI-assisted design, you might wonder if wireframes are still relevant. After working on projects ranging from mobile apps to complex web platforms, I can confidently say: wireframes are more important than ever.</p>
       
-      <div class="my-12 p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
-        <blockquote class="text-xl italic text-zenitsu-lightning">
-          "In the heat of battle, a calm mind is your greatest weapon. The same applies to debugging."
+      <div class="my-12 p-6 bg-ghost-black/30 rounded-xl border border-blue-400/20">
+        <blockquote class="text-xl italic text-blue-300">
+          "A wireframe is worth a thousand meetings. It transforms abstract ideas into concrete discussions."
         </blockquote>
       </div>
       
-      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">The Art of Debugging</h2>
-      <p class="mb-6 text-lg leading-relaxed">Every bug is unique, like a demon with its own cursed technique. Understanding the nature of the problem is the first step to victory.</p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
-        <div class="p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
-          <h3 class="text-xl font-bold mb-4 text-snow-white">Step 1: Observe</h3>
-          <p class="text-ash-gray">Like a Hashira studying their opponent, carefully observe the bug's behavior.</p>
-        </div>
-        <div class="p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
-          <h3 class="text-xl font-bold mb-4 text-snow-white">Step 2: Analyze</h3>
-          <p class="text-ash-gray">Break down the problem into smaller parts, just as you would analyze a demon's weak points.</p>
-        </div>
-        <div class="p-6 bg-ghost-black/30 rounded-xl border border-zenitsu-lightning/20">
-          <h3 class="text-xl font-bold mb-4 text-snow-white">Step 3: Execute</h3>
-          <p class="text-ash-gray">Apply your solution with precision, like a perfectly executed breathing technique.</p>
-        </div>
-      </div>
+      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-slate-300 via-blue-200 to-indigo-300 bg-clip-text text-transparent">The Power of Low-Fidelity Thinking</h2>
+      <p class="mb-6 text-lg leading-relaxed">Wireframes force you to focus on what matters most: structure, hierarchy, and user flow. When you remove colors, fonts, and fancy graphics, you're left with the pure essence of your design solution.</p>
       
       <div class="my-12">
-        <img src="https://placehold.co/1200x600/121212/3A86FF" alt="Debugging Process" class="rounded-xl shadow-2xl" />
-        <p class="text-center text-ash-gray mt-4">The debugging process visualized</p>
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Wireframe sketches" class="rounded-xl shadow-2xl" />
+        <p class="text-center text-ash-gray mt-4">Low-fidelity wireframes help focus on structure over aesthetics</p>
+        </div>
+      
+      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-slate-300 via-blue-200 to-indigo-300 bg-clip-text text-transparent">Why Wireframes Win in 2025</h2>
+      <p class="mb-6 text-lg leading-relaxed">Based on my experience designing everything from university gym apps to e-commerce platforms, here's why wireframes remain essential:</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
+        <div class="p-6 bg-ghost-black/30 rounded-xl border border-blue-400/20">
+          <h3 class="text-xl font-bold mb-4 text-snow-white">1. Speed & Iteration</h3>
+          <p class="text-ash-gray mb-4">Quick to create, easy to modify. Test 10 layout ideas in the time it takes to perfect one high-fidelity mockup.</p>
+          <h3 class="text-xl font-bold mb-4 text-snow-white">2. Clear Communication</h3>
+          <p class="text-ash-gray">Stakeholders focus on functionality instead of debating color choices.</p>
+        </div>
+        <div class="p-6 bg-ghost-black/30 rounded-xl border border-blue-400/20">
+          <h3 class="text-xl font-bold mb-4 text-snow-white">3. User-Centered Focus</h3>
+          <p class="text-ash-gray mb-4">Forces you to prioritize user needs over visual preferences.</p>
+          <h3 class="text-xl font-bold mb-4 text-snow-white">4. Cost-Effective</h3>
+          <p class="text-ash-gray">Catch structural issues early, before investing in detailed design.</p>
+        </div>
+      </div>
+      
+      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-slate-300 via-blue-200 to-indigo-300 bg-clip-text text-transparent">My Wireframing Process</h2>
+      <p class="mb-6 text-lg leading-relaxed">When I designed the LeGym mobile app, wireframes helped us identify that users needed quick access to equipment availability on the home screen - an insight that might have been lost if we'd started with high-fidelity designs.</p>
+      
+      <div class="my-12 p-6 bg-blue-500/10 rounded-xl border border-blue-400/30">
+        <h3 class="text-xl font-bold mb-4 text-blue-300">Pro Tip</h3>
+        <p class="text-ash-gray">Start every project with pen and paper wireframes. Digital tools come later. The friction of drawing by hand forces you to think through each element's necessity.</p>
       </div>
     `,
-    image: 'https://placehold.co/1200x600/121212/3A86FF',
-    tags: ['Debugging', 'Problem Solving', 'Best Practices', 'Development'],
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    tags: ['Wireframes', 'UX Design', 'Design Process', 'User Experience'],
     relatedPosts: [
       {
-        title: 'Debugging: The Demon Within',
-        excerpt: 'How to face and conquer the toughest bugs in your code.',
-        image: 'https://placehold.co/600x400/121212/FFD93D',
+        title: 'How to Design Beyond Aesthetics: Creating Meaningful User Experiences',
+        excerpt: 'Discover how to create designs that go beyond visual appeal to deliver truly impactful user experiences that solve real problems.',
+        image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
       },
       {
-        title: 'The Art of Clean Code',
-        excerpt: 'Why writing clean code is like mastering a sword technique.',
-        image: 'https://placehold.co/600x400/121212/FF6B6B',
+        title: 'Balancing Creativity and Usability: 5 Tips for Better UI/UX Design',
+        excerpt: 'Learn how to strike the perfect balance between creative expression and functional design that users actually want to use.',
+        image: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
       },
     ],
   },

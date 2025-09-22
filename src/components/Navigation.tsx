@@ -208,14 +208,14 @@ export const MobileMenuOverlay: React.FC<MobileMenuOverlayProps> = ({ mobileOpen
     >
       <div className="w-24 h-24 rounded-full border-4 border-zenitsu-lightning shadow-lg overflow-hidden mb-4 bg-snow-white/10">
         <img
-          src="https://randomuser.me/api/portraits/men/32.jpg"
-          alt="Profile"
+          src="/assets/mahim_picture.jpeg"
+          alt="Mahimur Rahman Khan"
           className="w-full h-full object-cover"
         />
       </div>
       <div className="text-center">
         <div className="text-xl font-extrabold text-snow-white drop-shadow-md">Mahim Rahman</div>
-        <div className="text-sm font-medium text-zenitsu-lightning/90 tracking-wide">Web Developer</div>
+        <div className="text-sm font-medium text-zenitsu-lightning/90 tracking-wide">Web Developer & UI/UX Designer</div>
       </div>
     </motion.div>
     {/* Nav Links */}
