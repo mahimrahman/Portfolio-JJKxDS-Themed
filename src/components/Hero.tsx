@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from 'react';
+import React, { useMemo, useCallback, useState } from 'react';
 import { motion } from 'framer-motion';
 
 // Animation variants for better performance
@@ -213,44 +213,123 @@ DecorativeEmoji.displayName = 'DecorativeEmoji';
 
 // Main Hero Component
 const Hero: React.FC = () => {
-  // Memoize video sources for better performance
-  const videoSources = useMemo(() => [
-    { src: '/hero_mobile.mp4', media: '(max-width: 768px)' },
-    { src: '/hero_mac.mp4', media: '(min-width: 769px) and (max-width: 1439px)' },
-    { src: '/Hero_large.mp4', media: '(min-width: 1440px)' },
-    { src: '/Hero.mp4', media: undefined }
-  ], []);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  
+  // Determine which video to load based on screen size with responsive updates
+  const [videoSource, setVideoSource] = useState('/Hero_mac.mp4');
+  
+  const updateVideoSource = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      const width = window.innerWidth;
+      let newSource = '/Hero_mac.mp4'; // Default for laptops/MacBooks
+      
+      if (width <= 768) {
+        newSource = '/hero_mobile.mp4';
+      } else if (width >= 1440) {
+        newSource = '/Hero_large.mp4';
+      }
+      
+      if (newSource !== videoSource) {
+        setVideoSource(newSource);
+        setVideoLoaded(false);
+        setVideoError(false);
+      }
+    }
+  }, [videoSource]);
+
+  // Update video source on window resize
+  React.useEffect(() => {
+    updateVideoSource();
+    
+    const handleResize = () => {
+      updateVideoSource();
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [updateVideoSource]);
 
   // Memoize particle array
   const particles = useMemo(() => Array.from({ length: 6 }, (_, i) => i), []);
 
+  const handleVideoLoad = useCallback(() => {
+    setVideoLoaded(true);
+    setVideoError(false);
+  }, []);
+
+  const handleVideoError = useCallback(() => {
+    setVideoError(true);
+    setVideoLoaded(false);
+  }, []);
+
+  // Timeout mechanism for slow loading videos
+  React.useEffect(() => {
+    if (!videoLoaded && !videoError) {
+      const timeout = setTimeout(() => {
+        if (!videoLoaded) {
+          console.warn('Video loading timeout, showing fallback background');
+          setVideoError(true);
+        }
+      }, 10000); // 10 second timeout
+
+      return () => clearTimeout(timeout);
+    }
+  }, [videoLoaded, videoError, videoSource]);
+
   return (
     <div className="relative w-full flex items-center justify-center overflow-hidden" style={{ minHeight: '100vh' }}>
-      {/* Video/Image background with aspect ratio preserved */}
+      {/* Video/Image background with optimized loading */}
       <div className="absolute inset-0 flex items-center justify-center z-0 w-full h-full">
-        <div className="w-full h-full aspect-[16/9] bg-black mx-auto">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover max-w-full max-h-full opacity-40"
-            poster="/Hero.png"
-          >
-            {videoSources.map((source, index) => (
-              <source 
-                key={index}
-                src={source.src} 
-                type="video/mp4" 
-                media={source.media} 
-              />
-            ))}
-            <img
-              src="/Hero.png"
-              alt="Hero background"
-              className="w-full h-full object-cover opacity-80"
-            />
-          </video>
+        <div className="w-full h-full bg-gradient-to-br from-ghost-black via-deep-charcoal to-ghost-black">
+          {!videoError && (
+            <video
+              key={videoSource} // Force re-render when source changes
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              className={`w-full h-full object-cover transition-opacity duration-1000 ${
+                videoLoaded ? 'opacity-40' : 'opacity-0'
+              }`}
+              onLoadedData={handleVideoLoad}
+              onError={handleVideoError}
+              onLoadStart={() => setVideoLoaded(false)}
+            >
+              <source src={videoSource} type="video/mp4" />
+            </video>
+          )}
+          
+          {/* Fallback background gradient when video fails or is loading */}
+          {(videoError || !videoLoaded) && (
+            <div className="absolute inset-0 bg-gradient-to-br from-ghost-black via-deep-charcoal to-ghost-black opacity-90">
+              {/* Loading indicator */}
+              {!videoError && !videoLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="flex items-center space-x-2 text-domain-violet">
+                    <div className="w-2 h-2 bg-current rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                    <div className="w-2 h-2 bg-current rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                    <div className="w-2 h-2 bg-current rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+          
+          {/* Animated background pattern overlay */}
+          <div className="absolute inset-0 opacity-20">
+            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="heroPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                  <circle cx="50" cy="50" r="2" fill="currentColor" className="text-domain-violet">
+                    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite" />
+                  </circle>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#heroPattern)" />
+            </svg>
+          </div>
         </div>
       </div>
 
