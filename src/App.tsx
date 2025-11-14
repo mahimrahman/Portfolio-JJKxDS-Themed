@@ -8,7 +8,6 @@ import Blog from './components/Blogs';
 import BlogPost from './components/BlogPost';
 import Contact from './components/Contact';
 import Development from './components/Development';
-import DevelopmentRecord from './components/records/DevelopmentRecord';
 import GraphicDesignRecord from './components/records/GraphicDesignRecord';
 import PhotographyRecord from './components/records/PhotographyRecord';
 import UIUXRecord from './components/records/UIUXRecord';
@@ -107,7 +106,7 @@ const AppContent: React.FC = () => {
 
   // Handle browser back/forward button
   React.useEffect(() => {
-    const handlePopState = (event: PopStateEvent) => {
+    const handlePopState = () => {
       // Let React Router handle the navigation, but ensure proper scrolling
       if (location.pathname === '/' && location.hash) {
         const id = location.hash.replace('#', '');

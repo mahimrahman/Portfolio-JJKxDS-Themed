@@ -10,14 +10,6 @@ const WaterBreathingCrest: React.FC = () => (
   </svg>
 );
 
-const FlameBreathingCrest: React.FC = () => (
-  <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-80">
-    <path d="M50 90C36.6667 76.6667 30 60 50 10C70 60 63.3333 76.6667 50 90Z" fill="#FF4E00"/>
-    <path d="M50 90C40 76.6667 35 65 50 20C65 65 60 76.6667 50 90" stroke="#FFD000" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M50 80C45 71.6667 42.5 65 50 40C57.5 65 55 71.6667 50 80" stroke="#7F00FF" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
 const SunBreathingCrest: React.FC = () => (
   <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-80">
     <circle cx="50" cy="50" r="35" fill="#FFD000" stroke="#FF4E00" strokeWidth="4"/>

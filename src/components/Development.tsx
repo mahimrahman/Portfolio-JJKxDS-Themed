@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ExternalLink, Star, GitFork, Eye, Calendar, Code, Globe, Github } from 'lucide-react';
+import { ArrowLeft, Star, GitFork, Calendar, Code, Globe, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // GitHub Repository interface
@@ -195,7 +195,7 @@ const Development: React.FC = () => {
             { label: 'Total Stars', value: repos.reduce((sum, repo) => sum + repo.stargazers_count, 0), icon: <Star size={24} /> },
             { label: 'Total Forks', value: repos.reduce((sum, repo) => sum + repo.forks_count, 0), icon: <GitFork size={24} /> },
             { label: 'Languages Used', value: languages.length, icon: <Code size={24} /> }
-          ].map((stat, index) => (
+          ].map((stat) => (
             <div key={stat.label} className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6 text-center">
               <div className="text-zenitsu-lightning mb-2 flex justify-center">
                 {stat.icon}

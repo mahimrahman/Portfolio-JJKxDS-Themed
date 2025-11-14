@@ -1,35 +1,10 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, MapPin, Send, Linkedin, Instagram, MessageSquare } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Mail, MapPin, Linkedin, Instagram, MessageSquare } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [isHovered, setIsHovered] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const socialLinks = [
-    {
-      name: 'LinkedIn',
-      icon: <Linkedin size={24} />,
-      url: 'https://www.linkedin.com/in/mahimurrahman-khan',
-      color: 'from-cursed-blue to-domain-violet',
-      hoverColor: 'from-cursed-blue/20 to-domain-violet/20',
-    },
-    {
-      name: 'Discord',
-      icon: <MessageSquare size={24} />,
-      url: 'https://discord.com/users/1196964174530629725',
-      color: 'from-domain-violet to-cursed-blue',
-      hoverColor: 'from-domain-violet/20 to-cursed-blue/20',
-    },
-    {
-      name: 'Instagram',
-      icon: <Instagram size={24} />,
-      url: 'https://www.instagram.com/snazzy_memories/',
-      color: 'from-cursed-blue to-domain-violet',
-      hoverColor: 'from-cursed-blue/20 to-domain-violet/20',
-    },
-  ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -273,7 +248,7 @@ const Contact: React.FC = () => {
                     url: "https://www.instagram.com/snazzy_memories/",
                     gradient: "from-rengoku-flame to-cursed-blue"
                   }
-                ].map((social, index) => (
+                ].map((social) => (
                   <motion.a
                     key={social.name}
                     href={social.url}

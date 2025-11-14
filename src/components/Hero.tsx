@@ -117,7 +117,7 @@ const socialLinks = [
 const SocialButton: React.FC<{
   link: typeof socialLinks[0];
   index: number;
-}> = React.memo(({ link, index }) => {
+}> = React.memo(({ link }) => {
   const handleClick = useCallback(() => {
     // Analytics tracking could go here
     console.log(`Clicked ${link.name}`);
