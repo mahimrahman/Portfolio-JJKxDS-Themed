@@ -400,7 +400,7 @@ const Portfolio = () => {
   };
 
   return (
-    <section id="battle-records" className="min-h-[80vh] py-12 px-4 relative overflow-hidden">
+    <section id="battle-records" className="min-h-[60vh] py-6 md:py-8 px-4 relative overflow-hidden">
       {/* Background Hexagonal Pattern - Domain Barrier */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -424,7 +424,7 @@ const Portfolio = () => {
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 1, type: 'spring', bounce: 0.3 }}
         viewport={{ once: true }}
-        className="text-center mb-16 relative"
+        className="text-center mb-8 md:mb-10 relative"
       >
         <h2 className="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent drop-shadow-lg tracking-wider anime-heading">
           Battle Records
@@ -472,7 +472,7 @@ const Portfolio = () => {
 
       {/* Main Layout Container */}
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
 
           {/* Left Side - Category Selection with Domain Barriers */}
           <div className="space-y-4">

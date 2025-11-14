@@ -411,14 +411,14 @@ const ExperienceModal = ({ experience, onClose, isVisible }: {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 transition-opacity duration-300 opacity-100"
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-2 sm:p-4 transition-opacity duration-300 opacity-100"
       onClick={handleClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="experience-title"
     >
       {/* Enhanced backdrop with breathing effect */}
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-lg">
+      <div className="absolute inset-0 bg-black/90 backdrop-blur-lg">
         {/* Subtle domain expansion circles in background */}
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(3)].map((_, i) => (
@@ -620,7 +620,7 @@ const Experience = () => {
   const filterButtons: FilterType[] = ['All', 'Canada', 'Malaysia', 'Bangladesh'];
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-center p-3 sm:p-4 overflow-hidden">
+    <section className="relative w-full min-h-[70vh] flex flex-col items-center justify-center py-6 px-3 sm:px-4 overflow-hidden">
       {/* Enhanced cosmic background with domain expansion circles */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-deep-charcoal via-ghost-black to-black"></div>
@@ -701,7 +701,7 @@ const Experience = () => {
       <div className="relative z-10 text-center w-full max-w-6xl mx-auto px-3 sm:px-4">
 
         {/* Title with breathing technique accent */}
-        <div className="text-center mb-5 sm:mb-7 lg:mb-10">
+        <div className="text-center mb-4 sm:mb-5 lg:mb-6">
           <h1
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight pb-2 sm:pb-3 lg:pb-4 leading-tight px-2 animate-fade-in relative"
           >
@@ -791,7 +791,7 @@ const Experience = () => {
       </div>
 
       {/* Constellation Container */}
-      <div className="relative z-10 w-full max-w-4xl sm:max-w-5xl lg:max-w-6xl mt-4 sm:mt-6 lg:mt-8 px-2 sm:px-4">
+      <div className="relative z-10 w-full max-w-4xl sm:max-w-5xl lg:max-w-6xl mt-3 sm:mt-4 lg:mt-5 px-2 sm:px-4">
         <div className="relative w-full aspect-square sm:aspect-video">
           {/* Enhanced connection lines with breathing technique patterns */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none transition-opacity duration-500" aria-hidden="true">

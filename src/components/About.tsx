@@ -22,7 +22,7 @@ const aboutIcons = [
 ];
 
 const AboutBase = () =>
-  <section className="min-h-[80vh] py-8 md:py-12 px-4 relative overflow-hidden">
+  <section className="min-h-[60vh] py-6 md:py-8 px-4 relative overflow-hidden">
     <div className="max-w-6xl mx-auto relative z-10 [content-visibility:auto]">
       {/* Header Section */}
       <motion.div
@@ -30,7 +30,7 @@ const AboutBase = () =>
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="text-center mb-8 md:mb-16"
+        className="text-center mb-6 md:mb-10"
       >
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-4 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
           The Path of the Slayer
@@ -39,7 +39,7 @@ const AboutBase = () =>
       </motion.div>
       
       {/* Bento Grid Layout - Responsive design */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 h-auto lg:h-[600px]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 h-auto lg:h-[450px]">
         {/* Left Column - Large Text Card (50% width on desktop, full width on mobile) */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -48,8 +48,8 @@ const AboutBase = () =>
           viewport={{ once: true }}
           className="h-auto lg:h-full mb-6 lg:mb-0 transform-gpu"
         >
-          <div className="min-h-[300px] lg:h-full bg-gradient-to-br from-snow-white/10 to-snow-white/5 backdrop-blur-xl backdrop-saturate-150 rounded-3xl border border-snow-white/20/80 shadow-2xl shadow-black/20 p-6 md:p-8 lg:p-10 flex flex-col justify-center group hover:shadow-3xl hover:shadow-snow-white/10 transition-all duration-500 [will-change:transform]">
-            <div className="space-y-6 md:space-y-8">
+          <div className="min-h-[250px] lg:h-full bg-gradient-to-br from-snow-white/10 to-snow-white/5 backdrop-blur-xl backdrop-saturate-150 rounded-3xl border border-snow-white/20/80 shadow-2xl shadow-black/20 p-5 md:p-6 lg:p-7 flex flex-col justify-center group hover:shadow-3xl hover:shadow-snow-white/10 transition-all duration-500 [will-change:transform]">
+            <div className="space-y-4 md:space-y-5">
               <p className="text-base md:text-lg lg:text-xl text-snow-white leading-relaxed">
                 Software Engineering graduate with a strong foundation in IT solutions, project management, and data analysis. Eager to apply academic knowledge to real-world challenges, focusing on delivering quality software and optimizing processes. Passionate about continuous learning, teamwork, and contributing to impactful projects.
               </p>
@@ -65,8 +65,8 @@ const AboutBase = () =>
           {/* Bento Grid - Responsive 2x2 Layout */}
           <div className="grid grid-cols-2 gap-3 md:gap-4 h-auto lg:h-full">
             {/* Top Left Card */}
-            <motion.div 
-              className="min-h-[140px] md:min-h-[160px] lg:h-auto bg-gradient-to-br from-checkered-green/80 to-domain-violet/30 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-3 md:p-4 flex flex-col justify-center group hover:shadow-xl hover:shadow-checkered-green/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
+            <motion.div
+              className="min-h-[120px] md:min-h-[130px] lg:h-auto bg-gradient-to-br from-checkered-green/80 to-domain-violet/30 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-2 md:p-3 flex flex-col justify-center group hover:shadow-xl hover:shadow-checkered-green/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.1 }}
@@ -86,8 +86,8 @@ const AboutBase = () =>
             </motion.div>
             
             {/* Top Right Card */}
-            <motion.div 
-              className="min-h-[140px] md:min-h-[160px] lg:h-auto bg-gradient-to-br from-zenitsu-lightning/50 to-rengoku-flame/50 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-3 md:p-4 flex flex-col justify-center group hover:shadow-xl hover:shadow-zenitsu-lightning/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
+            <motion.div
+              className="min-h-[120px] md:min-h-[130px] lg:h-auto bg-gradient-to-br from-zenitsu-lightning/50 to-rengoku-flame/50 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-2 md:p-3 flex flex-col justify-center group hover:shadow-xl hover:shadow-zenitsu-lightning/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.15 }}
@@ -107,8 +107,8 @@ const AboutBase = () =>
             </motion.div>
 
             {/* Bottom Left Card */}
-            <motion.div 
-              className="min-h-[140px] md:min-h-[160px] lg:h-auto bg-gradient-to-br from-cursed-blue/30 to-domain-violet/80 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-3 md:p-4 flex flex-col justify-center group hover:shadow-xl hover:shadow-cursed-blue/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
+            <motion.div
+              className="min-h-[120px] md:min-h-[130px] lg:h-auto bg-gradient-to-br from-cursed-blue/30 to-domain-violet/80 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-2 md:p-3 flex flex-col justify-center group hover:shadow-xl hover:shadow-cursed-blue/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.2 }}
@@ -128,8 +128,8 @@ const AboutBase = () =>
             </motion.div>
             
             {/* Bottom Right Card */}
-            <motion.div 
-              className="min-h-[140px] md:min-h-[160px] lg:h-auto bg-gradient-to-br from-rengoku-flame/80 to-zenitsu-lightning/40 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-3 md:p-4 flex flex-col justify-center group hover:shadow-xl hover:shadow-rengoku-flame/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
+            <motion.div
+              className="min-h-[120px] md:min-h-[130px] lg:h-auto bg-gradient-to-br from-rengoku-flame/80 to-zenitsu-lightning/40 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-2 md:p-3 flex flex-col justify-center group hover:shadow-xl hover:shadow-rengoku-flame/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.25 }}
