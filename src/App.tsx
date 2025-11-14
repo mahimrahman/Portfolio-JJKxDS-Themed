@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useRef, useState, MouseEvent } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Navigation, { MobileMenuOverlay } from './components/Navigation';
 import Hero from './components/Hero';
@@ -15,12 +15,6 @@ import Portfolio from './components/Portfolio';
 import Education from './components/Education';
 import Skills from './components/Skills';
 import AnimatedBlobBackground from './components/AnimatedBlobBackground';
-
-const Placeholder: React.FC<{ title: string }> = ({ title }) => (
-  <div className="min-h-screen flex items-center justify-center text-snow-white text-4xl font-bold">
-    {title}
-  </div>
-);
 
 // Generate random particles for the anime energy effect - Blue and Purple only
 const particles = Array.from({ length: 18 }).map((_, i) => {
@@ -49,15 +43,15 @@ const particles = Array.from({ length: 18 }).map((_, i) => {
   );
 });
 
-const AppContent: React.FC = () => {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+const AppContent = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const pendingHash = React.useRef<string | null>(null);
-  const scrollTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+  const pendingHash = useRef<string | null>(null);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Enhanced scroll management with browser history integration
-  React.useEffect(() => {
+  useEffect(() => {
     // Clear any pending scroll timeout
     if (scrollTimeoutRef.current) {
       clearTimeout(scrollTimeoutRef.current);
@@ -105,7 +99,7 @@ const AppContent: React.FC = () => {
   }, [location.pathname, location.hash]);
 
   // Handle browser back/forward button
-  React.useEffect(() => {
+  useEffect(() => {
     const handlePopState = () => {
       // Let React Router handle the navigation, but ensure proper scrolling
       if (location.pathname === '/' && location.hash) {
@@ -123,7 +117,7 @@ const AppContent: React.FC = () => {
     return () => window.removeEventListener('popstate', handlePopState);
   }, [location]);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
+  const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
       e.preventDefault();
       const sectionId = href.replace('#', '');
@@ -185,11 +179,6 @@ const AppContent: React.FC = () => {
           <Route path="/records/graphic-design" element={<GraphicDesignRecord />} />
           <Route path="/records/photography" element={<PhotographyRecord />} />
           <Route path="/records/uiux" element={<UIUXRecord />} />
-          <Route path="/development" element={<Development />} />
-          <Route path="/uiux" element={<Placeholder title="UI/UX: User Alchemy" />} />
-          <Route path="/photography" element={<Placeholder title="Photography: Lens Chronicles" />} />
-          <Route path="/design" element={<Placeholder title="Graphic Design: Visual Symmetry" />} />
-          <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
         </Routes>
       </main>
@@ -197,9 +186,9 @@ const AppContent: React.FC = () => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   // Disable browser's automatic scroll restoration to handle it manually
-  React.useEffect(() => {
+  useEffect(() => {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }

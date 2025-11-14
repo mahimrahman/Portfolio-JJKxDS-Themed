@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(del \"c:\\D Drive\\Portfolio-JJKxDS-Themed\\src\\components\\FloatingSeals.tsx\")",
+      "Bash(rm:*)",
+      "Bash(npm run build:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

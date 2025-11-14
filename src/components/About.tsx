@@ -1,55 +1,27 @@
-import React from 'react';
+import { memo } from 'react';
 import { motion } from 'framer-motion';
 
-const aboutCards = [
-  {
-    title: 'Development',
-    subtitle: 'Code Sorcery',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-      </svg>
-    ),
-    color: 'from-checkered-green to-domain-violet',
-    link: '/development',
-  },
-  {
-    title: 'UI/UX',
-    subtitle: 'User Alchemy',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-      </svg>
-    ),
-    color: 'from-zenitsu-lightning to-rengoku-flame',
-    link: '/uiux',
-  },
-  {
-    title: 'Photography',
-    subtitle: 'Lens Chronicles',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    ),
-    color: 'from-rengoku-flame to-domain-violet',
-    link: '/photography',
-  },
-  {
-    title: 'Graphic Design',
-    subtitle: 'Visual Symmetry',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
-      </svg>
-    ),
-    color: 'from-cursed-blue to-domain-violet',
-    link: '/design',
-  },
+const aboutIcons = [
+  // Web Development icon
+  <svg key="dev" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+  </svg>,
+  // UI/UX icon
+  <svg key="uiux" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+  </svg>,
+  // Data Analysis icon
+  <svg key="data" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+  </svg>,
+  // Project Management icon
+  <svg key="pm" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
+  </svg>,
 ];
 
-const AboutBase: React.FC = () =>
+const AboutBase = () =>
   <section className="min-h-[80vh] py-8 md:py-12 px-4 relative overflow-hidden">
     <div className="max-w-6xl mx-auto relative z-10 [content-visibility:auto]">
       {/* Header Section */}
@@ -103,7 +75,7 @@ const AboutBase: React.FC = () =>
               <div className="flex flex-col items-center text-center gap-2 md:gap-3">
                 <div className="text-zenitsu-lightning group-hover:scale-110 transition-transform duration-300">
                   <div className="w-6 h-6 md:w-8 md:h-8">
-                    {aboutCards[0].icon}
+                    {aboutIcons[0]}
                   </div>
                 </div>
                 <div>
@@ -124,7 +96,7 @@ const AboutBase: React.FC = () =>
               <div className="flex flex-col items-center text-center gap-2 md:gap-3">
                 <div className="text-zenitsu-lightning group-hover:scale-110 transition-transform duration-300">
                   <div className="w-6 h-6 md:w-8 md:h-8">
-                    {aboutCards[1].icon}
+                    {aboutIcons[1]}
                   </div>
                 </div>
                 <div>
@@ -145,7 +117,7 @@ const AboutBase: React.FC = () =>
               <div className="flex flex-col items-center text-center gap-2 md:gap-3">
                 <div className="text-zenitsu-lightning group-hover:scale-110 transition-transform duration-300">
                   <div className="w-6 h-6 md:w-8 md:h-8">
-                    {aboutCards[2].icon}
+                    {aboutIcons[2]}
                   </div>
                 </div>
                 <div>
@@ -166,7 +138,7 @@ const AboutBase: React.FC = () =>
               <div className="flex flex-col items-center text-center gap-2 md:gap-3">
                 <div className="text-zenitsu-lightning group-hover:scale-110 transition-transform duration-300">
                   <div className="w-6 h-6 md:w-8 md:h-8">
-                    {aboutCards[3].icon}
+                    {aboutIcons[3]}
                   </div>
                 </div>
                 <div>
@@ -181,6 +153,6 @@ const AboutBase: React.FC = () =>
     </div>
   </section>;
 
-const About = React.memo(AboutBase);
+const About = memo(AboutBase);
 
 export default About; 

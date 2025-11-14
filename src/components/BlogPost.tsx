@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -415,7 +414,7 @@ const blogData = {
   },
 };
 
-export const BlogPost: React.FC = () => {
+export const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const post = blogData[slug as keyof typeof blogData];

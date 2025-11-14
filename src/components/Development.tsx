@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star, GitFork, Calendar, Code, Globe, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -50,7 +50,7 @@ const languageColors: { [key: string]: string } = {
   default: '#8b5cf6'
 };
 
-const Development: React.FC = () => {
+const Development = () => {
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

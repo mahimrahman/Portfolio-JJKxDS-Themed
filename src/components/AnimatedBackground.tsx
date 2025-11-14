@@ -1,7 +1,6 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
-const AnimatedBackground: React.FC = () => {
+const AnimatedBackground = () => {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       {/* Base gradient */}

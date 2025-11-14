@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 
 // Types
 interface ExperienceItem {
@@ -166,11 +166,11 @@ const experienceData: ExperienceItem[] = [
 ];
 
 // Experience Star Component - Mobile-optimized with responsive positioning
-const ExperienceStar: React.FC<{
+const ExperienceStar = ({ experience, onClick, isVisible }: {
   experience: ExperienceItem;
   onClick: (experience: ExperienceItem) => void;
   isVisible: boolean;
-}> = ({ experience, onClick, isVisible }) => {
+}) => {
   // Use mobile positioning on small screens, desktop positioning on larger screens
   const getPosition = () => {
     if (window.innerWidth < 768) {
@@ -243,11 +243,11 @@ const ExperienceStar: React.FC<{
 };
 
 // Experience Modal Component - Mobile-optimized
-const ExperienceModal: React.FC<{
+const ExperienceModal = ({ experience, onClose, isVisible }: {
   experience: ExperienceItem;
   onClose: () => void;
   isVisible: boolean;
-}> = ({ experience, onClose, isVisible }) => {
+}) => {
   const handleClose = useCallback(() => {
     onClose();
   }, [onClose]);
@@ -334,7 +334,7 @@ const ExperienceModal: React.FC<{
 };
 
 // Main Experience Component - Mobile-first and responsive
-const Experience: React.FC = () => {
+const Experience = () => {
   const [selectedExperience, setSelectedExperience] = useState<ExperienceItem | null>(null);
   const [activeFilter, setActiveFilter] = useState<FilterType>('All');
 

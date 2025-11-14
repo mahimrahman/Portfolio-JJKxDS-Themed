@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback, useState } from 'react';
+import { useMemo, useCallback, useState, memo, FC, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 // Animation variants for better performance
@@ -114,10 +114,10 @@ const socialLinks = [
 ];
 
 // Optimized Social Button Component
-const SocialButton: React.FC<{
+const SocialButton: FC<{
   link: typeof socialLinks[0];
   index: number;
-}> = React.memo(({ link }) => {
+}> = memo(({ link }) => {
   const handleClick = useCallback(() => {
     // Analytics tracking could go here
     console.log(`Clicked ${link.name}`);
@@ -158,7 +158,7 @@ const SocialButton: React.FC<{
 SocialButton.displayName = 'SocialButton';
 
 // Optimized Floating Particle Component
-const FloatingParticle: React.FC<{ index: number }> = React.memo(({ index }) => {
+const FloatingParticle: FC<{ index: number }> = memo(({ index }) => {
   const particleStyle = useMemo(() => ({
     left: `${20 + index * 15}%`,
     top: `${30 + (index % 2) * 20}%`,
@@ -188,13 +188,13 @@ const FloatingParticle: React.FC<{ index: number }> = React.memo(({ index }) => 
 FloatingParticle.displayName = 'FloatingParticle';
 
 // Optimized Decorative Emoji Component
-const DecorativeEmoji: React.FC<{
+const DecorativeEmoji: FC<{
   emoji: string;
   position: string;
   animation: 'up' | 'down';
   color: string;
   duration: number;
-}> = React.memo(({ emoji, position, animation, color, duration }) => {
+}> = memo(({ emoji, position, animation, color, duration }) => {
   const yValues = animation === 'up' ? [0, -20, 0] : [0, 20, 0];
   const rotateValues = animation === 'up' ? [0, 5, 0] : [0, -5, 0];
 
@@ -212,18 +212,18 @@ const DecorativeEmoji: React.FC<{
 DecorativeEmoji.displayName = 'DecorativeEmoji';
 
 // Main Hero Component
-const Hero: React.FC = () => {
+const Hero = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
   
   // Determine which video to load based on screen size with responsive updates
-  const [videoSource, setVideoSource] = useState('/Hero_mac.mp4');
-  
+  const [videoSource, setVideoSource] = useState('/1.mp4');
+
   const updateVideoSource = useCallback(() => {
     if (typeof window !== 'undefined') {
       const width = window.innerWidth;
-      let newSource = '/Hero_mac.mp4'; // Default for laptops/MacBooks
-      
+      let newSource = '/1.mp4'; // Default for laptops/MacBooks
+
       if (width <= 768) {
         newSource = '/hero_mobile.mp4';
       } else if (width >= 1440) {
@@ -239,7 +239,7 @@ const Hero: React.FC = () => {
   }, [videoSource]);
 
   // Update video source on window resize
-  React.useEffect(() => {
+  useEffect(() => {
     updateVideoSource();
     
     const handleResize = () => {
@@ -264,7 +264,7 @@ const Hero: React.FC = () => {
   }, []);
 
   // Timeout mechanism for slow loading videos
-  React.useEffect(() => {
+  useEffect(() => {
     if (!videoLoaded && !videoError) {
       const timeout = setTimeout(() => {
         if (!videoLoaded) {
@@ -423,4 +423,4 @@ const Hero: React.FC = () => {
   );
 };
 
-export default React.memo(Hero);
+export default memo(Hero);

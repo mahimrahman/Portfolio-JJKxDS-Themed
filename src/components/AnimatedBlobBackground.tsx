@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
 
 // 3D-like radial gradients for blobs - Blue and Purple only
@@ -43,7 +43,7 @@ const blobPaths = [
 
 const blobSize = [500, 400, 350, 600, 300, 420]; // larger, more spread out
 
-const AnimatedBlobBackground: React.FC = () => {
+const AnimatedBlobBackground = () => {
   const [parallax, setParallax] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
 

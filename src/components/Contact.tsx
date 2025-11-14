@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Linkedin, Instagram, MessageSquare } from 'lucide-react';
 
-const Contact: React.FC = () => {
+const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     // Simulate form submission

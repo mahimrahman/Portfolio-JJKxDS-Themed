@@ -1,4 +1,4 @@
-import React, { useState, memo, useCallback } from 'react';
+import { useState, useCallback, memo, MouseEvent, KeyboardEvent } from 'react';
 import { motion } from 'framer-motion';
 import { EducationEntry } from '../types/education';
 
@@ -32,10 +32,10 @@ const SparkleParticles = memo(() => (
   </div>
 ));
 
-const MasterySeal: React.FC<MasterySealProps> = ({ entry, index }) => {
+const MasterySeal = ({ entry, index }: MasterySealProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
-  const handleClick = useCallback((e: React.MouseEvent | React.KeyboardEvent) => {
+  const handleClick = useCallback((e: MouseEvent | KeyboardEvent) => {
     e.preventDefault();
     setIsFlipped(prev => !prev);
   }, []);
@@ -121,4 +121,4 @@ const MasterySeal: React.FC<MasterySealProps> = ({ entry, index }) => {
   );
 };
 
-export default MasterySeal;
+export default memo(MasterySeal);

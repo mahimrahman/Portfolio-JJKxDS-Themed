@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import { useState, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Palette, Code, Users, Settings, ChevronDown } from 'lucide-react';
 
 // Anime Icon Container Component
-const AnimeIconContainer: React.FC<{ 
-  isActive: boolean; 
-  color: string; 
-  icon: React.ReactNode;
-}> = ({ isActive, color, icon }) => (
+const AnimeIconContainer = ({ isActive, color, icon }: {
+  isActive: boolean;
+  color: string;
+  icon: ReactNode;
+}) => (
   <motion.div
     className="relative w-12 h-12 flex items-center justify-center"
     animate={{
@@ -25,12 +25,12 @@ const AnimeIconContainer: React.FC<{
 );
 
 // Skill Card Component
-const SkillCard: React.FC<{ 
-  skill: string; 
-  index: number; 
-  isVisible: boolean; 
+const SkillCard = ({ skill, index, isVisible, categoryColor }: {
+  skill: string;
+  index: number;
+  isVisible: boolean;
   categoryColor: string;
-}> = ({ skill, index, isVisible, categoryColor }) => (
+}) => (
   <motion.div
     initial={{ opacity: 0, scale: 0.8, y: 20 }}
     animate={{ 
@@ -60,14 +60,14 @@ const SkillCard: React.FC<{
 );
 
 // Category Card Component
-const CategoryCard: React.FC<{
+const CategoryCard = ({ title, skills, icon, isExpanded, onToggle, categoryColor }: {
   title: string;
   skills: string[];
-  icon: React.ReactNode;
+  icon: ReactNode;
   isExpanded: boolean;
   onToggle: () => void;
   categoryColor: string;
-}> = ({ title, skills, icon, isExpanded, onToggle, categoryColor }) => {
+}) => {
   return (
     <motion.div
       className="relative cursor-pointer group touch-manipulation"
@@ -146,7 +146,7 @@ const CategoryCard: React.FC<{
 };
 
 // Main Skills component
-const Skills: React.FC = () => {
+const Skills = () => {
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
 
   const skillCategories = [
