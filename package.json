@@ -11,12 +11,15 @@
   "dependencies": {
     "@fontsource/mochiy-pop-one": "^5.2.5",
     "@heroicons/react": "^2.1.1",
+    "autoprefixer": "^10.4.16",
     "framer-motion": "^12.10.0",
     "lucide-react": "^0.544.0",
+    "postcss": "^8.4.31",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.5.3",
-    "swiper": "^11.2.6"
+    "swiper": "^11.2.6",
+    "tailwindcss": "^3.3.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
