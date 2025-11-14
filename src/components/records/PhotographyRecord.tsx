@@ -64,7 +64,6 @@ const SakuraPetal: React.FC<SakuraPetalProps> = ({ delay, size, duration, xOffse
 
 const PhotographyRecord: React.FC = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
-  const [swiper, setSwiper] = useState<any>(null);
 
   const handleKey = useCallback((e: KeyboardEvent) => {
     if (openIdx === null) return;
@@ -162,7 +161,7 @@ const PhotographyRecord: React.FC = () => {
             navigation={true}
             modules={[EffectCoverflow, Pagination, Navigation, Mousewheel]}
             className="h-full"
-            onSwiper={setSwiper}
+            onSwiper={() => {}}
             breakpoints={{
               320: {
                 slidesPerView: 3,
