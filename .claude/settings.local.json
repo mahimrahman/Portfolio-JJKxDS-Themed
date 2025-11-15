@@ -3,7 +3,8 @@
     "allow": [
       "Bash(del \"c:\\D Drive\\Portfolio-JJKxDS-Themed\\src\\components\\FloatingSeals.tsx\")",
       "Bash(rm:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(ls:*)"
     ],
     "deny": [],
     "ask": []
