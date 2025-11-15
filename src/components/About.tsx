@@ -1,5 +1,7 @@
 import { memo } from 'react';
 import { motion } from 'framer-motion';
+import SmokeBackground from './SmokeBackground';
+import SectionMerge from './SectionMerge';
 
 // Professional skill domain icons - clean and minimalist
 const domainIcons = {
@@ -70,50 +72,55 @@ const skillDomains = [
 ];
 
 const AboutBase = () =>
-  <section className="h-screen py-8 md:py-12 px-4 relative overflow-hidden flex items-center">
-    {/* Animated Domain Expansion Background Effects */}
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+  <section className="min-h-screen py-16 px-6 md:px-8 lg:px-12 relative overflow-hidden flex items-center">
+    {/* Subtle Section Merge Overlays */}
+    <SectionMerge position="top" intensity="light" />
+    <SectionMerge position="bottom" intensity="light" />
+    {/* Dark theme background with transparency for smoke */}
+    <div className="absolute inset-0 bg-gradient-to-br from-deep-charcoal/95 via-ghost-black/95 to-deep-charcoal/95 backdrop-blur-sm z-0"></div>
+    {/* Smoke Effect Background */}
+    <SmokeBackground />
+    {/* Simplified Background Effects - Brought Forward */}
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-[25]">
+      {/* Single subtle orb for ambiance */}
       <motion.div 
-        className="absolute top-1/4 left-1/4 w-96 h-96 bg-domain-violet/5 rounded-full blur-3xl"
+        className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full blur-3xl"
+        style={{
+          background: 'radial-gradient(circle, rgba(127,0,255,0.1) 0%, rgba(58,134,255,0.06) 50%, transparent 100%)'
+        }}
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
         }}
         transition={{
-          duration: 8,
+          duration: 15,
           repeat: Infinity,
           ease: "easeInOut"
         }}
       />
-      <motion.div 
-        className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-rengoku-flame/5 rounded-full blur-3xl"
+      
+      {/* Animated grid pattern overlay */}
+      <motion.div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(127, 0, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(127, 0, 255, 0.03) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px'
+        }}
         animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.2, 0.4, 0.2],
+          backgroundPosition: ['0px 0px', '60px 60px'],
         }}
         transition={{
-          duration: 10,
+          duration: 20,
           repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1
-        }}
-      />
-      <motion.div 
-        className="absolute top-1/2 right-1/3 w-72 h-72 bg-cursed-blue/5 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.25, 1],
-          opacity: [0.25, 0.45, 0.25],
-        }}
-        transition={{
-          duration: 9,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2
+          ease: "linear"
         }}
       />
     </div>
 
-    <div className="max-w-7xl mx-auto relative z-10 w-full">
+    <div className="max-w-7xl mx-auto relative z-30 w-full">
       {/* Compact Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}

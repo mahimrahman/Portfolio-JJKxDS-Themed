@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { createPortal } from 'react-dom';
+import SmokeBackground from './SmokeBackground';
+import SectionMerge from './SectionMerge';
 
 /**
  * Experience Component - Constellation of Professional Experience
@@ -724,85 +726,31 @@ const Experience = () => {
   const filterButtons: FilterType[] = ['All', 'Canada', 'Malaysia', 'Bangladesh'];
 
   return (
-    <section className="relative w-full min-h-[70vh] flex flex-col items-center justify-center py-6 px-3 sm:px-4 overflow-hidden">
-      {/* Enhanced cosmic background with domain expansion circles */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-deep-charcoal via-ghost-black to-black"></div>
-
-        {/* Large domain expansion circles in background */}
-        <div className="absolute inset-0 opacity-20">
-          {[...Array(3)].map((_, i) => (
-            <div
-              key={`domain-${i}`}
-              className="absolute rounded-full border border-domain-violet/30"
-              style={{
-                width: `${400 + i * 200}px`,
-                height: `${400 + i * 200}px`,
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                animation: `pulse ${8 + i * 2}s ease-in-out infinite`,
-                animationDelay: `${i * 0.5}s`,
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Cursed energy particles floating */}
-        <div className="absolute inset-0">
-          {Array.from({ length: window.innerWidth < 768 ? 12 : 20 }).map((_, i) => {
-            const colors = [
-              locationColors.Canada.primary,
-              locationColors.Malaysia.primary,
-              locationColors.Bangladesh.primary,
-            ];
-            const color = colors[i % colors.length];
-
-            return (
-              <div
-                key={i}
-                className="absolute rounded-full animate-pulse"
-                style={{
-                  width: '3px',
-                  height: '3px',
-                  background: color,
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 4}s`,
-                  animationDuration: `${5 + Math.random() * 3}s`,
-                  boxShadow: `0 0 10px ${color}`,
-                }}
-              />
-            );
-          })}
-        </div>
-
-        {/* Breathing technique meteor shower */}
-        <div className="absolute inset-0 overflow-hidden opacity-40">
-          {Array.from({ length: window.innerWidth < 768 ? 5 : 10 }).map((_, i) => {
-            const location = i % 3 === 0 ? 'Canada' : i % 3 === 1 ? 'Malaysia' : 'Bangladesh';
-            const colorTheme = locationColors[location];
-
-            return (
-              <div
-                key={`meteor-${i}`}
-                className="absolute w-0.5 h-12 rounded-full animate-meteor"
-                style={{
-                  background: `linear-gradient(to bottom, ${colorTheme.primary}, transparent)`,
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 10}s`,
-                  animationDuration: `${10 + Math.random() * 10}s`,
-                  boxShadow: `0 0 10px ${colorTheme.glow}`,
-                }}
-              />
-            );
-          })}
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-center py-16 px-6 md:px-8 lg:px-12 overflow-hidden">
+      {/* Subtle Section Merge Overlays */}
+      <SectionMerge position="top" intensity="light" />
+      <SectionMerge position="bottom" intensity="light" />
+      {/* Dark theme background with transparency for smoke */}
+      <div className="absolute inset-0 bg-gradient-to-br from-deep-charcoal/95 via-ghost-black/95 to-black/95 backdrop-blur-sm z-0"></div>
+      {/* Smoke Effect Background */}
+      <SmokeBackground />
+      {/* Simplified cosmic background - Reduced for performance */}
+      <div className="absolute inset-0 z-5">
+        {/* Single subtle domain circle */}
+        <div className="absolute inset-0 opacity-15 flex items-center justify-center">
+          <div
+            className="absolute rounded-full border border-domain-violet/20"
+            style={{
+              width: '600px',
+              height: '600px',
+              animation: 'pulse 10s ease-in-out infinite',
+            }}
+          />
         </div>
       </div>
-
-      {/* Foreground Content */}
-      <div className="relative z-10 text-center w-full max-w-6xl mx-auto px-3 sm:px-4">
+      
+      {/* Foreground Content - Brought Forward */}
+      <div className="relative z-30 text-center w-full max-w-6xl mx-auto px-3 sm:px-4">
 
         {/* Title with breathing technique accent */}
         <div className="text-center mb-4 sm:mb-5 lg:mb-6">
@@ -972,7 +920,7 @@ const Experience = () => {
           </svg>
 
           {/* Enhanced constellation markers with staggered appearance */}
-          {experienceData.map((exp, index) => (
+          {experienceData.map((exp) => (
             <ExperienceStar
               key={exp.id}
               experience={exp}

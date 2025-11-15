@@ -1,6 +1,8 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Linkedin, Instagram, MessageSquare, Send } from 'lucide-react';
+import SmokeBackground from './SmokeBackground';
+import SectionMerge from './SectionMerge';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -20,20 +22,36 @@ const Contact = () => {
   };
 
   return (
-    <section className="min-h-screen py-16 px-4 relative overflow-hidden flex items-center">
-      {/* Background Effects */}
-      <div className="absolute inset-0 -z-10">
-        {/* Hexagonal sacred geometry pattern */}
-        <div className="absolute inset-0 opacity-5">
+    <section className="min-h-screen py-16 px-6 md:px-8 lg:px-12 relative overflow-hidden flex items-center">
+      {/* Subtle Section Merge Overlay - only top since this is the last section */}
+      <SectionMerge position="top" intensity="light" />
+      {/* Dark theme background with transparency for smoke */}
+      <div className="absolute inset-0 bg-gradient-to-br from-ghost-black/95 via-deep-charcoal/95 to-ghost-black/95 backdrop-blur-sm"></div>
+      {/* Smoke Effect Background */}
+      <SmokeBackground />
+      {/* Background Effects - Brought Forward */}
+      <div className="absolute inset-0 z-[25]">
+        {/* Hexagonal sacred geometry pattern with animation */}
+        <motion.div 
+          className="absolute inset-0 opacity-8"
+          animate={{
+            opacity: [0.06, 0.12, 0.06],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
           <svg width="100%" height="100%">
             <defs>
               <pattern id="hexContact" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
-                <path d="M30 0 L45 13 L45 39 L30 52 L15 39 L15 13 Z" fill="none" stroke="currentColor" strokeWidth="1" className="text-domain-violet"/>
+                <path d="M30 0 L45 13 L45 39 L30 52 L15 39 L15 13 Z" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-domain-violet"/>
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#hexContact)" />
           </svg>
-        </div>
+        </motion.div>
 
         {/* Ritual circle background */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-10">
@@ -77,12 +95,45 @@ const Contact = () => {
           </svg>
         </div>
 
-        {/* Ambient glows */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-domain-violet/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cursed-blue/10 rounded-full blur-3xl animate-pulse"></div>
+        {/* Ambient glows - Enhanced */}
+        <motion.div 
+          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, rgba(127, 0, 255, 0.18) 0%, rgba(58, 134, 255, 0.12) 50%, transparent 100%)'
+          }}
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.5, 0.8, 0.5],
+            x: [0, 30, 0],
+            y: [0, -20, 0],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-1/4 right-1/4 w-[480px] h-[480px] rounded-full blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, rgba(255, 78, 0, 0.15) 0%, rgba(255, 208, 0, 0.1) 50%, transparent 100%)'
+          }}
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.4, 0.7, 0.4],
+            x: [0, -30, 0],
+            y: [0, 20, 0],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
 
-        {/* Floating cursed energy particles */}
-        {Array.from({ length: 15 }).map((_, i) => (
+        {/* Floating cursed energy particles - reduced for performance */}
+        {Array.from({ length: 8 }).map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-zenitsu-lightning/40 rounded-full"
@@ -104,7 +155,7 @@ const Contact = () => {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10 w-full">
+      <div className="max-w-7xl mx-auto relative z-[40] w-full">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}

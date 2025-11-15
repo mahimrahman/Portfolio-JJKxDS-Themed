@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import SmokeBackground from './SmokeBackground';
+import SectionMerge from './SectionMerge';
 
 const blogPosts = [
   {
@@ -253,8 +255,13 @@ const BlogPage = () => {
 
   return (
     <section id="blog" className="min-h-screen flex flex-col py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Subtle Section Merge Overlays */}
+      <SectionMerge position="top" intensity="light" />
+      <SectionMerge position="bottom" intensity="light" />
       {/* Sophisticated Background with Cursed Energy Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-deep-charcoal via-ghost-black to-deep-charcoal">
+        {/* Smoke Effect Background */}
+        <SmokeBackground />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(168,85,247,0.08),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(0,217,255,0.06),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_80%,rgba(58,134,255,0.05),transparent_50%)]" />

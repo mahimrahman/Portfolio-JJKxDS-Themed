@@ -1,6 +1,8 @@
 import { useState, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Palette, Code, Users, Settings, ChevronDown } from 'lucide-react';
+import SmokeBackground from './SmokeBackground';
+import SectionMerge from './SectionMerge';
 
 // Anime Icon Container Component
 const AnimeIconContainer = ({ isActive, color, icon }: {
@@ -229,11 +231,77 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-16 px-4 relative overflow-hidden">
-      {/* Clean background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-deep-charcoal via-ghost-black to-deep-charcoal pointer-events-none" />
+    <section id="skills" className="min-h-screen py-16 px-6 md:px-8 lg:px-12 relative overflow-hidden">
+      {/* Subtle Section Merge Overlays */}
+      <SectionMerge position="top" intensity="light" />
+      <SectionMerge position="bottom" intensity="light" />
+      {/* Dark theme background with transparency for smoke */}
+      <div className="absolute inset-0 bg-gradient-to-br from-deep-charcoal/95 via-ghost-black/95 to-deep-charcoal/95 backdrop-blur-sm"></div>
+      {/* Smoke Effect Background */}
+      <SmokeBackground />
+      {/* Animated wave pattern background */}
+      <motion.div
+        className="absolute inset-0 opacity-5 pointer-events-none"
+        style={{
+          backgroundImage: `
+            repeating-linear-gradient(
+              0deg,
+              transparent,
+              transparent 40px,
+              rgba(58, 134, 255, 0.1) 40px,
+              rgba(58, 134, 255, 0.1) 41px
+            ),
+            repeating-linear-gradient(
+              90deg,
+              transparent,
+              transparent 40px,
+              rgba(255, 78, 0, 0.1) 40px,
+              rgba(255, 78, 0, 0.1) 41px
+            )
+          `,
+        }}
+        animate={{
+          backgroundPosition: ['0px 0px, 0px 0px', '40px 40px, 40px 40px'],
+        }}
+        transition={{
+          duration: 30,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      />
       
-      <div className="max-w-5xl mx-auto relative z-10">
+      {/* Vibrant floating orbs - Brought Forward */}
+      {[
+        { color: 'rgba(58, 134, 255, 0.15)', size: 400, x: '20%', y: '30%' },
+        { color: 'rgba(255, 78, 0, 0.12)', size: 350, x: '70%', y: '60%' },
+        { color: 'rgba(255, 208, 0, 0.12)', size: 380, x: '50%', y: '20%' },
+      ].map((orb, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full blur-3xl pointer-events-none z-[25]"
+          style={{
+            width: orb.size,
+            height: orb.size,
+            left: orb.x,
+            top: orb.y,
+            background: `radial-gradient(circle, ${orb.color}, transparent)`,
+          }}
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.4, 0.7, 0.4],
+            x: [0, i % 2 === 0 ? 40 : -40, 0],
+            y: [0, i % 2 === 0 ? -30 : 30, 0],
+          }}
+          transition={{
+            duration: 15 + i * 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: i * 1.5
+          }}
+        />
+      ))}
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

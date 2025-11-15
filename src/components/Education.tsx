@@ -2,12 +2,65 @@ import React, { memo, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { EDUCATION_DATA } from '../constants/education';
 import MasterySeal from './ScrollCard';
+import SmokeBackground from './SmokeBackground';
+import SectionMerge from './SectionMerge';
 
-// Memoized background effects to prevent re-renders
+// Memoized background effects to prevent re-renders - Brought Forward
 const BackgroundEffects = memo(() => (
-  <div className="absolute inset-0 -z-10">
-    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-domain-violet/10 rounded-full blur-3xl animate-pulse" />
-    <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cursed-blue/10 rounded-full blur-3xl animate-pulse" />
+  <div className="absolute inset-0 z-[25]">
+    {/* Larger, more vibrant orbs */}
+    <motion.div 
+      className="absolute top-1/4 left-1/4 w-[450px] h-[450px] rounded-full blur-3xl"
+      style={{
+        background: 'radial-gradient(circle, rgba(127, 0, 255, 0.18) 0%, rgba(58, 134, 255, 0.12) 50%, transparent 100%)'
+      }}
+      animate={{
+        scale: [1, 1.35, 1],
+        opacity: [0.5, 0.8, 0.5],
+        x: [0, 40, 0],
+        y: [0, -25, 0],
+      }}
+      transition={{
+        duration: 13,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }}
+    />
+    <motion.div 
+      className="absolute bottom-1/4 right-1/4 w-[420px] h-[420px] rounded-full blur-3xl"
+      style={{
+        background: 'radial-gradient(circle, rgba(255, 208, 0, 0.15) 0%, rgba(0, 166, 118, 0.1) 50%, transparent 100%)'
+      }}
+      animate={{
+        scale: [1, 1.4, 1],
+        opacity: [0.4, 0.75, 0.4],
+        x: [0, -35, 0],
+        y: [0, 30, 0],
+      }}
+      transition={{
+        duration: 15,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: 1.5
+      }}
+    />
+    
+    {/* Animated dot pattern */}
+    <motion.div
+      className="absolute inset-0 opacity-5"
+      style={{
+        backgroundImage: `radial-gradient(circle, rgba(127, 0, 255, 0.4) 1px, transparent 1px)`,
+        backgroundSize: '50px 50px',
+      }}
+      animate={{
+        backgroundPosition: ['0px 0px', '50px 50px'],
+      }}
+      transition={{
+        duration: 25,
+        repeat: Infinity,
+        ease: "linear"
+      }}
+    />
   </div>
 ));
 
@@ -47,7 +100,14 @@ const Education: React.FC = () => {
   );
 
   return (
-    <section id="education" className="min-h-[80vh] py-12 px-4 relative overflow-hidden">
+    <section id="education" className="min-h-screen py-16 px-6 md:px-8 lg:px-12 relative overflow-hidden">
+      {/* Subtle Section Merge Overlays */}
+      <SectionMerge position="top" intensity="light" />
+      <SectionMerge position="bottom" intensity="light" />
+      {/* Dark theme background with transparency for smoke */}
+      <div className="absolute inset-0 bg-gradient-to-br from-deep-charcoal/95 via-ghost-black/95 to-deep-charcoal/95 backdrop-blur-sm"></div>
+      {/* Smoke Effect Background */}
+      <SmokeBackground />
       <BackgroundEffects />
 
       <motion.div

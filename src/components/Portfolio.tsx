@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
+import SmokeBackground from './SmokeBackground';
+import SectionMerge from './SectionMerge';
 
-// Professional SVG Icon Components with Enhanced JJK x DS Aesthetics
+// Professional SVG Icon Components with Enhanced JJK x DS Aesthetics - Memoized for performance
 
-const DevelopmentIcon = ({ isActive }: { isActive: boolean }) => (
+const DevelopmentIcon = memo(({ isActive }: { isActive: boolean }) => (
   <svg viewBox="0 0 100 100" className="w-full h-full">
     {/* Outer Hexagonal Domain Barrier */}
     <motion.polygon
@@ -85,9 +87,11 @@ const DevelopmentIcon = ({ isActive }: { isActive: boolean }) => (
       />
     ))}
   </svg>
-);
+));
 
-const GraphicDesignIcon = ({ isActive }: { isActive: boolean }) => (
+DevelopmentIcon.displayName = 'DevelopmentIcon';
+
+const GraphicDesignIcon = memo(({ isActive }: { isActive: boolean }) => (
   <svg viewBox="0 0 100 100" className="w-full h-full">
     {/* Hexagonal Domain Barrier */}
     <motion.polygon
@@ -199,9 +203,11 @@ const GraphicDesignIcon = ({ isActive }: { isActive: boolean }) => (
       strokeOpacity="0.6"
     />
   </svg>
-);
+));
 
-const PhotographyIcon = ({ isActive }: { isActive: boolean }) => (
+GraphicDesignIcon.displayName = 'GraphicDesignIcon';
+
+const PhotographyIcon = memo(({ isActive }: { isActive: boolean }) => (
   <svg viewBox="0 0 100 100" className="w-full h-full">
     {/* Hexagonal Domain Barrier */}
     <motion.polygon
@@ -311,9 +317,11 @@ const PhotographyIcon = ({ isActive }: { isActive: boolean }) => (
       transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
     />
   </svg>
-);
+));
 
-const UIUXIcon = ({ isActive }: { isActive: boolean }) => (
+PhotographyIcon.displayName = 'PhotographyIcon';
+
+const UIUXIcon = memo(({ isActive }: { isActive: boolean }) => (
   <svg viewBox="0 0 100 100" className="w-full h-full">
     {/* Hexagonal Domain Barrier */}
     <motion.polygon
@@ -407,7 +415,9 @@ const UIUXIcon = ({ isActive }: { isActive: boolean }) => (
       ))
     )}
   </svg>
-);
+));
+
+UIUXIcon.displayName = 'UIUXIcon';
 
 // Portfolio type definition
 interface PortfolioRecord {
@@ -510,9 +520,18 @@ const Portfolio = () => {
   };
 
   return (
-    <section id="battle-records" className="h-screen py-4 md:py-6 px-4 relative overflow-hidden flex flex-col">
-      {/* Enhanced Background Hexagonal Pattern - Domain Barrier */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
+    <section id="battle-records" className="min-h-screen py-16 px-6 md:px-8 lg:px-12 relative overflow-hidden flex flex-col">
+      {/* Subtle Section Merge Overlays */}
+      <SectionMerge position="top" intensity="light" />
+      <SectionMerge position="bottom" intensity="light" />
+      {/* Dark theme background with transparency for smoke */}
+      <div className="absolute inset-0 bg-gradient-to-br from-ghost-black/95 via-deep-charcoal/95 to-ghost-black/95 backdrop-blur-sm z-0"></div>
+      {/* Smoke Effect Background */}
+      <SmokeBackground />
+      {/* Simplified Background Hexagonal Pattern - Reduced for performance */}
+      <motion.div 
+        className="absolute inset-0 opacity-8 pointer-events-none z-5"
+      >
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="hexPattern" x="0" y="0" width="100" height="86.6" patternUnits="userSpaceOnUse">
@@ -521,34 +540,59 @@ const Portfolio = () => {
                 fill="none"
                 stroke="#6366f1"
                 strokeWidth="1"
+                opacity="0.3"
               />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#hexPattern)" />
         </svg>
-      </div>
+      </motion.div>
+      
+      {/* Animated diagonal lines */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            repeating-linear-gradient(
+              45deg,
+              transparent,
+              transparent 100px,
+              rgba(127, 0, 255, 0.03) 100px,
+              rgba(127, 0, 255, 0.03) 101px
+            )
+          `,
+        }}
+        animate={{
+          backgroundPosition: ['0px 0px', '141px 141px'],
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      />
 
-      {/* Floating Cursed Energy Orbs */}
-      {[...Array(4)].map((_, i) => (
+      {/* Floating Cursed Energy Orbs - Brought Forward */}
+      {[...Array(3)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-32 h-32 rounded-full blur-3xl pointer-events-none"
+          className="absolute w-64 h-64 rounded-full blur-3xl pointer-events-none z-[25]"
           style={{
-            background: `radial-gradient(circle, ${selectedTab.accentColor}20, transparent)`,
-            left: `${20 + i * 20}%`,
-            top: `${10 + i * 15}%`,
+            background: `radial-gradient(circle, ${selectedTab.accentColor}30, ${selectedTab.accentColor}15, transparent)`,
+            left: `${15 + i * 25}%`,
+            top: `${8 + i * 20}%`,
           }}
           animate={{
-            y: [0, -30, 0],
-            x: [0, 20, 0],
-            opacity: [0.2, 0.4, 0.2],
-            scale: [1, 1.2, 1]
+            y: [0, -40, 0],
+            x: [0, 30, 0],
+            opacity: [0.3, 0.6, 0.3],
+            scale: [1, 1.4, 1]
           }}
           transition={{
-            duration: 8 + i * 2,
+            duration: 10 + i * 2,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: i * 0.5
+            delay: i * 0.7
           }}
         />
       ))}
@@ -597,8 +641,8 @@ const Portfolio = () => {
             ease: "easeInOut"
           }}
         >
-          {/* Energy Particles on Divider */}
-          {[...Array(3)].map((_, i) => (
+          {/* Energy Particles on Divider - reduced */}
+          {[...Array(2)].map((_, i) => (
             <motion.div
               key={i}
               className="absolute w-1.5 h-1.5 bg-slate-200 rounded-full"
@@ -623,7 +667,7 @@ const Portfolio = () => {
       </motion.div>
 
       {/* Main Layout Container */}
-      <div className="max-w-7xl mx-auto flex-1 flex flex-col min-h-0">
+      <div className="max-w-7xl mx-auto flex-1 flex flex-col min-h-0 relative z-30">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 flex-1 min-h-0 items-stretch">
 
           {/* Left Side - Enhanced Category Selection with Domain Barriers */}

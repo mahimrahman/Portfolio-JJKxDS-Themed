@@ -1,15 +1,10 @@
 import { useMemo, useCallback, useState, memo, FC, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import SectionMerge from './SectionMerge';
 
 // Animation variants for better performance
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.8 }
-};
-
-const fadeInDown = {
-  initial: { opacity: 0, y: -20 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.8 }
 };
@@ -202,7 +197,7 @@ const DecorativeEmoji: FC<{
     <motion.div
       animate={{ y: yValues, rotate: rotateValues }}
       transition={{ duration, repeat: Infinity, ease: "easeInOut" }}
-      className={`absolute ${position} w-16 h-16 text-${color} opacity-30 z-10`}
+      className={`absolute ${position} w-16 h-16 text-${color} opacity-30 z-[25]`}
     >
       {emoji}
     </motion.div>
@@ -216,42 +211,19 @@ const Hero = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
   
-  // Determine which video to load based on screen size with responsive updates
-  const [videoSource, setVideoSource] = useState('/1.mp4');
-
-  const updateVideoSource = useCallback(() => {
+  // Determine which video to load based on screen size - only set once on mount
+  const [videoSource] = useState(() => {
     if (typeof window !== 'undefined') {
       const width = window.innerWidth;
-      let newSource = '/1.mp4'; // Default for laptops/MacBooks
-
-      if (width <= 768) {
-        newSource = '/hero_mobile.mp4';
-      } else if (width >= 1440) {
-        newSource = '/Hero_large.mp4';
-      }
-      
-      if (newSource !== videoSource) {
-        setVideoSource(newSource);
-        setVideoLoaded(false);
-        setVideoError(false);
-      }
+      if (width <= 768) return '/hero_mobile.mp4';
+      if (width >= 1440) return '/Hero_large.mp4';
+      return '/1.mp4'; // Default for laptops/MacBooks
     }
-  }, [videoSource]);
+    return '/1.mp4';
+  });
 
-  // Update video source on window resize
-  useEffect(() => {
-    updateVideoSource();
-    
-    const handleResize = () => {
-      updateVideoSource();
-    };
-    
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [updateVideoSource]);
-
-  // Memoize particle array
-  const particles = useMemo(() => Array.from({ length: 8 }, (_, i) => i), []);
+  // Reduce particle count for better performance
+  const particles = useMemo(() => Array.from({ length: 4 }, (_, i) => i), []);
 
   const handleVideoLoad = useCallback(() => {
     setVideoLoaded(true);
@@ -263,7 +235,7 @@ const Hero = () => {
     setVideoLoaded(false);
   }, []);
 
-  // Timeout mechanism for slow loading videos
+  // Timeout mechanism for slow loading videos - reduced to 5 seconds
   useEffect(() => {
     if (!videoLoaded && !videoError) {
       const timeout = setTimeout(() => {
@@ -271,31 +243,31 @@ const Hero = () => {
           console.warn('Video loading timeout, showing fallback background');
           setVideoError(true);
         }
-      }, 10000); // 10 second timeout
+      }, 5000); // 5 second timeout for faster fallback
 
       return () => clearTimeout(timeout);
     }
-  }, [videoLoaded, videoError, videoSource]);
+  }, [videoLoaded, videoError]);
 
   return (
     <div className="relative w-full flex items-center justify-center overflow-hidden" style={{ minHeight: '100vh' }}>
+      {/* Subtle Section Merge Overlay - bottom only for Hero */}
+      <SectionMerge position="bottom" intensity="light" />
       {/* Video/Image background with optimized loading */}
       <div className="absolute inset-0 flex items-center justify-center z-0 w-full h-full">
         <div className="w-full h-full bg-gradient-to-br from-ghost-black via-deep-charcoal to-ghost-black">
           {!videoError && (
             <video
-              key={videoSource} // Force re-render when source changes
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="none"
               className={`w-full h-full object-cover transition-opacity duration-1000 ${
                 videoLoaded ? 'opacity-40' : 'opacity-0'
               }`}
               onLoadedData={handleVideoLoad}
               onError={handleVideoError}
-              onLoadStart={() => setVideoLoaded(false)}
             >
               <source src={videoSource} type="video/mp4" />
             </video>
@@ -318,10 +290,10 @@ const Hero = () => {
           )}
           
           {/* Enhanced gradient overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ghost-black/50 to-ghost-black/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ghost-black/50 to-ghost-black/70 z-20"></div>
           
           {/* Animated grid pattern overlay */}
-          <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 opacity-10 z-20">
             <div className="w-full h-full" style={{
               backgroundImage: `
                 linear-gradient(rgba(127, 0, 255, 0.1) 1px, transparent 1px),
@@ -334,7 +306,7 @@ const Hero = () => {
       </div>
 
       {/* Main content - Redesigned Layout */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 absolute inset-0 flex flex-col items-center justify-center z-20">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 absolute inset-0 flex flex-col items-center justify-center z-[40]">
         {/* Main Name - Large and Bold with Morphing Animation */}
         <motion.div
           className="text-center mb-4 sm:mb-6"
@@ -347,7 +319,7 @@ const Hero = () => {
           >
             {/* Domain Expansion Circle Effect */}
             <motion.div
-              className="absolute inset-0 -z-10"
+              className="absolute inset-0 z-[25]"
               style={{
                 background: 'radial-gradient(circle, rgba(127, 0, 255, 0.4) 0%, transparent 70%)',
               }}
@@ -364,7 +336,7 @@ const Hero = () => {
             
             {/* Expanding Ring Effect */}
             <motion.div
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[25]"
               style={{
                 width: '100%',
                 height: '100%',
@@ -384,7 +356,7 @@ const Hero = () => {
             
             {/* Second Expanding Ring */}
             <motion.div
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[25]"
               style={{
                 width: '100%',
                 height: '100%',
@@ -450,11 +422,11 @@ const Hero = () => {
               RAHMAN KHAN
             </motion.span>
             
-            {/* Subtle Energy Particles */}
-            {[...Array(6)].map((_, i) => (
+            {/* Subtle Energy Particles - reduced for performance */}
+            {[...Array(3)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-1 h-1 bg-domain-violet rounded-full -z-10"
+                className="absolute w-1 h-1 bg-domain-violet rounded-full z-[25]"
                 style={{
                   left: `${20 + i * 15}%`,
                   top: `${30 + (i % 2) * 40}%`,
@@ -542,8 +514,8 @@ const Hero = () => {
             <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-domain-violet/30 rounded-br-3xl"></div>
           </div>
 
-          {/* Enhanced Floating Particles Background */}
-          <div className="absolute inset-0 -z-10 pointer-events-none">
+          {/* Enhanced Floating Particles - Brought Forward */}
+          <div className="absolute inset-0 z-[25] pointer-events-none">
             {particles.map((index) => (
               <FloatingParticle key={index} index={index} />
             ))}
