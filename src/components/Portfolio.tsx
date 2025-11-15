@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 
-// Professional SVG Icon Components with JJK x DS Aesthetics
+// Professional SVG Icon Components with Enhanced JJK x DS Aesthetics
 
 const DevelopmentIcon = ({ isActive }: { isActive: boolean }) => (
   <svg viewBox="0 0 100 100" className="w-full h-full">
-    {/* Hexagonal Domain Barrier */}
+    {/* Outer Hexagonal Domain Barrier */}
     <motion.polygon
       points="50,5 93,27.5 93,72.5 50,95 7,72.5 7,27.5"
       fill="none"
@@ -27,7 +27,7 @@ const DevelopmentIcon = ({ isActive }: { isActive: boolean }) => (
       transition={{ duration: 1.5, delay: 0.2, ease: "easeInOut" }}
     />
 
-    {/* Code Brackets with Cursed Energy */}
+    {/* Cursed Technique Formation - Code Brackets */}
     <motion.path
       d="M 35,30 L 25,50 L 35,70"
       fill="none"
@@ -49,6 +49,19 @@ const DevelopmentIcon = ({ isActive }: { isActive: boolean }) => (
         strokeOpacity: [1, 0.5, 1],
       } : {}}
       transition={{ duration: 2, repeat: Infinity, delay: 0.1 }}
+    />
+
+    {/* Terminal Slash */}
+    <motion.path
+      d="M 45,35 L 55,65"
+      fill="none"
+      stroke={isActive ? "#FFD000" : "#3A86FF"}
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      animate={isActive ? {
+        strokeOpacity: [0.6, 1, 0.6],
+      } : {}}
+      transition={{ duration: 1.5, repeat: Infinity }}
     />
 
     {/* Cursed Energy Particles */}
@@ -87,9 +100,9 @@ const GraphicDesignIcon = ({ isActive }: { isActive: boolean }) => (
       transition={{ duration: 1.5, ease: "easeInOut" }}
     />
 
-    {/* Breathing Pattern Lines (Water Breathing Style) */}
+    {/* Water Breathing Pattern Lines */}
     <motion.path
-      d="M 20,50 Q 35,30 50,50 T 80,50"
+      d="M 20,45 Q 30,30 40,45 T 60,45"
       fill="none"
       stroke={isActive ? "#F9F9F9" : "#00A676"}
       strokeWidth="2.5"
@@ -101,7 +114,7 @@ const GraphicDesignIcon = ({ isActive }: { isActive: boolean }) => (
       transition={{ duration: 2, repeat: Infinity }}
     />
     <motion.path
-      d="M 20,60 Q 35,40 50,60 T 80,60"
+      d="M 25,55 Q 35,40 45,55 T 65,55"
       fill="none"
       stroke={isActive ? "#F9F9F9" : "#00A676"}
       strokeWidth="2"
@@ -112,31 +125,78 @@ const GraphicDesignIcon = ({ isActive }: { isActive: boolean }) => (
       } : {}}
       transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
     />
+    <motion.path
+      d="M 30,65 Q 40,50 50,65 T 70,65"
+      fill="none"
+      stroke={isActive ? "#F9F9F9" : "#00A676"}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeOpacity="0.4"
+      animate={isActive ? {
+        strokeOpacity: [0.4, 0.6, 0.4],
+      } : {}}
+      transition={{ duration: 2, repeat: Infinity, delay: 0.6 }}
+    />
 
-    {/* Pen Tool / Bezier Curve Points */}
+    {/* Pen Tool - Sacred Geometry Points */}
     <motion.circle
-      cx="30"
-      cy="40"
+      cx="28"
+      cy="35"
       r="3"
       fill={isActive ? "#FFD000" : "#00A676"}
       animate={isActive ? { scale: [1, 1.3, 1] } : {}}
       transition={{ duration: 1.5, repeat: Infinity }}
     />
     <motion.circle
-      cx="50"
-      cy="45"
+      cx="48"
+      cy="40"
       r="3"
       fill={isActive ? "#FFD000" : "#00A676"}
       animate={isActive ? { scale: [1, 1.3, 1] } : {}}
       transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
     />
     <motion.circle
-      cx="70"
-      cy="40"
+      cx="68"
+      cy="35"
       r="3"
       fill={isActive ? "#FFD000" : "#00A676"}
       animate={isActive ? { scale: [1, 1.3, 1] } : {}}
       transition={{ duration: 1.5, repeat: Infinity, delay: 0.4 }}
+    />
+
+    {/* Design Palette Square */}
+    <motion.rect
+      x="65"
+      y="60"
+      width="20"
+      height="20"
+      rx="3"
+      fill="none"
+      stroke={isActive ? "#FFD000" : "#00A676"}
+      strokeWidth="2"
+      animate={isActive ? {
+        rotate: [0, 5, 0],
+        strokeOpacity: [0.8, 1, 0.8]
+      } : {}}
+      transition={{ duration: 2, repeat: Infinity }}
+    />
+    <motion.line
+      x1="70"
+      y1="60"
+      x2="70"
+      y2="80"
+      stroke={isActive ? "#F9F9F9" : "#00A676"}
+      strokeWidth="1"
+      strokeOpacity="0.6"
+    />
+    <motion.line
+      x1="80"
+      y1="60"
+      x2="80"
+      y2="80"
+      stroke={isActive ? "#F9F9F9" : "#00A676"}
+      strokeWidth="1"
+      strokeOpacity="0.6"
     />
   </svg>
 );
@@ -154,11 +214,27 @@ const PhotographyIcon = ({ isActive }: { isActive: boolean }) => (
       transition={{ duration: 1.5, ease: "easeInOut" }}
     />
 
-    {/* Camera Aperture with Sacred Geometry */}
+    {/* Camera Body with Domain Expansion */}
+    <motion.rect
+      x="25"
+      y="35"
+      width="50"
+      height="35"
+      rx="4"
+      fill="none"
+      stroke={isActive ? "#F9F9F9" : "#3A86FF"}
+      strokeWidth="2.5"
+      animate={isActive ? {
+        strokeOpacity: [0.8, 1, 0.8]
+      } : {}}
+      transition={{ duration: 2, repeat: Infinity }}
+    />
+
+    {/* Aperture with Sacred Geometry */}
     <motion.circle
       cx="50"
-      cy="50"
-      r="20"
+      cy="52"
+      r="12"
       fill="none"
       stroke={isActive ? "#F9F9F9" : "#3A86FF"}
       strokeWidth="2"
@@ -169,13 +245,13 @@ const PhotographyIcon = ({ isActive }: { isActive: boolean }) => (
       transition={{ duration: 2, repeat: Infinity }}
     />
 
-    {/* Aperture Blades */}
+    {/* Aperture Blades - Hexagonal Pattern */}
     {[...Array(6)].map((_, i) => {
       const angle = (i * 60 - 90) * (Math.PI / 180);
-      const x1 = 50 + Math.cos(angle) * 12;
-      const y1 = 50 + Math.sin(angle) * 12;
-      const x2 = 50 + Math.cos(angle) * 18;
-      const y2 = 50 + Math.sin(angle) * 18;
+      const x1 = 50 + Math.cos(angle) * 8;
+      const y1 = 52 + Math.sin(angle) * 8;
+      const x2 = 50 + Math.cos(angle) * 11;
+      const y2 = 52 + Math.sin(angle) * 11;
 
       return (
         <motion.line
@@ -195,21 +271,37 @@ const PhotographyIcon = ({ isActive }: { isActive: boolean }) => (
       );
     })}
 
-    {/* Center Dot */}
+    {/* Center Focus Point */}
     <motion.circle
       cx="50"
-      cy="50"
-      r="3"
+      cy="52"
+      r="2.5"
       fill={isActive ? "#FFD000" : "#3A86FF"}
       animate={isActive ? { scale: [1, 1.5, 1] } : {}}
       transition={{ duration: 2, repeat: Infinity }}
     />
 
-    {/* Sacred Geometry Pattern */}
+    {/* Viewfinder */}
+    <motion.rect
+      x="60"
+      y="38"
+      width="10"
+      height="6"
+      rx="1"
+      fill="none"
+      stroke={isActive ? "#FFD000" : "#3A86FF"}
+      strokeWidth="1.5"
+      animate={isActive ? {
+        strokeOpacity: [0.6, 1, 0.6]
+      } : {}}
+      transition={{ duration: 1.5, repeat: Infinity }}
+    />
+
+    {/* Sacred Geometry Outer Ring */}
     <motion.circle
       cx="50"
-      cy="50"
-      r="30"
+      cy="52"
+      r="18"
       fill="none"
       stroke={isActive ? "#3A86FF" : "#7F00FF"}
       strokeWidth="1"
@@ -234,7 +326,7 @@ const UIUXIcon = ({ isActive }: { isActive: boolean }) => (
       transition={{ duration: 1.5, ease: "easeInOut" }}
     />
 
-    {/* Domain Expansion Circles */}
+    {/* Flame Breathing Rings */}
     <motion.circle
       cx="50"
       cy="50"
@@ -263,7 +355,7 @@ const UIUXIcon = ({ isActive }: { isActive: boolean }) => (
       transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
     />
 
-    {/* Wireframe Grid */}
+    {/* Wireframe Grid - Interface Design */}
     <motion.rect
       x="35"
       y="35"
@@ -277,49 +369,67 @@ const UIUXIcon = ({ isActive }: { isActive: boolean }) => (
       } : {}}
       transition={{ duration: 2, repeat: Infinity }}
     />
-    <motion.line
-      x1="35"
-      y1="45"
-      x2="65"
-      y2="45"
-      stroke={isActive ? "#FFD000" : "#FF4E00"}
-      strokeWidth="1"
-      strokeOpacity="0.6"
+
+    {/* Grid Lines */}
+    <motion.line x1="35" y1="45" x2="65" y2="45" stroke={isActive ? "#FFD000" : "#FF4E00"} strokeWidth="1" strokeOpacity="0.6" />
+    <motion.line x1="35" y1="55" x2="65" y2="55" stroke={isActive ? "#FFD000" : "#FF4E00"} strokeWidth="1" strokeOpacity="0.6" />
+    <motion.line x1="45" y1="35" x2="45" y2="65" stroke={isActive ? "#FFD000" : "#FF4E00"} strokeWidth="1" strokeOpacity="0.6" />
+    <motion.line x1="55" y1="35" x2="55" y2="65" stroke={isActive ? "#FFD000" : "#FF4E00"} strokeWidth="1" strokeOpacity="0.6" />
+
+    {/* Cursor/Pointer Element */}
+    <motion.path
+      d="M 25,25 L 25,40 L 30,35 L 35,42 L 38,40 L 33,33 L 40,33 Z"
+      fill={isActive ? "#FFD000" : "#FF4E00"}
+      animate={isActive ? {
+        scale: [1, 1.1, 1],
+        opacity: [0.8, 1, 0.8]
+      } : {}}
+      transition={{ duration: 1.5, repeat: Infinity }}
     />
-    <motion.line
-      x1="35"
-      y1="55"
-      x2="65"
-      y2="55"
-      stroke={isActive ? "#FFD000" : "#FF4E00"}
-      strokeWidth="1"
-      strokeOpacity="0.6"
-    />
-    <motion.line
-      x1="45"
-      y1="35"
-      x2="45"
-      y2="65"
-      stroke={isActive ? "#FFD000" : "#FF4E00"}
-      strokeWidth="1"
-      strokeOpacity="0.6"
-    />
-    <motion.line
-      x1="55"
-      y1="35"
-      x2="55"
-      y2="65"
-      stroke={isActive ? "#FFD000" : "#FF4E00"}
-      strokeWidth="1"
-      strokeOpacity="0.6"
-    />
+
+    {/* Checkered Pattern Elements (Tanjiro's Haori) */}
+    {[0, 1].map((row) =>
+      [0, 1].map((col) => (
+        <motion.rect
+          key={`${row}-${col}`}
+          x={68 + col * 6}
+          y={68 + row * 6}
+          width="5"
+          height="5"
+          fill={(row + col) % 2 === 0 ? (isActive ? "#00A676" : "#FF4E00") : "none"}
+          stroke={isActive ? "#00A676" : "#FF4E00"}
+          strokeWidth="0.5"
+          animate={isActive ? {
+            opacity: [0.6, 1, 0.6]
+          } : {}}
+          transition={{ duration: 2, repeat: Infinity, delay: (row + col) * 0.2 }}
+        />
+      ))
+    )}
   </svg>
 );
+
+// Portfolio type definition
+interface PortfolioRecord {
+  title: string;
+  link: string;
+  icon: typeof DevelopmentIcon;
+  color: string;
+  selectedColor: string;
+  accentColor: string;
+  glowColor: string;
+  description: string;
+  preview: string;
+  stats: {
+    [key: string]: string;
+  };
+  highlights: string[];
+}
 
 const Portfolio = () => {
   const location = useLocation();
 
-  const records = [
+  const records: PortfolioRecord[] = [
     {
       title: 'Development',
       link: '/records/development',
@@ -395,13 +505,13 @@ const Portfolio = () => {
     return currentRecord || records[0];
   });
 
-  const handleTabClick = (record: typeof records[0]) => {
+  const handleTabClick = (record: PortfolioRecord) => {
     setSelectedTab(record);
   };
 
   return (
-    <section id="battle-records" className="min-h-[60vh] py-6 md:py-8 px-4 relative overflow-hidden">
-      {/* Background Hexagonal Pattern - Domain Barrier */}
+    <section id="battle-records" className="min-h-[60vh] py-8 md:py-12 px-4 relative overflow-hidden">
+      {/* Enhanced Background Hexagonal Pattern - Domain Barrier */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -418,21 +528,63 @@ const Portfolio = () => {
         </svg>
       </div>
 
-      {/* Title Section with Domain Expansion Effect */}
+      {/* Floating Cursed Energy Orbs */}
+      {[...Array(4)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-32 h-32 rounded-full blur-3xl pointer-events-none"
+          style={{
+            background: `radial-gradient(circle, ${selectedTab.accentColor}20, transparent)`,
+            left: `${20 + i * 20}%`,
+            top: `${10 + i * 15}%`,
+          }}
+          animate={{
+            y: [0, -30, 0],
+            x: [0, 20, 0],
+            opacity: [0.2, 0.4, 0.2],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{
+            duration: 8 + i * 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: i * 0.5
+          }}
+        />
+      ))}
+
+      {/* Title Section with Enhanced Domain Expansion Effect */}
       <motion.div
         initial={{ opacity: 0, y: -30, scale: 0.95 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 1, type: 'spring', bounce: 0.3 }}
         viewport={{ once: true }}
-        className="text-center mb-8 md:mb-10 relative"
+        className="text-center mb-10 md:mb-14 relative"
       >
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent drop-shadow-lg tracking-wider anime-heading">
-          Battle Records
-        </h2>
-        <motion.div
-          className="w-24 h-1 mx-auto mt-2 bg-gradient-to-r from-zenitsu-lightning via-rengoku-flame to-domain-violet rounded-full"
+        <motion.h2
+          className="text-4xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-rengoku-flame via-domain-violet to-cursed-blue bg-clip-text text-transparent drop-shadow-lg tracking-wider anime-heading"
           animate={{
-            width: ['6rem', '8rem', '6rem'],
+            backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          style={{
+            backgroundSize: '200% 200%'
+          }}
+        >
+          Battle Records
+        </motion.h2>
+
+        <p className="text-ash-gray text-lg mb-4">Portfolio of my professional work across multiple domains</p>
+
+        {/* Animated Divider with Cursed Energy */}
+        <motion.div
+          className="w-32 h-1 mx-auto mt-2 bg-gradient-to-r from-zenitsu-lightning via-rengoku-flame to-domain-violet rounded-full relative"
+          animate={{
+            width: ['8rem', '10rem', '8rem'],
             boxShadow: [
               '0 0 10px rgba(255, 208, 0, 0.5)',
               '0 0 20px rgba(255, 78, 0, 0.5)',
@@ -444,49 +596,49 @@ const Portfolio = () => {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-        />
-
-        {/* Cursed Energy Particles */}
-        {[...Array(3)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-domain-violet rounded-full"
-            style={{
-              left: `${50 + (i - 1) * 20}%`,
-              top: '100%'
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0, 1, 0],
-              scale: [0, 1.5, 0]
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              delay: i * 0.4,
-              ease: "easeInOut"
-            }}
-          />
-        ))}
+        >
+          {/* Energy Particles on Divider */}
+          {[...Array(3)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-snow-white rounded-full"
+              style={{
+                left: `${i * 40}%`,
+                top: '50%',
+              }}
+              animate={{
+                y: [0, -15, 0],
+                opacity: [0, 1, 0],
+                scale: [0, 1.5, 0]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                delay: i * 0.4,
+                ease: "easeInOut"
+              }}
+            />
+          ))}
+        </motion.div>
       </motion.div>
 
       {/* Main Layout Container */}
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
 
-          {/* Left Side - Category Selection with Domain Barriers */}
-          <div className="space-y-4">
+          {/* Left Side - Enhanced Category Selection with Domain Barriers */}
+          <div className="space-y-5">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, type: 'spring' }}
               viewport={{ once: true }}
-              className="text-center mb-6 relative"
+              className="text-center mb-8 relative"
             >
-              <h3 className="text-2xl font-bold text-snow-white mb-2 relative inline-block">
+              <h3 className="text-2xl md:text-3xl font-bold text-snow-white mb-2 relative inline-block">
                 Select Your Domain
                 <motion.div
-                  className="absolute -inset-2 bg-gradient-to-r from-domain-violet/20 to-transparent rounded-lg -z-10 blur-xl"
+                  className="absolute -inset-4 bg-gradient-to-r from-domain-violet/20 via-cursed-blue/20 to-transparent rounded-lg -z-10 blur-xl"
                   animate={{
                     opacity: [0.3, 0.6, 0.3],
                   }}
@@ -497,7 +649,7 @@ const Portfolio = () => {
                   }}
                 />
               </h3>
-              <p className="text-ash-gray">Choose a category to explore my work</p>
+              <p className="text-ash-gray text-base">Choose a category to explore my work</p>
             </motion.div>
 
             {records.map((section, idx) => {
@@ -525,17 +677,34 @@ const Portfolio = () => {
                   className="relative group cursor-pointer touch-manipulation"
                   onClick={() => handleTabClick(section)}
                 >
-                  {/* Hexagonal Card Background */}
+                  {/* Enhanced Hexagonal Card Background */}
                   <div
-                    className={`relative rounded-xl p-5 border-2 transition-all duration-500 overflow-hidden
+                    className={`relative rounded-2xl p-6 border-2 transition-all duration-500 overflow-hidden
                       ${isActive
                         ? `bg-gradient-to-br ${section.selectedColor} shadow-2xl border-white/40`
                         : 'bg-gradient-to-br from-ghost-black/90 to-deep-charcoal/90 border-white/10 hover:border-white/20'
                       }`}
                     style={isActive ? {
-                      boxShadow: `0 0 30px ${section.glowColor}, 0 0 60px ${section.glowColor}15`
+                      boxShadow: `0 0 30px ${section.glowColor}, 0 0 60px ${section.glowColor}15, 0 20px 40px rgba(0,0,0,0.3)`
                     } : {}}
                   >
+                    {/* Checkered Pattern Overlay (Tanjiro's Haori) */}
+                    <motion.div
+                      className="absolute inset-0 opacity-5 pointer-events-none"
+                      style={{
+                        backgroundImage: `repeating-conic-gradient(${section.accentColor} 0% 25%, transparent 0% 50%)`,
+                        backgroundSize: '20px 20px'
+                      }}
+                      animate={isActive ? {
+                        opacity: [0.05, 0.1, 0.05],
+                      } : {}}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    />
+
                     {/* Breathing Technique Background Pattern */}
                     <motion.div
                       className="absolute inset-0 opacity-10 pointer-events-none"
@@ -553,10 +722,10 @@ const Portfolio = () => {
                       }}
                     />
 
-                    <div className="flex items-center space-x-4 relative z-10">
-                      {/* Hexagonal Icon Container with Domain Barrier */}
+                    <div className="flex items-center space-x-5 relative z-10">
+                      {/* Enhanced Hexagonal Icon Container with Domain Barrier */}
                       <motion.div
-                        className={`relative flex items-center justify-center w-16 h-16 rounded-lg transition-all duration-500 ${
+                        className={`relative flex items-center justify-center w-20 h-20 rounded-xl transition-all duration-500 ${
                           isActive
                             ? 'bg-white/20 shadow-lg'
                             : 'bg-white/5'
@@ -570,43 +739,59 @@ const Portfolio = () => {
                         } : {}}
                         transition={{ duration: 2, repeat: Infinity }}
                       >
-                        <div className="w-12 h-12">
+                        <div className="w-14 h-14">
                           <IconComponent isActive={isActive} />
                         </div>
 
-                        {/* Domain Expansion Ring */}
+                        {/* Rotating Domain Expansion Ring */}
                         {isActive && (
-                          <motion.div
-                            className="absolute inset-0 rounded-lg border-2"
-                            style={{ borderColor: section.accentColor }}
-                            animate={{
-                              scale: [1, 1.2, 1],
-                              opacity: [0.8, 0, 0.8],
-                            }}
-                            transition={{
-                              duration: 2,
-                              repeat: Infinity,
-                              ease: "easeOut"
-                            }}
-                          />
+                          <>
+                            <motion.div
+                              className="absolute inset-0 rounded-xl border-2"
+                              style={{ borderColor: section.accentColor }}
+                              animate={{
+                                scale: [1, 1.2, 1],
+                                opacity: [0.8, 0, 0.8],
+                              }}
+                              transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: "easeOut"
+                              }}
+                            />
+                            <motion.div
+                              className="absolute inset-0 rounded-xl border-2"
+                              style={{ borderColor: section.accentColor }}
+                              animate={{
+                                scale: [1, 1.3, 1],
+                                opacity: [0.6, 0, 0.6],
+                                rotate: [0, 180, 360]
+                              }}
+                              transition={{
+                                duration: 3,
+                                repeat: Infinity,
+                                ease: "linear"
+                              }}
+                            />
+                          </>
                         )}
                       </motion.div>
 
                       {/* Content */}
                       <div className="flex-1 text-left">
-                        <h4 className={`text-lg md:text-xl font-bold transition-colors duration-300 ${
+                        <h4 className={`text-xl md:text-2xl font-bold transition-colors duration-300 mb-1 ${
                           isActive ? 'text-snow-white drop-shadow-lg' : 'text-snow-white'
                         }`}>
                           {section.title}
                         </h4>
-                        <p className={`text-sm transition-colors duration-300 line-clamp-2 ${
+                        <p className={`text-sm md:text-base transition-colors duration-300 line-clamp-2 ${
                           isActive ? 'text-snow-white/90' : 'text-ash-gray group-hover:text-ash-gray/80'
                         }`}>
                           {section.description}
                         </p>
                       </div>
 
-                      {/* Active Indicator with Cursed Energy */}
+                      {/* Enhanced Active Indicator with Cursed Energy */}
                       {isActive && (
                         <motion.div
                           initial={{ scale: 0, rotate: -180 }}
@@ -615,10 +800,10 @@ const Portfolio = () => {
                             rotate: 0,
                           }}
                           transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                          className="relative"
+                          className="relative flex-shrink-0"
                         >
                           <motion.div
-                            className="w-4 h-4 bg-snow-white rounded-full shadow-lg"
+                            className="w-5 h-5 bg-snow-white rounded-full shadow-lg"
                             animate={{
                               boxShadow: [
                                 '0 0 10px rgba(255, 255, 255, 0.8)',
@@ -631,7 +816,7 @@ const Portfolio = () => {
                           <motion.div
                             className="absolute inset-0 rounded-full border-2 border-snow-white"
                             animate={{
-                              scale: [1, 1.5, 1],
+                              scale: [1, 1.8, 1],
                               opacity: [0.8, 0, 0.8],
                             }}
                             transition={{
@@ -647,12 +832,12 @@ const Portfolio = () => {
                     {/* Current Route Indicator */}
                     {isCurrentRoute && !isActive && (
                       <motion.div
-                        className="absolute top-3 right-3"
+                        className="absolute top-4 right-4"
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         transition={{ type: "spring", stiffness: 500, damping: 30 }}
                       >
-                        <span className="px-2 py-1 text-xs bg-cursed-blue text-snow-white rounded-full font-bold shadow-md">
+                        <span className="px-3 py-1 text-xs bg-cursed-blue text-snow-white rounded-full font-bold shadow-md">
                           Current
                         </span>
                       </motion.div>
@@ -662,7 +847,7 @@ const Portfolio = () => {
                     {isActive && (
                       <>
                         <motion.div
-                          className="absolute top-0 left-0 w-6 h-6"
+                          className="absolute top-0 left-0 w-8 h-8"
                           initial={{ opacity: 0, scale: 0 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: 0.2 }}
@@ -672,7 +857,7 @@ const Portfolio = () => {
                           </svg>
                         </motion.div>
                         <motion.div
-                          className="absolute bottom-0 right-0 w-6 h-6"
+                          className="absolute bottom-0 right-0 w-8 h-8"
                           initial={{ opacity: 0, scale: 0 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: 0.2 }}
@@ -689,7 +874,7 @@ const Portfolio = () => {
             })}
           </div>
 
-          {/* Right Side - Preview Card with Domain Expansion Aesthetics */}
+          {/* Right Side - Enhanced Preview Card with Domain Expansion Aesthetics */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -697,11 +882,11 @@ const Portfolio = () => {
             viewport={{ once: true }}
             className="relative lg:sticky lg:top-8"
           >
-            <div className="text-center mb-6 relative">
-              <h3 className="text-2xl font-bold text-snow-white mb-2 relative inline-block">
+            <div className="text-center mb-8 relative">
+              <h3 className="text-2xl md:text-3xl font-bold text-snow-white mb-2 relative inline-block">
                 Portfolio Summary
                 <motion.div
-                  className="absolute -inset-2 bg-gradient-to-r from-rengoku-flame/20 to-transparent rounded-lg -z-10 blur-xl"
+                  className="absolute -inset-4 bg-gradient-to-r from-rengoku-flame/20 via-zenitsu-lightning/20 to-transparent rounded-lg -z-10 blur-xl"
                   animate={{
                     opacity: [0.3, 0.6, 0.3],
                   }}
@@ -712,10 +897,10 @@ const Portfolio = () => {
                   }}
                 />
               </h3>
-              <p className="text-ash-gray">Get a comprehensive overview</p>
+              <p className="text-ash-gray text-base">Get a comprehensive overview</p>
             </div>
 
-            {/* Glass Morphism Preview Card with Domain Barrier */}
+            {/* Enhanced Glass Morphism Preview Card with Domain Barrier */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedTab.title}
@@ -730,7 +915,7 @@ const Portfolio = () => {
                 }}
                 className="relative rounded-3xl overflow-hidden"
               >
-                {/* Hexagonal Corner Decorations */}
+                {/* Enhanced Hexagonal Corner Decorations */}
                 <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-10">
                   {[
                     { top: -10, left: -10, rotate: 0 },
@@ -740,10 +925,10 @@ const Portfolio = () => {
                   ].map((pos, i) => (
                     <motion.div
                       key={i}
-                      className="absolute w-12 h-12"
+                      className="absolute w-16 h-16"
                       style={pos}
                       initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 0.3, scale: 1 }}
+                      animate={{ opacity: 0.4, scale: 1 }}
                       transition={{ delay: 0.3 + i * 0.1 }}
                     >
                       <svg viewBox="0 0 50 50">
@@ -754,12 +939,20 @@ const Portfolio = () => {
                           strokeWidth="2"
                           style={{ transform: `rotate(${pos.rotate}deg)`, transformOrigin: 'center' }}
                         />
+                        <polygon
+                          points="25,8 42,18 42,32 25,42 8,32 8,18"
+                          fill="none"
+                          stroke={selectedTab.accentColor}
+                          strokeWidth="1"
+                          strokeOpacity="0.5"
+                          style={{ transform: `rotate(${pos.rotate}deg)`, transformOrigin: 'center' }}
+                        />
                       </svg>
                     </motion.div>
                   ))}
                 </div>
 
-                {/* Glass Background with Breathing Effect */}
+                {/* Enhanced Glass Background with Breathing Effect */}
                 <motion.div
                   className="backdrop-blur-xl bg-white/10 border-2 shadow-2xl relative"
                   style={{
@@ -780,9 +973,9 @@ const Portfolio = () => {
                     ease: "easeInOut"
                   }}
                 >
-                  <div className="p-8 relative z-20">
+                  <div className="p-8 md:p-10 relative z-20">
 
-                    {/* Header Section with Animated Icon */}
+                    {/* Header Section with Enhanced Animated Icon */}
                     <motion.div
                       className="text-center mb-8"
                       initial={{ y: 20, opacity: 0 }}
@@ -790,7 +983,7 @@ const Portfolio = () => {
                       transition={{ delay: 0.2 }}
                     >
                       <motion.div
-                        className="inline-flex items-center justify-center w-24 h-24 rounded-2xl backdrop-blur-sm border-2 mb-4 relative"
+                        className="inline-flex items-center justify-center w-28 h-28 rounded-2xl backdrop-blur-sm border-2 mb-5 relative"
                         style={{
                           background: `linear-gradient(135deg, ${selectedTab.accentColor}20, ${selectedTab.accentColor}10)`,
                           borderColor: selectedTab.accentColor + '60'
@@ -808,27 +1001,44 @@ const Portfolio = () => {
                           ease: "easeInOut"
                         }}
                       >
-                        <div className="w-16 h-16">
+                        <div className="w-18 h-18">
                           {(() => {
                             const IconComponent = selectedTab.icon;
                             return <IconComponent isActive={true} />;
                           })()}
                         </div>
 
-                        {/* Rotating Domain Expansion Ring */}
+                        {/* Multi-layer Rotating Domain Expansion Rings */}
                         <motion.div
                           className="absolute inset-0 rounded-2xl"
                           style={{
                             border: `2px solid ${selectedTab.accentColor}`,
-                            opacity: 0.3
+                            opacity: 0.4
                           }}
                           animate={{
-                            scale: [1, 1.1, 1],
-                            opacity: [0.3, 0, 0.3],
+                            scale: [1, 1.15, 1],
+                            opacity: [0.4, 0, 0.4],
                             rotate: [0, 180, 360]
                           }}
                           transition={{
                             duration: 3,
+                            repeat: Infinity,
+                            ease: "linear"
+                          }}
+                        />
+                        <motion.div
+                          className="absolute inset-0 rounded-2xl"
+                          style={{
+                            border: `1px solid ${selectedTab.accentColor}`,
+                            opacity: 0.3
+                          }}
+                          animate={{
+                            scale: [1, 1.25, 1],
+                            opacity: [0.3, 0, 0.3],
+                            rotate: [360, 180, 0]
+                          }}
+                          transition={{
+                            duration: 4,
                             repeat: Infinity,
                             ease: "linear"
                           }}
@@ -840,12 +1050,12 @@ const Portfolio = () => {
                       </h4>
 
                       <motion.div
-                        className="w-20 h-1 rounded-full mx-auto relative"
+                        className="w-24 h-1 rounded-full mx-auto relative"
                         style={{
                           background: `linear-gradient(to right, ${selectedTab.accentColor}, ${selectedTab.accentColor}80)`
                         }}
                         animate={{
-                          width: ["5rem", "7rem", "5rem"],
+                          width: ["6rem", "8rem", "6rem"],
                           boxShadow: [
                             `0 0 10px ${selectedTab.glowColor}`,
                             `0 0 20px ${selectedTab.glowColor}`,
@@ -860,7 +1070,7 @@ const Portfolio = () => {
                       />
                     </motion.div>
 
-                    {/* Stats Grid with Cursed Energy Glow */}
+                    {/* Enhanced Stats Grid with Cursed Energy Glow */}
                     <motion.div
                       className="grid grid-cols-3 gap-4 mb-8"
                       initial={{ y: 20, opacity: 0 }}
@@ -877,7 +1087,8 @@ const Portfolio = () => {
                           }}
                           whileHover={{
                             scale: 1.05,
-                            borderColor: selectedTab.accentColor + '60'
+                            borderColor: selectedTab.accentColor + '60',
+                            background: 'rgba(255, 255, 255, 0.08)'
                           }}
                           transition={{
                             type: "spring",
@@ -885,7 +1096,7 @@ const Portfolio = () => {
                             damping: 25
                           }}
                         >
-                          {/* Breathing Pattern Background */}
+                          {/* Enhanced Breathing Pattern Background */}
                           <motion.div
                             className="absolute inset-0 opacity-20"
                             animate={{
@@ -904,7 +1115,7 @@ const Portfolio = () => {
                           />
 
                           <motion.div
-                            className="text-2xl font-bold mb-1 relative z-10"
+                            className="text-2xl md:text-3xl font-bold mb-1 relative z-10"
                             style={{ color: selectedTab.accentColor }}
                             animate={{
                               textShadow: [
@@ -921,19 +1132,19 @@ const Portfolio = () => {
                           >
                             {value}
                           </motion.div>
-                          <div className="text-xs text-ash-gray capitalize relative z-10">{key}</div>
+                          <div className="text-xs md:text-sm text-ash-gray capitalize relative z-10 font-medium">{key}</div>
                         </motion.div>
                       ))}
                     </motion.div>
 
-                    {/* Highlights Section with Hexagonal Bullets */}
+                    {/* Enhanced Highlights Section with Hexagonal Bullets */}
                     <motion.div
                       className="mb-8"
                       initial={{ y: 20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.5 }}
                     >
-                      <h5 className="text-lg font-semibold text-snow-white mb-4 text-center flex items-center justify-center gap-2">
+                      <h5 className="text-lg md:text-xl font-semibold text-snow-white mb-5 text-center flex items-center justify-center gap-3">
                         <motion.div
                           className="w-2 h-2 rounded-full"
                           style={{ backgroundColor: selectedTab.accentColor }}
@@ -967,7 +1178,7 @@ const Portfolio = () => {
                         {selectedTab.highlights.map((highlight, index) => (
                           <motion.div
                             key={index}
-                            className="flex items-center space-x-2 p-3 rounded-lg backdrop-blur-sm border relative overflow-hidden group"
+                            className="flex items-center space-x-3 p-3 rounded-lg backdrop-blur-sm border relative overflow-hidden group"
                             style={{
                               background: 'rgba(255, 255, 255, 0.05)',
                               borderColor: selectedTab.accentColor + '20'
@@ -983,9 +1194,9 @@ const Portfolio = () => {
                               damping: 25
                             }}
                           >
-                            {/* Hexagonal Bullet */}
+                            {/* Enhanced Hexagonal Bullet */}
                             <motion.div
-                              className="flex-shrink-0 w-5 h-5"
+                              className="flex-shrink-0 w-6 h-6"
                               animate={{
                                 rotate: [0, 360]
                               }}
@@ -1003,11 +1214,18 @@ const Portfolio = () => {
                                   stroke={selectedTab.accentColor}
                                   strokeWidth="1"
                                 />
+                                <polygon
+                                  points="12,6 18,9.5 18,14.5 12,18 6,14.5 6,9.5"
+                                  fill="none"
+                                  stroke={selectedTab.accentColor}
+                                  strokeWidth="1"
+                                  strokeOpacity="0.8"
+                                />
                               </svg>
                             </motion.div>
-                            <span className="text-sm text-snow-white/90 relative z-10">{highlight}</span>
+                            <span className="text-sm md:text-base text-snow-white/90 relative z-10 font-medium">{highlight}</span>
 
-                            {/* Hover Glow Effect */}
+                            {/* Enhanced Hover Glow Effect */}
                             <motion.div
                               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                               style={{
@@ -1019,19 +1237,19 @@ const Portfolio = () => {
                       </div>
                     </motion.div>
 
-                    {/* Description */}
+                    {/* Enhanced Description */}
                     <motion.div
                       className="mb-8 relative"
                       initial={{ y: 20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.7 }}
                     >
-                      <p className="text-snow-white/80 leading-relaxed text-center relative z-10">
+                      <p className="text-snow-white/80 leading-relaxed text-center relative z-10 text-base md:text-lg">
                         {selectedTab.preview}
                       </p>
                     </motion.div>
 
-                    {/* Action Button with Domain Expansion Effect */}
+                    {/* Enhanced Action Button with Domain Expansion Effect */}
                     <motion.div
                       className="text-center"
                       initial={{ y: 20, opacity: 0 }}
@@ -1040,7 +1258,7 @@ const Portfolio = () => {
                     >
                       <Link
                         to={selectedTab.link}
-                        className="inline-flex items-center px-8 py-4 font-bold rounded-2xl shadow-xl backdrop-blur-sm border-2 transition-all duration-300 relative overflow-hidden group"
+                        className="inline-flex items-center px-8 py-4 font-bold text-base md:text-lg rounded-2xl shadow-xl backdrop-blur-sm border-2 transition-all duration-300 relative overflow-hidden group"
                         style={{
                           background: `linear-gradient(135deg, ${selectedTab.accentColor}, ${selectedTab.accentColor}dd)`,
                           borderColor: 'rgba(255, 255, 255, 0.3)'
@@ -1054,10 +1272,10 @@ const Portfolio = () => {
                           }}
                         />
 
-                        <span className="text-deep-charcoal relative z-10">Explore {selectedTab.title}</span>
+                        <span className="text-deep-charcoal relative z-10 font-extrabold">Explore {selectedTab.title}</span>
 
                         <motion.svg
-                          className="ml-3 w-5 h-5 text-deep-charcoal relative z-10"
+                          className="ml-3 w-6 h-6 text-deep-charcoal relative z-10"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -1073,7 +1291,7 @@ const Portfolio = () => {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                         </motion.svg>
 
-                        {/* Domain Expansion Ring on Hover */}
+                        {/* Multi-layer Domain Expansion Rings on Hover */}
                         <motion.div
                           className="absolute inset-0 rounded-2xl border-2 border-white opacity-0 group-hover:opacity-100"
                           animate={{
@@ -1086,14 +1304,27 @@ const Portfolio = () => {
                             ease: "easeOut"
                           }}
                         />
+                        <motion.div
+                          className="absolute inset-0 rounded-2xl border-2 border-white opacity-0 group-hover:opacity-100"
+                          animate={{
+                            scale: [1, 1.2, 1],
+                            opacity: [0, 0.3, 0]
+                          }}
+                          transition={{
+                            duration: 1.5,
+                            repeat: Infinity,
+                            ease: "easeOut",
+                            delay: 0.3
+                          }}
+                        />
                       </Link>
                     </motion.div>
                   </div>
                 </motion.div>
 
-                {/* Decorative Cursed Energy Orbs */}
+                {/* Enhanced Decorative Cursed Energy Orbs */}
                 <motion.div
-                  className="absolute top-4 right-4 w-24 h-24 rounded-full blur-2xl pointer-events-none"
+                  className="absolute top-4 right-4 w-28 h-28 rounded-full blur-2xl pointer-events-none"
                   style={{
                     background: `radial-gradient(circle, ${selectedTab.accentColor}30, transparent)`
                   }}
@@ -1108,7 +1339,7 @@ const Portfolio = () => {
                   }}
                 />
                 <motion.div
-                  className="absolute bottom-4 left-4 w-20 h-20 rounded-full blur-2xl pointer-events-none"
+                  className="absolute bottom-4 left-4 w-24 h-24 rounded-full blur-2xl pointer-events-none"
                   style={{
                     background: `radial-gradient(circle, ${selectedTab.accentColor}30, transparent)`
                   }}

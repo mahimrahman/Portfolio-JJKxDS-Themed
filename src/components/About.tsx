@@ -1,152 +1,350 @@
 import { memo } from 'react';
 import { motion } from 'framer-motion';
 
-const aboutIcons = [
-  // Web Development icon
-  <svg key="dev" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-  </svg>,
-  // UI/UX icon
-  <svg key="uiux" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-  </svg>,
-  // Data Analysis icon
-  <svg key="data" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-  </svg>,
-  // Project Management icon
-  <svg key="pm" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
-  </svg>,
+// Professional skill domain icons - clean and minimalist
+const domainIcons = {
+  development: (
+    <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+    </svg>
+  ),
+  design: (
+    <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+    </svg>
+  ),
+  data: (
+    <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+    </svg>
+  ),
+  management: (
+    <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+    </svg>
+  ),
+};
+
+// Skill domains with anime-themed color associations
+const skillDomains = [
+  {
+    title: 'Development',
+    subtitle: 'Full-Stack Engineering',
+    skills: ['React', 'TypeScript', 'Node.js', 'Python', 'REST APIs'],
+    icon: domainIcons.development,
+    gradient: 'from-checkered-green/20 via-cursed-blue/10 to-transparent',
+    borderGradient: 'from-checkered-green/40 to-cursed-blue/40',
+    accentColor: 'snow-white',
+    hoverShadow: 'hover:shadow-checkered-green/20',
+  },
+  {
+    title: 'Design',
+    subtitle: 'User Interface & User Experience Design',
+    skills: ['Figma', 'Adobe Suite', 'Prototyping', 'Branding', 'User Research'],
+    icon: domainIcons.design,
+    gradient: 'from-rengoku-flame/20 via-zenitsu-lightning/10 to-transparent',
+    borderGradient: 'from-rengoku-flame/40 to-zenitsu-lightning/40',
+    accentColor: 'snow-white',
+    hoverShadow: 'hover:shadow-rengoku-flame/20',
+  },
+  {
+    title: 'Analytics',
+    subtitle: 'Data Science & Business Intelligence',
+    skills: ['Python', 'Power BI', 'SQL', 'Pandas', 'Data Visualization'],
+    icon: domainIcons.data,
+    gradient: 'from-cursed-blue/20 via-domain-violet/10 to-transparent',
+    borderGradient: 'from-cursed-blue/40 to-domain-violet/40',
+    accentColor: 'snow-white',
+    hoverShadow: 'hover:shadow-cursed-blue/20',
+  },
+  {
+    title: 'Management',
+    subtitle: 'Project Management & Agile Methodologies',
+    skills: ['Scrum', 'Jira', 'Team Coordination', 'Sprint Planning', 'Stakeholder Communication'],
+    icon: domainIcons.management,
+    gradient: 'from-domain-violet/20 via-zenitsu-lightning/10 to-transparent',
+    borderGradient: 'from-domain-violet/40 to-zenitsu-lightning/40',
+    accentColor: 'snow-white',
+    hoverShadow: 'hover:shadow-domain-violet/20',
+  },
 ];
 
 const AboutBase = () =>
-  <section className="min-h-[60vh] py-6 md:py-8 px-4 relative overflow-hidden">
-    <div className="max-w-6xl mx-auto relative z-10 [content-visibility:auto]">
-      {/* Header Section */}
+  <section className="h-screen py-8 md:py-12 px-4 relative overflow-hidden flex items-center">
+    {/* Animated Domain Expansion Background Effects */}
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <motion.div 
+        className="absolute top-1/4 left-1/4 w-96 h-96 bg-domain-violet/5 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div 
+        className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-rengoku-flame/5 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.2, 0.4, 0.2],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      />
+      <motion.div 
+        className="absolute top-1/2 right-1/3 w-72 h-72 bg-cursed-blue/5 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.25, 1],
+          opacity: [0.25, 0.45, 0.25],
+        }}
+        transition={{
+          duration: 9,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2
+        }}
+      />
+    </div>
+
+    <div className="max-w-7xl mx-auto relative z-10 w-full">
+      {/* Compact Header */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="text-center mb-6 md:mb-10"
+        className="text-center mb-6 md:mb-8"
       >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-4 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
-          The Path of the Slayer
-        </h2>
-        <span className="block w-20 md:w-24 h-1 mx-auto bg-zenitsu-lightning rounded-full animate-pulse" />
-      </motion.div>
-      
-      {/* Bento Grid Layout - Responsive design */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 h-auto lg:h-[450px]">
-        {/* Left Column - Large Text Card (50% width on desktop, full width on mobile) */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
-          className="h-auto lg:h-full mb-6 lg:mb-0 transform-gpu"
+          className="h-px bg-gradient-to-r from-transparent via-domain-violet to-transparent mb-3"
+        />
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-domain-violet via-cursed-blue to-rengoku-flame bg-clip-text text-transparent">
+          The Story of the Slayer
+        </h2>
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="h-px bg-gradient-to-r from-transparent via-rengoku-flame to-transparent mt-3"
+        />
+      </motion.div>
+
+      {/* Main Content Grid - Equal Height Components */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6">
+        
+        {/* Profile Card - Left Side (Spans 5 columns) */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true }}
+          className="lg:col-span-5"
         >
-          <div className="min-h-[250px] lg:h-full bg-gradient-to-br from-snow-white/10 to-snow-white/5 backdrop-blur-xl backdrop-saturate-150 rounded-3xl border border-snow-white/20/80 shadow-2xl shadow-black/20 p-5 md:p-6 lg:p-7 flex flex-col justify-center group hover:shadow-3xl hover:shadow-snow-white/10 transition-all duration-500 [will-change:transform]">
-            <div className="space-y-4 md:space-y-5">
-              <p className="text-base md:text-lg lg:text-xl text-snow-white leading-relaxed">
-                Software Engineering graduate with a strong foundation in IT solutions, project management, and data analysis. Eager to apply academic knowledge to real-world challenges, focusing on delivering quality software and optimizing processes. Passionate about continuous learning, teamwork, and contributing to impactful projects.
-              </p>
-              <p className="text-base md:text-lg lg:text-xl text-snow-white leading-relaxed">
-                Experienced in web development, UI/UX design, and digital communications. Adept at collaborating with teams to deliver impactful results and drive engagement.
-              </p>
+          <motion.div 
+            className="h-full bg-gradient-to-br from-snow-white/8 via-snow-white/5 to-transparent backdrop-blur-2xl rounded-3xl border border-snow-white/10 p-6 md:p-8 relative overflow-hidden group"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
+            {/* Animated border effect */}
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-br from-domain-violet/0 via-cursed-blue/5 to-rengoku-flame/0 rounded-3xl"
+              initial={{ opacity: 0 }}
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            />
+            
+            {/* Animated corner accents */}
+            <motion.div
+              className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-domain-violet/30 rounded-tl-3xl"
+              animate={{
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <motion.div
+              className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-rengoku-flame/30 rounded-br-3xl"
+              animate={{
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1.5
+              }}
+            />
+            
+            {/* Content */}
+            <div className="relative z-10 h-full flex flex-col justify-between">
+              {/* Title with accent line */}
+              <div className="mb-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <motion.div 
+                    className="w-1 h-10 bg-gradient-to-b from-domain-violet to-cursed-blue rounded-full"
+                    animate={{
+                      height: [40, 48, 40],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                  <h3 className="text-xl md:text-2xl font-bold text-snow-white">
+                    The Sorcerer's Path
+                  </h3>
+                </div>
+                <motion.div 
+                  className="h-px bg-gradient-to-r from-zenitsu-lightning to-transparent"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: '80px' }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  viewport={{ once: true }}
+                />
+              </div>
+
+              {/* Bio Text - Compact */}
+              <div className="space-y-4 text-snow-white/90 leading-relaxed flex-1">
+                <p className="text-sm md:text-base">
+                  Software Engineering graduate with a strong foundation in IT solutions, project management, and data analysis. Driven to transform complex challenges into elegant solutions through innovative thinking and continuous learning.
+                </p>
+                <p className="text-sm md:text-base">
+                  Specialized in full-stack development, UI/UX design, and data-driven decision making. Passionate about creating impactful digital experiences.
+                </p>
+                <p className="text-sm md:text-base">
+                  Committed to collaborative excellence, bringing teams together to deliver solutions that drive real-world impact.
+                </p>
+              </div>
+
+              {/* Animated decorative element */}
+              <div className="mt-5 flex items-center gap-2">
+                <motion.div 
+                  className="w-2 h-2 rounded-full bg-checkered-green"
+                  animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                />
+                <motion.div 
+                  className="w-2 h-2 rounded-full bg-cursed-blue"
+                  animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
+                />
+                <motion.div 
+                  className="w-2 h-2 rounded-full bg-rengoku-flame"
+                  animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: 1.5, repeat: Infinity, delay: 0.4 }}
+                />
+                <motion.div 
+                  className="w-2 h-2 rounded-full bg-domain-violet"
+                  animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: 1.5, repeat: Infinity, delay: 0.6 }}
+                />
+                <div className="flex-1 h-px bg-gradient-to-r from-snow-white/20 to-transparent" />
+              </div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
 
-        {/* Right Column - Bento Grid (50% width on desktop, full width on mobile) */}
-        <div className="h-auto lg:h-full">
-          {/* Bento Grid - Responsive 2x2 Layout */}
-          <div className="grid grid-cols-2 gap-3 md:gap-4 h-auto lg:h-full">
-            {/* Top Left Card */}
-            <motion.div
-              className="min-h-[120px] md:min-h-[130px] lg:h-auto bg-gradient-to-br from-checkered-green/80 to-domain-violet/30 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-2 md:p-3 flex flex-col justify-center group hover:shadow-xl hover:shadow-checkered-green/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="flex flex-col items-center text-center gap-2 md:gap-3">
-                <div className="text-zenitsu-lightning group-hover:scale-110 transition-transform duration-300">
-                  <div className="w-6 h-6 md:w-8 md:h-8">
-                    {aboutIcons[0]}
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-snow-white font-bold text-xs md:text-sm">Web Development</h3>
-                  <p className="text-zenitsu-lightning text-xs">React, TypeScript, HTML, CSS, Node.js</p>
-                </div>
-              </div>
-            </motion.div>
-            
-            {/* Top Right Card */}
-            <motion.div
-              className="min-h-[120px] md:min-h-[130px] lg:h-auto bg-gradient-to-br from-zenitsu-lightning/50 to-rengoku-flame/50 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-2 md:p-3 flex flex-col justify-center group hover:shadow-xl hover:shadow-zenitsu-lightning/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.15 }}
-              viewport={{ once: true }}
-            >
-              <div className="flex flex-col items-center text-center gap-2 md:gap-3">
-                <div className="text-zenitsu-lightning group-hover:scale-110 transition-transform duration-300">
-                  <div className="w-6 h-6 md:w-8 md:h-8">
-                    {aboutIcons[1]}
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-snow-white font-bold text-xs md:text-sm">UI/UX & Graphic Design</h3>
-                  <p className="text-zenitsu-lightning text-xs">Figma, Adobe Suite, Canva, Branding</p>
-                </div>
-              </div>
-            </motion.div>
+        {/* Skill Domains - Right Side (Spans 7 columns) - Equal Height */}
+        <div className="lg:col-span-7">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
+            {skillDomains.map((domain, index) => (
+              <motion.div
+                key={domain.title}
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: index * 0.08,
+                  ease: [0.22, 1, 0.36, 1]
+                }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <div className={`h-full bg-gradient-to-br ${domain.gradient} backdrop-blur-xl rounded-2xl border border-snow-white/10 hover:border-${domain.accentColor}/40 p-5 relative overflow-hidden transition-all duration-400 ${domain.hoverShadow} hover:shadow-2xl`}>
+                  {/* Animated border gradient on hover */}
+                  <motion.div 
+                    className={`absolute inset-0 bg-gradient-to-br ${domain.borderGradient} rounded-2xl`}
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 0.15 }}
+                    transition={{ duration: 0.4 }}
+                  />
+                  
+                  {/* Animated glow effect */}
+                  <motion.div
+                    className={`absolute -inset-1 bg-gradient-to-r ${domain.borderGradient} rounded-2xl blur opacity-0 group-hover:opacity-20`}
+                    transition={{ duration: 0.4 }}
+                  />
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    {/* Icon and Title */}
+                    <div className="flex items-start gap-3 mb-3">
+                      <motion.div 
+                        className={`w-11 h-11 rounded-xl bg-gradient-to-br ${domain.borderGradient} p-2 flex items-center justify-center text-snow-white`}
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        {domain.icon}
+                      </motion.div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold text-snow-white mb-0.5">
+                          {domain.title}
+                        </h3>
+                        <p className={`text-xs text-${domain.accentColor}/80`}>
+                          {domain.subtitle}
+                        </p>
+                      </div>
+                    </div>
 
-            {/* Bottom Left Card */}
-            <motion.div
-              className="min-h-[120px] md:min-h-[130px] lg:h-auto bg-gradient-to-br from-cursed-blue/30 to-domain-violet/80 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-2 md:p-3 flex flex-col justify-center group hover:shadow-xl hover:shadow-cursed-blue/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="flex flex-col items-center text-center gap-2 md:gap-3">
-                <div className="text-zenitsu-lightning group-hover:scale-110 transition-transform duration-300">
-                  <div className="w-6 h-6 md:w-8 md:h-8">
-                    {aboutIcons[2]}
+                    {/* Animated Divider */}
+                    <motion.div 
+                      className={`w-full h-px bg-gradient-to-r from-${domain.accentColor}/30 via-${domain.accentColor}/10 to-transparent mb-3`}
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      transition={{ duration: 0.5, delay: index * 0.08 + 0.2 }}
+                      viewport={{ once: true }}
+                    />
+
+                    {/* Skills */}
+                    <div className="flex flex-wrap gap-1.5">
+                      {domain.skills.map((skill, skillIndex) => (
+                        <motion.span
+                          key={skill}
+                          initial={{ opacity: 0, scale: 0.7 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          whileHover={{ scale: 1.1, y: -2 }}
+                          transition={{ 
+                            duration: 0.2, 
+                            delay: index * 0.08 + skillIndex * 0.03 
+                          }}
+                          viewport={{ once: true }}
+                          className="px-2.5 py-1 text-xs font-medium text-snow-white/90 bg-snow-white/5 border border-snow-white/10 rounded-lg hover:bg-snow-white/15 hover:border-snow-white/25 transition-all duration-200 cursor-default"
+                        >
+                          {skill}
+                        </motion.span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-                <div>
-                  <h3 className="text-snow-white font-bold text-xs md:text-sm">Data Analysis</h3>
-                  <p className="text-zenitsu-lightning text-xs">Python, Power BI, Pandas, SQL</p>
-                </div>
-              </div>
-            </motion.div>
-            
-            {/* Bottom Right Card */}
-            <motion.div
-              className="min-h-[120px] md:min-h-[130px] lg:h-auto bg-gradient-to-br from-rengoku-flame/80 to-zenitsu-lightning/40 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-zenitsu-lightning/20 hover:border-zenitsu-lightning/40 transition-transform duration-300 cursor-pointer p-2 md:p-3 flex flex-col justify-center group hover:shadow-xl hover:shadow-rengoku-flame/20 hover:scale-105 hover:-translate-y-1 sm:hover:-translate-y-2 transform-gpu motion-reduce:transform-none motion-reduce:transition-none [will-change:transform]"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.25 }}
-              viewport={{ once: true }}
-            >
-              <div className="flex flex-col items-center text-center gap-2 md:gap-3">
-                <div className="text-zenitsu-lightning group-hover:scale-110 transition-transform duration-300">
-                  <div className="w-6 h-6 md:w-8 md:h-8">
-                    {aboutIcons[3]}
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-snow-white font-bold text-xs md:text-sm">Project Management</h3>
-                  <p className="text-zenitsu-lightning text-xs">Agile, Scrum, Jira, Trello</p>
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
