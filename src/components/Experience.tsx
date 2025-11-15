@@ -1,6 +1,26 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 
-// Types
+/**
+ * Experience Component - Constellation of Professional Experience
+ * 
+ * Features:
+ * - Interactive constellation map of professional experiences across continents
+ * - Location-based color theming (Canada, Malaysia, Bangladesh)
+ * - Animated hexagonal markers with domain expansion effects
+ * - Modal system using React Portal (always on top, never clashes)
+ * - Smooth animations and transitions throughout
+ * - Responsive design with mobile-specific positioning
+ * 
+ * Components:
+ * - ExperienceStar: Individual constellation markers with hover effects
+ * - ExperienceModal: Full-screen modal with portal rendering
+ * - Experience: Main container with filters and constellation map
+ */
+
+// ============================================================================
+// TYPES & INTERFACES
+// ============================================================================
 interface ExperienceItem {
   id: number;
   title: string;
@@ -165,6 +185,10 @@ const experienceData: ExperienceItem[] = [
   },
 ];
 
+// ============================================================================
+// CONSTANTS & DATA
+// ============================================================================
+
 // Location-based color themes - JJK x DS inspired
 const locationColors = {
   Canada: {
@@ -190,7 +214,15 @@ const locationColors = {
   },
 };
 
-// Enhanced Experience Constellation Marker Component with Hexagonal Domain Expansion design
+// ============================================================================
+// COMPONENTS
+// ============================================================================
+
+/**
+ * ExperienceStar Component
+ * Individual constellation marker with hexagonal domain expansion design
+ * Features smooth animations, hover effects, and location-based theming
+ */
 const ExperienceStar = ({ experience, onClick, isVisible }: {
   experience: ExperienceItem;
   onClick: (experience: ExperienceItem) => void;
@@ -219,14 +251,19 @@ const ExperienceStar = ({ experience, onClick, isVisible }: {
 
   return (
     <div
-      className={`absolute transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer transition-all duration-700 ease-in-out ${
-        isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50 pointer-events-none'
+      className={`absolute transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer transition-all duration-500 ease-out ${
+        isVisible 
+          ? 'opacity-100 scale-100 pointer-events-auto' 
+          : 'opacity-0 scale-75 pointer-events-none'
       }`}
       style={{
         top: position.top,
         left: position.left,
         position: 'absolute',
-        transform: 'translate(-50%, -50%)'
+        transform: 'translate(-50%, -50%)',
+        transition: isVisible 
+          ? 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)' 
+          : 'all 0.3s ease-in',
       }}
       onClick={() => onClick(experience)}
       role="button"
@@ -237,8 +274,15 @@ const ExperienceStar = ({ experience, onClick, isVisible }: {
         {/* Hexagonal Domain Expansion Marker - Professional JJK inspired */}
         <div className="relative">
           {/* Outer rotating hexagon ring - Domain expansion barrier */}
-          <div className="absolute -inset-3 sm:-inset-4 opacity-0 group-hover:opacity-100 transition-all duration-700">
-            <svg className="w-full h-full animate-spin" style={{ animationDuration: '8s' }} viewBox="0 0 100 100">
+          <div className="absolute -inset-3 sm:-inset-4 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out">
+            <svg 
+              className="w-full h-full animate-spin" 
+              style={{ 
+                animationDuration: '8s',
+                animationTimingFunction: 'linear',
+              }} 
+              viewBox="0 0 100 100"
+            >
               <defs>
                 <linearGradient id={`hex-grad-${experience.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor={colorTheme.primary} stopOpacity="0.6" />
@@ -257,10 +301,11 @@ const ExperienceStar = ({ experience, onClick, isVisible }: {
 
           {/* Middle breathing technique aura ring */}
           <div
-            className="absolute -inset-2 sm:-inset-3 rounded-full opacity-40 group-hover:opacity-70 transition-all duration-500 animate-pulse"
+            className="absolute -inset-2 sm:-inset-3 rounded-full opacity-40 group-hover:opacity-80 transition-all duration-500 ease-out animate-pulse"
             style={{
               background: `radial-gradient(circle, ${colorTheme.glow} 0%, transparent 70%)`,
               filter: 'blur(8px)',
+              animationDuration: '3s',
             }}
           />
 
@@ -336,10 +381,11 @@ const ExperienceStar = ({ experience, onClick, isVisible }: {
 
           {/* Domain expansion circle on hover */}
           <div
-            className="absolute inset-0 w-6 h-6 sm:w-8 sm:h-8 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-150"
+            className="absolute inset-0 w-6 h-6 sm:w-8 sm:h-8 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out group-hover:scale-150"
             style={{
               border: `2px solid ${colorTheme.primary}`,
               boxShadow: `0 0 20px ${colorTheme.glow}`,
+              transition: 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
             }}
           />
         </div>
@@ -366,59 +412,85 @@ const ExperienceStar = ({ experience, onClick, isVisible }: {
   );
 };
 
-// Enhanced Experience Modal Component with Domain Expansion opening animation
+/**
+ * ExperienceModal Component
+ * Full-screen modal with domain expansion opening animation
+ * Uses React Portal to render at document.body level, ensuring it's always on top
+ * Features staggered animations for description items and smooth transitions
+ */
 const ExperienceModal = ({ experience, onClose, isVisible }: {
   experience: ExperienceItem;
   onClose: () => void;
   isVisible: boolean;
 }) => {
   const [isOpening, setIsOpening] = useState(true);
+  const [isMounted, setIsMounted] = useState(false);
   const colorTheme = locationColors[experience.location];
 
+  // Mount/unmount animation handling
   useEffect(() => {
     if (isVisible) {
+      setIsMounted(true);
       setIsOpening(true);
-      const timer = setTimeout(() => setIsOpening(false), 700);
+      // Trigger opening animation after mount
+      const timer = setTimeout(() => setIsOpening(false), 100);
+      return () => clearTimeout(timer);
+    } else {
+      // Delay unmounting to allow exit animation
+      const timer = setTimeout(() => setIsMounted(false), 300);
       return () => clearTimeout(timer);
     }
   }, [isVisible]);
 
   const handleClose = useCallback(() => {
-    onClose();
+    setIsOpening(true);
+    setTimeout(() => {
+      onClose();
+    }, 200);
   }, [onClose]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
+      if (event.key === 'Escape' && isVisible) {
         handleClose();
       }
     };
 
     if (isVisible) {
       // Disable body scroll when modal is open
+      const originalOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
 
       return () => {
         // Re-enable body scroll when modal closes
-        document.body.style.overflow = 'unset';
+        document.body.style.overflow = originalOverflow;
         window.removeEventListener('keydown', handleKeyDown);
       };
     }
   }, [isVisible, handleClose]);
 
-  if (!isVisible) return null;
+  // Don't render if not mounted
+  if (!isMounted || !isVisible) return null;
 
-  return (
+  // Create portal to render modal at document body level (always on top)
+  const modalContent = (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-2 sm:p-4 transition-opacity duration-300 opacity-100"
+      className="fixed inset-0 z-[99999] flex items-center justify-center p-2 sm:p-4"
       onClick={handleClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="experience-title"
+      style={{
+        isolation: 'isolate', // Creates new stacking context
+      }}
     >
       {/* Enhanced backdrop with breathing effect */}
-      <div className="absolute inset-0 bg-black/90 backdrop-blur-lg">
+      <div 
+        className={`absolute inset-0 bg-black/90 backdrop-blur-lg transition-opacity duration-500 ${
+          isOpening ? 'opacity-0' : 'opacity-100'
+        }`}
+      >
         {/* Subtle domain expansion circles in background */}
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(3)].map((_, i) => (
@@ -438,12 +510,15 @@ const ExperienceModal = ({ experience, onClose, isVisible }: {
       </div>
 
       <div
-        className={`relative w-full max-w-sm sm:max-w-2xl bg-gradient-to-br from-ghost-black/98 to-deep-charcoal/98 rounded-2xl shadow-2xl transform transition-all duration-700 ease-out backdrop-blur-xl max-h-[85vh] ${
-          isOpening ? 'scale-90 opacity-0' : 'scale-100 opacity-100'
+        className={`relative w-full max-w-sm sm:max-w-2xl bg-gradient-to-br from-ghost-black/98 to-deep-charcoal/98 rounded-2xl shadow-2xl transform transition-all duration-500 ease-out backdrop-blur-xl max-h-[85vh] ${
+          isOpening 
+            ? 'scale-95 opacity-0 translate-y-4' 
+            : 'scale-100 opacity-100 translate-y-0'
         }`}
         style={{
           border: `2px solid ${colorTheme.primary}`,
           boxShadow: `0 0 40px ${colorTheme.glow}, 0 0 80px ${colorTheme.glow}20`,
+          transition: 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -498,9 +573,14 @@ const ExperienceModal = ({ experience, onClose, isVisible }: {
 
         <div className="p-5 sm:p-7 lg:p-9">
           {/* Location badge with breathing technique design */}
-          <div className="mb-3 sm:mb-4 flex items-center gap-2">
+          <div 
+            className="mb-3 sm:mb-4 flex items-center gap-2"
+            style={{
+              animation: isOpening ? 'none' : 'fadeInUp 0.5s ease-out 0.1s both',
+            }}
+          >
             <div
-              className="px-3 py-1 rounded-full text-xs sm:text-sm font-bold flex items-center gap-2 relative overflow-hidden"
+              className="px-3 py-1 rounded-full text-xs sm:text-sm font-bold flex items-center gap-2 relative overflow-hidden transition-all duration-300 hover:scale-105"
               style={{
                 background: `linear-gradient(135deg, ${colorTheme.primary}30, ${colorTheme.secondary}30)`,
                 border: `1px solid ${colorTheme.primary}`,
@@ -526,12 +606,18 @@ const ExperienceModal = ({ experience, onClose, isVisible }: {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
+              animation: isOpening ? 'none' : 'fadeInUp 0.5s ease-out 0.2s both',
             }}
           >
             {experience.title}
           </h2>
 
-          <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+          <div 
+            className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4"
+            style={{
+              animation: isOpening ? 'none' : 'fadeInUp 0.5s ease-out 0.3s both',
+            }}
+          >
             <h3 className="text-base sm:text-lg font-semibold text-snow-white">{experience.company}</h3>
             <p
               className="text-xs sm:text-sm font-medium"
@@ -553,24 +639,35 @@ const ExperienceModal = ({ experience, onClose, isVisible }: {
 
           <div className="space-y-3 sm:space-y-4">
             {experience.description.map((point, index) => (
-              <div key={index} className="flex items-start gap-3 group/item">
+              <div 
+                key={index} 
+                className="flex items-start gap-3 group/item"
+                style={{
+                  animation: isOpening 
+                    ? 'none' 
+                    : `fadeInUp 0.5s ease-out ${index * 0.1}s both`,
+                }}
+              >
                 {/* Custom hexagonal bullet point */}
                 <div className="mt-1 flex-shrink-0">
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover/item:scale-110" viewBox="0 0 100 100">
+                  <svg 
+                    className="w-3 h-3 sm:w-4 sm:h-4 transition-all duration-300 group-hover/item:scale-110 group-hover/item:rotate-90" 
+                    viewBox="0 0 100 100"
+                  >
                     <defs>
-                      <linearGradient id={`bullet-grad-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                      <linearGradient id={`bullet-grad-${experience.id}-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor={colorTheme.primary} />
                         <stop offset="100%" stopColor={colorTheme.secondary} />
                       </linearGradient>
                     </defs>
                     <polygon
                       points="50,10 85,30 85,70 50,90 15,70 15,30"
-                      fill={`url(#bullet-grad-${index})`}
-                      className="transition-all duration-300"
+                      fill={`url(#bullet-grad-${experience.id}-${index})`}
+                      className="transition-all duration-300 group-hover/item:opacity-80"
                     />
                   </svg>
                 </div>
-                <p className="text-snow-white text-sm sm:text-base leading-relaxed group-hover/item:text-snow-white/90 transition-colors duration-300">
+                <p className="text-snow-white text-sm sm:text-base leading-relaxed group-hover/item:text-snow-white/90 transition-all duration-300 group-hover/item:translate-x-1">
                   {point}
                 </p>
               </div>
@@ -597,9 +694,16 @@ const ExperienceModal = ({ experience, onClose, isVisible }: {
       </div>
     </div>
   );
+
+  // Render modal via portal to document.body to ensure it's always on top
+  return createPortal(modalContent, document.body);
 };
 
-// Main Experience Component with enhanced constellation design
+/**
+ * Main Experience Component
+ * Container for the entire experience constellation section
+ * Manages filters, star visibility, and modal state
+ */
 const Experience = () => {
   const [selectedExperience, setSelectedExperience] = useState<ExperienceItem | null>(null);
   const [activeFilter, setActiveFilter] = useState<FilterType>('All');
@@ -704,6 +808,9 @@ const Experience = () => {
         <div className="text-center mb-4 sm:mb-5 lg:mb-6">
           <h1
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight pb-2 sm:pb-3 lg:pb-4 leading-tight px-2 animate-fade-in relative"
+            style={{
+              animation: 'fadeInUp 0.8s ease-out',
+            }}
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-rengoku-flame via-domain-violet to-cursed-blue">
               Constellation of Experience
@@ -745,7 +852,7 @@ const Experience = () => {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-base font-bold rounded-lg transition-all duration-300 ease-in-out focus:outline-none relative overflow-hidden group ${
+                className={`px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-base font-bold rounded-lg transition-all duration-300 ease-out focus:outline-none relative overflow-hidden group ${
                   activeFilter === filter
                     ? 'text-snow-white shadow-lg scale-105'
                     : 'text-snow-white/70 hover:text-snow-white hover:scale-102'
@@ -755,7 +862,10 @@ const Experience = () => {
                     ? `linear-gradient(135deg, ${colorTheme.primary}, ${colorTheme.secondary})`
                     : 'rgba(26, 26, 46, 0.6)',
                   border: `2px solid ${activeFilter === filter ? colorTheme.primary : 'transparent'}`,
-                  boxShadow: activeFilter === filter ? `0 0 20px ${colorTheme.primary}40` : 'none',
+                  boxShadow: activeFilter === filter 
+                    ? `0 0 20px ${colorTheme.primary}40, 0 0 40px ${colorTheme.primary}20` 
+                    : 'none',
+                  transition: 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)',
                 }}
               >
                 {/* Breathing technique accent lines on hover */}
@@ -861,8 +971,8 @@ const Experience = () => {
             })}
           </svg>
 
-          {/* Enhanced constellation markers */}
-          {experienceData.map((exp) => (
+          {/* Enhanced constellation markers with staggered appearance */}
+          {experienceData.map((exp, index) => (
             <ExperienceStar
               key={exp.id}
               experience={exp}
