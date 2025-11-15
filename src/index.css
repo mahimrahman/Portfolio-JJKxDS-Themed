@@ -348,3 +348,31 @@ section, .section-transition {
     background-position: 0% 50%;
   }
 } 
+
+/* Education seal flip helpers */
+.seal-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s ease-in-out;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.seal-flip-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.seal-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.seal-face-back {
+  transform: rotateY(180deg);
+}

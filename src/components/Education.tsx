@@ -5,9 +5,9 @@ import MasterySeal from './ScrollCard';
 import SmokeBackground from './SmokeBackground';
 import SectionMerge from './SectionMerge';
 
-// Memoized background effects to prevent re-renders - Brought Forward
+// Memoized background effects to prevent re-renders - Behind content
 const BackgroundEffects = memo(() => (
-  <div className="absolute inset-0 z-[25]">
+  <div className="absolute inset-0 z-[5] pointer-events-none">
     {/* Larger, more vibrant orbs */}
     <motion.div 
       className="absolute top-1/4 left-1/4 w-[450px] h-[450px] rounded-full blur-3xl"
@@ -67,12 +67,12 @@ const BackgroundEffects = memo(() => (
 // Memoized glass morphism instruction box
 const InstructionBox = memo(() => (
   <motion.div
-    className="mb-8 max-w-md mx-auto"
+    className="mb-4 max-w-md mx-auto"
     initial={{ opacity: 0, y: 10 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: 0.3 }}
   >
-    <div className="bg-gradient-to-r from-zenitsu-lightning/5 to-domain-violet/5 rounded-xl p-4 border border-zenitsu-lightning/10 backdrop-blur-sm shadow-lg relative overflow-hidden">
+    <div className="bg-gradient-to-r from-zenitsu-lightning/5 to-domain-violet/5 rounded-xl p-3 border border-zenitsu-lightning/10 backdrop-blur-sm shadow-lg relative overflow-hidden">
       {/* Glass morphism background pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/2 to-transparent rounded-xl"></div>
       <div className="absolute inset-0 bg-gradient-to-tl from-domain-violet/2 to-transparent rounded-xl"></div>
@@ -100,14 +100,16 @@ const Education: React.FC = () => {
   );
 
   return (
-    <section id="education" className="min-h-screen py-16 px-6 md:px-8 lg:px-12 relative overflow-hidden">
+    <section id="education" className="h-screen py-8 px-6 md:px-8 lg:px-12 relative overflow-hidden flex flex-col">
       {/* Subtle Section Merge Overlays */}
       <SectionMerge position="top" intensity="light" />
       <SectionMerge position="bottom" intensity="light" />
       {/* Dark theme background with transparency for smoke */}
-      <div className="absolute inset-0 bg-gradient-to-br from-deep-charcoal/95 via-ghost-black/95 to-deep-charcoal/95 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-deep-charcoal/95 via-ghost-black/95 to-deep-charcoal/95 backdrop-blur-sm"></div>
       {/* Smoke Effect Background */}
-      <SmokeBackground />
+      <div className="absolute inset-0 z-[5] pointer-events-none">
+        <SmokeBackground />
+      </div>
       <BackgroundEffects />
 
       <motion.div
@@ -115,12 +117,12 @@ const Education: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="text-center mb-16"
+        className="relative z-30 text-center mb-6"
       >
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent drop-shadow-lg tracking-wider anime-heading">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent drop-shadow-lg tracking-wider anime-heading">
           Innate Domain: Forged Knowledge
         </h2>
-        <p className="text-center text-lg text-ash-gray mb-4 max-w-2xl mx-auto">
+        <p className="text-center text-base md:text-lg text-ash-gray mb-3 max-w-2xl mx-auto">
           Each fundamental technique, a pillar of power. When manifested together, they form a domain of unparalleled expertise.
         </p>
         
@@ -129,8 +131,8 @@ const Education: React.FC = () => {
         <span className="block w-24 h-1 mx-auto bg-zenitsu-lightning rounded-full animate-pulse" />
       </motion.div>
       
-      <div className="w-full max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start justify-items-center">
+      <div className="relative z-30 w-full max-w-6xl mx-auto px-4 flex-1 flex items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10 items-center justify-items-center w-full">
           {educationSeals}
         </div>
       </div>

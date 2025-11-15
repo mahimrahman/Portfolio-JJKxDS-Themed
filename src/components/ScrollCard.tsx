@@ -49,19 +49,19 @@ const MasterySeal = ({ entry, index }: MasterySealProps) => {
       viewport={{ once: true }}
     >
       {/* 3D Flippable Seal Area */}
-      <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 [perspective:1000px]">
+      <div className="w-48 h-48 sm:w-52 sm:h-52 md:w-56 md:h-56 lg:w-60 lg:h-60" style={{ perspective: '1000px' }}>
         <div
-          className={`relative w-full h-full cursor-pointer transition-transform duration-700 ease-in-out [transform-style:preserve-3d] focus:outline-none focus-visible:outline-none focus:ring-0 focus:ring-offset-0 ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}
+          className={`seal-flip-inner cursor-pointer focus:outline-none focus-visible:outline-none focus:ring-0 focus:ring-offset-0 ${isFlipped ? 'flipped' : ''}`}
           onClick={handleClick}
           role="button"
           tabIndex={0}
           aria-pressed={isFlipped}
+          aria-expanded={isFlipped}
           onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleClick(e)}
           aria-label={`View details for ${entry.degree}`}
-          style={{ outline: 'none' }}
         >
           {/* Front Face */}
-          <div className="absolute w-full h-full rounded-full [backface-visibility:hidden]">
+          <div className="seal-face rounded-full">
             <div
               className={`
                 relative w-full h-full
@@ -75,13 +75,13 @@ const MasterySeal = ({ entry, index }: MasterySealProps) => {
               <div className="absolute inset-0 rounded-full border-2 border-domain-violet/50"></div>
               <div className="absolute inset-2 rounded-full border border-cursed-blue/50 animate-pulse"></div>
               
-              {/* Crest container - will hide on hover */}
-              <div className="relative z-10 transition-opacity duration-300 group-hover:opacity-0">
+              {/* Crest container - will hide when flipped or on hover */}
+              <div className={`relative z-10 transition-opacity duration-300 ${isFlipped ? 'opacity-0' : 'group-hover:opacity-0'}`}>
                 {entry.theme.crest}
               </div>
 
-              {/* "REVEAL" text overlay - will show on hover */}
-              <div className="absolute inset-0 z-20 flex items-center justify-center rounded-full bg-ghost-black/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              {/* "REVEAL" text overlay - will show on hover or when flipped */}
+              <div className={`absolute inset-0 z-20 flex items-center justify-center rounded-full bg-ghost-black/50 backdrop-blur-[2px] transition-opacity duration-300 ${isFlipped ? 'opacity-0' : 'opacity-0 group-hover:opacity-100'}`}>
                 <span className="font-bold text-lg text-snow-white tracking-[0.2em]">REVEAL</span>
               </div>
 
@@ -91,7 +91,7 @@ const MasterySeal = ({ entry, index }: MasterySealProps) => {
           </div>
           
           {/* Back Face */}
-          <div className="absolute w-full h-full rounded-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
+          <div className="seal-face seal-face-back rounded-full">
              <div
               className={`
                 w-full h-full p-6 sm:p-8 
@@ -109,12 +109,12 @@ const MasterySeal = ({ entry, index }: MasterySealProps) => {
       </div>
 
       {/* Default Visible Text */}
-      <div className="relative mt-6 px-2">
-        <h3 className="text-lg sm:text-xl font-bold text-cursed-blue tracking-wide">{entry.technique}</h3>
-        <p className="text-base sm:text-lg font-semibold text-snow-white mt-1">{entry.degree}</p>
-        <div className="mt-4 text-sm sm:text-base">
+      <div className="relative mt-4 px-2">
+        <h3 className="text-base sm:text-lg font-bold text-cursed-blue tracking-wide">{entry.technique}</h3>
+        <p className="text-sm sm:text-base font-semibold text-snow-white mt-1">{entry.degree}</p>
+        <div className="mt-3 text-xs sm:text-sm">
           <p className="font-medium text-ash-gray">{entry.institution}</p>
-          <p className="text-xs sm:text-sm text-zenitsu-lightning">{entry.duration}</p>
+          <p className="text-xs text-zenitsu-lightning">{entry.duration}</p>
         </div>
       </div>
     </motion.div>
