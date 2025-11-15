@@ -251,7 +251,7 @@ const Hero = () => {
   }, [updateVideoSource]);
 
   // Memoize particle array
-  const particles = useMemo(() => Array.from({ length: 6 }, (_, i) => i), []);
+  const particles = useMemo(() => Array.from({ length: 8 }, (_, i) => i), []);
 
   const handleVideoLoad = useCallback(() => {
     setVideoLoaded(true);
@@ -317,108 +317,282 @@ const Hero = () => {
             </div>
           )}
           
-          {/* Animated background pattern overlay */}
-          <div className="absolute inset-0 opacity-20">
-            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <pattern id="heroPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                  <circle cx="50" cy="50" r="2" fill="currentColor" className="text-domain-violet">
-                    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite" />
-                  </circle>
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#heroPattern)" />
-            </svg>
+          {/* Enhanced gradient overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ghost-black/50 to-ghost-black/70"></div>
+          
+          {/* Animated grid pattern overlay */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="w-full h-full" style={{
+              backgroundImage: `
+                linear-gradient(rgba(127, 0, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(127, 0, 255, 0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: '50px 50px'
+            }}></div>
           </div>
         </div>
       </div>
 
-      {/* Main content */}
+      {/* Main content - Redesigned Layout */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 absolute inset-0 flex flex-col items-center justify-center z-20">
-        <motion.h2
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-extrabold mb-6 sm:mb-8 text-center bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent drop-shadow-lg animate-pulse"
-          {...fadeInDown}
-        >
-          Domain Entrance
-          <span className="block w-16 sm:w-20 md:w-24 h-1 mx-auto mt-2 bg-zenitsu-lightning rounded-full animate-pulse" />
-        </motion.h2>
-        
+        {/* Main Name - Large and Bold with Morphing Animation */}
         <motion.div
+          className="text-center mb-4 sm:mb-6"
           {...fadeInUp}
-          className="text-center px-2"
         >
           <motion.h1 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-2 sm:mb-4 leading-[1.1] tracking-tight relative"
             {...fadeInUpDelayed(0.2)}
+            style={{ perspective: '1000px' }}
           >
-            <span className="bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
-              MAHIMUR RAHMAN KHAN
-            </span>
+            {/* Domain Expansion Circle Effect */}
+            <motion.div
+              className="absolute inset-0 -z-10"
+              style={{
+                background: 'radial-gradient(circle, rgba(127, 0, 255, 0.4) 0%, transparent 70%)',
+              }}
+              animate={{
+                scale: [1, 1.3, 1],
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            
+            {/* Expanding Ring Effect */}
+            <motion.div
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10"
+              style={{
+                width: '100%',
+                height: '100%',
+                border: '2px solid rgba(127, 0, 255, 0.3)',
+                borderRadius: '50%',
+              }}
+              animate={{
+                scale: [0.8, 1.5, 0.8],
+                opacity: [0.6, 0, 0.6],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeOut"
+              }}
+            />
+            
+            {/* Second Expanding Ring */}
+            <motion.div
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10"
+              style={{
+                width: '100%',
+                height: '100%',
+                border: '2px solid rgba(127, 0, 255, 0.2)',
+                borderRadius: '50%',
+              }}
+              animate={{
+                scale: [0.8, 1.5, 0.8],
+                opacity: [0.4, 0, 0.4],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeOut",
+                delay: 1.5
+              }}
+            />
+            
+            {/* Name - First Line with subtle gradient */}
+            <motion.span 
+              className="block relative text-snow-white"
+              style={{
+                textShadow: '0 0 30px rgba(127, 0, 255, 0.5), 0 0 60px rgba(127, 0, 255, 0.3)',
+              }}
+              animate={{
+                letterSpacing: ['0em', '0.05em', '0em'],
+                textShadow: [
+                  '0 0 30px rgba(127, 0, 255, 0.5), 0 0 60px rgba(127, 0, 255, 0.3)',
+                  '0 0 40px rgba(127, 0, 255, 0.7), 0 0 80px rgba(127, 0, 255, 0.4)',
+                  '0 0 30px rgba(127, 0, 255, 0.5), 0 0 60px rgba(127, 0, 255, 0.3)',
+                ],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              MAHIMUR
+            </motion.span>
+            
+            {/* Name - Second Line with subtle gradient */}
+            <motion.span 
+              className="block relative text-snow-white mt-1 sm:mt-2"
+              style={{
+                textShadow: '0 0 30px rgba(127, 0, 255, 0.5), 0 0 60px rgba(127, 0, 255, 0.3)',
+              }}
+              animate={{
+                letterSpacing: ['0em', '0.05em', '0em'],
+                textShadow: [
+                  '0 0 30px rgba(127, 0, 255, 0.5), 0 0 60px rgba(127, 0, 255, 0.3)',
+                  '0 0 40px rgba(127, 0, 255, 0.7), 0 0 80px rgba(127, 0, 255, 0.4)',
+                  '0 0 30px rgba(127, 0, 255, 0.5), 0 0 60px rgba(127, 0, 255, 0.3)',
+                ],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.2
+              }}
+            >
+              RAHMAN KHAN
+            </motion.span>
+            
+            {/* Subtle Energy Particles */}
+            {[...Array(6)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-1 bg-domain-violet rounded-full -z-10"
+                style={{
+                  left: `${20 + i * 15}%`,
+                  top: `${30 + (i % 2) * 40}%`,
+                }}
+                animate={{
+                  scale: [0, 1, 0],
+                  opacity: [0, 0.6, 0],
+                  x: [0, (i % 2 === 0 ? 20 : -20)],
+                  y: [0, (i % 3 === 0 ? -20 : 20)],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeOut",
+                  delay: i * 0.3
+                }}
+              />
+            ))}
           </motion.h1>
           
-          <motion.p 
-            className="text-sm sm:text-base md:text-lg lg:text-2xl text-snow-white mb-2 px-2 leading-relaxed"
+          {/* Animated Underline */}
+          <motion.div
+            className="flex items-center justify-center gap-2 mt-4 sm:mt-6"
             {...fadeInUpDelayed(0.3)}
           >
-            <span className="block sm:inline">Software Engineering Graduate</span>
-            <span className="hidden sm:inline"> | </span>
-            <span className="block sm:inline">Web Developer & Designer</span>
-            <span className="hidden sm:inline"> | </span>
-            <span className="block sm:inline">UI/UX Designer</span>
-          </motion.p>
-          
-          <motion.p 
-            className="text-xs sm:text-sm md:text-base lg:text-lg text-ash-gray mb-4 sm:mb-6"
-            {...fadeInUpDelayed(0.4)}
-          >
-             
-          </motion.p>
-         
-          <motion.div
-            {...fadeInUpDelayed(0.6)}
-            transition={{ ease: "easeOut" }}
-            className="relative"
-          >
-            {/* Floating Dock Container */}
-            <div className="relative">
-              {/* Animated Border Glow */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cursed-blue/20 via-domain-violet/20 to-rengoku-flame/20 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
-              
-              {/* Dock Content */}
-              <div className="relative px-3 sm:px-4 md:px-6 py-3 sm:py-4">
-                <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-6 flex-wrap">
-                  {socialLinks.map((link, index) => (
-                    <SocialButton key={link.name} link={link} index={index} />
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Particles Background */}
-            <div className="absolute inset-0 -z-10">
-              {particles.map((index) => (
-                <FloatingParticle key={index} index={index} />
+            <div className="h-px w-12 sm:w-20 bg-gradient-to-r from-transparent via-zenitsu-lightning to-transparent"></div>
+            <motion.div
+              className="w-2 h-2 rounded-full bg-zenitsu-lightning"
+              animate={{ scale: [1, 1.3, 1], opacity: [1, 0.7, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+            <div className="h-px w-12 sm:w-20 bg-gradient-to-r from-transparent via-zenitsu-lightning to-transparent"></div>
+          </motion.div>
+        </motion.div>
+        
+        {/* Role Tags - Modern Badge Style */}
+        <motion.div
+          className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8"
+          {...fadeInUpDelayed(0.4)}
+        >
+          {['Software Engineer', 'Web Developer', 'UI/UX Designer'].map((role, index) => (
+            <motion.div
+              key={role}
+              className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-gradient-to-r from-ghost-black/80 to-deep-charcoal/80 backdrop-blur-sm border border-snow-white/10 text-snow-white text-xs sm:text-sm font-medium"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
+              whileHover={{ 
+                scale: 1.05,
+                borderColor: 'rgba(127, 0, 255, 0.5)',
+                boxShadow: '0 0 20px rgba(127, 0, 255, 0.3)'
+              }}
+            >
+              {role}
+            </motion.div>
+          ))}
+        </motion.div>
+        
+        {/* Social Links - Enhanced Design */}
+        <motion.div
+          {...fadeInUpDelayed(0.6)}
+          transition={{ ease: "easeOut" }}
+          className="relative w-full max-w-2xl"
+        >
+          {/* Glassmorphic Container */}
+          <div className="relative backdrop-blur-xl bg-gradient-to-br from-ghost-black/40 via-deep-charcoal/40 to-ghost-black/40 rounded-3xl border border-snow-white/10 p-4 sm:p-6 shadow-2xl">
+            {/* Animated Border Glow */}
+            <motion.div
+              className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cursed-blue/20 via-domain-violet/20 to-rengoku-flame/20 opacity-0"
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            />
+            
+            {/* Social Icons Grid */}
+            <div className="relative flex items-center justify-center gap-3 sm:gap-4 md:gap-6 flex-wrap">
+              {socialLinks.map((link, index) => (
+                <SocialButton key={link.name} link={link} index={index} />
               ))}
             </div>
+            
+            {/* Decorative Corner Accents */}
+            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-domain-violet/30 rounded-tl-3xl"></div>
+            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-rengoku-flame/30 rounded-tr-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-cursed-blue/30 rounded-bl-3xl"></div>
+            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-domain-violet/30 rounded-br-3xl"></div>
+          </div>
+
+          {/* Enhanced Floating Particles Background */}
+          <div className="absolute inset-0 -z-10 pointer-events-none">
+            {particles.map((index) => (
+              <FloatingParticle key={index} index={index} />
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.8 }}
+        >
+          <span className="text-xs text-ash-gray/60 uppercase tracking-wider">Scroll</span>
+          <motion.div
+            className="w-6 h-10 rounded-full border-2 border-domain-violet/30 flex items-start justify-center p-2"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <motion.div
+              className="w-1.5 h-1.5 rounded-full bg-domain-violet"
+              animate={{ opacity: [1, 0.3, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Decorative emojis */}
-      <DecorativeEmoji 
-        emoji="⚔️" 
-        position="top-1/4 left-1/4" 
-        animation="up" 
-        color="rengoku-flame" 
-        duration={6} 
-      />
-      <DecorativeEmoji 
-        emoji="🗡️" 
-        position="bottom-1/4 right-1/4" 
-        animation="down" 
-        color="cursed-blue" 
-        duration={7} 
-      />
+      {/* Decorative Elements - Redesigned */}
+      <motion.div
+        className="absolute top-20 left-10 text-4xl sm:text-5xl opacity-20"
+        animate={{ 
+          y: [0, -15, 0],
+          rotate: [0, 5, -5, 0]
+        }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      >
+        ⚔️
+      </motion.div>
+      <motion.div
+        className="absolute bottom-20 right-10 text-4xl sm:text-5xl opacity-20"
+        animate={{ 
+          y: [0, 15, 0],
+          rotate: [0, -5, 5, 0]
+        }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+      >
+        🗡️
+      </motion.div>
     </div>
   );
 };
