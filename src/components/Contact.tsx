@@ -20,7 +20,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="min-h-screen py-20 px-4 relative overflow-hidden">
+    <section className="min-h-screen py-16 px-4 relative overflow-hidden flex items-center">
       {/* Background Effects */}
       <div className="absolute inset-0 -z-10">
         {/* Hexagonal sacred geometry pattern */}
@@ -104,21 +104,21 @@ const Contact = () => {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10 w-full">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-6"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-rengoku-flame via-domain-violet to-cursed-blue bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-rengoku-flame via-domain-violet to-cursed-blue bg-clip-text text-transparent">
             Domain Invitation
           </h2>
 
           {/* Decorative divider */}
-          <div className="flex items-center justify-center gap-4 mb-6">
+          <div className="flex items-center justify-center gap-4 mb-3">
             <div className="w-16 h-px bg-gradient-to-r from-transparent via-zenitsu-lightning to-transparent"></div>
             <motion.div
               animate={{ rotate: 360 }}
@@ -131,14 +131,14 @@ const Contact = () => {
             <div className="w-16 h-px bg-gradient-to-r from-zenitsu-lightning via-transparent to-transparent"></div>
           </div>
 
-          <p className="text-lg text-ash-gray max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm text-ash-gray max-w-2xl mx-auto leading-relaxed">
             Enter the domain of collaboration. Whether you seek a partner for your next project
             or wish to discuss ideas, the gateway is open.
           </p>
         </motion.div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:items-stretch">
 
           {/* Contact Form - Takes 3 columns */}
           <motion.div
@@ -146,9 +146,9 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="lg:col-span-3"
+            className="lg:col-span-3 flex"
           >
-            <div className="relative bg-gradient-to-br from-ghost-black/95 to-deep-charcoal/95 backdrop-blur-xl rounded-2xl border border-white/10 p-8 shadow-2xl h-full overflow-hidden">
+            <div className="relative bg-white/5 backdrop-blur-2xl rounded-2xl border border-white/20 p-6 shadow-2xl w-full overflow-hidden flex flex-col">
 
               {/* Top accent line */}
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-rengoku-flame via-domain-violet to-cursed-blue"></div>
@@ -162,19 +162,19 @@ const Contact = () => {
               </div>
 
               {/* Header */}
-              <div className="mb-8 relative z-10">
-                <h3 className="text-3xl font-bold bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent mb-3">
+              <div className="mb-6 relative z-10">
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent mb-2">
                   Initiate Contact
                 </h3>
-                <p className="text-ash-gray leading-relaxed">
+                <p className="text-ash-gray text-sm leading-relaxed">
                   Fill the ritual with your message. I typically respond within 24 hours.
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+              <form onSubmit={handleSubmit} className="space-y-4 relative z-10 flex-grow flex flex-col">
                 {/* Name Field */}
                 <div className="group">
-                  <label className="block text-snow-white text-sm font-medium mb-2">
+                  <label className="block text-snow-white text-xs font-medium mb-1.5">
                     Your Name
                   </label>
                   <motion.input
@@ -184,14 +184,14 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-6 py-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-snow-white placeholder-ash-gray/50 focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/50 focus:border-zenitsu-lightning/50 transition-all duration-300"
+                    className="w-full px-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-snow-white placeholder-ash-gray/50 focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/50 focus:border-zenitsu-lightning/50 transition-all duration-300 text-sm"
                     placeholder="Enter your name"
                   />
                 </div>
 
                 {/* Email Field */}
                 <div className="group">
-                  <label className="block text-snow-white text-sm font-medium mb-2">
+                  <label className="block text-snow-white text-xs font-medium mb-1.5">
                     Email Address
                   </label>
                   <motion.input
@@ -201,14 +201,14 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-6 py-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-snow-white placeholder-ash-gray/50 focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/50 focus:border-zenitsu-lightning/50 transition-all duration-300"
+                    className="w-full px-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-snow-white placeholder-ash-gray/50 focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/50 focus:border-zenitsu-lightning/50 transition-all duration-300 text-sm"
                     placeholder="your.email@example.com"
                   />
                 </div>
 
                 {/* Message Field */}
-                <div className="group">
-                  <label className="block text-snow-white text-sm font-medium mb-2">
+                <div className="group flex-grow flex flex-col">
+                  <label className="block text-snow-white text-xs font-medium mb-1.5">
                     Your Message
                   </label>
                   <motion.textarea
@@ -217,8 +217,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     required
-                    rows={6}
-                    className="w-full px-6 py-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-snow-white placeholder-ash-gray/50 focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/50 focus:border-zenitsu-lightning/50 transition-all duration-300 resize-none"
+                    className="w-full px-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-snow-white placeholder-ash-gray/50 focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/50 focus:border-zenitsu-lightning/50 transition-all duration-300 resize-none text-sm flex-grow min-h-[120px]"
                     placeholder="Tell me about your project or just say hello..."
                   />
                 </div>
@@ -229,7 +228,7 @@ const Contact = () => {
                   whileTap={{ scale: 0.98 }}
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 px-8 bg-gradient-to-r from-rengoku-flame via-domain-violet to-cursed-blue text-snow-white font-bold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
+                  className="w-full py-3 px-6 bg-gradient-to-r from-rengoku-flame via-domain-violet to-cursed-blue text-snow-white font-bold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group text-sm"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     {isSubmitting ? (
@@ -266,48 +265,48 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="lg:col-span-2 space-y-6"
+            className="lg:col-span-2 flex flex-col gap-4"
           >
             {/* Contact Methods */}
-            <div className="bg-gradient-to-br from-ghost-black/95 to-deep-charcoal/95 backdrop-blur-xl rounded-2xl border border-white/10 p-6 shadow-2xl relative overflow-hidden">
+            <div className="bg-white/5 backdrop-blur-2xl rounded-2xl border border-white/20 p-5 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cursed-blue to-domain-violet"></div>
 
-              <h3 className="text-xl font-bold text-snow-white mb-6">Contact Nodes</h3>
+              <h3 className="text-lg font-bold text-snow-white mb-4">Contact Nodes</h3>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {/* Email */}
-                <div className="flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/5 hover:border-domain-violet/30 transition-all duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-rengoku-flame/20 to-zenitsu-lightning/20 flex items-center justify-center flex-shrink-0">
-                    <Mail size={20} className="text-zenitsu-lightning" />
+                <div className="flex items-start gap-3 p-3 bg-white/5 rounded-xl border border-white/5 hover:border-domain-violet/30 transition-all duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rengoku-flame/20 to-zenitsu-lightning/20 flex items-center justify-center flex-shrink-0">
+                    <Mail size={18} className="text-zenitsu-lightning" />
                   </div>
-                  <div className="flex-1">
-                    <p className="text-snow-white font-semibold text-sm mb-1">Email</p>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-snow-white font-semibold text-xs mb-0.5">Email</p>
                     <p className="text-ash-gray text-xs break-all">mahimrk.a@gmail.com</p>
                   </div>
                 </div>
 
                 {/* Location */}
-                <div className="flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/5 hover:border-cursed-blue/30 transition-all duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cursed-blue/20 to-domain-violet/20 flex items-center justify-center flex-shrink-0">
-                    <MapPin size={20} className="text-domain-violet" />
+                <div className="flex items-start gap-3 p-3 bg-white/5 rounded-xl border border-white/5 hover:border-cursed-blue/30 transition-all duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cursed-blue/20 to-domain-violet/20 flex items-center justify-center flex-shrink-0">
+                    <MapPin size={18} className="text-domain-violet" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-snow-white font-semibold text-sm mb-1">Location</p>
+                    <p className="text-snow-white font-semibold text-xs mb-0.5">Location</p>
                     <p className="text-ash-gray text-xs">Montreal, QC, Canada</p>
                   </div>
                 </div>
 
                 {/* Status */}
-                <div className="flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/5 hover:border-checkered-green/30 transition-all duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-checkered-green/20 to-zenitsu-lightning/20 flex items-center justify-center flex-shrink-0">
+                <div className="flex items-start gap-3 p-3 bg-white/5 rounded-xl border border-white/5 hover:border-checkered-green/30 transition-all duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-checkered-green/20 to-zenitsu-lightning/20 flex items-center justify-center flex-shrink-0">
                     <motion.div
-                      className="w-3 h-3 bg-checkered-green rounded-full"
+                      className="w-2.5 h-2.5 bg-checkered-green rounded-full"
                       animate={{ opacity: [0.5, 1, 0.5] }}
                       transition={{ duration: 2, repeat: Infinity }}
                     />
                   </div>
                   <div className="flex-1">
-                    <p className="text-snow-white font-semibold text-sm mb-1">Status</p>
+                    <p className="text-snow-white font-semibold text-xs mb-0.5">Status</p>
                     <p className="text-ash-gray text-xs">Available for projects</p>
                   </div>
                 </div>
@@ -315,12 +314,12 @@ const Contact = () => {
             </div>
 
             {/* Social Links */}
-            <div className="bg-gradient-to-br from-ghost-black/95 to-deep-charcoal/95 backdrop-blur-xl rounded-2xl border border-white/10 p-6 shadow-2xl relative overflow-hidden">
+            <div className="bg-white/5 backdrop-blur-2xl rounded-2xl border border-white/20 p-5 shadow-2xl relative overflow-hidden flex-grow flex flex-col">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-domain-violet to-rengoku-flame"></div>
 
-              <h3 className="text-xl font-bold text-snow-white mb-6">Social Connections</h3>
+              <h3 className="text-lg font-bold text-snow-white mb-4">Social Connections</h3>
 
-              <div className="space-y-3">
+              <div className="space-y-3 flex-grow flex flex-col justify-center">
                 {[
                   {
                     icon: <Linkedin size={20} />,
@@ -348,14 +347,14 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.02, x: 4 }}
                     whileTap={{ scale: 0.98 }}
-                    className="flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/5 hover:border-domain-violet/30 transition-all duration-300 group"
+                    className="flex items-center gap-3 p-3 bg-white/5 rounded-xl border border-white/5 hover:border-domain-violet/30 transition-all duration-300 group"
                   >
-                    <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${social.gradient} flex items-center justify-center`}>
+                    <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${social.gradient} flex items-center justify-center`}>
                       <div className="text-white group-hover:scale-110 transition-transform duration-300">
                         {social.icon}
                       </div>
                     </div>
-                    <span className="text-snow-white font-medium text-sm">{social.name}</span>
+                    <span className="text-snow-white font-medium text-xs">{social.name}</span>
                     <motion.span
                       className="ml-auto text-ash-gray group-hover:text-zenitsu-lightning transition-colors"
                       animate={{ x: [0, 4, 0] }}
@@ -370,25 +369,7 @@ const Contact = () => {
           </motion.div>
         </div>
 
-        {/* Bottom Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <div className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-ghost-black/80 to-deep-charcoal/80 backdrop-blur-sm rounded-full border border-white/10 shadow-xl">
-            <div className="flex gap-2">
-              <div className="w-2 h-2 bg-rengoku-flame rounded-full animate-pulse"></div>
-              <div className="w-2 h-2 bg-domain-violet rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
-              <div className="w-2 h-2 bg-cursed-blue rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></div>
-            </div>
-            <span className="text-ash-gray text-sm font-medium">
-              Response Time: 24 hours • Time Zone: EST (UTC-5)
-            </span>
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );
