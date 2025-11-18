@@ -6,13 +6,20 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    background-color: #0a0a0a;
+  }
   body {
     @apply bg-deep-charcoal text-snow-white font-anime;
-    background: linear-gradient(120deg, #121212 60%, #1A1A2E 100%),
-      radial-gradient(circle at 70% 30%, #3A86FF22 0%, transparent 60%),
-      radial-gradient(circle at 20% 80%, #FF4E0022 0%, transparent 70%);
-    background-blend-mode: lighten, normal;
+    background: linear-gradient(135deg, #121212 40%, #1A1A2E 100%),
+      radial-gradient(circle at 70% 30%, #3A86FF33 0%, transparent 55%),
+      radial-gradient(circle at 20% 80%, #7F00FF33 0%, transparent 60%),
+      radial-gradient(circle at 50% 50%, #FF4E0022 0%, transparent 70%);
+    background-blend-mode: screen, normal;
+    background-color: #0a0a0a;
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
   }
   h1, h2, h3, .anime-heading {
     @apply font-mochiy;
@@ -71,16 +78,89 @@
 /* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 0;
 }
 
-/* Lightweight breathe animation */
+/* Smooth Section Transitions */
+section {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  will-change: transform, opacity;
+  contain: layout style paint;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: relative;
+  isolation: isolate;
+}
+
+.section-transition {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Subtle section merging - matches background colors */
+section::before,
+section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 120px;
+  pointer-events: none;
+  z-index: 15;
+  opacity: 0.5;
+  transition: opacity 0.4s ease-in-out;
+}
+
+section::before {
+  top: 0;
+  background: linear-gradient(to bottom, 
+    rgba(26, 26, 46, 0.4) 0%,
+    rgba(18, 18, 18, 0.2) 50%,
+    transparent 100%
+  );
+}
+
+section::after {
+  bottom: 0;
+  background: linear-gradient(to top, 
+    rgba(26, 26, 46, 0.4) 0%,
+    rgba(18, 18, 18, 0.2) 50%,
+    transparent 100%
+  );
+}
+
+/* First section (home) - no top fade */
+section#home::before {
+  display: none;
+}
+
+/* Last section - no bottom fade */
+section#contact::after {
+  display: none;
+}
+
+/* Optimize rendering performance */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU acceleration for animations */
+section, .section-transition {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Lightweight breathe animation - optimized with translate3d */
 @keyframes breathe {
   0%, 100% {
-    transform: translateY(0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
     opacity: 1;
   }
   50% {
-    transform: translateY(-2px) scale(1.015);
+    transform: translate3d(0, -2px, 0) scale(1.015);
     opacity: 0.98;
   }
 }
@@ -99,18 +179,19 @@ html {
   animation-delay: 1s;
 }
 
-/* Custom Animations */
+/* Custom Animations - optimized with translate3d */
 @keyframes float {
   0%, 100% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translate3d(0, -20px, 0);
   }
 }
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* Elemental Effects */
@@ -231,13 +312,67 @@ html {
 .anime-particle {
   position: absolute;
   border-radius: 9999px;
-  opacity: 0.18;
-  filter: blur(2px);
-  animation: animeParticleFloat 8s linear infinite;
+  opacity: 0.2;
+  filter: blur(3px);
+  animation: animeParticleFloat 10s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 @keyframes animeParticleFloat {
-  0% { transform: translateY(0) scale(1); opacity: 0.18; }
-  50% { transform: translateY(-40px) scale(1.2); opacity: 0.28; }
-  100% { transform: translateY(0) scale(1); opacity: 0.18; }
+  0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.2; }
+  50% { transform: translate3d(0, -35px, 0) scale(1.15); opacity: 0.35; }
+  100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.2; }
+}
+
+/* Experience Modal Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Morphing Gradient Animation for Hero Name */
+@keyframes morphGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 } 
+
+/* Education seal flip helpers */
+.seal-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s ease-in-out;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.seal-flip-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.seal-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.seal-face-back {
+  transform: rotateY(180deg);
+}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, MouseEvent, Dispatch, SetStateAction } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -15,18 +15,18 @@ const navItems = [
 
 export interface NavigationProps {
   mobileOpen: boolean;
-  setMobileOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  handleNavClick: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => void;
+  setMobileOpen: Dispatch<SetStateAction<boolean>>;
+  handleNavClick: (e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>, href: string) => void;
 }
 
 export interface MobileMenuOverlayProps {
   mobileOpen: boolean;
-  setMobileOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  handleNavClick: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => void;
+  setMobileOpen: Dispatch<SetStateAction<boolean>>;
+  handleNavClick: (e: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>, href: string) => void;
   location: ReturnType<typeof useLocation>;
 }
 
-const Navigation: React.FC<NavigationProps> = ({ mobileOpen, setMobileOpen, handleNavClick }) => {
+const Navigation = ({ mobileOpen, setMobileOpen, handleNavClick }: NavigationProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -168,7 +168,7 @@ const Navigation: React.FC<NavigationProps> = ({ mobileOpen, setMobileOpen, hand
   );
 };
 
-export const MobileMenuOverlay: React.FC<MobileMenuOverlayProps> = ({ mobileOpen, setMobileOpen, handleNavClick, location }) => (
+export const MobileMenuOverlay = ({ mobileOpen, setMobileOpen, handleNavClick, location }: MobileMenuOverlayProps) => (
   <motion.div
     id="mobile-menu"
     initial={false}

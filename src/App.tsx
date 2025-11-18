@@ -1,63 +1,33 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-import Navigation, { MobileMenuOverlay } from './components/Navigation';
+import { useEffect, useRef, Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import HalfMoonNavigation from './components/HalfMoonNavigation';
 import Hero from './components/Hero';
+import InteractiveSmoke from './components/InteractiveSmoke';
+
+// Import critical sections immediately for smooth transitions
 import About from './components/About';
 import Experience from './components/Experience';
-import Blog from './components/Blogs';
-import BlogPost from './components/BlogPost';
-import Contact from './components/Contact';
-import Development from './components/Development';
-import GraphicDesignRecord from './components/records/GraphicDesignRecord';
-import PhotographyRecord from './components/records/PhotographyRecord';
-import UIUXRecord from './components/records/UIUXRecord';
 import Portfolio from './components/Portfolio';
 import Education from './components/Education';
 import Skills from './components/Skills';
-import AnimatedBlobBackground from './components/AnimatedBlobBackground';
+import Contact from './components/Contact';
 
-const Placeholder: React.FC<{ title: string }> = ({ title }) => (
-  <div className="min-h-screen flex items-center justify-center text-snow-white text-4xl font-bold">
-    {title}
-  </div>
-);
+// Lazy load only less critical sections
+const Blog = lazy(() => import('./components/Blogs'));
+const BlogPost = lazy(() => import('./components/BlogPost'));
+const Development = lazy(() => import('./components/Development'));
+const GraphicDesignRecord = lazy(() => import('./components/records/GraphicDesignRecord'));
+const PhotographyRecord = lazy(() => import('./components/records/PhotographyRecord'));
+const UIUXRecord = lazy(() => import('./components/records/UIUXRecord'));
 
-// Generate random particles for the anime energy effect - Blue and Purple only
-const particles = Array.from({ length: 18 }).map((_, i) => {
-  const colors = [
-    'rgba(58,134,255,0.7)', // blue (cursed energy)
-    'rgba(127,0,255,0.7)',  // purple (domain)
-  ];
-  const color = colors[i % 2];
-  const size = Math.random() * 32 + 24;
-  const left = Math.random() * 100;
-  const top = Math.random() * 100;
-  const delay = Math.random() * 8;
-  return (
-    <div
-      key={i}
-      className="anime-particle"
-      style={{
-        background: color,
-        width: size,
-        height: size,
-        left: `${left}%`,
-        top: `${top}%`,
-        animationDelay: `${delay}s`,
-      }}
-    />
-  );
-});
-
-const AppContent: React.FC = () => {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+const AppContent = () => {
   const location = useLocation();
-  const navigate = useNavigate();
-  const pendingHash = React.useRef<string | null>(null);
-  const scrollTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+  const pendingHash = useRef<string | null>(null);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const isScrollingRef = useRef(false);
 
   // Enhanced scroll management with browser history integration
-  React.useEffect(() => {
+  useEffect(() => {
     // Clear any pending scroll timeout
     if (scrollTimeoutRef.current) {
       clearTimeout(scrollTimeoutRef.current);
@@ -105,7 +75,7 @@ const AppContent: React.FC = () => {
   }, [location.pathname, location.hash]);
 
   // Handle browser back/forward button
-  React.useEffect(() => {
+  useEffect(() => {
     const handlePopState = () => {
       // Let React Router handle the navigation, but ensure proper scrolling
       if (location.pathname === '/' && location.hash) {
@@ -123,83 +93,83 @@ const AppContent: React.FC = () => {
     return () => window.removeEventListener('popstate', handlePopState);
   }, [location]);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
-    if (href.startsWith('#')) {
-      e.preventDefault();
-      const sectionId = href.replace('#', '');
-      
-      if (location.pathname !== '/') {
-        // Store the target section and navigate to home with proper history
-        pendingHash.current = href;
-        navigate('/', { replace: false });
-      } else {
-        // Already on home page, scroll to section and update URL
-        const el = document.getElementById(sectionId);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // Update URL with hash using navigate to create proper history entry
-          navigate(href, { replace: false });
-        }
+  // Smooth scroll handler
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!isScrollingRef.current) {
+        isScrollingRef.current = true;
+        requestAnimationFrame(() => {
+          isScrollingRef.current = false;
+        });
       }
-    }
-    setMobileOpen(false);
-  };
+    };
+
+    let ticking = false;
+    const optimizedScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', optimizedScroll, { passive: true });
+    return () => window.removeEventListener('scroll', optimizedScroll);
+  }, []);
 
   return (
-    <div className="relative min-h-screen">
-      <AnimatedBlobBackground />
-      <div className="anime-particles relative z-0">{particles}</div>
-      <Navigation mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} handleNavClick={handleNavClick} />
-      <MobileMenuOverlay mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} handleNavClick={handleNavClick} location={location} />
+    <div className="relative min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#121212] to-[#1a1a1a]">
+      {/* Simple colored smoke effect - Forward and visible */}
+      <InteractiveSmoke />
+      <HalfMoonNavigation />
       <main className="relative z-10">
         <Routes>
           <Route path="/" element={
             <>
-              <section id="home" className="relative z-10">
+              <section id="home" className="relative z-10 section-transition">
                 <Hero />
               </section>
-              <section id="about" className="relative z-10">
+              <section id="about" className="relative z-10 section-transition">
                 <About />
               </section>
-              <section id="experience" className="relative z-10">
+              <section id="experience" className="relative z-10 section-transition">
                 <Experience />
               </section>
-              <section id="portfolio" className="relative z-10">
+              <section id="portfolio" className="relative z-10 section-transition">
                 <Portfolio />
               </section>
-              <section id="education" className="relative z-10">
+              <section id="education" className="relative z-10 section-transition">
                 <Education />
               </section>
-              <section id="skills" className="relative z-10">
+              <section id="skills" className="relative z-10 section-transition">
                 <Skills />
               </section>
-              <section id="blog" className="relative z-10">
-                <Blog />
-              </section>
-              <section id="contact" className="relative z-10">
+              <Suspense fallback={null}>
+                <section id="blog" className="relative z-10 section-transition">
+                  <Blog />
+                </section>
+              </Suspense>
+              <section id="contact" className="relative z-10 section-transition">
                 <Contact />
               </section>
             </>
           } />
-          <Route path="/records/development" element={<Development />} />
-          <Route path="/records/graphic-design" element={<GraphicDesignRecord />} />
-          <Route path="/records/photography" element={<PhotographyRecord />} />
-          <Route path="/records/uiux" element={<UIUXRecord />} />
-          <Route path="/development" element={<Development />} />
-          <Route path="/uiux" element={<Placeholder title="UI/UX: User Alchemy" />} />
-          <Route path="/photography" element={<Placeholder title="Photography: Lens Chronicles" />} />
-          <Route path="/design" element={<Placeholder title="Graphic Design: Visual Symmetry" />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/records/development" element={<Suspense fallback={null}><Development /></Suspense>} />
+          <Route path="/records/graphic-design" element={<Suspense fallback={null}><GraphicDesignRecord /></Suspense>} />
+          <Route path="/records/photography" element={<Suspense fallback={null}><PhotographyRecord /></Suspense>} />
+          <Route path="/records/uiux" element={<Suspense fallback={null}><UIUXRecord /></Suspense>} />
+          <Route path="/blog/:slug" element={<Suspense fallback={null}><BlogPost /></Suspense>} />
         </Routes>
       </main>
     </div>
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   // Disable browser's automatic scroll restoration to handle it manually
-  React.useEffect(() => {
+  useEffect(() => {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }

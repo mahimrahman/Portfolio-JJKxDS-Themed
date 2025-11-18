@@ -1,7 +1,6 @@
-import React from 'react';
 import { EducationEntry } from '../types/education';
 
-const WaterBreathingCrest: React.FC = () => (
+const WaterBreathingCrest = () => (
   <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-80">
     <path d="M50 10C27.9086 10 10 27.9086 10 50C10 72.0914 27.9086 90 50 90" stroke="#3A86FF" strokeWidth="8" strokeLinecap="round"/>
     <path d="M50 90C72.0914 90 90 72.0914 90 50C90 27.9086 72.0914 10 50 10" stroke="#7F00FF" strokeWidth="8" strokeLinecap="round" strokeDasharray="2 12"/>
@@ -10,7 +9,7 @@ const WaterBreathingCrest: React.FC = () => (
   </svg>
 );
 
-const SunBreathingCrest: React.FC = () => (
+const SunBreathingCrest = () => (
   <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-80">
     <circle cx="50" cy="50" r="35" fill="#FFD000" stroke="#FF4E00" strokeWidth="4"/>
     <path d="M50 15L55 25L65 25L57.5 32.5L60 42.5L50 37.5L40 42.5L42.5 32.5L35 25L45 25L50 15Z" fill="#FF4E00"/>

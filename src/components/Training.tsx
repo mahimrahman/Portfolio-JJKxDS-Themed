@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 const degrees = [
@@ -55,7 +54,7 @@ const tagVariants = {
   visible: (i: number) => ({ opacity: 1, scale: 1, y: 0, transition: { delay: i * 0.03, duration: 0.4 } }),
 };
 
-const Training: React.FC = () => (
+const Training = () => (
   <section id="training" className="min-h-[80vh] py-12 px-2 md:px-4 relative overflow-hidden">
     {/* Timeline Header */}
     <div className="text-center mb-16">
