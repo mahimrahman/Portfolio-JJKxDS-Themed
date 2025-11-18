@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import HalfMoonNavigation from './components/HalfMoonNavigation';
 import Hero from './components/Hero';
 import InteractiveSmoke from './components/InteractiveSmoke';
+import { Analytics } from "@vercel/analytics/react"
 
 // Import critical sections immediately for smooth transitions
 import About from './components/About';
