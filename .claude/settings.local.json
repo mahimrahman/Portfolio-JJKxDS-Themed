@@ -4,7 +4,9 @@
       "Bash(del \"c:\\D Drive\\Portfolio-JJKxDS-Themed\\src\\components\\FloatingSeals.tsx\")",
       "Bash(rm:*)",
       "Bash(npm run build:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout:*)"
     ],
     "deny": [],
     "ask": []

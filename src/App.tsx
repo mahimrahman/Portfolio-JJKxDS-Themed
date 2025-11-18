@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState, MouseEvent, Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-import Navigation, { MobileMenuOverlay } from './components/Navigation';
+import { useEffect, useRef, Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import HalfMoonNavigation from './components/HalfMoonNavigation';
 import Hero from './components/Hero';
 import InteractiveSmoke from './components/InteractiveSmoke';
 
@@ -21,9 +21,7 @@ const PhotographyRecord = lazy(() => import('./components/records/PhotographyRec
 const UIUXRecord = lazy(() => import('./components/records/UIUXRecord'));
 
 const AppContent = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
   const pendingHash = useRef<string | null>(null);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const isScrollingRef = useRef(false);
@@ -121,42 +119,11 @@ const AppContent = () => {
     return () => window.removeEventListener('scroll', optimizedScroll);
   }, []);
 
-  const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('#')) {
-      e.preventDefault();
-      const sectionId = href.replace('#', '');
-      
-      if (location.pathname !== '/') {
-        // Store the target section and navigate to home with proper history
-        pendingHash.current = href;
-        navigate('/', { replace: false });
-      } else {
-        // Already on home page, scroll to section and update URL
-        const el = document.getElementById(sectionId);
-        if (el) {
-          // Use smooth scroll with offset for better transition
-          const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
-          const offsetPosition = elementPosition;
-          
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-          
-          // Update URL with hash using navigate to create proper history entry
-          navigate(href, { replace: false });
-        }
-      }
-    }
-    setMobileOpen(false);
-  };
-
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#121212] to-[#1a1a1a]">
       {/* Simple colored smoke effect - Forward and visible */}
       <InteractiveSmoke />
-      <Navigation mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} handleNavClick={handleNavClick} />
-      <MobileMenuOverlay mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} handleNavClick={handleNavClick} location={location} />
+      <HalfMoonNavigation />
       <main className="relative z-10">
         <Routes>
           <Route path="/" element={
