@@ -26,10 +26,19 @@ export default function HalfMoonNavigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('#home');
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const dragControls = useDragControls();
   const constraintsRef = useRef<HTMLDivElement>(null);
+
+  // Check if mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleDownloadCV = () => {
     window.open('/assets/CV/Mahim.pdf', '_blank');
@@ -87,7 +96,7 @@ export default function HalfMoonNavigation() {
 
   // Calculate position for half-moon arc (LEFT side of X button, mirrored)
   const getNavItemPosition = (index: number, total: number) => {
-    const radius = 200; // Distance from center
+    const radius = isMobile ? 140 : 200; // Smaller radius on mobile
     const startAngle = -90; // Top
     const endAngle = 90; // Bottom
     const angleStep = (endAngle - startAngle) / (total - 1);
@@ -105,7 +114,7 @@ export default function HalfMoonNavigation() {
 
   return (
     <>
-      {/* Drag constraints container */}
+      {/* Drag constraints container - only for desktop */}
       <div ref={constraintsRef} className="fixed inset-0 pointer-events-none z-[99]" />
 
       {/* Floating Trigger Button - Draggable */}
@@ -116,10 +125,12 @@ export default function HalfMoonNavigation() {
         dragElastic={0.1}
         onDragEnd={handleDragEnd}
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed right-6 top-1/2 -translate-y-1/2 z-[100] pointer-events-auto ${
+        className={`fixed z-[100] pointer-events-auto ${
           isOpen ? 'w-12 h-12 sm:w-14 sm:h-14' : 'w-10 h-10 sm:w-12 sm:h-12'
         } rounded-full bg-gradient-to-br from-indigo-600/90 via-purple-600/90 to-pink-600/90 backdrop-blur-xl shadow-xl flex items-center justify-center group border border-white/10 transition-all duration-300 cursor-grab active:cursor-grabbing`}
         style={{
+          right: '1.5rem',
+          top: '1rem',
           opacity: isOpen ? 1 : 0.65,
           boxShadow: isOpen
             ? '0 0 30px rgba(99, 102, 241, 0.5)'
@@ -167,13 +178,13 @@ export default function HalfMoonNavigation() {
 
               {/* Domain expansion ripples - from right side */}
               <motion.div
-                className="absolute right-[16.67%] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-indigo-400/50"
+                className="absolute right-[10%] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-indigo-400/50"
                 initial={{ scale: 0, opacity: 0.9 }}
                 animate={{ scale: 120, opacity: 0 }}
                 transition={{ duration: 1.2, ease: 'easeOut' }}
               />
               <motion.div
-                className="absolute right-[16.67%] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border border-purple-400/40"
+                className="absolute right-[10%] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border border-purple-400/40"
                 initial={{ scale: 0, opacity: 0.7 }}
                 animate={{ scale: 150, opacity: 0 }}
                 transition={{ duration: 1.6, ease: 'easeOut', delay: 0.1 }}
@@ -182,9 +193,9 @@ export default function HalfMoonNavigation() {
 
             {/* Half-Moon Panel - Right 1/3 of page */}
             <motion.div
-              initial={{ clipPath: 'circle(0% at calc(100% - 16.67%) 50%)' }}
-              animate={{ clipPath: 'circle(85% at calc(100% - 16.67%) 50%)' }}
-              exit={{ clipPath: 'circle(0% at calc(100% - 16.67%) 50%)' }}
+              initial={{ clipPath: 'circle(0% at 90% 50%)' }}
+              animate={{ clipPath: 'circle(100% at 90% 50%)' }}
+              exit={{ clipPath: 'circle(0% at 90% 50%)' }}
               transition={{
                 duration: 0.7,
                 ease: [0.43, 0.13, 0.23, 0.96],
@@ -199,9 +210,9 @@ export default function HalfMoonNavigation() {
                 transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
                 className="relative pointer-events-auto"
                 style={{
-                  width: 'min(120vh, 90vw)',
-                  height: 'min(120vh, 90vw)',
-                  marginRight: 'calc(-60vh + 16.67vw)',
+                  width: isMobile ? '100vw' : 'min(120vh, 90vw)',
+                  height: isMobile ? '100vh' : 'min(120vh, 90vw)',
+                  marginRight: isMobile ? '-25vw' : 'calc(-60vh + 16.67vw)',
                 }}
               >
                 {/* Half-moon circle background */}
@@ -305,89 +316,89 @@ export default function HalfMoonNavigation() {
 
                   {/* Navigation items on LEFT side (mirrored) */}
                   {navItems.map((item, index) => {
-                    const { x, y } = getNavItemPosition(index, navItems.length);
-                    const isActive = activeSection === item.href && item.href !== '';
-                    const isHovered = hoveredIndex === index;
-                    const Icon = item.icon;
+                      const { x, y } = getNavItemPosition(index, navItems.length);
+                      const isActive = activeSection === item.href && item.href !== '';
+                      const isHovered = hoveredIndex === index;
+                      const Icon = item.icon;
 
-                    return (
-                      <motion.button
-                        key={item.name}
-                        initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
-                        animate={{ opacity: 1, scale: 1, x, y }}
-                        exit={{ opacity: 0, scale: 0, x: 0, y: 0 }}
-                        transition={{
-                          duration: 0.5,
-                          delay: 0.4 + index * 0.04,
-                          ease: [0.34, 1.56, 0.64, 1],
-                        }}
-                        onClick={() => handleNavClick(item)}
-                        onMouseEnter={() => setHoveredIndex(index)}
-                        onMouseLeave={() => setHoveredIndex(null)}
-                        className="absolute group touch-manipulation"
-                        style={{
-                          left: '-28px',
-                          top: '-28px',
-                        }}
-                        title={item.name}
-                      >
-                        {/* Icon container */}
-                        <div className="relative">
-                          {/* Glow effect */}
-                          <motion.div
-                            className={`absolute inset-0 rounded-full blur-xl transition-opacity duration-300 ${
-                              isActive || isHovered ? 'opacity-100' : 'opacity-0'
-                            }`}
-                            style={{
-                              background: isActive
-                                ? 'radial-gradient(circle, rgba(99, 102, 241, 0.6), transparent 70%)'
-                                : 'radial-gradient(circle, rgba(168, 85, 247, 0.5), transparent 70%)',
-                            }}
-                          />
-
-                          {/* Icon circle */}
-                          <motion.div
-                            className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-all duration-300 border-2 ${
-                              isActive
-                                ? 'bg-gradient-to-br from-indigo-600 to-purple-600 border-indigo-400/70 shadow-xl shadow-indigo-500/50'
-                                : isHovered
-                                ? 'bg-slate-700/80 border-indigo-400/60 backdrop-blur-xl'
-                                : 'bg-slate-800/60 border-white/20 backdrop-blur-xl'
-                            }`}
-                            whileHover={{ scale: 1.15 }}
-                            whileTap={{ scale: 0.9 }}
-                          >
-                            <Icon
-                              className={`w-6 h-6 sm:w-7 sm:h-7 transition-colors duration-300 ${
-                                isActive
-                                  ? 'text-white'
-                                  : isHovered
-                                  ? 'text-indigo-300'
-                                  : 'text-slate-300'
-                              }`}
-                              strokeWidth={2}
-                            />
-                          </motion.div>
-
-                          {/* Active indicator ring */}
-                          {isActive && (
+                      return (
+                        <motion.button
+                          key={item.name}
+                          initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
+                          animate={{ opacity: 1, scale: 1, x, y }}
+                          exit={{ opacity: 0, scale: 0, x: 0, y: 0 }}
+                          transition={{
+                            duration: 0.5,
+                            delay: 0.4 + index * 0.04,
+                            ease: [0.34, 1.56, 0.64, 1],
+                          }}
+                          onClick={() => handleNavClick(item)}
+                          onMouseEnter={() => setHoveredIndex(index)}
+                          onMouseLeave={() => setHoveredIndex(null)}
+                          className="absolute group touch-manipulation"
+                          style={{
+                            left: '-28px',
+                            top: '-28px',
+                          }}
+                          title={item.name}
+                        >
+                          {/* Icon container */}
+                          <div className="relative">
+                            {/* Glow effect */}
                             <motion.div
-                              className="absolute inset-0 rounded-full border-2 border-indigo-400"
-                              animate={{
-                                scale: [1, 1.3, 1],
-                                opacity: [0.6, 0, 0.6],
-                              }}
-                              transition={{
-                                duration: 2.5,
-                                repeat: Infinity,
-                                ease: 'easeInOut',
+                              className={`absolute inset-0 rounded-full blur-xl transition-opacity duration-300 ${
+                                isActive || isHovered ? 'opacity-100' : 'opacity-0'
+                              }`}
+                              style={{
+                                background: isActive
+                                  ? 'radial-gradient(circle, rgba(99, 102, 241, 0.6), transparent 70%)'
+                                  : 'radial-gradient(circle, rgba(168, 85, 247, 0.5), transparent 70%)',
                               }}
                             />
-                          )}
-                        </div>
-                      </motion.button>
-                    );
-                  })}
+
+                            {/* Icon circle */}
+                            <motion.div
+                              className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-all duration-300 border-2 ${
+                                isActive
+                                  ? 'bg-gradient-to-br from-indigo-600 to-purple-600 border-indigo-400/70 shadow-xl shadow-indigo-500/50'
+                                  : isHovered
+                                  ? 'bg-slate-700/80 border-indigo-400/60 backdrop-blur-xl'
+                                  : 'bg-slate-800/60 border-white/20 backdrop-blur-xl'
+                              }`}
+                              whileHover={{ scale: 1.15 }}
+                              whileTap={{ scale: 0.9 }}
+                            >
+                              <Icon
+                                className={`w-6 h-6 sm:w-7 sm:h-7 transition-colors duration-300 ${
+                                  isActive
+                                    ? 'text-white'
+                                    : isHovered
+                                    ? 'text-indigo-300'
+                                    : 'text-slate-300'
+                                }`}
+                                strokeWidth={2}
+                              />
+                            </motion.div>
+
+                            {/* Active indicator ring */}
+                            {isActive && (
+                              <motion.div
+                                className="absolute inset-0 rounded-full border-2 border-indigo-400"
+                                animate={{
+                                  scale: [1, 1.3, 1],
+                                  opacity: [0.6, 0, 0.6],
+                                }}
+                                transition={{
+                                  duration: 2.5,
+                                  repeat: Infinity,
+                                  ease: 'easeInOut',
+                                }}
+                              />
+                            )}
+                          </div>
+                        </motion.button>
+                      );
+                    })}
                 </div>
               </motion.div>
             </motion.div>
