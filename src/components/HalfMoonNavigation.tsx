@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useDragControls, PanInfo } from 'framer-motion';
+import { motion, AnimatePresence, useDragControls } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Home,
@@ -26,7 +26,6 @@ export default function HalfMoonNavigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('#home');
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [hamburgerPos, setHamburgerPos] = useState({ x: 0, y: 0 });
   const location = useLocation();
   const navigate = useNavigate();
   const dragControls = useDragControls();
@@ -100,8 +99,8 @@ export default function HalfMoonNavigation() {
     };
   };
 
-  const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    setHamburgerPos({ x: info.offset.x, y: info.offset.y });
+  const handleDragEnd = () => {
+    // No-op: drag end
   };
 
   return (
