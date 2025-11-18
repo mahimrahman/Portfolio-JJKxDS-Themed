@@ -33,7 +33,7 @@ export default function HalfMoonNavigation() {
   const constraintsRef = useRef<HTMLDivElement>(null);
 
   const handleDownloadCV = () => {
-    window.open('/cv.pdf', '_blank');
+    window.open('/assets/CV/Mahim.pdf', '_blank');
     setIsOpen(false);
   };
 
@@ -86,16 +86,16 @@ export default function HalfMoonNavigation() {
     setIsOpen(false);
   };
 
-  // Calculate position for half-moon arc (RIGHT side, curved outward)
+  // Calculate position for half-moon arc (LEFT side of X button, mirrored)
   const getNavItemPosition = (index: number, total: number) => {
-    const radius = 180; // Distance from center
+    const radius = 200; // Distance from center
     const startAngle = -90; // Top
     const endAngle = 90; // Bottom
     const angleStep = (endAngle - startAngle) / (total - 1);
     const angle = (startAngle + angleStep * index) * (Math.PI / 180);
 
     return {
-      x: Math.cos(angle) * radius, // Positive X = right side
+      x: Math.cos(angle) * radius * -1, // NEGATIVE X = left side (mirrored!)
       y: Math.sin(angle) * radius,
     };
   };
@@ -109,7 +109,7 @@ export default function HalfMoonNavigation() {
       {/* Drag constraints container */}
       <div ref={constraintsRef} className="fixed inset-0 pointer-events-none z-[99]" />
 
-      {/* Floating Trigger Button - Draggable on Mobile */}
+      {/* Floating Trigger Button - Draggable */}
       <motion.button
         drag
         dragControls={dragControls}
@@ -117,26 +117,26 @@ export default function HalfMoonNavigation() {
         dragElastic={0.1}
         onDragEnd={handleDragEnd}
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed right-4 top-1/2 -translate-y-1/2 z-[100] pointer-events-auto ${
+        className={`fixed right-6 top-1/2 -translate-y-1/2 z-[100] pointer-events-auto ${
           isOpen ? 'w-12 h-12 sm:w-14 sm:h-14' : 'w-10 h-10 sm:w-12 sm:h-12'
-        } rounded-full bg-gradient-to-br from-domain-violet/90 via-cursed-blue/90 to-rengoku-flame/90 backdrop-blur-xl shadow-xl flex items-center justify-center group border border-snow-white/10 transition-all duration-300 cursor-grab active:cursor-grabbing`}
+        } rounded-full bg-gradient-to-br from-indigo-600/90 via-purple-600/90 to-pink-600/90 backdrop-blur-xl shadow-xl flex items-center justify-center group border border-white/10 transition-all duration-300 cursor-grab active:cursor-grabbing`}
         style={{
-          opacity: isOpen ? 1 : 0.7,
+          opacity: isOpen ? 1 : 0.65,
           boxShadow: isOpen
-            ? '0 0 30px rgba(138, 43, 226, 0.4)'
+            ? '0 0 30px rgba(99, 102, 241, 0.5)'
             : '0 10px 25px rgba(0, 0, 0, 0.3)',
         }}
         whileHover={{ scale: 1.05, opacity: 1 }}
         whileTap={{ scale: 0.95 }}
-        initial={{ opacity: 0.7, scale: 1 }}
-        animate={{ opacity: isOpen ? 1 : 0.7, scale: 1 }}
+        initial={{ opacity: 0.65, scale: 1 }}
+        animate={{ opacity: isOpen ? 1 : 0.65, scale: 1 }}
       >
-        <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-snow-white" strokeWidth={2.5} />
+        <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-white" strokeWidth={2.5} />
 
         {/* Orbital ring animation when closed */}
         {!isOpen && (
           <motion.div
-            className="absolute inset-0 rounded-full border border-zenitsu-lightning/20"
+            className="absolute inset-0 rounded-full border border-indigo-400/20"
             animate={{
               scale: [1, 1.4, 1],
               opacity: [0.3, 0, 0.3],
@@ -164,113 +164,111 @@ export default function HalfMoonNavigation() {
               onClick={() => setIsOpen(false)}
             >
               {/* Gradient backdrop */}
-              <div className="absolute inset-0 bg-ghost-black/85 backdrop-blur-sm" />
+              <div className="absolute inset-0 bg-slate-900/90 backdrop-blur-sm" />
 
-              {/* Domain expansion ripples - from screen center */}
+              {/* Domain expansion ripples - from right side */}
               <motion.div
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-zenitsu-lightning/50"
+                className="absolute right-[16.67%] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-indigo-400/50"
                 initial={{ scale: 0, opacity: 0.9 }}
-                animate={{ scale: 100, opacity: 0 }}
+                animate={{ scale: 120, opacity: 0 }}
                 transition={{ duration: 1.2, ease: 'easeOut' }}
               />
               <motion.div
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full border border-domain-violet/40"
+                className="absolute right-[16.67%] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border border-purple-400/40"
                 initial={{ scale: 0, opacity: 0.7 }}
-                animate={{ scale: 130, opacity: 0 }}
+                animate={{ scale: 150, opacity: 0 }}
                 transition={{ duration: 1.6, ease: 'easeOut', delay: 0.1 }}
               />
             </motion.div>
 
-            {/* Half-Moon Panel - Opens from center */}
+            {/* Half-Moon Panel - Right 1/3 of page */}
             <motion.div
-              initial={{ clipPath: 'circle(0% at 50% 50%)' }}
-              animate={{ clipPath: 'circle(70% at 50% 50%)' }}
-              exit={{ clipPath: 'circle(0% at 50% 50%)' }}
+              initial={{ clipPath: 'circle(0% at calc(100% - 16.67%) 50%)' }}
+              animate={{ clipPath: 'circle(85% at calc(100% - 16.67%) 50%)' }}
+              exit={{ clipPath: 'circle(0% at calc(100% - 16.67%) 50%)' }}
               transition={{
                 duration: 0.7,
                 ease: [0.43, 0.13, 0.23, 0.96],
               }}
-              className="fixed inset-0 z-[95] pointer-events-none flex items-center justify-center"
+              className="fixed inset-0 z-[95] pointer-events-none flex items-center justify-end"
             >
-              <div className="relative pointer-events-auto">
-                {/* Half-moon shaped background */}
-                <motion.div
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0, opacity: 0 }}
-                  transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+              {/* Large circular background on right side - PROPERLY CENTERED */}
+              <motion.div
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0, opacity: 0 }}
+                transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
+                className="relative pointer-events-auto"
+                style={{
+                  width: 'min(120vh, 90vw)',
+                  height: 'min(120vh, 90vw)',
+                  marginRight: 'calc(-60vh + 16.67vw)',
+                }}
+              >
+                {/* Half-moon circle background */}
+                <div
+                  className="absolute inset-0 rounded-full overflow-hidden"
                   style={{
-                    width: '500px',
-                    height: '500px',
-                    maxWidth: '90vw',
-                    maxHeight: '90vh',
+                    background:
+                      'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)',
+                    backdropFilter: 'blur(40px)',
+                    boxShadow:
+                      '0 0 60px rgba(99, 102, 241, 0.3), inset 0 0 80px rgba(99, 102, 241, 0.1)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
                   }}
                 >
-                  {/* Half-moon shape using clip-path */}
-                  <div
-                    className="absolute inset-0 rounded-full overflow-hidden"
-                    style={{
-                      background:
-                        'linear-gradient(135deg, rgba(10, 10, 10, 0.98), rgba(30, 30, 40, 0.98), rgba(20, 20, 30, 0.98))',
-                      backdropFilter: 'blur(40px)',
-                      boxShadow: '0 0 60px rgba(138, 43, 226, 0.3), inset 0 0 60px rgba(138, 43, 226, 0.1)',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                  {/* Animated gradient overlay */}
+                  <motion.div
+                    className="absolute inset-0 opacity-20"
+                    animate={{
+                      background: [
+                        'radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.4), transparent 50%)',
+                        'radial-gradient(circle at 70% 70%, rgba(168, 85, 247, 0.4), transparent 50%)',
+                        'radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.4), transparent 50%)',
+                        'radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.4), transparent 50%)',
+                      ],
                     }}
-                  >
-                    {/* Animated gradient overlay */}
+                    transition={{
+                      duration: 10,
+                      repeat: Infinity,
+                      ease: 'linear',
+                    }}
+                  />
+
+                  {/* Elegant particles */}
+                  {[...Array(30)].map((_, i) => (
                     <motion.div
-                      className="absolute inset-0 opacity-20"
-                      animate={{
+                      key={i}
+                      className="absolute rounded-full"
+                      style={{
+                        width: Math.random() * 3 + 1,
+                        height: Math.random() * 3 + 1,
+                        left: `${Math.random() * 100}%`,
+                        top: `${Math.random() * 100}%`,
                         background: [
-                          'radial-gradient(circle at 30% 30%, rgba(138, 43, 226, 0.3), transparent 50%)',
-                          'radial-gradient(circle at 70% 70%, rgba(0, 123, 255, 0.3), transparent 50%)',
-                          'radial-gradient(circle at 50% 50%, rgba(255, 69, 0, 0.3), transparent 50%)',
-                          'radial-gradient(circle at 30% 30%, rgba(138, 43, 226, 0.3), transparent 50%)',
-                        ],
+                          'rgba(99, 102, 241, 0.6)',
+                          'rgba(168, 85, 247, 0.6)',
+                          'rgba(236, 72, 153, 0.6)',
+                        ][Math.floor(Math.random() * 3)],
+                      }}
+                      animate={{
+                        opacity: [0, 0.8, 0],
+                        scale: [0, 1.2, 0],
+                        y: [0, -50, -100],
                       }}
                       transition={{
-                        duration: 10,
+                        duration: 3 + Math.random() * 2,
                         repeat: Infinity,
-                        ease: 'linear',
+                        delay: Math.random() * 2,
+                        ease: 'easeOut',
                       }}
                     />
+                  ))}
+                </div>
 
-                    {/* Cursed energy particles */}
-                    {[...Array(30)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className="absolute rounded-full"
-                        style={{
-                          width: Math.random() * 3 + 1,
-                          height: Math.random() * 3 + 1,
-                          left: `${Math.random() * 100}%`,
-                          top: `${Math.random() * 100}%`,
-                          background: [
-                            'rgba(255, 215, 0, 0.8)',
-                            'rgba(138, 43, 226, 0.8)',
-                            'rgba(0, 123, 255, 0.8)',
-                          ][Math.floor(Math.random() * 3)],
-                        }}
-                        animate={{
-                          opacity: [0, 0.9, 0],
-                          scale: [0, 1.5, 0],
-                          y: [0, -50, -100],
-                        }}
-                        transition={{
-                          duration: 3 + Math.random() * 2,
-                          repeat: Infinity,
-                          delay: Math.random() * 2,
-                          ease: 'easeOut',
-                        }}
-                      />
-                    ))}
-                  </div>
-                </motion.div>
-
-                {/* Navigation Container - Center of screen */}
+                {/* Navigation Container - Centered in circle */}
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-0 h-0">
-                  {/* Close Button in Center */}
+                  {/* Close Button on RIGHT side */}
                   <motion.button
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -281,18 +279,18 @@ export default function HalfMoonNavigation() {
                       ease: [0.34, 1.56, 0.64, 1],
                     }}
                     onClick={() => setIsOpen(false)}
-                    className="absolute -left-8 -top-8 sm:-left-10 sm:-top-10 group"
+                    className="absolute -right-8 -top-8 sm:-right-10 sm:-top-10 group"
                   >
                     <motion.div
-                      className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center bg-gradient-to-br from-rengoku-flame via-zenitsu-lightning to-domain-violet border-2 border-snow-white/20 shadow-2xl"
+                      className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 border-2 border-white/20 shadow-2xl shadow-indigo-500/50"
                       whileHover={{ scale: 1.1, rotate: 90 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      <X className="w-7 h-7 sm:w-8 sm:h-8 text-ghost-black" strokeWidth={3} />
+                      <X className="w-7 h-7 sm:w-9 sm:h-9 text-white" strokeWidth={2.5} />
 
                       {/* Pulsing ring */}
                       <motion.div
-                        className="absolute inset-0 rounded-full border-2 border-zenitsu-lightning"
+                        className="absolute inset-0 rounded-full border-2 border-indigo-400"
                         animate={{
                           scale: [1, 1.3, 1],
                           opacity: [0.6, 0, 0.6],
@@ -306,7 +304,7 @@ export default function HalfMoonNavigation() {
                     </motion.div>
                   </motion.button>
 
-                  {/* Navigation items in half-moon arc */}
+                  {/* Navigation items on LEFT side (mirrored) */}
                   {navItems.map((item, index) => {
                     const { x, y } = getNavItemPosition(index, navItems.length);
                     const isActive = activeSection === item.href && item.href !== '';
@@ -329,8 +327,8 @@ export default function HalfMoonNavigation() {
                         onMouseLeave={() => setHoveredIndex(null)}
                         className="absolute group touch-manipulation"
                         style={{
-                          left: '-24px',
-                          top: '-24px',
+                          left: '-28px',
+                          top: '-28px',
                         }}
                         title={item.name}
                       >
@@ -343,39 +341,39 @@ export default function HalfMoonNavigation() {
                             }`}
                             style={{
                               background: isActive
-                                ? 'radial-gradient(circle, rgba(255, 215, 0, 0.6), transparent 70%)'
-                                : 'radial-gradient(circle, rgba(138, 43, 226, 0.5), transparent 70%)',
+                                ? 'radial-gradient(circle, rgba(99, 102, 241, 0.6), transparent 70%)'
+                                : 'radial-gradient(circle, rgba(168, 85, 247, 0.5), transparent 70%)',
                             }}
                           />
 
                           {/* Icon circle */}
                           <motion.div
-                            className={`relative w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all duration-300 border-2 ${
+                            className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-all duration-300 border-2 ${
                               isActive
-                                ? 'bg-gradient-to-br from-zenitsu-lightning via-domain-violet to-cursed-blue border-zenitsu-lightning/70 shadow-xl shadow-zenitsu-lightning/50'
+                                ? 'bg-gradient-to-br from-indigo-600 to-purple-600 border-indigo-400/70 shadow-xl shadow-indigo-500/50'
                                 : isHovered
-                                ? 'bg-gradient-to-br from-domain-violet/60 to-cursed-blue/60 border-domain-violet/70 backdrop-blur-xl'
-                                : 'bg-deep-charcoal/70 border-snow-white/20 backdrop-blur-xl'
+                                ? 'bg-slate-700/80 border-indigo-400/60 backdrop-blur-xl'
+                                : 'bg-slate-800/60 border-white/20 backdrop-blur-xl'
                             }`}
                             whileHover={{ scale: 1.15 }}
                             whileTap={{ scale: 0.9 }}
                           >
                             <Icon
-                              className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors duration-300 ${
+                              className={`w-6 h-6 sm:w-7 sm:h-7 transition-colors duration-300 ${
                                 isActive
-                                  ? 'text-ghost-black'
+                                  ? 'text-white'
                                   : isHovered
-                                  ? 'text-zenitsu-lightning'
-                                  : 'text-snow-white'
+                                  ? 'text-indigo-300'
+                                  : 'text-slate-300'
                               }`}
-                              strokeWidth={2.5}
+                              strokeWidth={2}
                             />
                           </motion.div>
 
                           {/* Active indicator ring */}
                           {isActive && (
                             <motion.div
-                              className="absolute inset-0 rounded-full border-2 border-zenitsu-lightning"
+                              className="absolute inset-0 rounded-full border-2 border-indigo-400"
                               animate={{
                                 scale: [1, 1.3, 1],
                                 opacity: [0.6, 0, 0.6],
@@ -392,7 +390,7 @@ export default function HalfMoonNavigation() {
                     );
                   })}
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </>
         )}
