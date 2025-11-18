@@ -179,6 +179,7 @@ const App = () => {
   return (
     <Router>
       <AppContent />
+      <Analytics />
     </Router>
   );
 };
