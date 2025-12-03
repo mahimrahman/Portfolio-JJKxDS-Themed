@@ -137,3 +137,8 @@ build
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Large video files
+*.wmv
+*.mp4
+public/assets/Graphic Design/Photoshop Classes/
