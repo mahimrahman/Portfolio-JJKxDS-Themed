@@ -1,0 +1,144 @@
+{
+  "categories": [
+    {
+      "id": "01-branding-identity",
+      "title": "Branding & Identity",
+      "description": "Logo design, business cards, and brand identity systems",
+      "icon": "Palette",
+      "color": "#FF6B6B",
+      "folder": "01-Branding-Identity",
+      "subcategories": [
+        {
+          "id": "logos",
+          "title": "Logos",
+          "folder": "Logos",
+          "description": "Professional logo designs for various brands"
+        },
+        {
+          "id": "business-cards",
+          "title": "Business Cards",
+          "folder": "Business-Cards",
+          "description": "Corporate business card designs and mockups"
+        }
+      ]
+    },
+    {
+      "id": "02-print-design",
+      "title": "Print Design",
+      "description": "Posters, flyers, and promotional materials",
+      "icon": "FileText",
+      "color": "#4ECDC4",
+      "folder": "02-Print-Design",
+      "subcategories": [
+        {
+          "id": "posters-flyers",
+          "title": "Posters & Flyers",
+          "folder": "Posters-Flyers",
+          "description": "Event posters, promotional flyers, and marketing materials"
+        },
+        {
+          "id": "event-materials",
+          "title": "Event Materials",
+          "folder": "Event-Materials",
+          "description": "Signage, sponsorship materials, and event graphics"
+        },
+        {
+          "id": "merchandise-apparel",
+          "title": "Merchandise & Apparel",
+          "folder": "Merchandise-Apparel",
+          "description": "T-shirt designs and branded merchandise"
+        }
+      ]
+    },
+    {
+      "id": "03-digital-design",
+      "title": "Digital Design",
+      "description": "Social media graphics, web assets, and digital materials",
+      "icon": "Monitor",
+      "color": "#45B7D1",
+      "folder": "03-Digital-Design",
+      "subcategories": [
+        {
+          "id": "social-media",
+          "title": "Social Media",
+          "folder": "Social-Media",
+          "description": "Social media graphics, posts, and digital content"
+        },
+        {
+          "id": "badges-ids",
+          "title": "Badges & IDs",
+          "folder": "Badges-IDs",
+          "description": "Event badges, ID cards, and identification materials"
+        }
+      ]
+    },
+    {
+      "id": "04-illustrations",
+      "title": "Illustrations",
+      "description": "Custom illustrations and artwork",
+      "icon": "Pen",
+      "color": "#96CEB4",
+      "folder": "04-Illustrations"
+    },
+    {
+      "id": "05-photo-manipulation",
+      "title": "Photo Manipulation",
+      "description": "Photo editing and digital manipulation work",
+      "icon": "Image",
+      "color": "#FFEAA7",
+      "folder": "05-Photo-Manipulation"
+    },
+    {
+      "id": "06-client-projects",
+      "title": "Client Projects",
+      "description": "Professional work for clients and organizations",
+      "icon": "Briefcase",
+      "color": "#B2BEC3",
+      "folder": "06-Client-Projects",
+      "hasSubfolders": true,
+      "subfoldersAsCategories": true
+    },
+    {
+      "id": "07-contest-portfolio",
+      "title": "Contest & Portfolio",
+      "description": "Contest entries and portfolio showcase pieces",
+      "icon": "Trophy",
+      "color": "#FAB1A0",
+      "folder": "07-Contest-Portfolio",
+      "subcategories": [
+        {
+          "id": "freelancer-contests",
+          "title": "Freelancer Contests",
+          "folder": "Freelancer-Contests",
+          "description": "Contest submissions and winning entries from Freelancer.com"
+        }
+      ]
+    },
+    {
+      "id": "08-contest-winner",
+      "title": "Freelancer.com Contest Winner",
+      "description": "Award-winning poster from Freelancer.com contest",
+      "icon": "Award",
+      "color": "#FD79A8",
+      "folder": "08 - Freelancer.com Contest Winning Poster"
+    },
+    {
+      "id": "09-university-designs",
+      "title": "University Course Designs",
+      "description": "Academic design projects and coursework",
+      "icon": "GraduationCap",
+      "color": "#A29BFE",
+      "folder": "09 - University Course Designs"
+    },
+    {
+      "id": "10-3d-modeling",
+      "title": "3D Modeling",
+      "description": "3D modeling and rendering projects",
+      "icon": "Box",
+      "color": "#74B9FF",
+      "folder": "10 - 3D Modeling",
+      "hasSubfolders": true,
+      "subfoldersAsCategories": true
+    }
+  ]
+}

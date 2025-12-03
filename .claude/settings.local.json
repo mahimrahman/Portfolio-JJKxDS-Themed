@@ -6,7 +6,13 @@
       "Bash(npm run build:*)",
       "Bash(ls:*)",
       "Bash(npm run dev:*)",
-      "Bash(timeout:*)"
+      "Bash(timeout:*)",
+      "Bash(node scripts/generate-graphics-manifest.js:*)",
+      "Bash(node scripts/setup-graphics-folders.js:*)",
+      "Bash(node scripts/organize-graphics.js:*)",
+      "Bash(cat:*)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)"
     ],
     "deny": [],
     "ask": []

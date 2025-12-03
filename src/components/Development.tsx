@@ -1,6 +1,6 @@
 import { useState, useEffect, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Star, GitFork, Calendar, Code, Globe, Github, Zap, Trophy, Filter, Sparkles, Swords, RotateCcw } from 'lucide-react';
+import { ArrowLeft, Star, GitFork, Calendar, Code, Globe, Github, Zap, Layers, Activity } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SmokeBackground from './SmokeBackground';
 import SectionMerge from './SectionMerge';
@@ -28,141 +28,97 @@ interface GitHubRepo {
   disabled: boolean;
 }
 
-// Language colors mapping
-const languageColors: { [key: string]: string } = {
-  JavaScript: '#f7df1e',
-  TypeScript: '#3178c6',
-  Python: '#3776ab',
-  Java: '#ed8b00',
-  React: '#61dafb',
-  HTML: '#e34f26',
-  CSS: '#1572b6',
-  'C++': '#00599c',
-  'C#': '#239120',
-  PHP: '#777bb4',
-  Ruby: '#cc342d',
-  Go: '#00add8',
-  Rust: '#000000',
-  Swift: '#fa7343',
-  Kotlin: '#7f52ff',
-  Dart: '#0175c2',
-  Shell: '#89e051',
-  Vue: '#4fc08d',
-  Svelte: '#ff3e00',
-  default: '#8b5cf6'
+// Muted, professional language colors with theme consistency
+const languageColors: { [key: string]: { bg: string; text: string; glow: string } } = {
+  JavaScript: { bg: 'from-amber-900/30 to-amber-800/20', text: 'text-amber-400', glow: 'shadow-amber-500/20' },
+  TypeScript: { bg: 'from-blue-900/30 to-blue-800/20', text: 'text-blue-400', glow: 'shadow-blue-500/20' },
+  Python: { bg: 'from-emerald-900/30 to-emerald-800/20', text: 'text-emerald-400', glow: 'shadow-emerald-500/20' },
+  Java: { bg: 'from-orange-900/30 to-orange-800/20', text: 'text-orange-400', glow: 'shadow-orange-500/20' },
+  HTML: { bg: 'from-rose-900/30 to-rose-800/20', text: 'text-rose-400', glow: 'shadow-rose-500/20' },
+  CSS: { bg: 'from-sky-900/30 to-sky-800/20', text: 'text-sky-400', glow: 'shadow-sky-500/20' },
+  'C++': { bg: 'from-indigo-900/30 to-indigo-800/20', text: 'text-indigo-400', glow: 'shadow-indigo-500/20' },
+  'C#': { bg: 'from-violet-900/30 to-violet-800/20', text: 'text-violet-400', glow: 'shadow-violet-500/20' },
+  PHP: { bg: 'from-purple-900/30 to-purple-800/20', text: 'text-purple-400', glow: 'shadow-purple-500/20' },
+  Ruby: { bg: 'from-red-900/30 to-red-800/20', text: 'text-red-400', glow: 'shadow-red-500/20' },
+  Go: { bg: 'from-cyan-900/30 to-cyan-800/20', text: 'text-cyan-400', glow: 'shadow-cyan-500/20' },
+  Shell: { bg: 'from-lime-900/30 to-lime-800/20', text: 'text-lime-400', glow: 'shadow-lime-500/20' },
+  Vue: { bg: 'from-teal-900/30 to-teal-800/20', text: 'text-teal-400', glow: 'shadow-teal-500/20' },
+  default: { bg: 'from-slate-800/30 to-slate-700/20', text: 'text-slate-400', glow: 'shadow-slate-500/20' }
 };
 
-// Subtle background effects - more professional
+// Animated hexagon SVG for decoration
+const HexagonDecor = memo(({ className, delay = 0 }: { className?: string; delay?: number }) => (
+  <motion.svg
+    viewBox="0 0 100 100"
+    className={className}
+    initial={{ opacity: 0, scale: 0.8 }}
+    animate={{ opacity: 0.15, scale: 1 }}
+    transition={{ duration: 1.5, delay }}
+  >
+    <motion.polygon
+      points="50,5 93,27.5 93,72.5 50,95 7,72.5 7,27.5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      initial={{ pathLength: 0 }}
+      animate={{ pathLength: 1 }}
+      transition={{ duration: 2, delay: delay + 0.5, ease: "easeInOut" }}
+    />
+  </motion.svg>
+));
+
+HexagonDecor.displayName = 'HexagonDecor';
+
+// Atmospheric background with cursed energy aesthetic
 const BackgroundEffects = memo(() => (
-  <div className="absolute inset-0 z-[5] pointer-events-none">
-    {/* Subtle purple orb */}
-    <motion.div
-      className="absolute top-[15%] left-[10%] w-[450px] h-[450px] rounded-full blur-3xl"
-      style={{
-        background: 'radial-gradient(circle, rgba(127, 0, 255, 0.12) 0%, rgba(127, 0, 255, 0.06) 40%, transparent 70%)'
-      }}
-      animate={{
-        scale: [1, 1.3, 1],
-        opacity: [0.4, 0.6, 0.4],
-        x: [0, 40, 0],
-        y: [0, -25, 0],
-      }}
-      transition={{
-        duration: 13,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }}
-    />
-
-    {/* Subtle orange/flame orb */}
-    <motion.div
-      className="absolute top-[60%] right-[15%] w-[420px] h-[420px] rounded-full blur-3xl"
-      style={{
-        background: 'radial-gradient(circle, rgba(255, 78, 0, 0.12) 0%, rgba(255, 208, 0, 0.06) 40%, transparent 70%)'
-      }}
-      animate={{
-        scale: [1, 1.4, 1],
-        opacity: [0.35, 0.55, 0.35],
-        x: [0, -35, 0],
-        y: [0, 35, 0],
-      }}
-      transition={{
-        duration: 15,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay: 1.5
-      }}
-    />
-
-    {/* Subtle blue orb */}
-    <motion.div
-      className="absolute bottom-[20%] left-[20%] w-[400px] h-[400px] rounded-full blur-3xl"
-      style={{
-        background: 'radial-gradient(circle, rgba(58, 134, 255, 0.12) 0%, rgba(58, 134, 255, 0.06) 40%, transparent 70%)'
-      }}
-      animate={{
-        scale: [1, 1.25, 1],
-        opacity: [0.3, 0.5, 0.3],
-        x: [0, 25, 0],
-        y: [0, -15, 0],
-      }}
-      transition={{
-        duration: 16,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay: 2
-      }}
-    />
-
-    {/* Subtle dot pattern */}
-    <motion.div
-      className="absolute inset-0 opacity-[0.02]"
-      style={{
-        backgroundImage: `radial-gradient(circle, rgba(127, 0, 255, 0.3) 1px, transparent 1px)`,
-        backgroundSize: '50px 50px',
-      }}
-      animate={{
-        backgroundPosition: ['0px 0px', '50px 50px'],
-      }}
-      transition={{
-        duration: 25,
-        repeat: Infinity,
-        ease: "linear"
-      }}
-    />
+  <div className="absolute inset-0 z-[5] pointer-events-none overflow-hidden">
+    {/* Cursed energy gradient orbs */}
+    <div className="absolute top-[5%] left-[10%] w-[500px] h-[500px] rounded-full blur-[150px] opacity-[0.08] bg-gradient-to-br from-violet-600 to-purple-900" />
+    <div className="absolute bottom-[10%] right-[5%] w-[600px] h-[600px] rounded-full blur-[180px] opacity-[0.06] bg-gradient-to-br from-blue-600 to-indigo-900" />
+    <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[200px] opacity-[0.04] bg-gradient-to-br from-rose-600 to-orange-900" />
+    
+    {/* Floating hexagons */}
+    <HexagonDecor className="absolute top-[15%] right-[15%] w-32 h-32 text-violet-500" delay={0} />
+    <HexagonDecor className="absolute bottom-[20%] left-[10%] w-24 h-24 text-blue-500" delay={0.3} />
+    <HexagonDecor className="absolute top-[60%] right-[8%] w-20 h-20 text-rose-500" delay={0.6} />
   </div>
 ));
 
 BackgroundEffects.displayName = 'BackgroundEffects';
 
-// Professional instruction box
-const InstructionBox = memo(() => (
+// Stats card component
+const StatCard = memo(({ icon, value, label, delay }: { icon: React.ReactNode; value: number; label: string; delay: number }) => (
   <motion.div
-    className="mb-8 max-w-5xl mx-auto"
-    initial={{ opacity: 0, y: 10 }}
+    initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.3 }}
+    transition={{ duration: 0.5, delay }}
+    className="relative group"
   >
-    <div className="bg-gradient-to-br from-white/5 to-white/[0.02] rounded-xl p-4 border border-white/10 backdrop-blur-sm shadow-lg">
-      <div className="flex items-center justify-center gap-3 flex-wrap">
-        <Filter className="text-zenitsu-lightning" size={18} />
-        <p className="text-center text-sm md:text-base text-snow-white/80 font-medium leading-relaxed">
-          Filter by language or activity • Click any card to view repository details
-        </p>
-        <Code className="text-domain-violet" size={18} />
+    <div className="relative bg-gradient-to-br from-ghost-black/80 to-deep-charcoal/60 backdrop-blur-sm rounded-xl border border-white/[0.08] p-5 transition-all duration-300 hover:border-white/20 overflow-hidden">
+      {/* Subtle animated border glow */}
+      <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-violet-500/10 via-transparent to-blue-500/10" />
+      
+      <div className="relative z-10 flex items-center gap-4">
+        <div className="p-2.5 rounded-lg bg-gradient-to-br from-violet-500/20 to-blue-500/20 border border-white/10">
+          {icon}
+        </div>
+        <div>
+          <div className="text-2xl font-bold text-snow-white">{value}</div>
+          <div className="text-xs text-ash-gray uppercase tracking-wider">{label}</div>
+        </div>
       </div>
     </div>
   </motion.div>
 ));
 
-InstructionBox.displayName = 'InstructionBox';
+StatCard.displayName = 'StatCard';
 
 const Development = () => {
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [filter, setFilter] = useState<'all' | 'recent' | 'popular' | 'languages'>('all');
   const [selectedLanguage, setSelectedLanguage] = useState<string>('all');
+  const [hoveredRepo, setHoveredRepo] = useState<number | null>(null);
 
   // Fetch GitHub repositories
   useEffect(() => {
@@ -197,37 +153,21 @@ const Development = () => {
   // Get unique languages from repos
   const languages = Array.from(new Set(repos.map(repo => repo.language).filter(Boolean))) as string[];
 
-  // Filter repositories based on selected filter
-  const filteredRepos = repos.filter(repo => {
-    if (selectedLanguage !== 'all' && repo.language !== selectedLanguage) {
-      return false;
-    }
-
-    switch (filter) {
-      case 'recent':
-        const oneMonthAgo = new Date();
-        oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
-        return new Date(repo.updated_at) > oneMonthAgo;
-      case 'popular':
-        return repo.stargazers_count > 0 || repo.forks_count > 0;
-      case 'languages':
-        return repo.language !== null;
-      default:
-        return true;
-    }
-  });
+  // Filter repositories based on selected language
+  const filteredRepos = selectedLanguage === 'all' 
+    ? repos 
+    : repos.filter(repo => repo.language === selectedLanguage);
 
   // Format date
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
-      month: 'short',
-      day: 'numeric'
+      month: 'short'
     });
   };
 
-  // Get language color
-  const getLanguageColor = (language: string | null) => {
+  // Get language styling
+  const getLanguageStyle = (language: string | null) => {
     if (!language) return languageColors.default;
     return languageColors[language] || languageColors.default;
   };
@@ -235,29 +175,45 @@ const Development = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        {/* Dark theme background */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-deep-charcoal/95 via-ghost-black/95 to-deep-charcoal/95"></div>
-
-        {/* Smoke Effect Background */}
-        <div className="absolute inset-0 z-[5] pointer-events-none">
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-ghost-black via-deep-charcoal to-ghost-black"></div>
+        <div className="absolute inset-0 z-[5] pointer-events-none opacity-40">
           <SmokeBackground />
         </div>
-
         <BackgroundEffects />
-
-        <div className="relative z-30 flex flex-col items-center gap-4">
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-            className="w-16 h-16 border-4 border-zenitsu-lightning/30 border-t-zenitsu-lightning rounded-full"
-          />
-          <motion.span
-            className="text-snow-white text-xl font-medium"
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            Manifesting Technique Scrolls...
-          </motion.span>
+        <div className="relative z-30 flex flex-col items-center gap-6">
+          <div className="relative">
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              className="w-16 h-16"
+            >
+              <svg viewBox="0 0 100 100" className="w-full h-full">
+                <polygon
+                  points="50,5 93,27.5 93,72.5 50,95 7,72.5 7,27.5"
+                  fill="none"
+                  stroke="url(#loadingGradient)"
+                  strokeWidth="2"
+                  strokeDasharray="4,4"
+                />
+                <defs>
+                  <linearGradient id="loadingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#6366f1" />
+                    <stop offset="100%" stopColor="#ec4899" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </motion.div>
+            <motion.div
+              className="absolute inset-0 flex items-center justify-center"
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              <Code size={20} className="text-violet-400" />
+            </motion.div>
+          </div>
+          <span className="text-ash-gray text-sm font-medium tracking-widest uppercase">
+            Fetching Repositories
+          </span>
         </div>
       </div>
     );
@@ -266,35 +222,26 @@ const Development = () => {
   if (error) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
-        {/* Dark theme background */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-deep-charcoal/95 via-ghost-black/95 to-deep-charcoal/95"></div>
-
-        {/* Smoke Effect Background */}
-        <div className="absolute inset-0 z-[5] pointer-events-none">
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-ghost-black via-deep-charcoal to-ghost-black"></div>
+        <div className="absolute inset-0 z-[5] pointer-events-none opacity-40">
           <SmokeBackground />
         </div>
-
         <BackgroundEffects />
-
-        <div className="relative z-30 flex flex-col items-center">
-          <motion.div
-            className="mb-6"
-            animate={{ scale: [1, 1.1, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <Zap size={64} className="text-zenitsu-lightning" />
-          </motion.div>
-          <h2 className="text-2xl md:text-3xl font-bold text-snow-white mb-3 text-center bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
-            Domain Expansion Failed
+        <div className="relative z-30 flex flex-col items-center max-w-md text-center px-6">
+          <div className="mb-8 p-5 rounded-2xl bg-gradient-to-br from-rose-500/10 to-orange-500/10 border border-rose-500/20">
+            <Zap size={36} className="text-rose-400" />
+          </div>
+          <h2 className="text-2xl font-bold text-snow-white mb-3">
+            Connection Failed
           </h2>
-          <p className="text-ash-gray mb-8 text-center max-w-md px-4">{error}</p>
+          <p className="text-ash-gray text-sm mb-8 leading-relaxed">{error}</p>
           <motion.button
             onClick={() => window.location.reload()}
-            className="px-8 py-3 bg-gradient-to-r from-rengoku-flame to-domain-violet text-snow-white rounded-xl font-medium shadow-lg hover:shadow-2xl transition-all duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="px-6 py-3 bg-gradient-to-r from-violet-500/20 to-blue-500/20 border border-white/10 text-snow-white rounded-xl text-sm font-medium hover:border-white/20 transition-all duration-300"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
-            Retry Manifestation
+            Retry Connection
           </motion.button>
         </div>
       </div>
@@ -303,15 +250,15 @@ const Development = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Subtle Section Merge Overlays */}
+      {/* Section Merge Overlays */}
       <SectionMerge position="top" intensity="light" />
       <SectionMerge position="bottom" intensity="light" />
 
       {/* Dark theme background */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-deep-charcoal/95 via-ghost-black/95 to-deep-charcoal/95"></div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-ghost-black via-deep-charcoal to-ghost-black"></div>
 
       {/* Smoke Effect Background */}
-      <div className="absolute inset-0 z-[5] pointer-events-none">
+      <div className="absolute inset-0 z-[5] pointer-events-none opacity-40">
         <SmokeBackground />
       </div>
 
@@ -322,385 +269,197 @@ const Development = () => {
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-8"
+          transition={{ duration: 0.4 }}
+          className="mb-10"
         >
           <Link
             to="/#portfolio"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-zenitsu-lightning/20 rounded-xl text-zenitsu-lightning hover:text-snow-white hover:border-zenitsu-lightning/40 transition-all duration-300 font-medium shadow-lg group"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-ash-gray hover:text-snow-white hover:border-white/20 transition-all duration-300 group"
           >
-            <motion.div
-              whileHover={{ x: -3 }}
-              transition={{ type: "spring", stiffness: 400 }}
-            >
-              <ArrowLeft size={18} />
-            </motion.div>
-            <span className="group-hover:underline">Return to Portfolio</span>
+            <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
+            <span className="text-sm font-medium">Back to Portfolio</span>
           </Link>
         </motion.div>
 
-        {/* Header - Professional */}
+        {/* Header Section */}
         <motion.div
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 bg-gradient-to-r from-rengoku-flame via-zenitsu-lightning to-domain-violet bg-clip-text text-transparent tracking-wide anime-heading">
-            Development Portfolio
-          </h1>
+          {/* Animated Title */}
+          <div className="relative inline-block mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-violet-400 via-fuchsia-400 to-rose-400 bg-clip-text text-transparent">
+              Development Projects
+            </h1>
+            <motion.div
+              className="absolute -inset-4 bg-gradient-to-r from-violet-500/20 via-fuchsia-500/20 to-rose-500/20 blur-2xl -z-10"
+              animate={{ opacity: [0.3, 0.5, 0.3] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            />
+          </div>
 
-          <p className="text-base md:text-lg text-ash-gray max-w-4xl mx-auto leading-relaxed mb-6">
-            Explore <span className="text-zenitsu-lightning font-semibold">{repos.length}</span> repositories featuring
-            <span className="text-rengoku-flame font-semibold"> {repos.reduce((sum, repo) => sum + repo.stargazers_count, 0)}</span> stars across
-            <span className="text-domain-violet font-semibold"> {languages.length}</span> programming languages.
+          <p className="text-ash-gray text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-10">
+            A showcase of open-source contributions, experiments, and technical explorations
           </p>
 
-          <InstructionBox />
-
-          {/* Simple divider */}
-          <div className="flex items-center justify-center gap-3 mt-6">
-            <div className="h-px w-20 bg-gradient-to-r from-transparent via-zenitsu-lightning/40 to-transparent"></div>
-            <div className="w-1.5 h-1.5 rounded-full bg-zenitsu-lightning/60"></div>
-            <div className="h-px w-20 bg-gradient-to-r from-transparent via-domain-violet/40 to-transparent"></div>
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-12">
+            <StatCard icon={<Github size={20} className="text-violet-400" />} value={repos.length} label="Repositories" delay={0.1} />
+            <StatCard icon={<Star size={20} className="text-amber-400" />} value={repos.reduce((sum, repo) => sum + repo.stargazers_count, 0)} label="Total Stars" delay={0.2} />
+            <StatCard icon={<GitFork size={20} className="text-emerald-400" />} value={repos.reduce((sum, repo) => sum + repo.forks_count, 0)} label="Forks" delay={0.3} />
+            <StatCard icon={<Layers size={20} className="text-blue-400" />} value={languages.length} label="Languages" delay={0.4} />
           </div>
         </motion.div>
 
-        {/* Stats Banner - Professional */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-12"
-        >
-          <div className="relative">
-            <div className="relative bg-gradient-to-br from-deep-charcoal/80 via-ghost-black/80 to-deep-charcoal/80 backdrop-blur-2xl rounded-2xl border border-white/10 overflow-hidden">
-              <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5">
-                {[
-                  { label: 'Total Repositories', value: repos.length, icon: <Github size={24} />, color: 'domain-violet' },
-                  { label: 'Stars', value: repos.reduce((sum, repo) => sum + repo.stargazers_count, 0), icon: <Star size={24} />, color: 'zenitsu-lightning' },
-                  { label: 'Forks', value: repos.reduce((sum, repo) => sum + repo.forks_count, 0), icon: <GitFork size={24} />, color: 'cursed-blue' },
-                  { label: 'Languages', value: languages.length, icon: <Code size={24} />, color: 'rengoku-flame' }
-                ].map((stat, index) => (
-                  <motion.div
-                    key={stat.label}
-                    className="relative bg-gradient-to-br from-deep-charcoal/60 to-ghost-black/60 backdrop-blur-xl p-6 group/stat"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 + index * 0.08 }}
-                  >
-                    <div className="relative flex flex-col items-center text-center gap-2.5">
-                      <div className={`text-${stat.color}`}>
-                        {stat.icon}
-                      </div>
-                      <div className={`text-3xl md:text-4xl font-bold text-${stat.color}`}>
-                        {stat.value}
-                      </div>
-                      <div className="text-xs md:text-sm text-ash-gray font-medium uppercase tracking-wide">
-                        {stat.label}
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
+        {/* Language Filter Pills */}
+        {languages.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mb-10"
+          >
+            <div className="relative bg-gradient-to-br from-ghost-black/80 to-deep-charcoal/60 backdrop-blur-sm rounded-2xl border border-white/[0.08] p-5 overflow-hidden">
+              {/* Accent line */}
+              <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-violet-500/50 via-fuchsia-500/50 to-rose-500/50" />
+              
+              <div className="flex items-center gap-3 mb-4">
+                <Activity size={14} className="text-violet-400" />
+                <span className="text-ash-gray text-xs font-medium tracking-widest uppercase">Filter by Technology</span>
               </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Filters - Professional */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-12 space-y-6"
-        >
-          {/* Main Filter Tabs */}
-          <div className="flex flex-wrap gap-3 justify-center">
-            {[
-              { key: 'all', label: 'All Projects', icon: <Code size={16} />, gradient: 'from-domain-violet to-cursed-blue' },
-              { key: 'recent', label: 'Recent', icon: <Zap size={16} />, gradient: 'from-rengoku-flame to-zenitsu-lightning' },
-              { key: 'popular', label: 'Popular', icon: <Trophy size={16} />, gradient: 'from-zenitsu-lightning to-rengoku-flame' },
-              { key: 'languages', label: 'By Language', icon: <Filter size={16} />, gradient: 'from-cursed-blue to-domain-violet' }
-            ].map((filterOption) => (
-              <motion.button
-                key={filterOption.key}
-                onClick={() => setFilter(filterOption.key as any)}
-                className="relative group"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                {filter === filterOption.key && (
-                  <div className={`absolute -inset-0.5 bg-gradient-to-r ${filterOption.gradient} rounded-xl blur opacity-40`}></div>
-                )}
-                <div className={`relative px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 ${
-                  filter === filterOption.key
-                    ? `bg-gradient-to-r ${filterOption.gradient} text-ghost-black shadow-lg`
-                    : 'bg-white/5 backdrop-blur-sm border border-white/10 text-ash-gray hover:border-white/20 hover:text-snow-white'
-                }`}>
-                  {filterOption.icon}
-                  {filterOption.label}
-                </div>
-              </motion.button>
-            ))}
-          </div>
-
-          {/* Language Element Filter - Pill Style */}
-          {languages.length > 0 && (
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zenitsu-lightning/10 to-transparent rounded-2xl blur-xl"></div>
-              <div className="relative bg-deep-charcoal/40 backdrop-blur-xl rounded-2xl border border-zenitsu-lightning/20 p-6">
-                <div className="flex flex-wrap gap-3 justify-center">
-                  <motion.button
-                    onClick={() => setSelectedLanguage('all')}
-                    className={`relative group px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 ${
-                      selectedLanguage === 'all'
-                        ? 'bg-gradient-to-r from-zenitsu-lightning to-rengoku-flame text-ghost-black shadow-xl shadow-zenitsu-lightning/40'
-                        : 'bg-white/5 text-ash-gray hover:bg-white/10 hover:text-snow-white border border-white/10'
-                    }`}
-                    whileHover={{ scale: 1.08 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Sparkles size={16} />
-                    All Elements
-                  </motion.button>
-                  {languages.slice(0, 10).map((language) => (
-                    <motion.button
+              
+              <div className="flex flex-wrap gap-2">
+                <button
+                  onClick={() => setSelectedLanguage('all')}
+                  className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${
+                    selectedLanguage === 'all'
+                      ? 'bg-gradient-to-r from-violet-500/30 to-fuchsia-500/30 text-snow-white border border-violet-500/30'
+                      : 'bg-white/5 text-ash-gray hover:bg-white/10 hover:text-snow-white border border-white/[0.08]'
+                  }`}
+                >
+                  All Projects
+                </button>
+                {languages.map((language) => {
+                  const style = getLanguageStyle(language);
+                  return (
+                    <button
                       key={language}
                       onClick={() => setSelectedLanguage(language)}
-                      className={`relative px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-300 flex items-center gap-2.5 ${
+                      className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
                         selectedLanguage === language
-                          ? 'bg-gradient-to-r from-cursed-blue to-domain-violet text-snow-white shadow-xl shadow-domain-violet/40 border-2 border-cursed-blue/50'
-                          : 'bg-white/5 text-ash-gray hover:bg-white/10 hover:text-snow-white border border-white/10'
+                          ? `bg-gradient-to-r ${style.bg} ${style.text} border border-white/20`
+                          : 'bg-white/5 text-ash-gray hover:bg-white/10 hover:text-snow-white border border-white/[0.08]'
                       }`}
-                      whileHover={{ scale: 1.08, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
                     >
-                      <motion.div
-                        className="w-3 h-3 rounded-full shadow-lg"
-                        style={{
-                          backgroundColor: getLanguageColor(language),
-                          boxShadow: `0 0 10px ${getLanguageColor(language)}`
-                        }}
-                        animate={selectedLanguage === language ? {
-                          scale: [1, 1.3, 1],
-                          rotate: [0, 180, 360]
-                        } : {}}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      />
+                      <div className={`w-2 h-2 rounded-full ${selectedLanguage === language ? 'bg-current' : 'bg-white/40'}`} />
                       {language}
-                    </motion.button>
-                  ))}
-                  {languages.length > 10 && (
-                    <span className="px-5 py-3 bg-white/5 border border-white/10 text-ash-gray rounded-xl text-sm font-medium">
-                      +{languages.length - 10} more
-                    </span>
-                  )}
-                </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
-          )}
-        </motion.div>
+          </motion.div>
+        )}
 
-        {/* Enhanced Technique Scroll Grid - Bento Layout */}
+        {/* Repository Grid */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={`${filter}-${selectedLanguage}`}
+            key={selectedLanguage}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr"
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
           >
             {filteredRepos.map((repo, index) => {
-              // ...existing code...
-              const getCardTheme = () => {
-                const lang = repo.language || 'default';
-                if (['TypeScript', 'JavaScript'].includes(lang)) {
-                  return { gradient: 'from-zenitsu-lightning/20 via-rengoku-flame/15 to-domain-violet/10', border: 'border-zenitsu-lightning/40', glow: 'shadow-zenitsu-lightning/30' };
-                } else if (['Python', 'Java'].includes(lang)) {
-                  return { gradient: 'from-cursed-blue/20 via-domain-violet/15 to-cursed-blue/10', border: 'border-cursed-blue/40', glow: 'shadow-cursed-blue/30' };
-                } else if (['HTML', 'CSS', 'Vue', 'React'].includes(lang)) {
-                  return { gradient: 'from-rengoku-flame/20 via-zenitsu-lightning/15 to-rengoku-flame/10', border: 'border-rengoku-flame/40', glow: 'shadow-rengoku-flame/30' };
-                }
-                return { gradient: 'from-domain-violet/20 via-cursed-blue/15 to-domain-violet/10', border: 'border-domain-violet/40', glow: 'shadow-domain-violet/30' };
-              };
-
-              const theme = getCardTheme();
-
+              const langStyle = getLanguageStyle(repo.language);
+              const isHovered = hoveredRepo === repo.id;
+              
               return (
                 <motion.div
                   key={repo.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: Math.min(index * 0.03, 0.4) }}
-                  className="group relative"
-                  whileHover={{ scale: 1.02, y: -8 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.4) }}
+                  onMouseEnter={() => setHoveredRepo(repo.id)}
+                  onMouseLeave={() => setHoveredRepo(null)}
+                  className="group"
                 >
-                  {/* Outer glow */}
-                  <div className={`absolute -inset-1 bg-gradient-to-br ${theme.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-70 transition-all duration-500`}></div>
-
-                  <div className={`relative bg-gradient-to-br ${theme.gradient} backdrop-blur-2xl rounded-3xl border-2 ${theme.border} p-7 overflow-hidden transition-all duration-300 group-hover:${theme.glow} group-hover:shadow-2xl h-full`}>
-                    {/* Animated background pattern */}
-                    <motion.div
-                      className="absolute inset-0 opacity-5"
-                      style={{
-                        backgroundImage: 'radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px)',
-                        backgroundSize: '20px 20px',
-                      }}
-                      animate={{
-                        backgroundPosition: ['0px 0px', '20px 20px'],
-                      }}
-                      transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "linear"
-                      }}
-                    />
-
-                    {/* Energy corner accent */}
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-white/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-white/5 to-transparent rounded-tr-full"></div>
-
-                    <div className="relative z-10 flex flex-col h-full">
-                      {/* Repository Header with Icon */}
-                      <div className="mb-5">
-                        <div className="flex items-start gap-3 mb-3">
-                          <motion.div
-                            className="mt-1 p-2 rounded-xl bg-white/10 backdrop-blur-sm"
-                            whileHover={{ rotate: 360, scale: 1.1 }}
-                            transition={{ duration: 0.6 }}
-                          >
-                            <Github className="text-snow-white" size={20} />
-                          </motion.div>
-                          <div className="flex-1">
-                            <h3 className="text-xl font-extrabold text-snow-white mb-2 leading-tight group-hover:text-zenitsu-lightning transition-colors duration-300">
-                              {repo.name}
-                            </h3>
-                            {repo.language && (
-                              <div className="flex items-center gap-2">
-                                <motion.div
-                                  className="w-3.5 h-3.5 rounded-full shadow-lg"
-                                  style={{
-                                    backgroundColor: getLanguageColor(repo.language),
-                                    boxShadow: `0 0 10px ${getLanguageColor(repo.language)}`
-                                  }}
-                                  whileHover={{ scale: 1.4, rotate: 180 }}
-                                  transition={{ type: "spring", stiffness: 300 }}
-                                />
-                                <span className="text-snow-white/80 text-sm font-semibold">{repo.language}</span>
-                              </div>
-                            )}
+                  <div className={`relative h-full rounded-2xl transition-all duration-400 overflow-hidden ${
+                    isHovered 
+                      ? 'bg-gradient-to-br from-white/[0.08] to-white/[0.02] border-white/20 shadow-2xl shadow-black/40 scale-[1.02]' 
+                      : 'bg-gradient-to-br from-white/[0.04] to-transparent border-white/[0.06]'
+                  } border backdrop-blur-sm`}>
+                    
+                    {/* Language color accent - left side bar */}
+                    <div className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b ${langStyle.bg} ${isHovered ? 'opacity-100' : 'opacity-60'} transition-opacity duration-300`} />
+                    
+                    <div className="relative z-10 p-6 pl-7 flex flex-col h-full">
+                      {/* Top Row: Language + Stats */}
+                      <div className="flex items-center justify-between mb-4">
+                        {repo.language ? (
+                          <span className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold ${langStyle.text} bg-gradient-to-r ${langStyle.bg} border border-white/10`}>
+                            <div className="w-2 h-2 rounded-full bg-current animate-pulse" />
+                            {repo.language}
+                          </span>
+                        ) : (
+                          <span className="text-xs text-ash-gray/50">No language</span>
+                        )}
+                        
+                        <div className="flex items-center gap-3 text-xs text-ash-gray">
+                          <div className="flex items-center gap-1">
+                            <Star size={12} className="text-amber-400" />
+                            <span className="font-medium">{repo.stargazers_count}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <GitFork size={12} className="text-emerald-400" />
+                            <span className="font-medium">{repo.forks_count}</span>
                           </div>
                         </div>
                       </div>
+                      
+                      {/* Repository Name */}
+                      <h3 className={`text-xl font-bold mb-3 transition-colors duration-300 ${isHovered ? 'text-snow-white' : 'text-snow-white/90'}`}>
+                        {repo.name}
+                      </h3>
 
-                      {/* Description */}
-                      <div className="mb-5 flex-1">
-                        <p className="text-snow-white/70 text-sm leading-relaxed line-clamp-3">
-                          {repo.description || 'A sealed technique shrouded in mystery, waiting to be unveiled...'}
-                        </p>
-                      </div>
+                      {/* Description - cleaner, more space */}
+                      <p className="text-ash-gray/80 text-sm leading-relaxed line-clamp-2 mb-5 flex-grow">
+                        {repo.description || 'No description available'}
+                      </p>
 
-                      {/* Topics - Vibrant Tags */}
-                      {repo.topics && repo.topics.length > 0 && (
-                        <div className="flex flex-wrap gap-2 mb-5">
-                          {repo.topics.slice(0, 3).map((topic) => (
-                            <motion.span
-                              key={topic}
-                              className="px-3 py-1.5 bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-sm border border-white/30 text-snow-white text-xs rounded-lg font-bold uppercase tracking-wide shadow-lg"
-                              whileHover={{ scale: 1.08, y: -2 }}
-                            >
-                              {topic}
-                            </motion.span>
-                          ))}
-                          {repo.topics.length > 3 && (
-                            <span className="px-3 py-1.5 bg-white/10 border border-white/20 text-snow-white/60 text-xs rounded-lg font-medium">
-                              +{repo.topics.length - 3}
-                            </span>
-                          )}
-                        </div>
-                      )}
-
-                      {/* Stats - Enhanced Power Display */}
-                      <div className="flex items-center gap-5 mb-6 pb-5 border-b border-white/10">
-                        <motion.div
-                          className="flex items-center gap-2"
-                          whileHover={{ scale: 1.15 }}
-                        >
-                          <Star size={16} className="text-zenitsu-lightning drop-shadow-lg" fill="currentColor" />
-                          <span className="font-bold text-snow-white">{repo.stargazers_count}</span>
-                        </motion.div>
-                        <motion.div
-                          className="flex items-center gap-2"
-                          whileHover={{ scale: 1.15 }}
-                        >
-                          <GitFork size={16} className="text-cursed-blue drop-shadow-lg" />
-                          <span className="font-bold text-snow-white">{repo.forks_count}</span>
-                        </motion.div>
-                        <motion.div
-                          className="flex items-center gap-2 ml-auto"
-                          whileHover={{ scale: 1.15 }}
-                        >
-                          <Calendar size={16} className="text-domain-violet drop-shadow-lg" />
-                          <span className="text-xs font-semibold text-snow-white/70">{formatDate(repo.updated_at)}</span>
-                        </motion.div>
-                      </div>
-
-                      {/* Action Buttons - Enhanced Style */}
-                      <div className="flex gap-3 mt-auto">
-                        <motion.a
-                          href={repo.html_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 relative group/btn"
-                          whileHover={{ scale: 1.03 }}
-                          whileTap={{ scale: 0.97 }}
-                        >
-                          <div className="absolute -inset-0.5 bg-gradient-to-r from-rengoku-flame to-domain-violet rounded-xl blur opacity-70 group-hover/btn:opacity-100 transition-opacity"></div>
-                          <div className="relative flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-rengoku-flame to-domain-violet text-ghost-black rounded-xl text-sm font-extrabold shadow-xl">
-                            <Github size={16} />
-                            <span>View Code</span>
-                          </div>
-                        </motion.a>
-                        {repo.homepage && (
-                          <motion.a
-                            href={repo.homepage}
+                      {/* Footer: Date + Actions */}
+                      <div className="flex items-center justify-between pt-4 border-t border-white/[0.06]">
+                        <span className="text-xs text-ash-gray/60 flex items-center gap-1.5">
+                          <Calendar size={11} />
+                          {formatDate(repo.updated_at)}
+                        </span>
+                        
+                        <div className="flex items-center gap-2">
+                          <a
+                            href={repo.html_url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="relative group/btn"
-                            whileHover={{ scale: 1.03 }}
-                            whileTap={{ scale: 0.97 }}
+                            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-ash-gray hover:text-snow-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-lg transition-all duration-200"
                           >
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-zenitsu-lightning to-cursed-blue rounded-xl blur opacity-50 group-hover/btn:opacity-100 transition-opacity"></div>
-                            <div className="relative flex items-center justify-center gap-2 px-4 py-3 bg-white/10 backdrop-blur-xl border-2 border-white/30 text-snow-white rounded-xl text-sm font-bold">
-                              <Globe size={16} />
-                            </div>
-                          </motion.a>
-                        )}
+                            <Github size={12} />
+                            Code
+                          </a>
+                          {repo.homepage && (
+                            <a
+                              href={repo.homepage}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium ${langStyle.text} bg-gradient-to-r ${langStyle.bg} border border-white/10 rounded-lg hover:opacity-80 transition-all duration-200`}
+                            >
+                              <Globe size={12} />
+                              Live
+                            </a>
+                          )}
+                        </div>
                       </div>
-
-                      {/* Energy particles */}
-                      {[...Array(3)].map((_, i) => (
-                        <motion.div
-                          key={i}
-                          className="absolute w-1.5 h-1.5 rounded-full opacity-0 group-hover:opacity-100"
-                          style={{
-                            background: i % 2 === 0 ? '#FFD000' : '#7F00FF',
-                            top: `${20 + i * 30}%`,
-                            right: `${10 + i * 5}%`,
-                          }}
-                          animate={{
-                            y: [0, -20, 0],
-                            scale: [1, 1.5, 1],
-                            opacity: [0.3, 1, 0.3],
-                          }}
-                          transition={{
-                            duration: 2 + i * 0.5,
-                            repeat: Infinity,
-                            delay: i * 0.2,
-                          }}
-                        ></motion.div>
-                      ))}
                     </div>
                   </div>
                 </motion.div>
@@ -709,70 +468,42 @@ const Development = () => {
           </motion.div>
         </AnimatePresence>
 
-        {/* No Results - Enhanced Design */}
+        {/* No Results */}
         {filteredRepos.length === 0 && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="text-center py-24"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center py-20"
           >
-            <div className="relative inline-block mb-8">
+            <div className="mb-8 relative inline-block">
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 border border-violet-500/20">
+                <Code size={40} className="text-violet-400" />
+              </div>
               <motion.div
-                className="absolute -inset-8 bg-gradient-to-r from-rengoku-flame/20 via-zenitsu-lightning/20 to-domain-violet/20 rounded-full blur-2xl"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.5, 0.8, 0.5],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                }}
+                className="absolute inset-0 rounded-2xl bg-violet-500/20 blur-xl -z-10"
+                animate={{ opacity: [0.3, 0.5, 0.3] }}
+                transition={{ duration: 2, repeat: Infinity }}
               />
-              <motion.div
-                className="relative"
-                animate={{
-                  rotate: [0, 10, -10, 0],
-                  scale: [1, 1.15, 1],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                }}
-              >
-                <Swords size={96} className="text-rengoku-flame" />
-              </motion.div>
             </div>
 
-            <h3 className="text-3xl md:text-4xl font-extrabold mb-4">
-              <span className="bg-gradient-to-r from-rengoku-flame via-zenitsu-lightning to-domain-violet bg-clip-text text-transparent">
-                Domain Void
-              </span>
+            <h3 className="text-2xl font-bold text-snow-white mb-3">
+              No Repositories Found
             </h3>
-            <p className="text-snow-white/70 text-base md:text-lg max-w-lg mx-auto mb-10 leading-relaxed">
-              No techniques match your current filters. The scrolls you seek lie beyond this domain.
-              <br />
-              <span className="text-zenitsu-lightning font-semibold">Adjust your elemental focus to reveal hidden powers.</span>
+            <p className="text-ash-gray text-base max-w-md mx-auto mb-8">
+              No projects match the selected technology filter. Try exploring other languages.
             </p>
 
-            <motion.button
-              onClick={() => {
-                setFilter('all');
-                setSelectedLanguage('all');
-              }}
-              className="relative group"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+
+            <button
+              onClick={() => setSelectedLanguage('all')}
+              className="px-6 py-3 bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 border border-violet-500/30 text-snow-white rounded-xl text-sm font-medium hover:border-violet-500/50 transition-all duration-300"
             >
-              <div className="absolute -inset-1 bg-gradient-to-r from-zenitsu-lightning via-rengoku-flame to-domain-violet rounded-2xl blur opacity-70 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative px-10 py-4 bg-gradient-to-r from-zenitsu-lightning via-rengoku-flame to-domain-violet text-ghost-black rounded-2xl font-extrabold text-lg shadow-2xl flex items-center gap-3 justify-center">
-                <RotateCcw size={20} />
-                Reset All Filters
-              </div>
-            </motion.button>
+              View All Projects
+            </button>
           </motion.div>
         )}
       </div>
-      </div>
+    </div>
   );
 }
 
