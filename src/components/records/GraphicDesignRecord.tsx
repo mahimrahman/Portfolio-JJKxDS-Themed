@@ -73,6 +73,8 @@ const GraphicDesignRecord: React.FC = () => {
   const [filterCategory, setFilterCategory] = useState<string>('all');
   const [showGridView, setShowGridView] = useState(false);
   const [selectedImageForCarousel, setSelectedImageForCarousel] = useState<number | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [imagesPerPage] = useState(50); // Show 50 images per page
   const modalRef = useRef<HTMLDivElement>(null);
 
   // Prevent body scroll when carousel is open
@@ -174,6 +176,7 @@ const GraphicDesignRecord: React.FC = () => {
     setSelectedSubcategory(null);
     setShowGridView(false);
     setSelectedImageForCarousel(null);
+    setCurrentPage(1); // Reset pagination
     // Push state for browser back button
     window.history.pushState({ page: 'category' }, '', window.location.pathname);
   };
@@ -183,6 +186,7 @@ const GraphicDesignRecord: React.FC = () => {
     setCarouselIdx(0);
     setShowGridView(true);
     setSelectedImageForCarousel(null);
+    setCurrentPage(1); // Reset pagination
     // Push state for browser back button
     window.history.pushState({ page: 'subcategory' }, '', window.location.pathname);
   };
@@ -222,6 +226,7 @@ const GraphicDesignRecord: React.FC = () => {
     setShowGridView(true);
     setFilterCategory('all');
     setSelectedImageForCarousel(null);
+    setCurrentPage(1); // Reset pagination
     // Push state for browser back button
     window.history.pushState({ page: 'all' }, '', window.location.pathname);
   };
@@ -244,26 +249,49 @@ const GraphicDesignRecord: React.FC = () => {
   };
 
   const getDisplayImages = (): ImageData[] => {
+    let images: ImageData[] = [];
+
     if (showAllView) {
       if (filterCategory === 'all') {
-        return allImages;
+        images = allImages;
       } else {
         const category = categories.find(cat => cat.id === filterCategory);
-        return category ? category.images : allImages;
+        images = category ? category.images : allImages;
+      }
+    } else if (openIdx !== null) {
+      const category = categories[openIdx];
+      if (selectedSubcategory) {
+        images = category.images.filter(img =>
+          img.path.includes(`${category.folder}/${selectedSubcategory.folder}`)
+        );
+      } else {
+        images = category.images;
       }
     }
 
-    if (openIdx === null) return [];
+    // Apply pagination
+    const startIdx = (currentPage - 1) * imagesPerPage;
+    const endIdx = startIdx + imagesPerPage;
+    return images.slice(startIdx, endIdx);
+  };
 
+  const getTotalImages = (): number => {
+    if (showAllView) {
+      if (filterCategory === 'all') {
+        return allImages.length;
+      } else {
+        const category = categories.find(cat => cat.id === filterCategory);
+        return category ? category.images.length : allImages.length;
+      }
+    }
+    if (openIdx === null) return 0;
     const category = categories[openIdx];
-
     if (selectedSubcategory) {
       return category.images.filter(img =>
         img.path.includes(`${category.folder}/${selectedSubcategory.folder}`)
-      );
+      ).length;
     }
-
-    return category.images;
+    return category.images.length;
   };
 
   // Keyboard accessibility
@@ -434,20 +462,17 @@ const GraphicDesignRecord: React.FC = () => {
             aria-modal="true"
             role="dialog"
           >
-            <motion.div
-              className={`relative w-full mx-auto flex flex-col ${
-                selectedImageForCarousel !== null
-                  ? 'h-full items-center justify-center max-w-7xl px-8'
-                  : 'items-center max-w-7xl px-6 py-12 min-h-full'
-              }`}
-              initial={{ scale: 0.95, y: 40 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95, y: 40 }}
-              transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}
-              onClick={(e) => e.stopPropagation()}
-            >
+            <div className="w-full min-h-full flex items-start justify-center py-12">
+              <motion.div
+                className="relative w-full max-w-7xl px-6"
+                initial={{ scale: 0.95, y: 40 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.95, y: 40 }}
+                transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}
+                onClick={(e) => e.stopPropagation()}
+              >
               {/* Header with Back/Close Button */}
-              <div className={`w-full flex flex-wrap items-center justify-between gap-4 ${selectedImageForCarousel !== null ? 'absolute top-4 left-0 right-0 px-8 z-20' : 'mb-8'}`}>
+              <div className={`w-full flex flex-wrap items-center justify-between gap-4 mb-8 ${selectedImageForCarousel !== null ? 'hidden' : ''}`}>
                 <button
                   onClick={handleBack}
                   className="text-snow-white hover:text-zenitsu-lightning transition-colors z-10 flex items-center gap-2 bg-black/80 backdrop-blur-md px-5 py-2.5 rounded-full shadow-lg hover:shadow-zenitsu-lightning/20"
@@ -462,7 +487,10 @@ const GraphicDesignRecord: React.FC = () => {
                     <Filter size={20} className="text-zenitsu-lightning" />
                     <select
                       value={filterCategory}
-                      onChange={(e) => setFilterCategory(e.target.value)}
+                      onChange={(e) => {
+                        setFilterCategory(e.target.value);
+                        setCurrentPage(1); // Reset to page 1 when filter changes
+                      }}
                       className="bg-transparent text-snow-white border-none outline-none cursor-pointer font-medium pr-2"
                     >
                       <option value="all" className="bg-deep-charcoal">All Categories ({allImages.length})</option>
@@ -554,9 +582,33 @@ const GraphicDesignRecord: React.FC = () => {
               {/* Grid View */}
               {showGridView && selectedImageForCarousel === null && (
                 <div className="w-full max-w-7xl px-4">
-                  <div className="text-snow-white/80 text-center mb-8 text-lg font-semibold">
-                    {getDisplayImages().length} items
+                  <div className="text-snow-white/80 text-center mb-6 text-lg font-semibold">
+                    Showing {Math.min((currentPage - 1) * imagesPerPage + 1, getTotalImages())}-{Math.min(currentPage * imagesPerPage, getTotalImages())} of {getTotalImages()} items
                   </div>
+
+                  {/* Pagination Controls - Top */}
+                  {getTotalImages() > imagesPerPage && (
+                    <div className="flex justify-center items-center gap-4 mb-8">
+                      <button
+                        onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                        disabled={currentPage === 1}
+                        className="px-4 py-2 bg-black/80 backdrop-blur-md text-snow-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-zenitsu-lightning/20 transition-colors"
+                      >
+                        <ChevronLeft size={20} />
+                      </button>
+                      <span className="text-snow-white font-medium">
+                        Page {currentPage} of {Math.ceil(getTotalImages() / imagesPerPage)}
+                      </span>
+                      <button
+                        onClick={() => setCurrentPage(Math.min(Math.ceil(getTotalImages() / imagesPerPage), currentPage + 1))}
+                        disabled={currentPage >= Math.ceil(getTotalImages() / imagesPerPage)}
+                        className="px-4 py-2 bg-black/80 backdrop-blur-md text-snow-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-zenitsu-lightning/20 transition-colors"
+                      >
+                        <ChevronRight size={20} />
+                      </button>
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
                     {getDisplayImages().map((img, idx) => (
                       <motion.div
@@ -585,6 +637,7 @@ const GraphicDesignRecord: React.FC = () => {
                             alt={img.name}
                             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                             loading="lazy"
+                            decoding="async"
                           />
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
@@ -597,6 +650,35 @@ const GraphicDesignRecord: React.FC = () => {
                       </motion.div>
                     ))}
                   </div>
+
+                  {/* Pagination Controls - Bottom */}
+                  {getTotalImages() > imagesPerPage && (
+                    <div className="flex justify-center items-center gap-4 mt-8">
+                      <button
+                        onClick={() => {
+                          setCurrentPage(Math.max(1, currentPage - 1));
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        disabled={currentPage === 1}
+                        className="px-4 py-2 bg-black/80 backdrop-blur-md text-snow-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-zenitsu-lightning/20 transition-colors"
+                      >
+                        <ChevronLeft size={20} />
+                      </button>
+                      <span className="text-snow-white font-medium">
+                        Page {currentPage} of {Math.ceil(getTotalImages() / imagesPerPage)}
+                      </span>
+                      <button
+                        onClick={() => {
+                          setCurrentPage(Math.min(Math.ceil(getTotalImages() / imagesPerPage), currentPage + 1));
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        disabled={currentPage >= Math.ceil(getTotalImages() / imagesPerPage)}
+                        className="px-4 py-2 bg-black/80 backdrop-blur-md text-snow-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-zenitsu-lightning/20 transition-colors"
+                      >
+                        <ChevronRight size={20} />
+                      </button>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -618,32 +700,32 @@ const GraphicDesignRecord: React.FC = () => {
                 }
 
                 return (
-                  <div className="flex flex-col items-center justify-center w-full h-full">
+                  <div className="flex flex-col items-center justify-center w-full px-4 py-8">
                     {currentImages.length > 1 && (
                       <>
                         <button
                           onClick={handlePrev}
-                          className="fixed left-8 top-1/2 -translate-y-1/2 text-snow-white hover:text-zenitsu-lightning px-4 py-8 z-30 bg-black/80 rounded-full transition-colors shadow-2xl"
+                          className="fixed left-6 top-1/2 -translate-y-1/2 text-snow-white hover:text-zenitsu-lightning px-3 py-6 z-30 bg-black/80 backdrop-blur-md rounded-full transition-colors shadow-2xl hover:shadow-zenitsu-lightning/30"
                           aria-label="Previous"
                         >
-                          <ChevronLeft size={32} />
+                          <ChevronLeft size={28} />
                         </button>
                         <button
                           onClick={handleNext}
-                          className="fixed right-8 top-1/2 -translate-y-1/2 text-snow-white hover:text-zenitsu-lightning px-4 py-8 z-30 bg-black/80 rounded-full transition-colors shadow-2xl"
+                          className="fixed right-6 top-1/2 -translate-y-1/2 text-snow-white hover:text-zenitsu-lightning px-3 py-6 z-30 bg-black/80 backdrop-blur-md rounded-full transition-colors shadow-2xl hover:shadow-zenitsu-lightning/30"
                           aria-label="Next"
                         >
-                          <ChevronRight size={32} />
+                          <ChevronRight size={28} />
                         </button>
                       </>
                     )}
 
-                    <div className="flex items-center justify-center w-full">
+                    <div className="flex items-center justify-center w-full max-w-6xl max-h-[65vh] mb-6">
                       {currentImage.path.endsWith('.mp4') ? (
                         <video
                           key={currentImage.path}
                           src={currentImage.path}
-                          className="max-w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl border-4 border-domain-violet bg-black"
+                          className="max-w-full max-h-full object-contain rounded-xl shadow-2xl border-2 border-domain-violet/50 bg-black"
                           controls
                           autoPlay
                           loop
@@ -653,7 +735,7 @@ const GraphicDesignRecord: React.FC = () => {
                           key={currentImage.path}
                           src={currentImage.path}
                           alt={currentImage.name}
-                          className="max-w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl border-4 border-domain-violet bg-black"
+                          className="max-w-full max-h-full object-contain rounded-xl shadow-2xl border-2 border-domain-violet/50 bg-black"
                           initial={{ opacity: 0, scale: 0.95 }}
                           animate={{ opacity: 1, scale: 1 }}
                           exit={{ opacity: 0, scale: 0.95 }}
@@ -663,19 +745,19 @@ const GraphicDesignRecord: React.FC = () => {
                       )}
                     </div>
 
-                    <div className="flex flex-col items-center gap-4 mt-6 absolute bottom-8 left-0 right-0">
-                      <div className="bg-black/60 backdrop-blur-md px-6 py-3 rounded-full">
-                        <div className="flex justify-center gap-2 flex-wrap max-w-2xl mb-2">
+                    <div className="flex flex-col items-center gap-3">
+                      <div className="bg-black/70 backdrop-blur-md px-6 py-3 rounded-full">
+                        <div className="flex justify-center gap-2 flex-wrap max-w-xl mb-2">
                           {currentImages.slice(0, 15).map((_, i) => (
                             <button
                               key={i}
                               onClick={() => setCarouselIdx(i)}
-                              className={`w-3 h-3 rounded-full border-2 ${i === carouselIdx ? 'bg-zenitsu-lightning border-zenitsu-lightning' : 'bg-ghost-black border-domain-violet'} transition-all`}
+                              className={`w-2.5 h-2.5 rounded-full border-2 ${i === carouselIdx ? 'bg-zenitsu-lightning border-zenitsu-lightning' : 'bg-ghost-black border-domain-violet'} transition-all`}
                               aria-label={`Go to slide ${i + 1}`}
                             />
                           ))}
                           {currentImages.length > 15 && (
-                            <span className="text-snow-white/50 text-sm">
+                            <span className="text-snow-white/50 text-xs">
                               +{currentImages.length - 15} more
                             </span>
                           )}
@@ -689,7 +771,7 @@ const GraphicDesignRecord: React.FC = () => {
                 );
               })()}
 
-              {/* Carousel View from Grid */}
+              {/* Carousel View from Grid - Fullscreen Overlay */}
               {selectedImageForCarousel !== null && (() => {
                 const currentImages = getDisplayImages();
 
@@ -703,19 +785,44 @@ const GraphicDesignRecord: React.FC = () => {
                 }
 
                 return (
-                  <div className="flex flex-col items-center justify-center w-full">
+                  <motion.div
+                    className="fixed inset-0 z-[100] flex items-center justify-center"
+                    style={{
+                      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.95)), url(/src/graphicbg.jpg)`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      backgroundAttachment: 'fixed'
+                    }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={(e) => {
+                      if (e.target === e.currentTarget) {
+                        setSelectedImageForCarousel(null);
+                      }
+                    }}
+                  >
+                    {/* Close button */}
+                    <button
+                      onClick={() => setSelectedImageForCarousel(null)}
+                      className="fixed top-6 right-6 text-snow-white hover:text-zenitsu-lightning p-3 z-[110] bg-black/80 backdrop-blur-md rounded-full transition-colors shadow-2xl hover:shadow-zenitsu-lightning/30"
+                      aria-label="Close carousel"
+                    >
+                      <X size={28} />
+                    </button>
+
                     {currentImages.length > 1 && (
                       <>
                         <button
                           onClick={handlePrev}
-                          className="fixed left-8 top-1/2 -translate-y-1/2 text-snow-white hover:text-zenitsu-lightning px-4 py-8 z-30 bg-black/80 rounded-full transition-colors shadow-2xl"
+                          className="fixed left-6 top-1/2 -translate-y-1/2 text-snow-white hover:text-zenitsu-lightning px-4 py-8 z-[110] bg-black/80 backdrop-blur-md rounded-full transition-colors shadow-2xl hover:shadow-zenitsu-lightning/30"
                           aria-label="Previous"
                         >
                           <ChevronLeft size={32} />
                         </button>
                         <button
                           onClick={handleNext}
-                          className="fixed right-8 top-1/2 -translate-y-1/2 text-snow-white hover:text-zenitsu-lightning px-4 py-8 z-30 bg-black/80 rounded-full transition-colors shadow-2xl"
+                          className="fixed right-6 top-1/2 -translate-y-1/2 text-snow-white hover:text-zenitsu-lightning px-4 py-8 z-[110] bg-black/80 backdrop-blur-md rounded-full transition-colors shadow-2xl hover:shadow-zenitsu-lightning/30"
                           aria-label="Next"
                         >
                           <ChevronRight size={32} />
@@ -723,43 +830,44 @@ const GraphicDesignRecord: React.FC = () => {
                       </>
                     )}
 
-                    <div className="flex items-center justify-center w-full">
-                      {currentImage.path.endsWith('.mp4') ? (
-                        <video
-                          key={currentImage.path}
-                          src={currentImage.path}
-                          className="max-w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl border-4 border-domain-violet bg-black"
-                          controls
-                          autoPlay
-                          loop
-                        />
-                      ) : (
-                        <motion.img
-                          key={currentImage.path}
-                          src={currentImage.path}
-                          alt={currentImage.name}
-                          className="max-w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl border-4 border-domain-violet bg-black"
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.95 }}
-                          transition={{ duration: 0.4 }}
-                          loading="lazy"
-                        />
-                      )}
-                    </div>
+                    <div className="flex flex-col items-center justify-center gap-4 w-full h-full px-4 py-20">
+                      <div className="flex items-center justify-center max-w-[85vw] max-h-[70vh] w-full">
+                        {currentImage.path.endsWith('.mp4') ? (
+                          <video
+                            key={currentImage.path}
+                            src={currentImage.path}
+                            className="max-w-full max-h-full object-contain rounded-xl shadow-2xl border-2 border-domain-violet/50 bg-black"
+                            controls
+                            autoPlay
+                            loop
+                          />
+                        ) : (
+                          <motion.img
+                            key={currentImage.path}
+                            src={currentImage.path}
+                            alt={currentImage.name}
+                            className="max-w-full max-h-full object-contain rounded-xl shadow-2xl border-2 border-domain-violet/50 bg-black"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            transition={{ duration: 0.4 }}
+                            loading="lazy"
+                          />
+                        )}
+                      </div>
 
-                    <div className="flex flex-col items-center gap-4 mt-6 absolute bottom-8 left-0 right-0">
-                      <div className="text-snow-white text-center bg-black/60 backdrop-blur-md px-6 py-3 rounded-full">
-                        <p className="font-semibold text-lg">{currentImage.name}</p>
-                        <p className="text-snow-white/70 text-base mt-1">
+                      <div className="text-snow-white text-center bg-black/80 backdrop-blur-md px-6 py-3 rounded-full shadow-2xl">
+                        <p className="font-semibold text-base truncate max-w-md">{currentImage.name}</p>
+                        <p className="text-snow-white/70 text-sm mt-1">
                           {carouselIdx + 1} / {currentImages.length}
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })()}
-            </motion.div>
+              </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
