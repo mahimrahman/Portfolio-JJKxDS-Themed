@@ -10,20 +10,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import japaneseBg from '../../japanese.jpg';
 
-interface ImageMetadata {
-  model?: string;
-  location?: string;
-}
-
-interface Photo {
-  src: string;
-  location: string;
-  model?: string;
-  name: string;
-  metadata: ImageMetadata | null;
-  category: string;
-}
-
 interface Category {
   name: string;
   path: string;
