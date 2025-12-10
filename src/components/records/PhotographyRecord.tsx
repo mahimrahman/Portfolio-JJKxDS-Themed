@@ -21,6 +21,14 @@ interface Photo {
   model?: string;
   name: string;
   metadata: ImageMetadata | null;
+  category: string;
+}
+
+interface Category {
+  name: string;
+  path: string;
+  imageCount: number;
+  images: any[];
 }
 
 interface SakuraPetalProps {
@@ -59,6 +67,8 @@ const SakuraPetal: React.FC<SakuraPetalProps> = ({ delay, size, duration, xOffse
 );
 
 const PhotographyRecord: React.FC = () => {
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
   const [openIdx, setOpenIdx] = useState<number | null>(null);
@@ -68,15 +78,7 @@ const PhotographyRecord: React.FC = () => {
     fetch('/assets/Pic/photography-manifest.json')
       .then(res => res.json())
       .then((data) => {
-        // Combine all images from both categories
-        const allPhotos: Photo[] = data.images.map((img: any) => ({
-          src: img.path,
-          location: img.metadata?.location || 'Unknown Location',
-          model: img.metadata?.model,
-          name: img.name,
-          metadata: img.metadata
-        }));
-        setPhotos(allPhotos);
+        setCategories(data.categories);
         setLoading(false);
       })
       .catch(err => {
@@ -84,6 +86,24 @@ const PhotographyRecord: React.FC = () => {
         setLoading(false);
       });
   }, []);
+
+  useEffect(() => {
+    // Update photos when category is selected
+    if (selectedCategory && categories.length > 0) {
+      const category = categories.find(cat => cat.name === selectedCategory);
+      if (category) {
+        const categoryPhotos: Photo[] = category.images.map((img: any) => ({
+          src: img.path,
+          location: img.metadata?.location || 'Unknown Location',
+          model: img.metadata?.model,
+          name: img.name,
+          metadata: img.metadata,
+          category: img.category
+        }));
+        setPhotos(categoryPhotos);
+      }
+    }
+  }, [selectedCategory, categories]);
 
   const handleKey = useCallback((e: KeyboardEvent) => {
     if (openIdx === null) return;
@@ -165,7 +185,86 @@ const PhotographyRecord: React.FC = () => {
           Photography
         </motion.h2>
 
-        <div className="flex-1 relative max-h-[calc(100vh-12rem)]">
+        {/* Category Selection */}
+        {!selectedCategory ? (
+          <motion.div
+            className="flex-1 flex items-center justify-center px-4"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl w-full">
+              {categories.map((category, idx) => (
+                <motion.div
+                  key={category.name}
+                  className="relative group cursor-pointer"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: idx * 0.15 }}
+                  whileHover={{ scale: 1.05 }}
+                  onClick={() => setSelectedCategory(category.name)}
+                >
+                  <div className="relative h-[400px] rounded-2xl overflow-hidden border-2 border-white/20 group-hover:border-zenitsu-lightning transition-all duration-300 shadow-2xl">
+                    {/* Category Cover Image */}
+                    <img
+                      src={category.images[0]?.path}
+                      alt={category.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+
+                    {/* Category Info */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-end p-8">
+                      <motion.h3
+                        className="text-4xl md:text-5xl font-mochiy text-snow-white mb-3 group-hover:text-zenitsu-lightning transition-colors duration-300"
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        {category.name}
+                      </motion.h3>
+                      <div className="flex items-center gap-2 text-snow-white/80 text-lg">
+                        <span className="font-anime">{category.imageCount} Photos</span>
+                      </div>
+                      <motion.div
+                        className="mt-4 px-6 py-2 bg-zenitsu-lightning/20 backdrop-blur-sm border border-zenitsu-lightning/50 rounded-full text-snow-white font-medium group-hover:bg-zenitsu-lightning/30 transition-all duration-300"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        View Collection
+                      </motion.div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        ) : (
+          <>
+            {/* Back to Categories Button */}
+            <motion.div
+              className="flex justify-center mb-4"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <button
+                onClick={() => {
+                  setSelectedCategory(null);
+                  setOpenIdx(null);
+                }}
+                className="inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 rounded-xl text-zenitsu-lightning hover:text-snow-white transition-all duration-300 font-medium shadow-lg group"
+              >
+                <motion.div
+                  whileHover={{ x: -2 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
+                  <ArrowLeft size={18} />
+                </motion.div>
+                <span className="group-hover:underline">Back to Categories</span>
+              </button>
+            </motion.div>
+
+            <div className="flex-1 relative max-h-[calc(100vh-16rem)]">
           <Swiper
             effect={'coverflow'}
             grabCursor={true}
@@ -239,9 +338,11 @@ const PhotographyRecord: React.FC = () => {
             ))}
           </Swiper>
         </div>
+        </>
+        )}
 
         <AnimatePresence>
-          {openIdx !== null && (
+          {openIdx !== null && selectedCategory && (
             <motion.div
               className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
               initial={{ opacity: 0 }}
