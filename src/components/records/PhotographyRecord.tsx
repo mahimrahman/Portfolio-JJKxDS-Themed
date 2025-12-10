@@ -106,6 +106,20 @@ const PhotographyRecord: React.FC = () => {
     return [];
   }, [selectedCategory, categories]);
 
+  // Memoize sakura petals to prevent recreation on each render
+  const sakuraPetals = useMemo(() =>
+    Array.from({ length: 20 }).map((_, i) => (
+      <SakuraPetal
+        key={i}
+        delay={i * 0.3}
+        size={16 + Math.random() * 16}
+        duration={15 + Math.random() * 20}
+        xOffset={Math.random() * window.innerWidth}
+        swayAmount={Math.random() * 200 - 100}
+      />
+    )), []
+  );
+
   const handleKey = useCallback((e: KeyboardEvent) => {
     if (openIdx === null) return;
     if (e.key === 'ArrowLeft') {
@@ -134,20 +148,6 @@ const PhotographyRecord: React.FC = () => {
     );
   }
 
-  // Memoize sakura petals to prevent recreation on each render
-  const sakuraPetals = useMemo(() =>
-    Array.from({ length: 20 }).map((_, i) => (
-      <SakuraPetal
-        key={i}
-        delay={i * 0.3}
-        size={16 + Math.random() * 16}
-        duration={15 + Math.random() * 20}
-        xOffset={Math.random() * window.innerWidth}
-        swayAmount={Math.random() * 200 - 100}
-      />
-    )), []
-  );
-
   return (
     <div className="relative h-screen bg-deep-charcoal overflow-hidden">
       {/* Enhanced Sakura petals */}
@@ -161,26 +161,28 @@ const PhotographyRecord: React.FC = () => {
       />
 
       <div className="relative z-10 h-full flex flex-col">
-        {/* Back to Portfolio Button */}
-        <motion.div
-          className="absolute top-6 left-6 z-40"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Link
-            to="/#portfolio"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 rounded-xl text-zenitsu-lightning hover:text-snow-white transition-all duration-300 font-medium shadow-lg group"
+        {/* Back to Portfolio Button - Only show when no category selected */}
+        {!selectedCategory && (
+          <motion.div
+            className="absolute top-6 left-6 z-40"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            <motion.div
-              whileHover={{ x: -2 }}
-              transition={{ type: "spring", stiffness: 400 }}
+            <Link
+              to="/#portfolio"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 rounded-xl text-zenitsu-lightning hover:text-snow-white transition-all duration-300 font-medium shadow-lg group"
             >
-              <ArrowLeft size={18} />
-            </motion.div>
-            <span className="group-hover:underline">Back to Portfolio</span>
-          </Link>
-        </motion.div>
+              <motion.div
+                whileHover={{ x: -2 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
+                <ArrowLeft size={18} />
+              </motion.div>
+              <span className="group-hover:underline">Back to Portfolio</span>
+            </Link>
+          </motion.div>
+        )}
 
         <motion.h2
           className="text-4xl md:text-5xl font-mochiy text-snow-white py-8 text-center"
@@ -250,28 +252,56 @@ const PhotographyRecord: React.FC = () => {
           <>
             {/* Enhanced Header with Stats and View Toggle */}
             <motion.div
-              className="flex flex-col md:flex-row justify-between items-center px-6 mb-6 gap-4"
+              className="flex flex-col md:flex-row justify-between items-start md:items-center px-6 mb-6 gap-4"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
             >
               {/* Back Button and Category Info */}
-              <div className="flex items-center gap-4">
-                <button
-                  onClick={() => {
-                    setSelectedCategory(null);
-                    setOpenIdx(null);
-                  }}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 rounded-xl text-zenitsu-lightning hover:text-snow-white transition-all duration-300 font-medium shadow-lg group"
-                >
-                  <motion.div
-                    whileHover={{ x: -2 }}
-                    transition={{ type: "spring", stiffness: 400 }}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 w-full md:w-auto">
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={() => {
+                      setSelectedCategory(null);
+                      setOpenIdx(null);
+                    }}
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 rounded-xl text-zenitsu-lightning hover:text-snow-white transition-all duration-300 font-medium shadow-lg group"
                   >
-                    <ArrowLeft size={18} />
-                  </motion.div>
-                  <span className="group-hover:underline">Back</span>
-                </button>
+                    <motion.div
+                      whileHover={{ x: -2 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                    >
+                      <ArrowLeft size={18} />
+                    </motion.div>
+                    <span className="group-hover:underline">Back</span>
+                  </button>
+
+                  {/* View Mode Toggle - Mobile position */}
+                  <div className="sm:hidden">
+                    <div className="flex items-center gap-2 bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 rounded-xl p-1">
+                      <button
+                        onClick={() => setViewMode('carousel')}
+                        className={`px-3 py-2 rounded-lg transition-all duration-300 flex items-center gap-2 ${
+                          viewMode === 'carousel'
+                            ? 'bg-zenitsu-lightning text-deep-charcoal font-bold'
+                            : 'text-snow-white/70 hover:text-snow-white'
+                        }`}
+                      >
+                        <Layers size={16} />
+                      </button>
+                      <button
+                        onClick={() => setViewMode('grid')}
+                        className={`px-3 py-2 rounded-lg transition-all duration-300 flex items-center gap-2 ${
+                          viewMode === 'grid'
+                            ? 'bg-zenitsu-lightning text-deep-charcoal font-bold'
+                            : 'text-snow-white/70 hover:text-snow-white'
+                        }`}
+                      >
+                        <Grid3x3 size={16} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
 
                 {/* Category Stats */}
                 <motion.div
@@ -301,9 +331,9 @@ const PhotographyRecord: React.FC = () => {
                 </motion.div>
               </div>
 
-              {/* View Mode Toggle */}
+              {/* View Mode Toggle - Desktop only */}
               <motion.div
-                className="flex items-center gap-2 bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 rounded-xl p-1"
+                className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 rounded-xl p-1"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3 }}
@@ -317,7 +347,7 @@ const PhotographyRecord: React.FC = () => {
                   }`}
                 >
                   <Layers size={16} />
-                  <span className="text-sm hidden sm:inline">Carousel</span>
+                  <span className="text-sm">Carousel</span>
                 </button>
                 <button
                   onClick={() => setViewMode('grid')}
@@ -328,26 +358,26 @@ const PhotographyRecord: React.FC = () => {
                   }`}
                 >
                   <Grid3x3 size={16} />
-                  <span className="text-sm hidden sm:inline">Grid</span>
+                  <span className="text-sm">Grid</span>
                 </button>
               </motion.div>
             </motion.div>
 
             {/* Carousel View */}
             {viewMode === 'carousel' && (
-            <div className="flex-1 relative max-h-[calc(100vh-18rem)] px-4 md:px-0">
+            <div className="flex-1 relative max-h-[calc(100vh-18rem)]">
           <Swiper
             effect={'coverflow'}
             grabCursor={true}
             centeredSlides={true}
-            slidesPerView={1.5}
+            slidesPerView={'auto'}
             initialSlide={0}
-            spaceBetween={20}
+            spaceBetween={30}
             coverflowEffect={{
-              rotate: 15,
+              rotate: 20,
               stretch: 0,
-              depth: 200,
-              modifier: 1,
+              depth: 250,
+              modifier: 1.2,
               slideShadows: true,
             }}
             mousewheel={{
@@ -365,30 +395,7 @@ const PhotographyRecord: React.FC = () => {
             onSwiper={() => {}}
             breakpoints={{
               320: {
-                slidesPerView: 1.2,
-                spaceBetween: 15,
-                coverflowEffect: {
-                  rotate: 10,
-                  stretch: 0,
-                  depth: 150,
-                  modifier: 1,
-                  slideShadows: true,
-                }
-              },
-              480: {
-                slidesPerView: 1.5,
                 spaceBetween: 20,
-                coverflowEffect: {
-                  rotate: 12,
-                  stretch: 0,
-                  depth: 180,
-                  modifier: 1,
-                  slideShadows: true,
-                }
-              },
-              640: {
-                slidesPerView: 2.5,
-                spaceBetween: 25,
                 coverflowEffect: {
                   rotate: 15,
                   stretch: 0,
@@ -397,8 +404,17 @@ const PhotographyRecord: React.FC = () => {
                   slideShadows: true,
                 }
               },
-              768: {
-                slidesPerView: 3,
+              640: {
+                spaceBetween: 25,
+                coverflowEffect: {
+                  rotate: 18,
+                  stretch: 0,
+                  depth: 220,
+                  modifier: 1.1,
+                  slideShadows: true,
+                }
+              },
+              1024: {
                 spaceBetween: 30,
                 coverflowEffect: {
                   rotate: 20,
@@ -407,22 +423,11 @@ const PhotographyRecord: React.FC = () => {
                   modifier: 1.2,
                   slideShadows: true,
                 }
-              },
-              1024: {
-                slidesPerView: 5,
-                spaceBetween: 40,
-                coverflowEffect: {
-                  rotate: 25,
-                  stretch: 0,
-                  depth: 300,
-                  modifier: 1.5,
-                  slideShadows: true,
-                }
               }
             }}
           >
             {photos.map((photo, idx) => (
-              <SwiperSlide key={idx} className="h-[350px] sm:h-[400px]">
+              <SwiperSlide key={idx} className="!w-[200px] md:!w-[280px] h-[280px] md:h-[380px]">
                 <motion.div
                   className="relative w-full h-full rounded-lg overflow-hidden cursor-pointer shadow-xl"
                   whileHover={{ scale: 1.05, zIndex: 10 }}
@@ -438,14 +443,13 @@ const PhotographyRecord: React.FC = () => {
                     loading="lazy"
                     decoding="async"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {/* Always visible subtle info overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/70 to-transparent">
                     {photo.model && (
-                      <p className="text-snow-white font-medium text-sm mb-1">
-                        {photo.model}
-                      </p>
+                      <p className="text-white/70 text-[10px] font-light mb-0.5">{photo.model}</p>
                     )}
-                    <p className="text-snow-white/80 text-xs">
-                      {photo.location.split(',')[0]}
+                    <p className="text-white/60 text-[9px] font-light">
+                      {photo.location.split(',').slice(0, 2).join(', ')}
                     </p>
                   </div>
                 </motion.div>
@@ -455,60 +459,46 @@ const PhotographyRecord: React.FC = () => {
         </div>
             )}
 
-            {/* Grid View */}
+            {/* Grid View - Instagram Style */}
             {viewMode === 'grid' && (
               <motion.div
-                className="flex-1 px-6 pb-6 overflow-y-auto max-h-[calc(100vh-18rem)]"
+                className="flex-1 px-4 md:px-6 pb-6 overflow-y-auto max-h-[calc(100vh-18rem)] flex justify-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+                <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1 md:gap-2 w-full" style={{ maxWidth: '1200px' }}>
                   {photos.map((photo, idx) => (
                     <motion.div
                       key={idx}
-                      className="relative group cursor-pointer aspect-[3/4] rounded-lg overflow-hidden"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.3, delay: idx * 0.02 }}
-                      whileHover={{ scale: 1.05, zIndex: 10 }}
+                      className="relative group cursor-pointer aspect-square bg-gray-900"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3, delay: idx * 0.01 }}
                       onClick={() => setOpenIdx(idx)}
                       onMouseEnter={() => setHoveredIdx(idx)}
                       onMouseLeave={() => setHoveredIdx(null)}
                     >
-                      {/* Image with overlay effects */}
+                      {/* Image */}
                       <img
                         src={photo.src}
                         alt={photo.name}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="w-full h-full object-cover"
                         loading="lazy"
                         decoding="async"
                       />
 
-                      {/* Gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                      {/* Info overlay - Cleaner professional design */}
-                      <div className="absolute inset-0 flex flex-col justify-end p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        {photo.model && (
-                          <div className="mb-2">
-                            <p className="text-[10px] uppercase tracking-wider text-zenitsu-lightning/80 font-medium mb-0.5">
-                              Featured
-                            </p>
-                            <p className="text-snow-white font-semibold text-sm md:text-base">
-                              {photo.model}
-                            </p>
-                          </div>
-                        )}
-                        <div className="border-t border-white/20 pt-2">
-                          <p className="text-snow-white/70 text-xs font-light">
-                            {photo.location.split(',').slice(0, 2).join(', ')}
+                      {/* Simple dark overlay on hover */}
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+                        <div className="text-center px-3">
+                          {photo.model && (
+                            <p className="text-white text-xs md:text-sm font-medium mb-1">{photo.model}</p>
+                          )}
+                          <p className="text-white/80 text-[10px] md:text-xs">
+                            {photo.location.split(',')[0]}
                           </p>
                         </div>
                       </div>
-
-                      {/* Glowing border on hover */}
-                      <div className="absolute inset-0 border-2 border-zenitsu-lightning/0 group-hover:border-zenitsu-lightning/50 transition-all duration-300 rounded-lg" />
                     </motion.div>
                   ))}
                 </div>
@@ -549,9 +539,9 @@ const PhotographyRecord: React.FC = () => {
                 <span className="text-snow-white/60"> / {photos.length}</span>
               </motion.div>
 
-              {/* Enhanced Navigation Buttons */}
+              {/* Enhanced Navigation Buttons - Mobile optimized */}
               <motion.button
-                className="absolute left-6 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 text-snow-white hover:text-zenitsu-lightning hover:border-zenitsu-lightning transition-all duration-300 flex items-center justify-center shadow-2xl"
+                className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 text-snow-white hover:text-zenitsu-lightning hover:border-zenitsu-lightning transition-all duration-300 flex items-center justify-center shadow-2xl z-50"
                 onClick={() => setOpenIdx((prev) => (prev === 0 ? photos.length - 1 : prev! - 1))}
                 whileHover={{ scale: 1.1, x: -5 }}
                 whileTap={{ scale: 0.9 }}
@@ -559,11 +549,11 @@ const PhotographyRecord: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <span className="text-3xl">‹</span>
+                <span className="text-2xl md:text-3xl">‹</span>
               </motion.button>
 
               <motion.button
-                className="absolute right-6 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 text-snow-white hover:text-zenitsu-lightning hover:border-zenitsu-lightning transition-all duration-300 flex items-center justify-center shadow-2xl"
+                className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 text-snow-white hover:text-zenitsu-lightning hover:border-zenitsu-lightning transition-all duration-300 flex items-center justify-center shadow-2xl z-50"
                 onClick={() => setOpenIdx((prev) => (prev === photos.length - 1 ? 0 : prev! + 1))}
                 whileHover={{ scale: 1.1, x: 5 }}
                 whileTap={{ scale: 0.9 }}
@@ -571,13 +561,13 @@ const PhotographyRecord: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <span className="text-3xl">›</span>
+                <span className="text-2xl md:text-3xl">›</span>
               </motion.button>
 
               {/* Main Image with Enhanced Animation */}
               <motion.div
                 key={openIdx}
-                className="relative max-h-[75vh] max-w-[85vw]"
+                className="relative max-h-[70vh] md:max-h-[75vh] max-w-[90vw] md:max-w-[85vw]"
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.8, y: -20 }}
@@ -586,7 +576,7 @@ const PhotographyRecord: React.FC = () => {
                 <img
                   src={photos[openIdx].src}
                   alt={photos[openIdx].name}
-                  className="max-h-[75vh] max-w-[85vw] object-contain rounded-lg shadow-2xl"
+                  className="max-h-[70vh] md:max-h-[75vh] max-w-[90vw] md:max-w-[85vw] object-contain rounded-lg shadow-2xl"
                   loading="eager"
                 />
 
@@ -594,62 +584,44 @@ const PhotographyRecord: React.FC = () => {
                 <div className="absolute inset-0 rounded-lg border-2 border-zenitsu-lightning/30 shadow-[0_0_30px_rgba(255,215,0,0.3)]" />
               </motion.div>
 
-              {/* Enhanced Info Panel - Professional Redesign */}
+              {/* Info Panel - Bottom positioned with labels */}
               <motion.div
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4"
+                className="absolute bottom-16 md:bottom-20 left-4 right-4 md:left-auto md:right-8 md:max-w-sm"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <div className="bg-gradient-to-r from-deep-charcoal/95 to-ghost-black/95 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden">
-                  <div className="p-6">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                      {photos[openIdx].model && (
-                        <motion.div
-                          className="flex items-start gap-3 text-snow-white"
-                          initial={{ x: -20, opacity: 0 }}
-                          animate={{ x: 0, opacity: 1 }}
-                          transition={{ delay: 0.5 }}
-                        >
-                          <div className="mt-0.5">
-                            <User size={20} className="text-zenitsu-lightning" />
-                          </div>
-                          <div>
-                            <p className="text-[10px] uppercase tracking-wider text-zenitsu-lightning/70 font-medium mb-1">
-                              Featured Model
-                            </p>
-                            <p className="text-lg md:text-xl font-semibold">{photos[openIdx].model}</p>
-                          </div>
-                        </motion.div>
-                      )}
-                      <motion.div
-                        className={`flex items-start gap-3 text-snow-white ${!photos[openIdx].model ? 'w-full' : ''}`}
-                        initial={{ x: -20, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ delay: 0.6 }}
-                      >
-                        <div className="mt-0.5">
-                          <MapPin size={20} className="text-zenitsu-lightning" />
-                        </div>
-                        <div>
-                          <p className="text-[10px] uppercase tracking-wider text-zenitsu-lightning/70 font-medium mb-1">
-                            Location
-                          </p>
-                          <p className="text-base md:text-lg font-light">{photos[openIdx].location}</p>
-                        </div>
-                      </motion.div>
-                    </div>
-                  </div>
-
-                  {/* Progress bar */}
-                  <div className="h-1 bg-white/10">
+                <div className="bg-deep-charcoal/90 backdrop-blur-md border border-white/20 rounded-lg px-4 md:px-5 py-3 md:py-4 space-y-2 md:space-y-3">
+                  {photos[openIdx].model && (
                     <motion.div
-                      className="h-full bg-gradient-to-r from-zenitsu-lightning to-cursed-blue"
-                      initial={{ width: 0 }}
-                      animate={{ width: `${((openIdx + 1) / photos.length) * 100}%` }}
-                      transition={{ duration: 0.5 }}
-                    />
-                  </div>
+                      className="flex items-start gap-2 md:gap-3"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.5 }}
+                    >
+                      <User size={16} className="text-zenitsu-lightning mt-0.5 md:mt-1 flex-shrink-0" />
+                      <div>
+                        <p className="text-[9px] md:text-[10px] uppercase tracking-wider text-snow-white/50 mb-0.5 md:mb-1">In Frame</p>
+                        <p className="text-snow-white text-sm md:text-base lg:text-lg font-medium">
+                          {photos[openIdx].model}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                  <motion.div
+                    className="flex items-start gap-2 md:gap-3"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.6 }}
+                  >
+                    <MapPin size={16} className="text-zenitsu-lightning mt-0.5 md:mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="text-[9px] md:text-[10px] uppercase tracking-wider text-snow-white/50 mb-0.5 md:mb-1">Location</p>
+                      <p className="text-snow-white/90 text-xs md:text-sm lg:text-base">
+                        {photos[openIdx].location}
+                      </p>
+                    </div>
+                  </motion.div>
                 </div>
               </motion.div>
 
