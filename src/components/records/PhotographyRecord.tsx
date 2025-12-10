@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Navigation, Mousewheel } from 'swiper/modules';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, User, MapPin } from 'lucide-react';
+import { ArrowLeft, User, MapPin, Grid3x3, Layers, Camera, MapPinned } from 'lucide-react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
@@ -72,6 +72,8 @@ const PhotographyRecord: React.FC = () => {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
   const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const [, setHoveredIdx] = useState<number | null>(null);
+  const [viewMode, setViewMode] = useState<'carousel' | 'grid'>('carousel');
 
   useEffect(() => {
     // Load photography manifest
@@ -240,31 +242,94 @@ const PhotographyRecord: React.FC = () => {
           </motion.div>
         ) : (
           <>
-            {/* Back to Categories Button */}
+            {/* Enhanced Header with Stats and View Toggle */}
             <motion.div
-              className="flex justify-center mb-4"
+              className="flex flex-col md:flex-row justify-between items-center px-6 mb-6 gap-4"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
             >
-              <button
-                onClick={() => {
-                  setSelectedCategory(null);
-                  setOpenIdx(null);
-                }}
-                className="inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 rounded-xl text-zenitsu-lightning hover:text-snow-white transition-all duration-300 font-medium shadow-lg group"
-              >
-                <motion.div
-                  whileHover={{ x: -2 }}
-                  transition={{ type: "spring", stiffness: 400 }}
+              {/* Back Button and Category Info */}
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={() => {
+                    setSelectedCategory(null);
+                    setOpenIdx(null);
+                  }}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 rounded-xl text-zenitsu-lightning hover:text-snow-white transition-all duration-300 font-medium shadow-lg group"
                 >
-                  <ArrowLeft size={18} />
+                  <motion.div
+                    whileHover={{ x: -2 }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                  >
+                    <ArrowLeft size={18} />
+                  </motion.div>
+                  <span className="group-hover:underline">Back</span>
+                </button>
+
+                {/* Category Stats */}
+                <motion.div
+                  className="hidden md:flex items-center gap-6 px-4 py-2 bg-gradient-to-r from-deep-charcoal/60 to-ghost-black/60 backdrop-blur-xl border border-white/10 rounded-xl"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <div className="flex items-center gap-2 text-snow-white/90">
+                    <Camera size={16} className="text-zenitsu-lightning" />
+                    <span className="text-sm font-medium">{photos.length} Photos</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-snow-white/90">
+                    <MapPinned size={16} className="text-zenitsu-lightning" />
+                    <span className="text-sm font-medium">
+                      {new Set(photos.map(p => p.location)).size} Locations
+                    </span>
+                  </div>
+                  {selectedCategory === 'Portraits' && (
+                    <div className="flex items-center gap-2 text-snow-white/90">
+                      <User size={16} className="text-zenitsu-lightning" />
+                      <span className="text-sm font-medium">
+                        {new Set(photos.filter(p => p.model).map(p => p.model)).size} Models
+                      </span>
+                    </div>
+                  )}
                 </motion.div>
-                <span className="group-hover:underline">Back to Categories</span>
-              </button>
+              </div>
+
+              {/* View Mode Toggle */}
+              <motion.div
+                className="flex items-center gap-2 bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 rounded-xl p-1"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3 }}
+              >
+                <button
+                  onClick={() => setViewMode('carousel')}
+                  className={`px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-2 ${
+                    viewMode === 'carousel'
+                      ? 'bg-zenitsu-lightning text-deep-charcoal font-bold'
+                      : 'text-snow-white/70 hover:text-snow-white'
+                  }`}
+                >
+                  <Layers size={16} />
+                  <span className="text-sm hidden sm:inline">Carousel</span>
+                </button>
+                <button
+                  onClick={() => setViewMode('grid')}
+                  className={`px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-2 ${
+                    viewMode === 'grid'
+                      ? 'bg-zenitsu-lightning text-deep-charcoal font-bold'
+                      : 'text-snow-white/70 hover:text-snow-white'
+                  }`}
+                >
+                  <Grid3x3 size={16} />
+                  <span className="text-sm hidden sm:inline">Grid</span>
+                </button>
+              </motion.div>
             </motion.div>
 
-            <div className="flex-1 relative max-h-[calc(100vh-16rem)]">
+            {/* Carousel View */}
+            {viewMode === 'carousel' && (
+            <div className="flex-1 relative max-h-[calc(100vh-18rem)]">
           <Swiper
             effect={'coverflow'}
             grabCursor={true}
@@ -338,59 +403,212 @@ const PhotographyRecord: React.FC = () => {
             ))}
           </Swiper>
         </div>
+            )}
+
+            {/* Grid View */}
+            {viewMode === 'grid' && (
+              <motion.div
+                className="flex-1 px-6 pb-6 overflow-y-auto max-h-[calc(100vh-18rem)]"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                  {photos.map((photo, idx) => (
+                    <motion.div
+                      key={idx}
+                      className="relative group cursor-pointer aspect-[3/4] rounded-lg overflow-hidden"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: idx * 0.02 }}
+                      whileHover={{ scale: 1.05, zIndex: 10 }}
+                      onClick={() => setOpenIdx(idx)}
+                      onMouseEnter={() => setHoveredIdx(idx)}
+                      onMouseLeave={() => setHoveredIdx(null)}
+                    >
+                      {/* Image with overlay effects */}
+                      <img
+                        src={photo.src}
+                        alt={photo.name}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy"
+                      />
+
+                      {/* Gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                      {/* Info overlay */}
+                      <div className="absolute inset-0 flex flex-col justify-end p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                        {photo.model && (
+                          <motion.p
+                            className="text-snow-white font-anime text-xs mb-1 flex items-center gap-1"
+                            initial={{ y: 10, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.1 }}
+                          >
+                            <User size={12} className="text-zenitsu-lightning" /> {photo.model}
+                          </motion.p>
+                        )}
+                        <motion.p
+                          className="text-snow-white font-anime text-sm flex items-center gap-1"
+                          initial={{ y: 10, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ delay: 0.15 }}
+                        >
+                          <MapPin size={12} className="text-zenitsu-lightning" /> {photo.location.split(',')[0]}
+                        </motion.p>
+                      </div>
+
+                      {/* Glowing border on hover */}
+                      <div className="absolute inset-0 border-2 border-zenitsu-lightning/0 group-hover:border-zenitsu-lightning/60 transition-all duration-300 rounded-lg" />
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
         </>
         )}
 
         <AnimatePresence>
           {openIdx !== null && selectedCategory && (
             <motion.div
-              className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
+              className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <button
-                className="absolute top-4 right-4 text-snow-white text-2xl hover:text-zenitsu-lightning transition-colors"
+              {/* Enhanced Close Button */}
+              <motion.button
+                className="absolute top-6 right-6 w-12 h-12 rounded-full bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 text-snow-white hover:text-zenitsu-lightning hover:border-zenitsu-lightning transition-all duration-300 flex items-center justify-center shadow-2xl z-10"
                 onClick={() => setOpenIdx(null)}
-              >
-                ×
-              </button>
-              <button
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-snow-white text-4xl hover:text-zenitsu-lightning transition-colors"
-                onClick={() => setOpenIdx((prev) => (prev === 0 ? photos.length - 1 : prev! - 1))}
-              >
-                ‹
-              </button>
-              <button
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-snow-white text-4xl hover:text-zenitsu-lightning transition-colors"
-                onClick={() => setOpenIdx((prev) => (prev === photos.length - 1 ? 0 : prev! + 1))}
-              >
-                ›
-              </button>
-              <motion.img
-                key={openIdx}
-                src={photos[openIdx].src}
-                alt={photos[openIdx].name}
-                className="max-h-[80vh] max-w-[80vw] object-contain"
-                initial={{ opacity: 0, scale: 0.8 }}
+                whileHover={{ scale: 1.1, rotate: 90 }}
+                whileTap={{ scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.3 }}
-              />
-              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center bg-black/80 backdrop-blur-md px-6 py-3 rounded-xl">
-                {photos[openIdx].model && (
-                  <div className="flex items-center justify-center gap-2 text-zenitsu-lightning mb-2">
-                    <User size={18} />
-                    <span className="font-bold">In Frame:</span>
-                    <span className="text-snow-white">{photos[openIdx].model}</span>
+                transition={{ delay: 0.2 }}
+              >
+                <span className="text-2xl">×</span>
+              </motion.button>
+
+              {/* Photo Counter */}
+              <motion.div
+                className="absolute top-6 left-6 px-4 py-2 bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 rounded-xl text-snow-white font-medium shadow-2xl"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <span className="text-zenitsu-lightning font-bold">{openIdx + 1}</span>
+                <span className="text-snow-white/60"> / {photos.length}</span>
+              </motion.div>
+
+              {/* Enhanced Navigation Buttons */}
+              <motion.button
+                className="absolute left-6 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 text-snow-white hover:text-zenitsu-lightning hover:border-zenitsu-lightning transition-all duration-300 flex items-center justify-center shadow-2xl"
+                onClick={() => setOpenIdx((prev) => (prev === 0 ? photos.length - 1 : prev! - 1))}
+                whileHover={{ scale: 1.1, x: -5 }}
+                whileTap={{ scale: 0.9 }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <span className="text-3xl">‹</span>
+              </motion.button>
+
+              <motion.button
+                className="absolute right-6 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-gradient-to-r from-deep-charcoal/90 to-ghost-black/90 backdrop-blur-xl border border-white/20 text-snow-white hover:text-zenitsu-lightning hover:border-zenitsu-lightning transition-all duration-300 flex items-center justify-center shadow-2xl"
+                onClick={() => setOpenIdx((prev) => (prev === photos.length - 1 ? 0 : prev! + 1))}
+                whileHover={{ scale: 1.1, x: 5 }}
+                whileTap={{ scale: 0.9 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <span className="text-3xl">›</span>
+              </motion.button>
+
+              {/* Main Image with Enhanced Animation */}
+              <motion.div
+                key={openIdx}
+                className="relative max-h-[75vh] max-w-[85vw]"
+                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.8, y: -20 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              >
+                <img
+                  src={photos[openIdx].src}
+                  alt={photos[openIdx].name}
+                  className="max-h-[75vh] max-w-[85vw] object-contain rounded-lg shadow-2xl"
+                />
+
+                {/* Glowing border effect */}
+                <div className="absolute inset-0 rounded-lg border-2 border-zenitsu-lightning/30 shadow-[0_0_30px_rgba(255,215,0,0.3)]" />
+              </motion.div>
+
+              {/* Enhanced Info Panel */}
+              <motion.div
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                <div className="bg-gradient-to-r from-deep-charcoal/95 to-ghost-black/95 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden">
+                  <div className="p-6">
+                    <div className="flex flex-col gap-3">
+                      {photos[openIdx].model && (
+                        <motion.div
+                          className="flex items-center gap-3 text-snow-white"
+                          initial={{ x: -20, opacity: 0 }}
+                          animate={{ x: 0, opacity: 1 }}
+                          transition={{ delay: 0.5 }}
+                        >
+                          <div className="w-10 h-10 rounded-full bg-zenitsu-lightning/20 flex items-center justify-center border border-zenitsu-lightning/50">
+                            <User size={18} className="text-zenitsu-lightning" />
+                          </div>
+                          <div>
+                            <p className="text-xs text-snow-white/60 font-medium">In Frame</p>
+                            <p className="text-lg font-bold">{photos[openIdx].model}</p>
+                          </div>
+                        </motion.div>
+                      )}
+                      <motion.div
+                        className="flex items-center gap-3 text-snow-white"
+                        initial={{ x: -20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ delay: 0.6 }}
+                      >
+                        <div className="w-10 h-10 rounded-full bg-zenitsu-lightning/20 flex items-center justify-center border border-zenitsu-lightning/50">
+                          <MapPin size={18} className="text-zenitsu-lightning" />
+                        </div>
+                        <div>
+                          <p className="text-xs text-snow-white/60 font-medium">Location</p>
+                          <p className="text-lg font-anime">{photos[openIdx].location}</p>
+                        </div>
+                      </motion.div>
+                    </div>
                   </div>
-                )}
-                <div className="flex items-center justify-center gap-2 text-zenitsu-lightning">
-                  <MapPin size={18} />
-                  <span className="font-bold">Location:</span>
-                  <span className="text-snow-white font-anime">{photos[openIdx].location}</span>
+
+                  {/* Progress bar */}
+                  <div className="h-1 bg-white/10">
+                    <motion.div
+                      className="h-full bg-gradient-to-r from-zenitsu-lightning to-cursed-blue"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${((openIdx + 1) / photos.length) * 100}%` }}
+                      transition={{ duration: 0.5 }}
+                    />
+                  </div>
                 </div>
-              </div>
+              </motion.div>
+
+              {/* Keyboard hint */}
+              <motion.div
+                className="absolute bottom-8 right-8 text-snow-white/40 text-xs font-medium hidden md:block"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
+              >
+                Use ← → or ESC keys
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
