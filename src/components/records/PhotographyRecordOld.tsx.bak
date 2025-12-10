@@ -3,24 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Navigation, Mousewheel } from 'swiper/modules';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, User, MapPin } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import japaneseBg from '../../japanese.jpg';
 
-interface ImageMetadata {
-  model?: string;
-  location?: string;
-}
-
 interface Photo {
   src: string;
   location: string;
-  model?: string;
-  name: string;
-  metadata: ImageMetadata | null;
 }
 
 interface SakuraPetalProps {
@@ -31,11 +23,23 @@ interface SakuraPetalProps {
   swayAmount: number;
 }
 
+const locations = [
+  'Tokyo', 'Kyoto', 'Osaka', 'Mount Fuji', 'Shibuya', 'Akihabara', 'Nara', 'Sapporo', 'Fukuoka', 'Nagoya',
+  'Sendai', 'Hiroshima', 'Kobe', 'Yokohama', 'Okinawa', 'Hakone', 'Kamakura', 'Nikko', 'Takayama', 'Kanazawa',
+  'Matsumoto', 'Nagano', 'Beppu', 'Kagoshima', 'Miyajima', 'Kurashiki', 'Shirakawa-go', 'Ise', 'Kushiro', 'Aomori',
+  'Miyazaki', 'Furano', 'Nagasaki', 'Kochi', 'Tottori', 'Wakayama', 'Uji', 'Narita', 'Chiba', 'Himeji'
+];
+
+const photos: Photo[] = Array.from({ length: 40 }).map((_, i) => ({
+  src: `https://placehold.co/600x750/1a1a2e/fff?text=Photo+${i + 1}`,
+  location: locations[i % locations.length],
+}));
+
 const SakuraPetal: React.FC<SakuraPetalProps> = ({ delay, size, duration, xOffset, swayAmount }) => (
   <motion.div
     className="absolute pointer-events-none"
     style={{ width: size, height: size }}
-    initial={{
+    initial={{ 
       x: xOffset,
       y: -20,
       rotate: 0,
@@ -59,31 +63,7 @@ const SakuraPetal: React.FC<SakuraPetalProps> = ({ delay, size, duration, xOffse
 );
 
 const PhotographyRecord: React.FC = () => {
-  const [photos, setPhotos] = useState<Photo[]>([]);
-  const [loading, setLoading] = useState(true);
   const [openIdx, setOpenIdx] = useState<number | null>(null);
-
-  useEffect(() => {
-    // Load photography manifest
-    fetch('/assets/Pic/photography-manifest.json')
-      .then(res => res.json())
-      .then((data) => {
-        // Combine all images from both categories
-        const allPhotos: Photo[] = data.images.map((img: any) => ({
-          src: img.path,
-          location: img.metadata?.location || 'Unknown Location',
-          model: img.metadata?.model,
-          name: img.name,
-          metadata: img.metadata
-        }));
-        setPhotos(allPhotos);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('Error loading photography:', err);
-        setLoading(false);
-      });
-  }, []);
 
   const handleKey = useCallback((e: KeyboardEvent) => {
     if (openIdx === null) return;
@@ -94,7 +74,7 @@ const PhotographyRecord: React.FC = () => {
     } else if (e.key === 'Escape') {
       setOpenIdx(null);
     }
-  }, [openIdx, photos.length]);
+  }, [openIdx]);
 
   useEffect(() => {
     if (openIdx === null) return;
@@ -102,24 +82,13 @@ const PhotographyRecord: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKey);
   }, [openIdx, handleKey]);
 
-  if (loading) {
-    return (
-      <div className="relative h-screen bg-deep-charcoal overflow-hidden flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-zenitsu-lightning border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-snow-white text-xl">Loading Photography...</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="relative h-screen bg-deep-charcoal overflow-hidden">
       {/* Enhanced Sakura petals */}
       {Array.from({ length: 30 }).map((_, i) => (
-        <SakuraPetal
-          key={i}
-          delay={i * 0.3}
+        <SakuraPetal 
+          key={i} 
+          delay={i * 0.3} 
           size={16 + Math.random() * 16}
           duration={15 + Math.random() * 20}
           xOffset={Math.random() * window.innerWidth}
@@ -129,7 +98,7 @@ const PhotographyRecord: React.FC = () => {
 
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-deep-charcoal via-cursed-blue/20 to-deep-charcoal" />
-      <div
+      <div 
         className="absolute inset-0 opacity-5 pointer-events-none"
         style={{ backgroundImage: `url(${japaneseBg})` }}
       />
@@ -156,7 +125,7 @@ const PhotographyRecord: React.FC = () => {
           </Link>
         </motion.div>
 
-        <motion.h2
+        <motion.h2 
           className="text-4xl md:text-5xl font-mochiy text-snow-white py-8 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -220,19 +189,12 @@ const PhotographyRecord: React.FC = () => {
                 >
                   <img
                     src={photo.src}
-                    alt={photo.name}
+                    alt={`Photo ${idx + 1}`}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                    {photo.model && (
-                      <p className="text-snow-white font-anime text-xs mb-1 flex items-center gap-1">
-                        <User size={12} /> {photo.model}
-                      </p>
-                    )}
-                    <p className="text-snow-white font-anime text-sm flex items-center gap-1">
-                      <MapPin size={12} /> {photo.location}
-                    </p>
+                    <p className="text-snow-white font-anime text-sm">{photo.location}</p>
                   </div>
                 </motion.div>
               </SwiperSlide>
@@ -269,26 +231,15 @@ const PhotographyRecord: React.FC = () => {
               <motion.img
                 key={openIdx}
                 src={photos[openIdx].src}
-                alt={photos[openIdx].name}
-                className="max-h-[80vh] max-w-[80vw] object-contain"
+                alt={`Photo ${openIdx + 1}`}
+                className="max-h-[90vh] max-w-[90vw] object-contain"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.3 }}
               />
-              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center bg-black/80 backdrop-blur-md px-6 py-3 rounded-xl">
-                {photos[openIdx].model && (
-                  <div className="flex items-center justify-center gap-2 text-zenitsu-lightning mb-2">
-                    <User size={18} />
-                    <span className="font-bold">In Frame:</span>
-                    <span className="text-snow-white">{photos[openIdx].model}</span>
-                  </div>
-                )}
-                <div className="flex items-center justify-center gap-2 text-zenitsu-lightning">
-                  <MapPin size={18} />
-                  <span className="font-bold">Location:</span>
-                  <span className="text-snow-white font-anime">{photos[openIdx].location}</span>
-                </div>
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-snow-white font-anime">
+                {photos[openIdx].location}
               </div>
             </motion.div>
           )}

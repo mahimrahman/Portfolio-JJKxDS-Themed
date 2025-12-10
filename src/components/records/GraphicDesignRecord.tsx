@@ -720,12 +720,12 @@ const GraphicDesignRecord: React.FC = () => {
                       </>
                     )}
 
-                    <div className="flex items-center justify-center w-full max-w-6xl max-h-[65vh] mb-6">
+                    <div className="flex items-center justify-center w-full mb-6">
                       {currentImage.path.endsWith('.mp4') ? (
                         <video
                           key={currentImage.path}
                           src={currentImage.path}
-                          className="max-w-full max-h-full object-contain rounded-xl shadow-2xl border-2 border-domain-violet/50 bg-black"
+                          className="max-w-[70vw] max-h-[55vh] w-auto h-auto object-contain rounded-xl shadow-2xl border-2 border-domain-violet/50 bg-black"
                           controls
                           autoPlay
                           loop
@@ -735,7 +735,7 @@ const GraphicDesignRecord: React.FC = () => {
                           key={currentImage.path}
                           src={currentImage.path}
                           alt={currentImage.name}
-                          className="max-w-full max-h-full object-contain rounded-xl shadow-2xl border-2 border-domain-violet/50 bg-black"
+                          className="max-w-[70vw] max-h-[55vh] w-auto h-auto object-contain rounded-xl shadow-2xl border-2 border-domain-violet/50 bg-black"
                           initial={{ opacity: 0, scale: 0.95 }}
                           animate={{ opacity: 1, scale: 1 }}
                           exit={{ opacity: 0, scale: 0.95 }}
@@ -831,12 +831,12 @@ const GraphicDesignRecord: React.FC = () => {
                     )}
 
                     <div className="flex flex-col items-center justify-center gap-4 w-full h-full px-4 py-20">
-                      <div className="flex items-center justify-center max-w-[85vw] max-h-[70vh] w-full">
+                      <div className="flex items-center justify-center w-full h-full">
                         {currentImage.path.endsWith('.mp4') ? (
                           <video
                             key={currentImage.path}
                             src={currentImage.path}
-                            className="max-w-full max-h-full object-contain rounded-xl shadow-2xl border-2 border-domain-violet/50 bg-black"
+                            className="max-w-[75vw] max-h-[65vh] w-auto h-auto object-contain rounded-xl shadow-2xl border-2 border-domain-violet/50 bg-black"
                             controls
                             autoPlay
                             loop
@@ -846,7 +846,7 @@ const GraphicDesignRecord: React.FC = () => {
                             key={currentImage.path}
                             src={currentImage.path}
                             alt={currentImage.name}
-                            className="max-w-full max-h-full object-contain rounded-xl shadow-2xl border-2 border-domain-violet/50 bg-black"
+                            className="max-w-[75vw] max-h-[65vh] w-auto h-auto object-contain rounded-xl shadow-2xl border-2 border-domain-violet/50 bg-black"
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.95 }}

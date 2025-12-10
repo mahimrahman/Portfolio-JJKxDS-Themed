@@ -111,17 +111,10 @@
       ]
     },
     {
-      "name": "03-Digital-Design",
-      "path": "03-Digital-Design",
-      "imageCount": 146,
-      "subfolders": [
-        {
-          "name": "Social-Media",
-          "path": "03-Digital-Design/Social-Media",
-          "imageCount": 146,
-          "subfolders": []
-        }
-      ]
+      "name": "03-Social-Media",
+      "path": "03-Social-Media",
+      "imageCount": 133,
+      "subfolders": []
     },
     {
       "name": "04-Illustrations",
@@ -138,12 +131,12 @@
     {
       "name": "06-Client-Projects",
       "path": "06-Client-Projects",
-      "imageCount": 212,
+      "imageCount": 209,
       "subfolders": [
         {
           "name": "Alfio Raldo",
           "path": "06-Client-Projects/Alfio Raldo",
-          "imageCount": 91,
+          "imageCount": 88,
           "subfolders": [
             {
               "name": "SOCIAL",
@@ -154,7 +147,7 @@
             {
               "name": "Website",
               "path": "06-Client-Projects/Alfio Raldo/Website",
-              "imageCount": 29,
+              "imageCount": 26,
               "subfolders": []
             }
           ]
@@ -320,17 +313,10 @@
       ]
     },
     {
-      "name": "07-Contest-Portfolio",
-      "path": "07-Contest-Portfolio",
+      "name": "07-Freelancer-Contests",
+      "path": "07-Freelancer-Contests",
       "imageCount": 10,
-      "subfolders": [
-        {
-          "name": "Freelancer-Contests",
-          "path": "07-Contest-Portfolio/Freelancer-Contests",
-          "imageCount": 10,
-          "subfolders": []
-        }
-      ]
+      "subfolders": []
     },
     {
       "name": "08 - Freelancer.com Contest Winning Poster",
@@ -368,2696 +354,2600 @@
     {
       "name": "Brochure Mockup.jpg",
       "path": "/assets/Graphics/01-Branding-Identity/Brochure/Brochure Mockup.jpg",
-      "size": 6080407,
-      "modified": "2023-05-09T17:12:08.112Z"
+      "size": 5788849,
+      "modified": "2025-12-04T06:12:10.378Z"
     },
     {
       "name": "1 A 1.jpg",
       "path": "/assets/Graphics/01-Branding-Identity/Business-Cards/1 A 1.jpg",
-      "size": 1262958,
-      "modified": "2023-05-14T09:51:22.582Z"
+      "size": 1204382,
+      "modified": "2025-12-04T06:10:36.648Z"
     },
     {
       "name": "1.png",
       "path": "/assets/Graphics/01-Branding-Identity/Business-Cards/1.png",
-      "size": 783984,
-      "modified": "2025-12-03T04:02:56.551Z"
+      "size": 665313,
+      "modified": "2025-12-04T06:25:53.190Z"
     },
     {
       "name": "2 A2.jpg",
       "path": "/assets/Graphics/01-Branding-Identity/Business-Cards/2 A2.jpg",
-      "size": 1260424,
-      "modified": "2023-05-14T09:51:54.831Z"
+      "size": 1202209,
+      "modified": "2025-12-04T06:25:53.000Z"
     },
     {
       "name": "2.png",
       "path": "/assets/Graphics/01-Branding-Identity/Business-Cards/2.png",
-      "size": 912388,
-      "modified": "2025-12-03T04:22:45.541Z"
+      "size": 754367,
+      "modified": "2025-12-04T06:40:38.032Z"
     },
     {
       "name": "3 Business Card Mockup 02.jpg",
       "path": "/assets/Graphics/01-Branding-Identity/Business-Cards/3 Business Card Mockup 02.jpg",
-      "size": 971793,
-      "modified": "2023-05-08T18:58:32.894Z"
+      "size": 927297,
+      "modified": "2025-12-04T06:40:38.000Z"
     },
     {
       "name": "4 Business Card 1 Front.png",
       "path": "/assets/Graphics/01-Branding-Identity/Business-Cards/4 Business Card 1 Front.png",
-      "size": 66980,
-      "modified": "2023-04-28T21:10:20.320Z"
+      "size": 44170,
+      "modified": "2025-12-04T06:44:10.168Z"
     },
     {
       "name": "5 Business Card 1 back.png",
       "path": "/assets/Graphics/01-Branding-Identity/Business-Cards/5 Business Card 1 back.png",
-      "size": 70767,
-      "modified": "2023-04-28T21:10:35.377Z"
+      "size": 38300,
+      "modified": "2025-12-04T06:51:37.289Z"
     },
     {
       "name": "6 Business Card 2 Back.png",
       "path": "/assets/Graphics/01-Branding-Identity/Business-Cards/6 Business Card 2 Back.png",
-      "size": 46690,
-      "modified": "2023-04-29T12:15:38.612Z"
+      "size": 31715,
+      "modified": "2025-12-04T06:59:04.057Z"
     },
     {
       "name": "7 Business Card 2 front.png",
       "path": "/assets/Graphics/01-Branding-Identity/Business-Cards/7 Business Card 2 front.png",
-      "size": 65713,
-      "modified": "2023-04-29T12:15:38.707Z"
+      "size": 37592,
+      "modified": "2025-12-04T07:09:27.906Z"
     },
     {
       "name": "8 Business Card 3 Backside.png",
       "path": "/assets/Graphics/01-Branding-Identity/Business-Cards/8 Business Card 3 Backside.png",
-      "size": 125425,
-      "modified": "2023-04-29T16:32:33.414Z"
+      "size": 87742,
+      "modified": "2025-12-04T07:20:39.309Z"
     },
     {
       "name": "9 Business Card 3 Frontside.png",
       "path": "/assets/Graphics/01-Branding-Identity/Business-Cards/9 Business Card 3 Frontside.png",
-      "size": 98136,
-      "modified": "2023-04-29T16:32:33.226Z"
+      "size": 58251,
+      "modified": "2025-12-04T07:31:21.118Z"
     },
     {
       "name": "a.png",
       "path": "/assets/Graphics/01-Branding-Identity/Business-Cards/a.png",
-      "size": 780326,
-      "modified": "2025-12-03T04:22:25.253Z"
+      "size": 630425,
+      "modified": "2025-12-04T07:45:28.741Z"
     },
     {
       "name": "b.png",
       "path": "/assets/Graphics/01-Branding-Identity/Business-Cards/b.png",
-      "size": 710188,
-      "modified": "2025-12-03T04:22:10.822Z"
+      "size": 568811,
+      "modified": "2025-12-04T07:59:49.028Z"
     },
     {
       "name": "bdgsa.png",
       "path": "/assets/Graphics/01-Branding-Identity/Logos/bdgsa.png",
-      "size": 249959,
-      "modified": "2024-12-21T08:44:56.344Z"
+      "size": 227379,
+      "modified": "2025-12-04T08:10:51.527Z"
     },
     {
       "name": "logo DIR 2.png",
       "path": "/assets/Graphics/01-Branding-Identity/Logos/logo DIR 2.png",
-      "size": 64446,
-      "modified": "2023-07-02T19:00:12.754Z"
+      "size": 50593,
+      "modified": "2025-12-04T08:14:10.682Z"
     },
     {
       "name": "logo DIR.png",
       "path": "/assets/Graphics/01-Branding-Identity/Logos/logo DIR.png",
-      "size": 39576,
-      "modified": "2023-07-02T18:43:07.888Z"
+      "size": 30517,
+      "modified": "2025-12-04T08:16:59.116Z"
     },
     {
       "name": "nafees logo.png",
       "path": "/assets/Graphics/01-Branding-Identity/Logos/nafees logo.png",
-      "size": 73063,
-      "modified": "2025-02-23T21:52:12.501Z"
+      "size": 64857,
+      "modified": "2025-12-04T08:20:44.662Z"
     },
     {
       "name": "Radiant Logo.png",
       "path": "/assets/Graphics/01-Branding-Identity/Logos/Radiant Logo.png",
-      "size": 39080,
-      "modified": "2021-09-13T07:57:06.000Z"
+      "size": 24359,
+      "modified": "2025-12-04T08:22:53.372Z"
     },
     {
       "name": "tedx.jpg",
       "path": "/assets/Graphics/01-Branding-Identity/Logos/tedx.jpg",
-      "size": 139752,
-      "modified": "2025-02-25T20:57:38.582Z"
+      "size": 133953,
+      "modified": "2025-12-04T08:24:55.280Z"
     },
     {
       "name": "5519229.png",
       "path": "/assets/Graphics/02-Print-Design/Banner/5519229.png",
-      "size": 3620272,
-      "modified": "2022-01-02T06:27:20.000Z"
+      "size": 2822084,
+      "modified": "2025-12-04T09:45:22.739Z"
     },
     {
       "name": "Beanie 2.jpg",
       "path": "/assets/Graphics/02-Print-Design/beanie/Beanie 2.jpg",
-      "size": 1336786,
-      "modified": "2024-11-09T20:17:18.674Z"
+      "size": 1254703,
+      "modified": "2025-12-04T09:45:24.000Z"
     },
     {
       "name": "Beanie.jpg",
       "path": "/assets/Graphics/02-Print-Design/beanie/Beanie.jpg",
-      "size": 315854,
-      "modified": "2024-11-09T20:15:05.375Z"
+      "size": 305200,
+      "modified": "2025-12-04T09:45:29.000Z"
     },
     {
       "name": "1.png",
       "path": "/assets/Graphics/02-Print-Design/Business Card/1.png",
-      "size": 783984,
-      "modified": "2025-12-03T04:02:56.551Z"
+      "size": 665313,
+      "modified": "2025-12-04T09:59:25.470Z"
     },
     {
       "name": "2.png",
       "path": "/assets/Graphics/02-Print-Design/Business Card/2.png",
-      "size": 912388,
-      "modified": "2025-12-03T04:22:45.541Z"
+      "size": 754367,
+      "modified": "2025-12-04T10:14:14.510Z"
     },
     {
       "name": "a.png",
       "path": "/assets/Graphics/02-Print-Design/Business Card/a.png",
-      "size": 780326,
-      "modified": "2025-12-03T04:22:25.253Z"
+      "size": 630425,
+      "modified": "2025-12-04T10:28:52.046Z"
     },
     {
       "name": "b.png",
       "path": "/assets/Graphics/02-Print-Design/Business Card/b.png",
-      "size": 710188,
-      "modified": "2025-12-03T04:22:10.822Z"
+      "size": 568811,
+      "modified": "2025-12-04T10:43:14.163Z"
     },
     {
       "name": "exercise_ball.jpg",
       "path": "/assets/Graphics/02-Print-Design/Exercise ball/exercise_ball.jpg",
-      "size": 108009,
-      "modified": "2024-11-10T05:47:01.016Z"
+      "size": 99628,
+      "modified": "2025-12-04T10:43:14.000Z"
     },
     {
       "name": "flyer 1.png",
       "path": "/assets/Graphics/02-Print-Design/Flyer/flyer 1.png",
-      "size": 1252321,
-      "modified": "2022-02-18T08:35:02.000Z"
+      "size": 1008331,
+      "modified": "2025-12-04T11:14:37.695Z"
     },
     {
       "name": "prefered tshirt.jpg",
       "path": "/assets/Graphics/02-Print-Design/Hacker tshirt/prefered tshirt.jpg",
-      "size": 246487,
-      "modified": "2024-11-09T10:10:04.602Z"
+      "size": 234435,
+      "modified": "2025-12-04T11:14:38.000Z"
     },
     {
       "name": "T-Shirt 1.jpg",
       "path": "/assets/Graphics/02-Print-Design/Hacker tshirt/T-Shirt 1.jpg",
-      "size": 246072,
-      "modified": "2024-11-09T10:11:23.591Z"
+      "size": 234016,
+      "modified": "2025-12-04T11:14:41.000Z"
     },
     {
       "name": "T-Shirt.jpg",
       "path": "/assets/Graphics/02-Print-Design/Hacker tshirt/T-Shirt.jpg",
-      "size": 246607,
-      "modified": "2024-11-09T10:12:26.182Z"
+      "size": 234516,
+      "modified": "2025-12-04T11:14:43.000Z"
     },
     {
       "name": "Artboard 3.jpg",
       "path": "/assets/Graphics/02-Print-Design/ID Badge/Artboard 3.jpg",
-      "size": 298543,
-      "modified": "2024-12-03T02:31:09.174Z"
+      "size": 285869,
+      "modified": "2025-12-04T11:14:46.000Z"
     },
     {
       "name": "back.jpg",
       "path": "/assets/Graphics/02-Print-Design/ID Badge/back.jpg",
-      "size": 914080,
-      "modified": "2024-12-03T02:31:11.320Z"
+      "size": 863863,
+      "modified": "2025-12-04T11:14:48.000Z"
     },
     {
       "name": "Exec.jpg",
       "path": "/assets/Graphics/02-Print-Design/ID Badge/Exec.jpg",
-      "size": 341229,
-      "modified": "2024-12-03T02:31:08.447Z"
+      "size": 326585,
+      "modified": "2025-12-04T11:14:52.343Z"
     },
     {
       "name": "Hacker Grey.jpg",
       "path": "/assets/Graphics/02-Print-Design/ID Badge/Hacker Grey.jpg",
-      "size": 263445,
-      "modified": "2024-12-03T02:33:20.778Z"
+      "size": 245796,
+      "modified": "2025-12-04T11:14:53.000Z"
     },
     {
       "name": "HAcker Pink.jpg",
       "path": "/assets/Graphics/02-Print-Design/ID Badge/HAcker Pink.jpg",
-      "size": 361823,
-      "modified": "2024-12-03T02:33:20.253Z"
+      "size": 341256,
+      "modified": "2025-12-04T11:14:55.892Z"
     },
     {
       "name": "hacker Purple.jpg",
       "path": "/assets/Graphics/02-Print-Design/ID Badge/hacker Purple.jpg",
-      "size": 311413,
-      "modified": "2024-12-03T02:33:19.738Z"
+      "size": 294038,
+      "modified": "2025-12-04T11:14:56.000Z"
     },
     {
       "name": "Mentor.jpg",
       "path": "/assets/Graphics/02-Print-Design/ID Badge/Mentor.jpg",
-      "size": 293766,
-      "modified": "2024-12-03T02:31:10.601Z"
+      "size": 280672,
+      "modified": "2025-12-04T11:14:58.000Z"
     },
     {
       "name": "Sponsor.jpg",
       "path": "/assets/Graphics/02-Print-Design/ID Badge/Sponsor.jpg",
-      "size": 337424,
-      "modified": "2024-12-03T02:31:10.937Z"
+      "size": 323595,
+      "modified": "2025-12-04T11:15:00.000Z"
     },
     {
       "name": "Volunteer.jpg",
       "path": "/assets/Graphics/02-Print-Design/ID Badge/Volunteer.jpg",
-      "size": 367385,
-      "modified": "2024-12-03T02:31:08.795Z"
+      "size": 353513,
+      "modified": "2025-12-04T11:15:02.000Z"
     },
     {
       "name": "Lanyard.png",
       "path": "/assets/Graphics/02-Print-Design/lanyard/Lanyard.png",
-      "size": 7468270,
-      "modified": "2024-11-04T22:48:33.077Z"
+      "size": 6201741,
+      "modified": "2025-12-04T13:28:17.145Z"
     },
     {
       "name": "1 banner.jpg",
       "path": "/assets/Graphics/02-Print-Design/Roll up Banner/1 banner.jpg",
-      "size": 455700,
-      "modified": "2025-01-10T18:48:24.666Z"
+      "size": 440035,
+      "modified": "2025-12-04T13:28:18.000Z"
     },
     {
       "name": "Bunting V2.png",
       "path": "/assets/Graphics/02-Print-Design/Roll up Banner/Bunting V2.png",
-      "size": 28346254,
-      "modified": "2022-02-18T07:58:18.000Z"
+      "size": 12171793,
+      "modified": "2025-12-04T14:58:12.572Z"
     },
     {
       "name": "sarc hoodie design with Name.jpg",
       "path": "/assets/Graphics/02-Print-Design/SARC Hoodie/sarc hoodie design with Name.jpg",
-      "size": 6264491,
-      "modified": "2025-01-29T07:35:31.497Z"
+      "size": 5888625,
+      "modified": "2025-12-04T14:58:27.768Z"
     },
     {
       "name": "sticker 1.jpg",
       "path": "/assets/Graphics/02-Print-Design/Sticker/sticker 1.jpg",
-      "size": 312933,
-      "modified": "2024-11-09T21:21:05.413Z"
+      "size": 301523,
+      "modified": "2025-12-04T14:58:30.849Z"
     },
     {
       "name": "sticker 2.png",
       "path": "/assets/Graphics/02-Print-Design/Sticker/sticker 2.png",
-      "size": 527259,
-      "modified": "2024-11-12T07:30:53.156Z"
+      "size": 438290,
+      "modified": "2025-12-04T15:00:42.719Z"
     },
     {
       "name": "Sticker.jpg",
       "path": "/assets/Graphics/02-Print-Design/Sticker/Sticker.jpg",
-      "size": 729921,
-      "modified": "2024-11-09T21:46:27.913Z"
+      "size": 699397,
+      "modified": "2025-12-04T15:00:46.597Z"
     },
     {
       "name": "Tote.png",
       "path": "/assets/Graphics/02-Print-Design/tote bag/Tote.png",
-      "size": 12296033,
-      "modified": "2024-11-04T21:46:38.064Z"
+      "size": 9360872,
+      "modified": "2025-12-04T15:26:00.026Z"
     },
     {
       "name": "volunteer.jpg",
       "path": "/assets/Graphics/02-Print-Design/volunteer Tshirt/volunteer.jpg",
-      "size": 1633378,
-      "modified": "2024-11-09T10:21:34.762Z"
+      "size": 1551963,
+      "modified": "2025-12-04T15:26:05.194Z"
     },
     {
       "name": "0.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/0.png",
-      "size": 212680,
-      "modified": "2025-12-03T03:15:14.397Z"
+      "path": "/assets/Graphics/03-Social-Media/0.png",
+      "size": 183645,
+      "modified": "2025-12-04T15:32:19.141Z"
     },
     {
       "name": "1 (2).jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/1 (2).jpg",
-      "size": 140455,
-      "modified": "2025-12-03T04:48:23.186Z"
+      "path": "/assets/Graphics/03-Social-Media/1 (2).jpg",
+      "size": 134243,
+      "modified": "2025-12-04T15:32:20.393Z"
     },
     {
       "name": "1 (3).png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/1 (3).png",
-      "size": 450110,
-      "modified": "2022-06-07T10:10:15.096Z"
+      "path": "/assets/Graphics/03-Social-Media/1 (3).png",
+      "size": 344850,
+      "modified": "2025-12-04T15:35:04.662Z"
     },
     {
       "name": "1 LL.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/1 LL.jpg",
-      "size": 118913,
-      "modified": "2025-04-10T04:08:26.733Z"
+      "path": "/assets/Graphics/03-Social-Media/1 LL.jpg",
+      "size": 98931,
+      "modified": "2025-12-04T15:35:06.299Z"
     },
     {
       "name": "1.1.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/1.1.png",
-      "size": 553012,
-      "modified": "2022-03-15T09:29:35.100Z"
+      "path": "/assets/Graphics/03-Social-Media/1.1.png",
+      "size": 450388,
+      "modified": "2025-12-04T15:36:56.485Z"
     },
     {
       "name": "1.2.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/1.2.png",
-      "size": 654338,
-      "modified": "2022-03-14T10:21:41.608Z"
+      "path": "/assets/Graphics/03-Social-Media/1.2.png",
+      "size": 534299,
+      "modified": "2025-12-04T15:38:51.194Z"
     },
     {
       "name": "1.3.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/1.3.png",
-      "size": 1666687,
-      "modified": "2022-04-28T08:41:40.969Z"
+      "path": "/assets/Graphics/03-Social-Media/1.3.png",
+      "size": 1304576,
+      "modified": "2025-12-04T15:45:39.785Z"
     },
     {
       "name": "1.4.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/1.4.png",
-      "size": 884842,
-      "modified": "2022-03-11T10:26:24.000Z"
+      "path": "/assets/Graphics/03-Social-Media/1.4.png",
+      "size": 739312,
+      "modified": "2025-12-04T15:47:00.676Z"
     },
     {
       "name": "1.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/1.jpg",
-      "size": 95613,
-      "modified": "2025-12-03T03:29:25.619Z"
+      "path": "/assets/Graphics/03-Social-Media/1.jpg",
+      "size": 76552,
+      "modified": "2025-12-04T15:47:01.818Z"
     },
     {
       "name": "1.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/1.png",
-      "size": 422989,
-      "modified": "2025-12-03T03:17:23.262Z"
+      "path": "/assets/Graphics/03-Social-Media/1.png",
+      "size": 323283,
+      "modified": "2025-12-04T15:53:25.555Z"
     },
     {
       "name": "10 .png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/10 .png",
-      "size": 2052764,
-      "modified": "2025-12-03T03:08:58.912Z"
+      "path": "/assets/Graphics/03-Social-Media/10 .png",
+      "size": 1531610,
+      "modified": "2025-12-04T15:59:28.663Z"
     },
     {
       "name": "10.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/10.jpg",
-      "size": 123789,
-      "modified": "2025-12-03T04:48:56.838Z"
+      "path": "/assets/Graphics/03-Social-Media/10.jpg",
+      "size": 119311,
+      "modified": "2025-12-04T15:59:30.695Z"
     },
     {
       "name": "11 .jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/11 .jpg",
-      "size": 272288,
-      "modified": "2025-12-03T03:10:45.763Z"
+      "path": "/assets/Graphics/03-Social-Media/11 .jpg",
+      "size": 233247,
+      "modified": "2025-12-04T15:59:32.167Z"
     },
     {
       "name": "11.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/11.jpg",
-      "size": 254173,
-      "modified": "2025-12-03T04:49:24.332Z"
+      "path": "/assets/Graphics/03-Social-Media/11.jpg",
+      "size": 248918,
+      "modified": "2025-12-04T15:59:33.561Z"
     },
     {
       "name": "12.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/12.jpg",
-      "size": 141618,
-      "modified": "2025-12-03T04:49:27.840Z"
+      "path": "/assets/Graphics/03-Social-Media/12.jpg",
+      "size": 135940,
+      "modified": "2025-12-04T15:59:34.749Z"
     },
     {
       "name": "12.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/12.png",
-      "size": 78307,
-      "modified": "2025-12-03T03:16:05.108Z"
+      "path": "/assets/Graphics/03-Social-Media/12.png",
+      "size": 54959,
+      "modified": "2025-12-04T16:01:48.602Z"
     },
     {
       "name": "13.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/13.jpg",
-      "size": 160032,
-      "modified": "2023-01-18T12:15:49.243Z"
-    },
-    {
-      "name": "13.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/13.png",
-      "size": 1781600,
-      "modified": "2025-12-03T03:14:37.266Z"
+      "path": "/assets/Graphics/03-Social-Media/13.jpg",
+      "size": 147861,
+      "modified": "2025-12-04T16:01:50.888Z"
     },
     {
       "name": "16.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/16.jpg",
-      "size": 234101,
-      "modified": "2025-12-03T04:50:13.404Z"
+      "path": "/assets/Graphics/03-Social-Media/16.jpg",
+      "size": 227437,
+      "modified": "2025-12-04T16:06:39.475Z"
     },
     {
       "name": "2 (2).png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/2 (2).png",
-      "size": 1504160,
-      "modified": "2022-04-28T08:50:29.732Z"
+      "path": "/assets/Graphics/03-Social-Media/2 (2).png",
+      "size": 1232124,
+      "modified": "2025-12-04T16:13:38.127Z"
     },
     {
       "name": "2 (3).png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/2 (3).png",
-      "size": 257073,
-      "modified": "2022-06-07T10:10:35.456Z"
-    },
-    {
-      "name": "2 (4).png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/2 (4).png",
-      "size": 961556,
-      "modified": "2023-01-18T13:41:52.000Z"
+      "path": "/assets/Graphics/03-Social-Media/2 (3).png",
+      "size": 194234,
+      "modified": "2025-12-04T16:16:10.777Z"
     },
     {
       "name": "2 (5).png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/2 (5).png",
-      "size": 961556,
-      "modified": "2023-01-18T13:41:52.000Z"
+      "path": "/assets/Graphics/03-Social-Media/2 (5).png",
+      "size": 708403,
+      "modified": "2025-12-04T16:29:19.877Z"
     },
     {
       "name": "2 Frosh.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/2 Frosh.png",
-      "size": 1313980,
-      "modified": "2024-08-23T19:48:51.165Z"
+      "path": "/assets/Graphics/03-Social-Media/2 Frosh.png",
+      "size": 982844,
+      "modified": "2025-12-04T16:31:59.092Z"
     },
     {
       "name": "2 victory.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/2 victory.jpg",
-      "size": 42002,
-      "modified": "2025-12-03T03:07:53.774Z"
+      "path": "/assets/Graphics/03-Social-Media/2 victory.jpg",
+      "size": 36188,
+      "modified": "2025-12-04T16:32:00.383Z"
     },
     {
       "name": "2.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/2.jpg",
-      "size": 170289,
-      "modified": "2025-12-03T04:50:37.985Z"
+      "path": "/assets/Graphics/03-Social-Media/2.jpg",
+      "size": 169815,
+      "modified": "2025-12-03T04:50:37.000Z"
     },
     {
       "name": "2.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/2.png",
-      "size": 791165,
-      "modified": "2025-12-03T03:08:26.714Z"
+      "path": "/assets/Graphics/03-Social-Media/2.png",
+      "size": 737705,
+      "modified": "2025-12-04T16:33:27.783Z"
     },
     {
       "name": "3 (2).png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/3 (2).png",
-      "size": 1980814,
-      "modified": "2022-04-28T09:15:21.684Z"
+      "path": "/assets/Graphics/03-Social-Media/3 (2).png",
+      "size": 1591183,
+      "modified": "2025-12-04T16:41:10.326Z"
     },
     {
       "name": "3 Colub Fair.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/3 Colub Fair.png",
-      "size": 264101,
-      "modified": "2024-09-08T03:43:10.952Z"
+      "path": "/assets/Graphics/03-Social-Media/3 Colub Fair.png",
+      "size": 224754,
+      "modified": "2025-12-04T16:43:27.844Z"
     },
     {
       "name": "3.1.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/3.1.png",
-      "size": 2392431,
-      "modified": "2022-02-25T09:40:28.000Z"
+      "path": "/assets/Graphics/03-Social-Media/3.1.png",
+      "size": 1959322,
+      "modified": "2025-12-04T16:52:57.136Z"
     },
     {
       "name": "3.2.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/3.2.png",
-      "size": 327531,
-      "modified": "2022-02-25T09:40:46.000Z"
+      "path": "/assets/Graphics/03-Social-Media/3.2.png",
+      "size": 271118,
+      "modified": "2025-12-04T16:54:35.648Z"
     },
     {
       "name": "3.3 (2).png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/3.3 (2).png",
-      "size": 608738,
-      "modified": "2022-06-07T10:10:54.433Z"
+      "path": "/assets/Graphics/03-Social-Media/3.3 (2).png",
+      "size": 513940,
+      "modified": "2025-12-04T16:57:14.535Z"
     },
     {
       "name": "3.3 Story.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/3.3 Story.png",
-      "size": 677785,
-      "modified": "2022-03-01T09:07:30.000Z"
+      "path": "/assets/Graphics/03-Social-Media/3.3 Story.png",
+      "size": 515140,
+      "modified": "2025-12-04T17:02:13.731Z"
     },
     {
       "name": "3.3.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/3.3.png",
-      "size": 2356553,
-      "modified": "2022-02-25T09:39:30.000Z"
+      "path": "/assets/Graphics/03-Social-Media/3.3.png",
+      "size": 1866531,
+      "modified": "2025-12-04T17:11:26.719Z"
     },
     {
       "name": "3.4.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/3.4.png",
-      "size": 254173,
-      "modified": "2022-03-01T08:50:16.000Z"
+      "path": "/assets/Graphics/03-Social-Media/3.4.png",
+      "size": 191875,
+      "modified": "2025-12-04T17:13:38.763Z"
     },
     {
       "name": "3.5.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/3.5.png",
-      "size": 147763,
-      "modified": "2022-02-25T09:37:36.000Z"
+      "path": "/assets/Graphics/03-Social-Media/3.5.png",
+      "size": 124771,
+      "modified": "2025-12-04T17:14:23.078Z"
     },
     {
       "name": "3.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/3.jpg",
-      "size": 131468,
-      "modified": "2025-12-03T04:47:34.169Z"
+      "path": "/assets/Graphics/03-Social-Media/3.jpg",
+      "size": 126202,
+      "modified": "2025-12-04T17:14:24.331Z"
     },
     {
       "name": "3.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/3.png",
-      "size": 2766221,
-      "modified": "2025-12-03T03:08:41.660Z"
+      "path": "/assets/Graphics/03-Social-Media/3.png",
+      "size": 1270049,
+      "modified": "2025-12-04T17:22:55.834Z"
     },
     {
       "name": "4 LL.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/4 LL.png",
-      "size": 971786,
-      "modified": "2024-10-27T18:34:31.968Z"
+      "path": "/assets/Graphics/03-Social-Media/4 LL.png",
+      "size": 871701,
+      "modified": "2025-12-04T17:26:43.288Z"
     },
     {
       "name": "4.4 Reminder.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/4.4 Reminder.png",
-      "size": 1199322,
-      "modified": "2022-03-24T05:16:34.085Z"
+      "path": "/assets/Graphics/03-Social-Media/4.4 Reminder.png",
+      "size": 818620,
+      "modified": "2025-12-04T17:38:48.527Z"
     },
     {
       "name": "4.4.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/4.4.png",
-      "size": 2017236,
-      "modified": "2022-03-21T10:34:51.818Z"
+      "path": "/assets/Graphics/03-Social-Media/4.4.png",
+      "size": 1691998,
+      "modified": "2025-12-04T17:39:46.010Z"
     },
     {
       "name": "4.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/4.jpg",
-      "size": 249794,
-      "modified": "2025-12-03T04:49:55.349Z"
+      "path": "/assets/Graphics/03-Social-Media/4.jpg",
+      "size": 242618,
+      "modified": "2025-12-04T17:39:47.756Z"
     },
     {
       "name": "4.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/4.png",
-      "size": 4771323,
-      "modified": "2022-06-07T10:09:23.308Z"
+      "path": "/assets/Graphics/03-Social-Media/4.png",
+      "size": 3955793,
+      "modified": "2025-12-04T17:45:58.810Z"
     },
     {
       "name": "4HAPPY FRIENDSHIP DAY.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/4HAPPY FRIENDSHIP DAY.png",
-      "size": 2784676,
-      "modified": "2025-12-03T03:15:03.326Z"
+      "path": "/assets/Graphics/03-Social-Media/4HAPPY FRIENDSHIP DAY.png",
+      "size": 2688780,
+      "modified": "2025-12-04T17:49:50.568Z"
     },
     {
       "name": "5 LL hackHalloween.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/5 LL hackHalloween.png",
-      "size": 352233,
-      "modified": "2024-10-08T23:13:43.101Z"
+      "path": "/assets/Graphics/03-Social-Media/5 LL hackHalloween.png",
+      "size": 319598,
+      "modified": "2025-12-04T17:52:39.491Z"
     },
     {
       "name": "5 MONTHLY Schedule PREVIEW.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/5 MONTHLY Schedule PREVIEW.jpg",
-      "size": 299944,
-      "modified": "2025-12-03T03:10:19.325Z"
+      "path": "/assets/Graphics/03-Social-Media/5 MONTHLY Schedule PREVIEW.jpg",
+      "size": 275063,
+      "modified": "2025-12-04T17:52:41.548Z"
     },
     {
       "name": "5.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/5.jpg",
-      "size": 162960,
-      "modified": "2025-12-03T04:46:42.271Z"
+      "path": "/assets/Graphics/03-Social-Media/5.jpg",
+      "size": 156091,
+      "modified": "2025-12-04T17:52:42.753Z"
     },
     {
       "name": "6 open for all.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/6 open for all.jpg",
-      "size": 305534,
-      "modified": "2025-12-03T03:08:51.689Z"
+      "path": "/assets/Graphics/03-Social-Media/6 open for all.jpg",
+      "size": 279660,
+      "modified": "2025-12-04T17:52:44.366Z"
     },
     {
       "name": "6 Team Poster.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/6 Team Poster.jpg",
-      "size": 96581,
-      "modified": "2024-12-23T08:11:46.323Z"
+      "path": "/assets/Graphics/03-Social-Media/6 Team Poster.jpg",
+      "size": 90352,
+      "modified": "2025-12-04T17:52:45.423Z"
+    },
+    {
+      "name": "6.1TEam Poster.jpg",
+      "path": "/assets/Graphics/03-Social-Media/6.1TEam Poster.jpg",
+      "size": 78780,
+      "modified": "2025-12-04T17:57:31.454Z"
     },
     {
       "name": "6.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/6.jpg",
-      "size": 171739,
-      "modified": "2025-12-03T04:48:10.456Z"
+      "path": "/assets/Graphics/03-Social-Media/6.jpg",
+      "size": 165339,
+      "modified": "2025-12-04T17:52:46.678Z"
     },
     {
       "name": "6.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/6.png",
-      "size": 5926881,
-      "modified": "2022-06-07T10:09:43.314Z"
-    },
-    {
-      "name": "7 Registration Closed.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/7 Registration Closed.jpg",
-      "size": 371932,
-      "modified": "2025-12-03T03:10:32.684Z"
-    },
-    {
-      "name": "7 TEam Poster.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/7 TEam Poster.jpg",
-      "size": 84634,
-      "modified": "2024-12-27T21:16:29.219Z"
+      "path": "/assets/Graphics/03-Social-Media/6.png",
+      "size": 4926298,
+      "modified": "2025-12-04T17:57:27.972Z"
     },
     {
       "name": "7.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/7.jpg",
-      "size": 161168,
-      "modified": "2025-12-03T04:48:38.120Z"
+      "path": "/assets/Graphics/03-Social-Media/7.jpg",
+      "size": 154612,
+      "modified": "2025-12-04T17:57:32.685Z"
     },
     {
       "name": "7.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/7.png",
-      "size": 5575114,
-      "modified": "2022-06-21T08:00:03.043Z"
+      "path": "/assets/Graphics/03-Social-Media/7.png",
+      "size": 4483684,
+      "modified": "2025-12-04T18:01:35.869Z"
     },
     {
       "name": "8 Untitled design (4).jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/8 Untitled design (4).jpg",
-      "size": 384688,
-      "modified": "2025-12-03T03:09:18.218Z"
+      "path": "/assets/Graphics/03-Social-Media/8 Untitled design (4).jpg",
+      "size": 336435,
+      "modified": "2025-12-04T18:01:38.180Z"
     },
     {
       "name": "8.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/8.jpg",
-      "size": 137109,
-      "modified": "2025-12-03T04:47:57.480Z"
+      "path": "/assets/Graphics/03-Social-Media/8.jpg",
+      "size": 131183,
+      "modified": "2025-12-04T18:01:39.320Z"
     },
     {
       "name": "9 Untitled design (1).png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/9 Untitled design (1).png",
-      "size": 274174,
-      "modified": "2025-12-03T03:16:19.252Z"
+      "path": "/assets/Graphics/03-Social-Media/9 Untitled design (1).png",
+      "size": 256333,
+      "modified": "2025-12-04T18:02:12.346Z"
     },
     {
       "name": "9.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/9.jpg",
-      "size": 147949,
-      "modified": "2025-12-03T04:50:55.789Z"
+      "path": "/assets/Graphics/03-Social-Media/9.jpg",
+      "size": 143477,
+      "modified": "2025-12-04T18:02:13.648Z"
     },
     {
       "name": "AB-2572.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/AB-2572.jpg",
-      "size": 88588,
-      "modified": "2022-02-25T08:39:18.000Z"
+      "path": "/assets/Graphics/03-Social-Media/AB-2572.jpg",
+      "size": 77570,
+      "modified": "2025-12-04T18:02:14.551Z"
     },
     {
       "name": "AR BAG.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/AR BAG.png",
-      "size": 2197328,
-      "modified": "2022-03-21T10:09:43.450Z"
+      "path": "/assets/Graphics/03-Social-Media/AR BAG.png",
+      "size": 1724805,
+      "modified": "2025-12-04T18:09:21.782Z"
     },
     {
       "name": "AR.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/AR.png",
-      "size": 2623559,
-      "modified": "2022-03-17T09:16:40.915Z"
+      "path": "/assets/Graphics/03-Social-Media/AR.png",
+      "size": 2054863,
+      "modified": "2025-12-04T18:16:15.653Z"
     },
     {
       "name": "Bangladesh Independence Day Instagram Post.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Bangladesh Independence Day Instagram Post.jpg",
-      "size": 386795,
-      "modified": "2025-03-26T19:43:03.935Z"
+      "path": "/assets/Graphics/03-Social-Media/Bangladesh Independence Day Instagram Post.jpg",
+      "size": 329258,
+      "modified": "2025-12-04T18:16:17.443Z"
     },
     {
       "name": "BD Victory Day.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/BD Victory Day.jpg",
-      "size": 98165,
-      "modified": "2024-12-16T18:11:40.586Z"
+      "path": "/assets/Graphics/03-Social-Media/BD Victory Day.jpg",
+      "size": 83505,
+      "modified": "2025-12-04T18:16:18.410Z"
     },
     {
       "name": "BDGSA Flyer.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/BDGSA Flyer.png",
-      "size": 2825168,
-      "modified": "2024-09-21T19:52:17.998Z"
+      "path": "/assets/Graphics/03-Social-Media/BDGSA Flyer.png",
+      "size": 2046363,
+      "modified": "2025-12-04T18:26:11.990Z"
     },
     {
       "name": "BDGSA Orientation.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/BDGSA Orientation.png",
-      "size": 1239492,
-      "modified": "2025-02-05T19:27:08.642Z"
+      "path": "/assets/Graphics/03-Social-Media/BDGSA Orientation.png",
+      "size": 877050,
+      "modified": "2025-12-04T18:28:40.634Z"
     },
     {
       "name": "Consumer Day.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Consumer Day.png",
-      "size": 1747487,
-      "modified": "2022-03-03T02:57:54.000Z"
+      "path": "/assets/Graphics/03-Social-Media/Consumer Day.png",
+      "size": 1353413,
+      "modified": "2025-12-04T18:49:13.142Z"
     },
     {
       "name": "Copy of ted2.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Copy of ted2.jpg",
-      "size": 2370423,
-      "modified": "2025-03-27T02:09:50.932Z"
+      "path": "/assets/Graphics/03-Social-Media/Copy of ted2.jpg",
+      "size": 2053892,
+      "modified": "2025-12-04T18:49:19.193Z"
     },
     {
       "name": "DCCSC.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/DCCSC.png",
-      "size": 432042,
-      "modified": "2021-03-08T09:53:40.000Z"
+      "path": "/assets/Graphics/03-Social-Media/DCCSC.png",
+      "size": 339374,
+      "modified": "2025-12-04T18:51:28.039Z"
     },
     {
       "name": "EXACT DATE AND REGISTRATION FEE WILL BE ANNOUNCED SOON. SO KEEP IN TOUCH WITH US CONTACT  +60183709386 (WHAT'S APP).png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/EXACT DATE AND REGISTRATION FEE WILL BE ANNOUNCED SOON. SO KEEP IN TOUCH WITH US CONTACT  +60183709386 (WHAT'S APP).png",
-      "size": 1419379,
-      "modified": "2025-12-03T03:18:14.216Z"
+      "path": "/assets/Graphics/03-Social-Media/EXACT DATE AND REGISTRATION FEE WILL BE ANNOUNCED SOON. SO KEEP IN TOUCH WITH US CONTACT  +60183709386 (WHAT'S APP).png",
+      "size": 1319534,
+      "modified": "2025-12-04T18:56:59.301Z"
     },
     {
       "name": "fardina election.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/fardina election.png",
-      "size": 608961,
-      "modified": "2025-12-03T05:13:28.419Z"
+      "path": "/assets/Graphics/03-Social-Media/fardina election.png",
+      "size": 543438,
+      "modified": "2025-12-04T18:58:22.848Z"
     },
     {
       "name": "Felicita Di Raya.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Felicita Di Raya.png",
-      "size": 4641234,
-      "modified": "2022-03-28T09:30:40.228Z"
+      "path": "/assets/Graphics/03-Social-Media/Felicita Di Raya.png",
+      "size": 3848409,
+      "modified": "2025-12-04T19:03:53.814Z"
     },
     {
       "name": "free ship.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/free ship.png",
-      "size": 933769,
-      "modified": "2022-03-18T09:59:17.178Z"
+      "path": "/assets/Graphics/03-Social-Media/free ship.png",
+      "size": 734939,
+      "modified": "2025-12-04T19:10:35.157Z"
     },
     {
       "name": "Giveaway CD.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Giveaway CD.png",
-      "size": 682284,
-      "modified": "2022-04-26T09:30:37.703Z"
+      "path": "/assets/Graphics/03-Social-Media/Giveaway CD.png",
+      "size": 547653,
+      "modified": "2025-12-04T19:14:06.559Z"
     },
     {
       "name": "giveaway reminer.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/giveaway reminer.png",
-      "size": 2531854,
-      "modified": "2022-03-24T09:51:09.422Z"
+      "path": "/assets/Graphics/03-Social-Media/giveaway reminer.png",
+      "size": 1976987,
+      "modified": "2025-12-04T19:25:48.443Z"
     },
     {
       "name": "Giveaway Sunday Story.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Giveaway Sunday Story.png",
-      "size": 1794663,
-      "modified": "2022-04-26T08:25:40.653Z"
+      "path": "/assets/Graphics/03-Social-Media/Giveaway Sunday Story.png",
+      "size": 1378688,
+      "modified": "2025-12-04T19:34:25.478Z"
     },
     {
       "name": "Giveaway Winner.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Giveaway Winner.png",
-      "size": 700330,
-      "modified": "2022-04-29T13:45:20.814Z"
+      "path": "/assets/Graphics/03-Social-Media/Giveaway Winner.png",
+      "size": 560271,
+      "modified": "2025-12-04T19:37:14.952Z"
     },
     {
       "name": "giveaway.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/giveaway.jpg",
-      "size": 160032,
-      "modified": "2023-01-18T12:15:49.243Z"
+      "path": "/assets/Graphics/03-Social-Media/giveaway.jpg",
+      "size": 147861,
+      "modified": "2025-12-04T19:37:16.790Z"
     },
     {
       "name": "Giveaway.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Giveaway.png",
-      "size": 3471030,
-      "modified": "2022-03-21T10:08:36.277Z"
+      "path": "/assets/Graphics/03-Social-Media/Giveaway.png",
+      "size": 2751514,
+      "modified": "2025-12-04T19:47:47.664Z"
     },
     {
       "name": "Grey Payday Promotion Instagram Post.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Grey Payday Promotion Instagram Post.png",
-      "size": 321690,
-      "modified": "2022-03-17T09:39:46.636Z"
+      "path": "/assets/Graphics/03-Social-Media/Grey Payday Promotion Instagram Post.png",
+      "size": 254590,
+      "modified": "2025-12-04T19:50:05.297Z"
     },
     {
       "name": "Hackathon 1.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Hackathon 1.jpg",
-      "size": 2324912,
-      "modified": "2024-05-30T13:23:23.686Z"
+      "path": "/assets/Graphics/03-Social-Media/Hackathon 1.jpg",
+      "size": 2176529,
+      "modified": "2025-12-04T19:50:11.989Z"
     },
     {
       "name": "hackathon 2.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/hackathon 2.jpg",
-      "size": 1890921,
-      "modified": "2024-05-30T13:25:29.040Z"
+      "path": "/assets/Graphics/03-Social-Media/hackathon 2.jpg",
+      "size": 1784668,
+      "modified": "2025-12-04T19:50:17.361Z"
     },
     {
       "name": "Iftar Party Invitation Instagram Post.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Iftar Party Invitation Instagram Post.jpg",
-      "size": 520188,
-      "modified": "2025-03-18T04:23:57.022Z"
+      "path": "/assets/Graphics/03-Social-Media/Iftar Party Invitation Instagram Post.jpg",
+      "size": 462394,
+      "modified": "2025-12-04T19:50:18.966Z"
     },
     {
       "name": "IMG_20201119_0109561.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/IMG_20201119_0109561.jpg",
-      "size": 3900475,
-      "modified": "2021-01-30T14:46:40.000Z"
+      "path": "/assets/Graphics/03-Social-Media/IMG_20201119_0109561.jpg",
+      "size": 3591755,
+      "modified": "2025-12-04T19:50:30.641Z"
     },
     {
       "name": "International Mother LAnguage Day 1.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/International Mother LAnguage Day 1.png",
-      "size": 418546,
-      "modified": "2025-02-20T06:08:32.830Z"
+      "path": "/assets/Graphics/03-Social-Media/International Mother LAnguage Day 1.png",
+      "size": 354725,
+      "modified": "2025-12-04T19:55:39.519Z"
     },
     {
       "name": "International Mother LAnguage Day 2.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/International Mother LAnguage Day 2.png",
-      "size": 397925,
-      "modified": "2025-02-20T06:08:32.830Z"
+      "path": "/assets/Graphics/03-Social-Media/International Mother LAnguage Day 2.png",
+      "size": 342804,
+      "modified": "2025-12-04T19:58:55.685Z"
     },
     {
       "name": "International Womens Day Templates Poster.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/International Womens Day Templates Poster.jpg",
-      "size": 373679,
-      "modified": "2025-03-08T17:21:45.508Z"
+      "path": "/assets/Graphics/03-Social-Media/International Womens Day Templates Poster.jpg",
+      "size": 309289,
+      "modified": "2025-12-04T19:58:56.779Z"
     },
     {
       "name": "Italian Elegance.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Italian Elegance.png",
-      "size": 4757580,
-      "modified": "2022-03-21T10:10:05.082Z"
+      "path": "/assets/Graphics/03-Social-Media/Italian Elegance.png",
+      "size": 3755899,
+      "modified": "2025-12-04T20:06:33.491Z"
     },
     {
       "name": "new bag 1.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/new bag 1.png",
-      "size": 787464,
-      "modified": "2022-02-28T09:32:30.000Z"
+      "path": "/assets/Graphics/03-Social-Media/new bag 1.png",
+      "size": 599218,
+      "modified": "2025-12-04T20:09:41.758Z"
     },
     {
       "name": "new bag 2.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/new bag 2.png",
-      "size": 1202320,
-      "modified": "2022-03-01T08:33:50.000Z"
+      "path": "/assets/Graphics/03-Social-Media/new bag 2.png",
+      "size": 974733,
+      "modified": "2025-12-04T20:13:00.339Z"
     },
     {
       "name": "new bag.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/new bag.png",
-      "size": 779849,
-      "modified": "2022-02-28T09:04:46.000Z"
+      "path": "/assets/Graphics/03-Social-Media/new bag.png",
+      "size": 597415,
+      "modified": "2025-12-04T20:16:22.394Z"
     },
     {
       "name": "new c.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/new c.png",
-      "size": 5730143,
-      "modified": "2022-04-25T10:26:25.161Z"
+      "path": "/assets/Graphics/03-Social-Media/new c.png",
+      "size": 4985292,
+      "modified": "2025-12-04T20:19:43.356Z"
     },
     {
       "name": "new c1.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/new c1.png",
-      "size": 1792725,
-      "modified": "2022-04-25T09:59:53.395Z"
+      "path": "/assets/Graphics/03-Social-Media/new c1.png",
+      "size": 1516752,
+      "modified": "2025-12-04T20:24:46.875Z"
     },
     {
       "name": "New shoe.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/New shoe.png",
-      "size": 1185201,
-      "modified": "2022-03-01T08:33:34.000Z"
+      "path": "/assets/Graphics/03-Social-Media/New shoe.png",
+      "size": 942948,
+      "modified": "2025-12-04T20:28:14.868Z"
     },
     {
       "name": "NORD VPN.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/NORD VPN.png",
-      "size": 730207,
-      "modified": "2025-01-11T18:45:51.232Z"
+      "path": "/assets/Graphics/03-Social-Media/NORD VPN.png",
+      "size": 654355,
+      "modified": "2025-12-04T20:32:20.169Z"
     },
     {
       "name": "online platform.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/online platform.png",
-      "size": 6624975,
-      "modified": "2022-03-28T09:29:51.848Z"
+      "path": "/assets/Graphics/03-Social-Media/online platform.png",
+      "size": 5767961,
+      "modified": "2025-12-04T20:34:51.981Z"
     },
     {
       "name": "Orange Red Illustration Cowboy Call to Action Your Story.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Orange Red Illustration Cowboy Call to Action Your Story.jpg",
-      "size": 147403,
-      "modified": "2025-01-18T18:07:14.370Z"
+      "path": "/assets/Graphics/03-Social-Media/Orange Red Illustration Cowboy Call to Action Your Story.jpg",
+      "size": 124097,
+      "modified": "2025-12-04T20:34:53.808Z"
     },
     {
       "name": "Outlets.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Outlets.png",
-      "size": 1546395,
-      "modified": "2022-03-28T09:30:00.499Z"
-    },
-    {
-      "name": "Outside landscape.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Outside landscape.jpg",
-      "size": 650690,
-      "modified": "2025-03-27T02:04:24.704Z"
+      "path": "/assets/Graphics/03-Social-Media/Outlets.png",
+      "size": 1197757,
+      "modified": "2025-12-04T20:42:40.394Z"
     },
     {
       "name": "panel member poster.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/panel member poster.png",
-      "size": 516052,
-      "modified": "2025-12-03T05:14:13.781Z"
+      "path": "/assets/Graphics/03-Social-Media/panel member poster.png",
+      "size": 479963,
+      "modified": "2025-12-04T20:43:36.811Z"
     },
     {
       "name": "Payday.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Payday.png",
-      "size": 1237994,
-      "modified": "2022-03-17T09:16:12.061Z"
+      "path": "/assets/Graphics/03-Social-Media/Payday.png",
+      "size": 993358,
+      "modified": "2025-12-04T20:47:20.751Z"
     },
     {
       "name": "Pohela Boishakh Instagram Post.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Pohela Boishakh Instagram Post.jpg",
-      "size": 175448,
-      "modified": "2025-04-14T04:45:19.066Z"
+      "path": "/assets/Graphics/03-Social-Media/Pohela Boishakh Instagram Post.jpg",
+      "size": 155698,
+      "modified": "2025-12-04T20:47:22.369Z"
     },
     {
       "name": "raya greeting 1.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/raya greeting 1.png",
-      "size": 1183224,
-      "modified": "2022-04-27T09:01:57.250Z"
+      "path": "/assets/Graphics/03-Social-Media/raya greeting 1.png",
+      "size": 1059985,
+      "modified": "2025-12-04T20:51:09.148Z"
     },
     {
       "name": "raya greeting 2.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/raya greeting 2.png",
-      "size": 1278700,
-      "modified": "2022-04-27T09:02:07.632Z"
-    },
-    {
-      "name": "raya greeting 3 - Copy.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/raya greeting 3 - Copy.png",
-      "size": 5617050,
-      "modified": "2022-04-27T09:02:20.985Z"
+      "path": "/assets/Graphics/03-Social-Media/raya greeting 2.png",
+      "size": 1132008,
+      "modified": "2025-12-04T20:54:30.495Z"
     },
     {
       "name": "raya greeting 3.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/raya greeting 3.png",
-      "size": 5617050,
-      "modified": "2022-04-27T09:02:20.985Z"
+      "path": "/assets/Graphics/03-Social-Media/raya greeting 3.png",
+      "size": 4574776,
+      "modified": "2025-12-04T21:23:04.053Z"
     },
     {
       "name": "raya greeting 4.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/raya greeting 4.png",
-      "size": 1200455,
-      "modified": "2022-04-27T09:01:39.104Z"
+      "path": "/assets/Graphics/03-Social-Media/raya greeting 4.png",
+      "size": 968498,
+      "modified": "2025-12-04T21:25:47.522Z"
     },
     {
       "name": "raya greeting 5.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/raya greeting 5.png",
-      "size": 1661139,
-      "modified": "2022-04-27T10:40:41.937Z"
+      "path": "/assets/Graphics/03-Social-Media/raya greeting 5.png",
+      "size": 1301108,
+      "modified": "2025-12-04T21:34:15.842Z"
     },
     {
       "name": "raya greeting 6.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/raya greeting 6.png",
-      "size": 837815,
-      "modified": "2022-04-27T10:04:49.689Z"
+      "path": "/assets/Graphics/03-Social-Media/raya greeting 6.png",
+      "size": 603595,
+      "modified": "2025-12-04T21:44:31.214Z"
     },
     {
       "name": "raya greeting.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/raya greeting.png",
-      "size": 3538821,
-      "modified": "2022-04-27T09:02:31.667Z"
+      "path": "/assets/Graphics/03-Social-Media/raya greeting.png",
+      "size": 2827236,
+      "modified": "2025-12-04T21:57:33.137Z"
     },
     {
       "name": "Raya Newsletter  .png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Raya Newsletter  .png",
-      "size": 2247789,
-      "modified": "2022-04-25T09:15:29.067Z"
+      "path": "/assets/Graphics/03-Social-Media/Raya Newsletter  .png",
+      "size": 1833158,
+      "modified": "2025-12-04T22:04:51.132Z"
     },
     {
       "name": "Sajid election.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Sajid election.jpg",
-      "size": 668134,
-      "modified": "2025-12-03T05:12:50.882Z"
+      "path": "/assets/Graphics/03-Social-Media/Sajid election.jpg",
+      "size": 655255,
+      "modified": "2025-12-04T22:04:53.809Z"
     },
     {
       "name": "sarc frosh.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/sarc frosh.png",
-      "size": 272787,
-      "modified": "2024-08-22T05:31:03.969Z"
+      "path": "/assets/Graphics/03-Social-Media/sarc frosh.png",
+      "size": 238694,
+      "modified": "2025-12-04T22:07:29.503Z"
     },
     {
       "name": "Selamat Hari Raya Instagram Post_.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Selamat Hari Raya Instagram Post_.png",
-      "size": 1197021,
-      "modified": "2022-04-28T05:29:24.301Z"
+      "path": "/assets/Graphics/03-Social-Media/Selamat Hari Raya Instagram Post_.png",
+      "size": 966750,
+      "modified": "2025-12-04T22:10:18.729Z"
     },
     {
       "name": "shoe.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/shoe.png",
-      "size": 2052052,
-      "modified": "2022-04-12T09:13:45.910Z"
+      "path": "/assets/Graphics/03-Social-Media/shoe.png",
+      "size": 1628803,
+      "modified": "2025-12-04T22:17:33.121Z"
     },
     {
       "name": "shopee cover.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/shopee cover.png",
-      "size": 339953,
-      "modified": "2022-03-02T04:26:30.000Z"
+      "path": "/assets/Graphics/03-Social-Media/shopee cover.png",
+      "size": 281397,
+      "modified": "2025-12-04T22:19:18.353Z"
     },
     {
       "name": "Sign up.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Sign up.png",
-      "size": 1271027,
-      "modified": "2022-03-02T08:27:32.000Z"
+      "path": "/assets/Graphics/03-Social-Media/Sign up.png",
+      "size": 987058,
+      "modified": "2025-12-04T22:26:57.753Z"
     },
     {
       "name": "slippers.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/slippers.png",
-      "size": 785414,
-      "modified": "2022-06-07T10:33:26.101Z"
+      "path": "/assets/Graphics/03-Social-Media/slippers.png",
+      "size": 638771,
+      "modified": "2025-12-04T22:29:08.489Z"
     },
     {
       "name": "speakers updated.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/speakers updated.jpg",
-      "size": 824427,
-      "modified": "2025-03-19T05:27:53.922Z"
+      "path": "/assets/Graphics/03-Social-Media/speakers updated.jpg",
+      "size": 699492,
+      "modified": "2025-12-04T22:29:11.142Z"
     },
     {
       "name": "Stage.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Stage.jpg",
-      "size": 2357355,
-      "modified": "2025-03-27T01:59:01.671Z"
+      "path": "/assets/Graphics/03-Social-Media/Stage.jpg",
+      "size": 2013751,
+      "modified": "2025-12-04T22:29:17.095Z"
     },
     {
       "name": "Story.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Story.png",
-      "size": 1790674,
-      "modified": "2022-04-26T09:17:57.623Z"
+      "path": "/assets/Graphics/03-Social-Media/Story.png",
+      "size": 1376817,
+      "modified": "2025-12-04T22:37:46.257Z"
     },
     {
       "name": "SUmmer Wave Montreal 1.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/SUmmer Wave Montreal 1.png",
-      "size": 2430346,
-      "modified": "2025-06-04T03:48:32.284Z"
+      "path": "/assets/Graphics/03-Social-Media/SUmmer Wave Montreal 1.png",
+      "size": 1632173,
+      "modified": "2025-12-04T22:40:13.173Z"
     },
     {
       "name": "Summer wave montreal 2.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Summer wave montreal 2.png",
-      "size": 1296399,
-      "modified": "2025-06-04T03:48:32.340Z"
+      "path": "/assets/Graphics/03-Social-Media/Summer wave montreal 2.png",
+      "size": 853986,
+      "modified": "2025-12-04T22:43:20.499Z"
     },
     {
       "name": "Supporting Artist 1 (2).png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Supporting Artist 1 (2).png",
-      "size": 1190314,
-      "modified": "2023-01-18T13:41:52.000Z"
-    },
-    {
-      "name": "Supporting Artist 1.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Supporting Artist 1.png",
-      "size": 1190314,
-      "modified": "2023-01-18T13:41:52.000Z"
-    },
-    {
-      "name": "Supporting Artist 2 (2).png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Supporting Artist 2 (2).png",
-      "size": 1702262,
-      "modified": "2023-01-18T13:41:52.000Z"
+      "path": "/assets/Graphics/03-Social-Media/Supporting Artist 1 (2).png",
+      "size": 906937,
+      "modified": "2025-12-04T22:49:35.352Z"
     },
     {
       "name": "Supporting Artist 2.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Supporting Artist 2.png",
-      "size": 1702262,
-      "modified": "2023-01-18T13:41:52.000Z"
-    },
-    {
-      "name": "Supporting Artist 3 (2).png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Supporting Artist 3 (2).png",
-      "size": 2477753,
-      "modified": "2023-01-18T13:41:52.000Z"
+      "path": "/assets/Graphics/03-Social-Media/Supporting Artist 2.png",
+      "size": 1297018,
+      "modified": "2025-12-04T23:08:35.011Z"
     },
     {
       "name": "Supporting Artist 3.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Supporting Artist 3.png",
-      "size": 2477753,
-      "modified": "2023-01-18T13:41:52.000Z"
+      "path": "/assets/Graphics/03-Social-Media/Supporting Artist 3.png",
+      "size": 1993276,
+      "modified": "2025-12-04T23:20:52.180Z"
     },
     {
       "name": "t1.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/t1.jpg",
-      "size": 187319,
-      "modified": "2025-03-14T06:16:19.465Z"
-    },
-    {
-      "name": "t2.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/t2.jpg",
-      "size": 1032181,
-      "modified": "2025-03-14T06:13:38.372Z"
+      "path": "/assets/Graphics/03-Social-Media/t1.jpg",
+      "size": 167402,
+      "modified": "2025-12-04T23:20:53.821Z"
     },
     {
       "name": "t3.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/t3.jpg",
-      "size": 1016288,
-      "modified": "2025-03-14T06:13:19.043Z"
-    },
-    {
-      "name": "t4.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/t4.jpg",
-      "size": 1059057,
-      "modified": "2025-03-14T06:12:56.569Z"
-    },
-    {
-      "name": "t5.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/t5.jpg",
-      "size": 1115622,
-      "modified": "2025-03-14T06:12:41.338Z"
-    },
-    {
-      "name": "t6.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/t6.jpg",
-      "size": 1144377,
-      "modified": "2025-03-14T06:12:24.928Z"
+      "path": "/assets/Graphics/03-Social-Media/t3.jpg",
+      "size": 903069,
+      "modified": "2025-12-04T23:20:58.865Z"
     },
     {
       "name": "ted date (4).jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/ted date (4).jpg",
-      "size": 1038866,
-      "modified": "2025-02-28T05:54:17.066Z"
+      "path": "/assets/Graphics/03-Social-Media/ted date (4).jpg",
+      "size": 939373,
+      "modified": "2025-12-04T23:21:08.873Z"
     },
     {
       "name": "ted spons (3).jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/ted spons (3).jpg",
-      "size": 127555,
-      "modified": "2025-03-21T03:49:29.361Z"
+      "path": "/assets/Graphics/03-Social-Media/ted spons (3).jpg",
+      "size": 117148,
+      "modified": "2025-12-04T23:21:09.619Z"
     },
     {
       "name": "ted2 (1).jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/ted2 (1).jpg",
-      "size": 834914,
-      "modified": "2025-03-21T03:53:08.973Z"
-    },
-    {
-      "name": "tedx.jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/tedx.jpg",
-      "size": 139752,
-      "modified": "2025-02-25T20:57:38.582Z"
+      "path": "/assets/Graphics/03-Social-Media/ted2 (1).jpg",
+      "size": 701202,
+      "modified": "2025-12-04T23:21:12.062Z"
     },
     {
       "name": "top sell.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/top sell.png",
-      "size": 12490317,
-      "modified": "2022-03-18T09:59:48.744Z"
+      "path": "/assets/Graphics/03-Social-Media/top sell.png",
+      "size": 9794724,
+      "modified": "2025-12-04T23:50:13.678Z"
     },
     {
       "name": "Untitled-1.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Untitled-1.png",
-      "size": 5475814,
-      "modified": "2022-06-10T09:55:41.020Z"
+      "path": "/assets/Graphics/03-Social-Media/Untitled-1.png",
+      "size": 4653900,
+      "modified": "2025-12-04T23:53:29.204Z"
     },
     {
       "name": "VIP MEMBER.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/VIP MEMBER.png",
-      "size": 1941616,
-      "modified": "2022-03-18T09:59:48.712Z"
+      "path": "/assets/Graphics/03-Social-Media/VIP MEMBER.png",
+      "size": 1427975,
+      "modified": "2025-12-05T00:01:46.577Z"
     },
     {
       "name": "VP Sponsorship (1).png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/VP Sponsorship (1).png",
-      "size": 491868,
-      "modified": "2024-05-30T05:36:12.493Z"
+      "path": "/assets/Graphics/03-Social-Media/VP Sponsorship (1).png",
+      "size": 331444,
+      "modified": "2025-12-05T00:05:42.031Z"
     },
     {
       "name": "womens day.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/womens day.png",
-      "size": 1467871,
-      "modified": "2022-03-07T09:48:06.000Z"
+      "path": "/assets/Graphics/03-Social-Media/womens day.png",
+      "size": 1218870,
+      "modified": "2025-12-05T00:07:40.954Z"
     },
     {
       "name": "workshop (2).jpg",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/workshop (2).jpg",
-      "size": 161221,
-      "modified": "2024-11-19T00:54:03.167Z"
+      "path": "/assets/Graphics/03-Social-Media/workshop (2).jpg",
+      "size": 136793,
+      "modified": "2025-12-05T00:07:42.465Z"
     },
     {
       "name": "Youbeli 1200.1200.png",
-      "path": "/assets/Graphics/03-Digital-Design/Social-Media/Youbeli 1200.1200.png",
-      "size": 1280189,
-      "modified": "2022-03-22T10:23:44.627Z"
+      "path": "/assets/Graphics/03-Social-Media/Youbeli 1200.1200.png",
+      "size": 1032707,
+      "modified": "2025-12-05T00:11:41.570Z"
     },
     {
       "name": "illus 1.jpg",
       "path": "/assets/Graphics/04-Illustrations/illus 1.jpg",
-      "size": 310597,
-      "modified": "2025-12-03T05:15:29.126Z"
+      "size": 303557,
+      "modified": "2025-12-05T00:11:44.011Z"
     },
     {
       "name": "illus 2.png",
       "path": "/assets/Graphics/04-Illustrations/illus 2.png",
-      "size": 207809,
-      "modified": "2025-12-03T05:16:03.475Z"
+      "size": 191357,
+      "modified": "2025-12-05T00:12:20.735Z"
     },
     {
       "name": "illus 3.jpg",
       "path": "/assets/Graphics/04-Illustrations/illus 3.jpg",
-      "size": 222163,
-      "modified": "2025-12-03T05:16:33.917Z"
+      "size": 211838,
+      "modified": "2025-12-05T00:12:22.339Z"
     },
     {
       "name": "Landscape 1.jpg",
       "path": "/assets/Graphics/04-Illustrations/Landscape 1.jpg",
-      "size": 131648,
-      "modified": "2023-03-27T07:43:07.186Z"
+      "size": 107179,
+      "modified": "2025-12-05T00:12:23.083Z"
     },
     {
       "name": "landscape 2.jpg",
       "path": "/assets/Graphics/04-Illustrations/landscape 2.jpg",
-      "size": 76345,
-      "modified": "2023-03-27T09:23:37.990Z"
+      "size": 71682,
+      "modified": "2025-12-05T00:12:24.718Z"
     },
     {
       "name": "landscape 3.jpg",
       "path": "/assets/Graphics/04-Illustrations/landscape 3.jpg",
-      "size": 161558,
-      "modified": "2023-03-28T10:14:36.170Z"
+      "size": 130218,
+      "modified": "2025-12-05T00:12:26.300Z"
     },
     {
       "name": "mani 1.jpg",
       "path": "/assets/Graphics/05-Photo-Manipulation/mani 1.jpg",
-      "size": 3890002,
-      "modified": "2023-04-06T21:15:44.118Z"
+      "size": 3730275,
+      "modified": "2025-12-05T00:12:36.877Z"
     },
     {
       "name": "mani 2.jpg",
       "path": "/assets/Graphics/05-Photo-Manipulation/mani 2.jpg",
-      "size": 767583,
-      "modified": "2023-04-07T20:26:19.546Z"
+      "size": 121817,
+      "modified": "2025-12-05T00:12:38.004Z"
     },
     {
       "name": "mani 3.jpg",
       "path": "/assets/Graphics/05-Photo-Manipulation/mani 3.jpg",
-      "size": 288115,
-      "modified": "2023-04-07T20:25:47.626Z"
+      "size": 267631,
+      "modified": "2025-12-05T00:12:39.368Z"
     },
     {
       "name": "1 (3).png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/1 (3).png",
-      "size": 450110,
-      "modified": "2022-06-07T10:10:15.096Z"
+      "size": 345223,
+      "modified": "2025-12-05T00:15:12.038Z"
     },
     {
       "name": "1.1.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/1.1.png",
-      "size": 553012,
-      "modified": "2022-03-15T09:29:35.100Z"
+      "size": 450388,
+      "modified": "2025-12-05T00:16:55.539Z"
     },
     {
       "name": "1.2.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/1.2.png",
-      "size": 654338,
-      "modified": "2022-03-14T10:21:41.608Z"
+      "size": 534299,
+      "modified": "2025-12-05T00:18:52.004Z"
     },
     {
       "name": "1.3.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/1.3.png",
-      "size": 1666687,
-      "modified": "2022-04-28T08:41:40.969Z"
+      "size": 1304576,
+      "modified": "2025-12-05T00:26:57.993Z"
     },
     {
       "name": "1.4.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/1.4.png",
-      "size": 884842,
-      "modified": "2022-03-11T10:26:24.000Z"
+      "size": 739312,
+      "modified": "2025-12-05T00:28:16.265Z"
     },
     {
       "name": "2 (3).png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/2 (3).png",
-      "size": 257073,
-      "modified": "2022-06-07T10:10:35.456Z"
+      "size": 194234,
+      "modified": "2025-12-05T00:30:53.136Z"
     },
     {
       "name": "2.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/2.png",
-      "size": 1504160,
-      "modified": "2022-04-28T08:50:29.732Z"
+      "size": 1232124,
+      "modified": "2025-12-05T00:39:22.027Z"
     },
     {
       "name": "3.1.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/3.1.png",
-      "size": 2392431,
-      "modified": "2022-02-25T09:40:28.000Z"
+      "size": 1959322,
+      "modified": "2025-12-05T00:49:51.589Z"
     },
     {
       "name": "3.2.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/3.2.png",
-      "size": 327531,
-      "modified": "2022-02-25T09:40:46.000Z"
+      "size": 271118,
+      "modified": "2025-12-05T00:51:35.291Z"
     },
     {
       "name": "3.3 (2).png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/3.3 (2).png",
-      "size": 608738,
-      "modified": "2022-06-07T10:10:54.433Z"
+      "size": 513940,
+      "modified": "2025-12-05T00:53:59.262Z"
     },
     {
       "name": "3.3 Story.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/3.3 Story.png",
-      "size": 677785,
-      "modified": "2022-03-01T09:07:30.000Z"
+      "size": 515162,
+      "modified": "2025-12-05T00:59:04.147Z"
     },
     {
       "name": "3.3.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/3.3.png",
-      "size": 2356553,
-      "modified": "2022-02-25T09:39:30.000Z"
+      "size": 1866531,
+      "modified": "2025-12-05T01:08:40.108Z"
     },
     {
       "name": "3.4.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/3.4.png",
-      "size": 254173,
-      "modified": "2022-03-01T08:50:16.000Z"
+      "size": 191875,
+      "modified": "2025-12-05T01:10:55.385Z"
     },
     {
       "name": "3.5.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/3.5.png",
-      "size": 147763,
-      "modified": "2022-02-25T09:37:36.000Z"
+      "size": 124771,
+      "modified": "2025-12-05T01:11:38.755Z"
     },
     {
       "name": "3.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/3.png",
-      "size": 1980814,
-      "modified": "2022-04-28T09:15:21.684Z"
+      "size": 1591183,
+      "modified": "2025-12-05T01:19:56.706Z"
     },
     {
       "name": "4.4 Reminder.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/4.4 Reminder.png",
-      "size": 1199322,
-      "modified": "2022-03-24T05:16:34.085Z"
+      "size": 818620,
+      "modified": "2025-12-05T01:32:08.116Z"
     },
     {
       "name": "4.4.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/4.4.png",
-      "size": 2017236,
-      "modified": "2022-03-21T10:34:51.818Z"
+      "size": 1691998,
+      "modified": "2025-12-05T01:33:05.797Z"
     },
     {
       "name": "4.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/4.png",
-      "size": 4771323,
-      "modified": "2022-06-07T10:09:23.308Z"
+      "size": 3955793,
+      "modified": "2025-12-05T01:39:18.461Z"
     },
     {
       "name": "6.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/6.png",
-      "size": 5926881,
-      "modified": "2022-06-07T10:09:43.314Z"
+      "size": 4926298,
+      "modified": "2025-12-05T01:44:11.383Z"
     },
     {
       "name": "7.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/7.png",
-      "size": 5575114,
-      "modified": "2022-06-21T08:00:03.043Z"
+      "size": 4483684,
+      "modified": "2025-12-05T01:48:16.315Z"
     },
     {
       "name": "AB-2572.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/AB-2572.jpg",
-      "size": 88588,
-      "modified": "2022-02-25T08:39:18.000Z"
+      "size": 77570,
+      "modified": "2025-12-05T01:48:17.992Z"
     },
     {
       "name": "AR BAG.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/AR BAG.png",
-      "size": 2197328,
-      "modified": "2022-03-21T10:09:43.450Z"
+      "size": 1724805,
+      "modified": "2025-12-05T01:54:37.289Z"
     },
     {
       "name": "AR.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/AR.png",
-      "size": 2623559,
-      "modified": "2022-03-17T09:16:40.915Z"
+      "size": 2054863,
+      "modified": "2025-12-05T02:01:06.940Z"
     },
     {
       "name": "Consumer Day.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/Consumer Day.png",
-      "size": 1747487,
-      "modified": "2022-03-03T02:57:54.000Z"
+      "size": 1353413,
+      "modified": "2025-12-05T02:21:01.620Z"
     },
     {
       "name": "Felicita Di Raya.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/Felicita Di Raya.png",
-      "size": 4641234,
-      "modified": "2022-03-28T09:30:40.228Z"
+      "size": 3848409,
+      "modified": "2025-12-05T02:26:25.463Z"
     },
     {
       "name": "free ship.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/free ship.png",
-      "size": 933769,
-      "modified": "2022-03-18T09:59:17.178Z"
+      "size": 734939,
+      "modified": "2025-12-05T02:33:23.459Z"
     },
     {
       "name": "Giveaway CD.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/Giveaway CD.png",
-      "size": 682284,
-      "modified": "2022-04-26T09:30:37.703Z"
+      "size": 547653,
+      "modified": "2025-12-05T02:36:44.429Z"
     },
     {
       "name": "giveaway reminer.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/giveaway reminer.png",
-      "size": 2531854,
-      "modified": "2022-03-24T09:51:09.422Z"
+      "size": 1976987,
+      "modified": "2025-12-05T02:48:07.613Z"
     },
     {
       "name": "Giveaway Sunday Story.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/Giveaway Sunday Story.png",
-      "size": 1794663,
-      "modified": "2022-04-26T08:25:40.653Z"
+      "size": 1378688,
+      "modified": "2025-12-05T02:56:51.604Z"
     },
     {
       "name": "Giveaway Winner.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/Giveaway Winner.png",
-      "size": 700330,
-      "modified": "2022-04-29T13:45:20.814Z"
+      "size": 560404,
+      "modified": "2025-12-05T02:59:38.112Z"
     },
     {
       "name": "Giveaway.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/Giveaway.png",
-      "size": 3471030,
-      "modified": "2022-03-21T10:08:36.277Z"
+      "size": 2751823,
+      "modified": "2025-12-05T03:10:50.894Z"
     },
     {
       "name": "Grey Payday Promotion Instagram Post.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/Grey Payday Promotion Instagram Post.png",
-      "size": 321690,
-      "modified": "2022-03-17T09:39:46.636Z"
+      "size": 254590,
+      "modified": "2025-12-05T03:12:49.448Z"
     },
     {
       "name": "Italian Elegance.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/Italian Elegance.png",
-      "size": 4757580,
-      "modified": "2022-03-21T10:10:05.082Z"
+      "size": 3755899,
+      "modified": "2025-12-05T03:20:57.007Z"
     },
     {
       "name": "new bag 1.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/new bag 1.png",
-      "size": 787464,
-      "modified": "2022-02-28T09:32:30.000Z"
+      "size": 599218,
+      "modified": "2025-12-05T03:24:08.490Z"
     },
     {
       "name": "new bag 2.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/new bag 2.png",
-      "size": 1202320,
-      "modified": "2022-03-01T08:33:50.000Z"
+      "size": 974733,
+      "modified": "2025-12-05T03:27:18.751Z"
     },
     {
       "name": "new bag.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/new bag.png",
-      "size": 779849,
-      "modified": "2022-02-28T09:04:46.000Z"
+      "size": 597415,
+      "modified": "2025-12-05T03:30:32.044Z"
     },
     {
       "name": "new c.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/new c.png",
-      "size": 5730143,
-      "modified": "2022-04-25T10:26:25.161Z"
+      "size": 4985292,
+      "modified": "2025-12-05T03:33:34.476Z"
     },
     {
       "name": "new c1.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/new c1.png",
-      "size": 1792725,
-      "modified": "2022-04-25T09:59:53.395Z"
+      "size": 1516361,
+      "modified": "2025-12-05T03:40:12.818Z"
     },
     {
       "name": "New shoe.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/New shoe.png",
-      "size": 1185201,
-      "modified": "2022-03-01T08:33:34.000Z"
+      "size": 942948,
+      "modified": "2025-12-05T03:43:46.512Z"
     },
     {
       "name": "online platform.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/online platform.png",
-      "size": 6624975,
-      "modified": "2022-03-28T09:29:51.848Z"
+      "size": 5767961,
+      "modified": "2025-12-05T03:46:14.078Z"
     },
     {
       "name": "Outlets.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/Outlets.png",
-      "size": 1546395,
-      "modified": "2022-03-28T09:30:00.499Z"
+      "size": 1197244,
+      "modified": "2025-12-05T03:54:35.018Z"
     },
     {
       "name": "Payday.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/Payday.png",
-      "size": 1237994,
-      "modified": "2022-03-17T09:16:12.061Z"
+      "size": 993358,
+      "modified": "2025-12-05T03:58:16.299Z"
     },
     {
       "name": "raya greeting 1.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/raya greeting 1.png",
-      "size": 1183224,
-      "modified": "2022-04-27T09:01:57.250Z"
+      "size": 1059985,
+      "modified": "2025-12-05T04:02:04.577Z"
     },
     {
       "name": "raya greeting 2.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/raya greeting 2.png",
-      "size": 1278700,
-      "modified": "2022-04-27T09:02:07.632Z"
+      "size": 1132008,
+      "modified": "2025-12-05T04:05:26.328Z"
     },
     {
       "name": "raya greeting 3 - Copy.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/raya greeting 3 - Copy.png",
-      "size": 5617050,
-      "modified": "2022-04-27T09:02:20.985Z"
+      "size": 4577232,
+      "modified": "2025-12-05T04:21:12.523Z"
     },
     {
       "name": "raya greeting 3.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/raya greeting 3.png",
-      "size": 5617050,
-      "modified": "2022-04-27T09:02:20.985Z"
+      "size": 4561716,
+      "modified": "2025-12-05T04:36:17.716Z"
     },
     {
       "name": "raya greeting 4.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/raya greeting 4.png",
-      "size": 1200455,
-      "modified": "2022-04-27T09:01:39.104Z"
+      "size": 968498,
+      "modified": "2025-12-05T04:39:02.099Z"
     },
     {
       "name": "raya greeting 5.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/raya greeting 5.png",
-      "size": 1661139,
-      "modified": "2022-04-27T10:40:41.937Z"
+      "size": 1301108,
+      "modified": "2025-12-05T04:46:58.155Z"
     },
     {
       "name": "raya greeting 6.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/raya greeting 6.png",
-      "size": 837815,
-      "modified": "2022-04-27T10:04:49.689Z"
+      "size": 603595,
+      "modified": "2025-12-05T04:56:46.046Z"
     },
     {
       "name": "raya greeting.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/raya greeting.png",
-      "size": 3538821,
-      "modified": "2022-04-27T09:02:31.667Z"
+      "size": 2827236,
+      "modified": "2025-12-05T05:09:56.542Z"
     },
     {
       "name": "Raya Newsletter  .png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/Raya Newsletter  .png",
-      "size": 2247789,
-      "modified": "2022-04-25T09:15:29.067Z"
+      "size": 1833158,
+      "modified": "2025-12-05T05:16:27.428Z"
     },
     {
       "name": "Selamat Hari Raya Instagram Post_.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/Selamat Hari Raya Instagram Post_.png",
-      "size": 1197021,
-      "modified": "2022-04-28T05:29:24.301Z"
+      "size": 966750,
+      "modified": "2025-12-05T05:19:14.753Z"
     },
     {
       "name": "shoe.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/shoe.png",
-      "size": 2052052,
-      "modified": "2022-04-12T09:13:45.910Z"
+      "size": 1628803,
+      "modified": "2025-12-05T05:27:24.988Z"
     },
     {
       "name": "shopee cover.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/shopee cover.png",
-      "size": 339953,
-      "modified": "2022-03-02T04:26:30.000Z"
+      "size": 281397,
+      "modified": "2025-12-05T05:29:13.626Z"
     },
     {
       "name": "Sign up.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/Sign up.png",
-      "size": 1271027,
-      "modified": "2022-03-02T08:27:32.000Z"
+      "size": 987058,
+      "modified": "2025-12-05T05:36:40.981Z"
     },
     {
       "name": "slippers.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/slippers.png",
-      "size": 785414,
-      "modified": "2022-06-07T10:33:26.101Z"
+      "size": 638771,
+      "modified": "2025-12-05T05:38:56.106Z"
     },
     {
       "name": "Story.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/Story.png",
-      "size": 1790674,
-      "modified": "2022-04-26T09:17:57.623Z"
+      "size": 1376817,
+      "modified": "2025-12-05T05:47:27.259Z"
     },
     {
       "name": "top sell.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/top sell.png",
-      "size": 12490317,
-      "modified": "2022-03-18T09:59:48.744Z"
+      "size": 9794724,
+      "modified": "2025-12-05T06:18:53.070Z"
     },
     {
       "name": "Untitled-1.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/Untitled-1.png",
-      "size": 5475814,
-      "modified": "2022-06-10T09:55:41.020Z"
+      "size": 4653900,
+      "modified": "2025-12-05T06:22:06.012Z"
     },
     {
       "name": "VIP MEMBER.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/VIP MEMBER.png",
-      "size": 1941616,
-      "modified": "2022-03-18T09:59:48.712Z"
+      "size": 1427975,
+      "modified": "2025-12-05T06:30:17.806Z"
     },
     {
       "name": "womens day.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/womens day.png",
-      "size": 1467871,
-      "modified": "2022-03-07T09:48:06.000Z"
+      "size": 1218686,
+      "modified": "2025-12-05T06:32:17.914Z"
     },
     {
       "name": "Youbeli 1200.1200.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/SOCIAL/Youbeli 1200.1200.png",
-      "size": 1280189,
-      "modified": "2022-03-22T10:23:44.627Z"
+      "size": 1033318,
+      "modified": "2025-12-05T06:36:08.333Z"
     },
     {
       "name": "1.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/1.png",
-      "size": 443582,
-      "modified": "2022-02-25T09:47:44.000Z"
+      "size": 364850,
+      "modified": "2025-12-05T06:38:37.875Z"
     },
     {
       "name": "10.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/10.png",
-      "size": 5019859,
-      "modified": "2022-04-04T08:37:04.522Z"
+      "size": 4265230,
+      "modified": "2025-12-05T06:42:47.842Z"
     },
     {
       "name": "11.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/11.png",
-      "size": 1810570,
-      "modified": "2022-05-31T09:28:12.279Z"
-    },
-    {
-      "name": "12.png",
-      "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/12.png",
-      "size": 114875,
-      "modified": "2022-02-15T08:42:32.000Z"
-    },
-    {
-      "name": "13.png",
-      "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/13.png",
-      "size": 141488,
-      "modified": "2022-02-15T08:42:24.000Z"
+      "size": 1474658,
+      "modified": "2025-12-05T06:46:10.061Z"
     },
     {
       "name": "14.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/14.png",
-      "size": 385861,
-      "modified": "2022-02-10T06:22:58.000Z"
+      "size": 316344,
+      "modified": "2025-12-05T06:48:25.114Z"
     },
     {
       "name": "15.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/15.png",
-      "size": 58670,
-      "modified": "2022-02-10T06:23:12.000Z"
+      "size": 34948,
+      "modified": "2025-12-05T06:49:32.494Z"
     },
     {
       "name": "16.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/16.png",
-      "size": 407221,
-      "modified": "2022-04-01T05:09:19.924Z"
+      "size": 340167,
+      "modified": "2025-12-05T06:51:04.160Z"
     },
     {
       "name": "17.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/17.png",
-      "size": 156609,
-      "modified": "2022-02-08T08:47:40.000Z"
+      "size": 122621,
+      "modified": "2025-12-05T06:52:12.033Z"
     },
     {
       "name": "18.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/18.png",
-      "size": 139269,
-      "modified": "2022-02-08T08:48:02.000Z"
+      "size": 107137,
+      "modified": "2025-12-05T06:53:28.437Z"
     },
     {
       "name": "19.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/19.png",
-      "size": 311334,
-      "modified": "2022-02-08T04:06:56.000Z"
+      "size": 101411,
+      "modified": "2025-12-05T06:54:06.192Z"
     },
     {
       "name": "2.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/2.png",
-      "size": 1169609,
-      "modified": "2022-03-22T04:26:35.374Z"
+      "size": 930024,
+      "modified": "2025-12-05T06:56:56.560Z"
     },
     {
       "name": "20.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/20.png",
-      "size": 2128604,
-      "modified": "2022-02-07T09:35:02.000Z"
+      "size": 1382967,
+      "modified": "2025-12-05T06:59:00.188Z"
     },
     {
       "name": "21.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/21.png",
-      "size": 376677,
-      "modified": "2022-02-10T06:43:12.000Z"
+      "size": 307791,
+      "modified": "2025-12-05T06:59:58.942Z"
     },
     {
       "name": "22.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/22.png",
-      "size": 56666,
-      "modified": "2022-02-11T08:11:04.000Z"
-    },
-    {
-      "name": "23.png",
-      "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/23.png",
-      "size": 111200,
-      "modified": "2022-02-15T08:45:04.000Z"
+      "size": 32904,
+      "modified": "2025-12-05T07:01:16.707Z"
     },
     {
       "name": "24.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/24.png",
-      "size": 256550,
-      "modified": "2022-02-16T10:17:50.000Z"
+      "size": 183142,
+      "modified": "2025-12-05T07:04:37.096Z"
     },
     {
       "name": "25.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/25.png",
-      "size": 471686,
-      "modified": "2022-02-14T07:43:00.000Z"
+      "size": 332266,
+      "modified": "2025-12-05T07:05:35.496Z"
     },
     {
       "name": "26.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/26.png",
-      "size": 1293168,
-      "modified": "2022-02-08T04:04:38.000Z"
+      "size": 957502,
+      "modified": "2025-12-05T07:11:18.879Z"
     },
     {
       "name": "27.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/27.png",
-      "size": 398859,
-      "modified": "2022-02-18T02:22:48.000Z"
+      "size": 315861,
+      "modified": "2025-12-05T07:14:06.022Z"
     },
     {
       "name": "3.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/3.png",
-      "size": 1446947,
-      "modified": "2022-02-15T04:06:22.000Z"
+      "size": 1194533,
+      "modified": "2025-12-05T07:17:29.730Z"
     },
     {
       "name": "4.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/4.png",
-      "size": 907180,
-      "modified": "2022-02-16T05:35:18.000Z"
+      "size": 759602,
+      "modified": "2025-12-05T07:20:20.352Z"
     },
     {
       "name": "5.1.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/5.1.png",
-      "size": 11520387,
-      "modified": "2022-02-21T04:47:04.000Z"
+      "size": 9487411,
+      "modified": "2025-12-05T07:36:07.802Z"
     },
     {
       "name": "5.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/5.png",
-      "size": 644014,
-      "modified": "2022-02-09T10:38:32.000Z"
+      "size": 520771,
+      "modified": "2025-12-05T07:40:17.599Z"
     },
     {
       "name": "6.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/6.png",
-      "size": 668810,
-      "modified": "2022-02-08T08:47:22.000Z"
+      "size": 553762,
+      "modified": "2025-12-05T07:41:58.589Z"
     },
     {
       "name": "7 (2).png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/7 (2).png",
-      "size": 613679,
-      "modified": "2022-02-08T04:06:52.000Z"
+      "size": 220383,
+      "modified": "2025-12-05T07:42:53.441Z"
     },
     {
       "name": "7.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/7.png",
-      "size": 394786,
-      "modified": "2022-02-08T04:07:00.000Z"
+      "size": 132247,
+      "modified": "2025-12-05T07:43:22.447Z"
     },
     {
       "name": "8.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/8.png",
-      "size": 2272498,
-      "modified": "2022-02-11T09:43:08.000Z"
+      "size": 1872783,
+      "modified": "2025-12-05T07:47:43.104Z"
     },
     {
       "name": "9.png",
       "path": "/assets/Graphics/06-Client-Projects/Alfio Raldo/Website/9.png",
-      "size": 5877546,
-      "modified": "2022-04-04T08:37:22.620Z"
+      "size": 552988,
+      "modified": "2025-12-05T07:48:10.827Z"
     },
     {
       "name": "1.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/1.jpg",
-      "size": 140455,
-      "modified": "2025-12-03T04:48:23.186Z"
+      "size": 134243,
+      "modified": "2025-12-05T07:48:12.575Z"
     },
     {
       "name": "10.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/10.jpg",
-      "size": 123789,
-      "modified": "2025-12-03T04:48:56.838Z"
+      "size": 119311,
+      "modified": "2025-12-05T07:48:13.460Z"
     },
     {
       "name": "11.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/11.jpg",
-      "size": 254173,
-      "modified": "2025-12-03T04:49:24.332Z"
+      "size": 248918,
+      "modified": "2025-12-05T07:48:14.811Z"
     },
     {
       "name": "12.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/12.jpg",
-      "size": 141618,
-      "modified": "2025-12-03T04:49:27.840Z"
+      "size": 135940,
+      "modified": "2025-12-05T07:48:15.746Z"
     },
     {
       "name": "13.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/13.jpg",
-      "size": 160032,
-      "modified": "2023-01-18T12:15:49.243Z"
+      "size": 147861,
+      "modified": "2025-12-05T07:48:16.697Z"
     },
     {
       "name": "16.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/16.jpg",
-      "size": 234101,
-      "modified": "2025-12-03T04:50:13.404Z"
+      "size": 227437,
+      "modified": "2025-12-05T07:48:18.681Z"
     },
     {
       "name": "2.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/2.jpg",
-      "size": 170289,
-      "modified": "2025-12-03T04:50:37.985Z"
+      "size": 169815,
+      "modified": "2025-12-03T04:50:37.000Z"
     },
     {
       "name": "2.png",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/2.png",
-      "size": 961556,
-      "modified": "2023-01-18T13:41:52.000Z"
+      "size": 708403,
+      "modified": "2025-12-05T07:54:58.464Z"
     },
     {
       "name": "3.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/3.jpg",
-      "size": 131468,
-      "modified": "2025-12-03T04:47:34.169Z"
+      "size": 126202,
+      "modified": "2025-12-05T07:54:59.604Z"
     },
     {
       "name": "4.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/4.jpg",
-      "size": 249794,
-      "modified": "2025-12-03T04:49:55.349Z"
+      "size": 242618,
+      "modified": "2025-12-05T07:55:00.937Z"
     },
     {
       "name": "5.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/5.jpg",
-      "size": 162960,
-      "modified": "2025-12-03T04:46:42.271Z"
+      "size": 156091,
+      "modified": "2025-12-05T07:55:01.919Z"
     },
     {
       "name": "6.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/6.jpg",
-      "size": 171739,
-      "modified": "2025-12-03T04:48:10.456Z"
+      "size": 165339,
+      "modified": "2025-12-05T07:55:02.981Z"
     },
     {
       "name": "7.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/7.jpg",
-      "size": 161168,
-      "modified": "2025-12-03T04:48:38.120Z"
+      "size": 154612,
+      "modified": "2025-12-05T07:55:04.014Z"
     },
     {
       "name": "8.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/8.jpg",
-      "size": 137109,
-      "modified": "2025-12-03T04:47:57.480Z"
+      "size": 131183,
+      "modified": "2025-12-05T07:55:05.046Z"
     },
     {
       "name": "9.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/9.jpg",
-      "size": 147949,
-      "modified": "2025-12-03T04:50:55.789Z"
+      "size": 143477,
+      "modified": "2025-12-05T07:55:05.918Z"
     },
     {
       "name": "Supporting Artist 1.png",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/Supporting Artist 1.png",
-      "size": 1190314,
-      "modified": "2023-01-18T13:41:52.000Z"
+      "size": 906937,
+      "modified": "2025-12-05T08:01:03.681Z"
     },
     {
       "name": "Supporting Artist 2.png",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/Supporting Artist 2.png",
-      "size": 1702262,
-      "modified": "2023-01-18T13:41:52.000Z"
+      "size": 1297018,
+      "modified": "2025-12-05T08:07:25.717Z"
     },
     {
       "name": "Supporting Artist 3.png",
       "path": "/assets/Graphics/06-Client-Projects/Artemis-Arthouse/Supporting Artist 3.png",
-      "size": 2477753,
-      "modified": "2023-01-18T13:41:52.000Z"
+      "size": 1993276,
+      "modified": "2025-12-05T08:13:28.483Z"
     },
     {
       "name": "EXACT DATE AND REGISTRATION FEE WILL BE ANNOUNCED SOON. SO KEEP IN TOUCH WITH US CONTACT  +60183709386 (WHAT'S APP).png",
       "path": "/assets/Graphics/06-Client-Projects/Bangladeshi Students' Union Malaysia (BSUM)/EXACT DATE AND REGISTRATION FEE WILL BE ANNOUNCED SOON. SO KEEP IN TOUCH WITH US CONTACT  +60183709386 (WHAT'S APP).png",
-      "size": 1419379,
-      "modified": "2025-12-03T03:18:14.216Z"
+      "size": 1319534,
+      "modified": "2025-12-05T08:18:04.959Z"
     },
     {
       "name": "Bangladesh Independence Day Instagram Post.jpg",
       "path": "/assets/Graphics/06-Client-Projects/BDGSA/Bangladesh Independence Day Instagram Post.jpg",
-      "size": 386795,
-      "modified": "2025-03-26T19:43:03.935Z"
+      "size": 329258,
+      "modified": "2025-12-05T08:18:06.851Z"
     },
     {
       "name": "BD Victory Day.jpg",
       "path": "/assets/Graphics/06-Client-Projects/BDGSA/BD Victory Day.jpg",
-      "size": 98165,
-      "modified": "2024-12-16T18:11:40.586Z"
+      "size": 83505,
+      "modified": "2025-12-05T08:18:07.666Z"
     },
     {
       "name": "BDGSA Flyer.png",
       "path": "/assets/Graphics/06-Client-Projects/BDGSA/BDGSA Flyer.png",
-      "size": 2825168,
-      "modified": "2024-09-21T19:52:17.998Z"
+      "size": 2046363,
+      "modified": "2025-12-05T08:27:21.452Z"
     },
     {
       "name": "BDGSA Orientation.png",
       "path": "/assets/Graphics/06-Client-Projects/BDGSA/BDGSA Orientation.png",
-      "size": 1239492,
-      "modified": "2025-02-05T19:27:08.642Z"
+      "size": 877050,
+      "modified": "2025-12-05T08:30:03.354Z"
     },
     {
       "name": "Iftar Party Invitation Instagram Post.jpg",
       "path": "/assets/Graphics/06-Client-Projects/BDGSA/Iftar Party Invitation Instagram Post.jpg",
-      "size": 520188,
-      "modified": "2025-03-18T04:23:57.022Z"
+      "size": 462394,
+      "modified": "2025-12-05T08:30:05.333Z"
     },
     {
       "name": "International Mother LAnguage Day 1.png",
       "path": "/assets/Graphics/06-Client-Projects/BDGSA/International Mother LAnguage Day 1.png",
-      "size": 418546,
-      "modified": "2025-02-20T06:08:32.830Z"
+      "size": 354725,
+      "modified": "2025-12-05T08:35:19.458Z"
     },
     {
       "name": "International Mother LAnguage Day 2.png",
       "path": "/assets/Graphics/06-Client-Projects/BDGSA/International Mother LAnguage Day 2.png",
-      "size": 397925,
-      "modified": "2025-02-20T06:08:32.830Z"
+      "size": 342804,
+      "modified": "2025-12-05T08:38:46.116Z"
     },
     {
       "name": "International Womens Day Templates Poster.jpg",
       "path": "/assets/Graphics/06-Client-Projects/BDGSA/International Womens Day Templates Poster.jpg",
-      "size": 373679,
-      "modified": "2025-03-08T17:21:45.508Z"
+      "size": 309289,
+      "modified": "2025-12-05T08:38:47.114Z"
     },
     {
       "name": "Pohela Boishakh Instagram Post.jpg",
       "path": "/assets/Graphics/06-Client-Projects/BDGSA/Pohela Boishakh Instagram Post.jpg",
-      "size": 175448,
-      "modified": "2025-04-14T04:45:19.066Z"
+      "size": 155698,
+      "modified": "2025-12-05T08:38:49.083Z"
     },
     {
       "name": "SUmmer Wave Montreal 1.png",
       "path": "/assets/Graphics/06-Client-Projects/BDGSA/SUmmer Wave Montreal 1.png",
-      "size": 2430346,
-      "modified": "2025-06-04T03:48:32.284Z"
+      "size": 1632173,
+      "modified": "2025-12-05T08:41:18.164Z"
     },
     {
       "name": "Summer wave montreal 2.png",
       "path": "/assets/Graphics/06-Client-Projects/BDGSA/Summer wave montreal 2.png",
-      "size": 1296399,
-      "modified": "2025-06-04T03:48:32.340Z"
+      "size": 853986,
+      "modified": "2025-12-05T08:44:03.016Z"
     },
     {
       "name": "1.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Connecting Youth for Change CYC)/1.jpg",
-      "size": 95613,
-      "modified": "2025-12-03T03:29:25.619Z"
+      "size": 76552,
+      "modified": "2025-12-05T08:44:04.351Z"
     },
     {
       "name": "2.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Connecting Youth for Change CYC)/2.jpg",
-      "size": 42002,
-      "modified": "2025-12-03T03:29:51.362Z"
+      "size": 36188,
+      "modified": "2025-12-05T08:44:05.172Z"
     },
     {
       "name": "banner.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Banner/banner.jpg",
-      "size": 455700,
-      "modified": "2025-01-10T18:48:24.666Z"
+      "size": 440035,
+      "modified": "2025-12-05T08:44:07.733Z"
     },
     {
       "name": "Beanie 2.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/beanie/Beanie 2.jpg",
-      "size": 1336786,
-      "modified": "2024-11-09T20:17:18.674Z"
+      "size": 1254703,
+      "modified": "2025-12-05T08:44:12.609Z"
     },
     {
       "name": "Beanie.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/beanie/Beanie.jpg",
-      "size": 315854,
-      "modified": "2024-11-09T20:15:05.375Z"
+      "size": 305200,
+      "modified": "2025-12-05T08:44:15.159Z"
     },
     {
       "name": "exercise_ball.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Exercise ball/exercise_ball.jpg",
-      "size": 108009,
-      "modified": "2024-11-10T05:47:01.016Z"
+      "size": 99628,
+      "modified": "2025-12-05T08:44:17.224Z"
     },
     {
       "name": "prefered tshirt.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Hacker tshirt/prefered tshirt.jpg",
-      "size": 246487,
-      "modified": "2024-11-09T10:10:04.602Z"
+      "size": 234435,
+      "modified": "2025-12-05T08:44:19.391Z"
     },
     {
       "name": "T-Shirt 1.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Hacker tshirt/T-Shirt 1.jpg",
-      "size": 246072,
-      "modified": "2024-11-09T10:11:23.591Z"
+      "size": 234016,
+      "modified": "2025-12-05T08:44:21.972Z"
     },
     {
       "name": "T-Shirt.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Hacker tshirt/T-Shirt.jpg",
-      "size": 246607,
-      "modified": "2024-11-09T10:12:26.182Z"
+      "size": 234516,
+      "modified": "2025-12-05T08:44:24.302Z"
     },
     {
       "name": "1 exec front.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/ID Badge/1 exec front.jpg",
-      "size": 155637,
-      "modified": "2024-11-11T21:02:34.718Z"
+      "size": 146515,
+      "modified": "2025-12-05T08:44:25.295Z"
     },
     {
       "name": "2 volunteer front.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/ID Badge/2 volunteer front.jpg",
-      "size": 157802,
-      "modified": "2024-11-11T21:03:21.295Z"
+      "size": 149684,
+      "modified": "2025-12-05T08:44:26.549Z"
     },
     {
       "name": "3 hacker front.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/ID Badge/3 hacker front.jpg",
-      "size": 133437,
-      "modified": "2024-11-11T21:01:54.805Z"
+      "size": 125737,
+      "modified": "2025-12-05T08:44:27.534Z"
     },
     {
       "name": "4 mentor front.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/ID Badge/4 mentor front.jpg",
-      "size": 137397,
-      "modified": "2024-11-11T21:01:19.498Z"
+      "size": 129306,
+      "modified": "2025-12-05T08:44:28.485Z"
     },
     {
       "name": "5 sponsor front.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/ID Badge/5 sponsor front.jpg",
-      "size": 135948,
-      "modified": "2024-11-11T21:01:01.489Z"
+      "size": 127922,
+      "modified": "2025-12-05T08:44:29.441Z"
     },
     {
       "name": "6 id back.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/ID Badge/6 id back.jpg",
-      "size": 41723,
-      "modified": "2024-11-11T20:17:41.152Z"
+      "size": 37156,
+      "modified": "2025-12-05T08:44:30.157Z"
     },
     {
       "name": "f1.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/ID Badge/f1.jpg",
-      "size": 377687,
-      "modified": "2024-11-11T21:16:51.563Z"
+      "size": 366566,
+      "modified": "2025-12-05T08:44:33.492Z"
     },
     {
       "name": "f2.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/ID Badge/f2.jpg",
-      "size": 380022,
-      "modified": "2024-11-11T21:18:15.758Z"
+      "size": 369375,
+      "modified": "2025-12-05T08:44:37.135Z"
     },
     {
       "name": "f3.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/ID Badge/f3.jpg",
-      "size": 357398,
-      "modified": "2024-11-11T21:19:51.419Z"
+      "size": 346864,
+      "modified": "2025-12-05T08:44:40.396Z"
     },
     {
       "name": "f4.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/ID Badge/f4.jpg",
-      "size": 360230,
-      "modified": "2024-11-11T21:20:12.325Z"
+      "size": 349789,
+      "modified": "2025-12-05T08:44:43.864Z"
     },
     {
       "name": "f5.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/ID Badge/f5.jpg",
-      "size": 364985,
-      "modified": "2024-11-11T21:19:31.477Z"
+      "size": 355246,
+      "modified": "2025-12-05T08:44:45.590Z"
     },
     {
       "name": "f6.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/ID Badge/f6.jpg",
-      "size": 371472,
-      "modified": "2024-11-11T21:14:57.333Z"
+      "size": 358905,
+      "modified": "2025-12-05T08:44:50.573Z"
     },
     {
       "name": "Lanyard.png",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/lanyard/Lanyard.png",
-      "size": 7468270,
-      "modified": "2024-11-04T22:48:33.077Z"
+      "size": 6259709,
+      "modified": "2025-12-05T09:33:58.835Z"
     },
     {
       "name": "Hackathon 1.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Posters/Hackathon 1.jpg",
-      "size": 2324912,
-      "modified": "2024-05-30T13:23:23.686Z"
+      "size": 2176529,
+      "modified": "2025-12-05T09:34:05.310Z"
     },
     {
       "name": "hackathon 2.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Posters/hackathon 2.jpg",
-      "size": 1890921,
-      "modified": "2024-05-30T13:25:29.040Z"
+      "size": 1784668,
+      "modified": "2025-12-05T09:34:10.705Z"
     },
     {
       "name": "NORD VPN.png",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Posters/NORD VPN.png",
-      "size": 730207,
-      "modified": "2025-01-11T18:45:51.232Z"
+      "size": 654355,
+      "modified": "2025-12-05T09:38:28.133Z"
     },
     {
       "name": "Orange Red Illustration Cowboy Call to Action Your Story.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Posters/Orange Red Illustration Cowboy Call to Action Your Story.jpg",
-      "size": 147403,
-      "modified": "2025-01-18T18:07:14.370Z"
+      "size": 124097,
+      "modified": "2025-12-05T09:38:30.782Z"
     },
     {
       "name": "workshop (2).jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Posters/workshop (2).jpg",
-      "size": 161221,
-      "modified": "2024-11-19T00:54:03.167Z"
+      "size": 136793,
+      "modified": "2025-12-05T09:38:31.861Z"
     },
     {
       "name": "1 (3).png",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Sponsor Posters/1 (3).png",
-      "size": 2833349,
-      "modified": "2025-01-13T18:06:09.880Z"
+      "size": 2418022,
+      "modified": "2025-12-05T09:39:35.659Z"
     },
     {
       "name": "2 (3).png",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Sponsor Posters/2 (3).png",
-      "size": 2812314,
-      "modified": "2025-01-13T18:06:09.884Z"
+      "size": 2401540,
+      "modified": "2025-12-05T09:40:39.707Z"
     },
     {
       "name": "3.png",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Sponsor Posters/3.png",
-      "size": 2839908,
-      "modified": "2025-01-13T18:06:09.888Z"
+      "size": 2424193,
+      "modified": "2025-12-05T09:41:47.602Z"
     },
     {
       "name": "4.png",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Sponsor Posters/4.png",
-      "size": 2808298,
-      "modified": "2025-01-13T18:06:09.888Z"
+      "size": 2394920,
+      "modified": "2025-12-05T09:42:53.325Z"
     },
     {
       "name": "5.png",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Sponsor Posters/5.png",
-      "size": 2839723,
-      "modified": "2025-01-13T18:06:09.892Z"
+      "size": 2424464,
+      "modified": "2025-12-05T09:43:59.479Z"
     },
     {
       "name": "6.png",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Sponsor Posters/6.png",
-      "size": 2830288,
-      "modified": "2025-01-13T18:06:09.880Z"
+      "size": 2416791,
+      "modified": "2025-12-05T09:45:06.551Z"
     },
     {
       "name": "sticker 1.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Sticker/sticker 1.jpg",
-      "size": 312933,
-      "modified": "2024-11-09T21:21:05.413Z"
+      "size": 301523,
+      "modified": "2025-12-05T09:45:09.872Z"
     },
     {
       "name": "sticker 2.png",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Sticker/sticker 2.png",
-      "size": 527259,
-      "modified": "2024-11-12T07:30:53.156Z"
+      "size": 438290,
+      "modified": "2025-12-05T09:47:34.014Z"
     },
     {
       "name": "Sticker.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/Sticker/Sticker.jpg",
-      "size": 729921,
-      "modified": "2024-11-09T21:46:27.913Z"
+      "size": 699397,
+      "modified": "2025-12-05T09:47:37.807Z"
     },
     {
       "name": "Tote.png",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/tote bag/Tote.png",
-      "size": 12296033,
-      "modified": "2024-11-04T21:46:38.064Z"
+      "size": 9360872,
+      "modified": "2025-12-05T10:17:03.158Z"
     },
     {
       "name": "volunteer.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Conuhacks/volunteer/volunteer.jpg",
-      "size": 1633378,
-      "modified": "2024-11-09T10:21:34.762Z"
+      "size": 1551963,
+      "modified": "2025-12-05T10:17:10.215Z"
     },
     {
       "name": "DCCSC.png",
       "path": "/assets/Graphics/06-Client-Projects/Dhaka City College Science Club/DCCSC.png",
-      "size": 432042,
-      "modified": "2021-03-08T09:53:40.000Z"
+      "size": 339374,
+      "modified": "2025-12-05T10:19:18.484Z"
     },
     {
       "name": "1 LL.jpg",
       "path": "/assets/Graphics/06-Client-Projects/HackConcordia/1 LL.jpg",
-      "size": 118913,
-      "modified": "2025-04-10T04:08:26.733Z"
+      "size": 98931,
+      "modified": "2025-12-05T10:19:19.512Z"
     },
     {
       "name": "2 Frosh.png",
       "path": "/assets/Graphics/06-Client-Projects/HackConcordia/2 Frosh.png",
-      "size": 1313980,
-      "modified": "2024-08-23T19:48:51.165Z"
+      "size": 982838,
+      "modified": "2025-12-05T10:22:07.741Z"
     },
     {
       "name": "3 Colub Fair.png",
       "path": "/assets/Graphics/06-Client-Projects/HackConcordia/3 Colub Fair.png",
-      "size": 264101,
-      "modified": "2024-09-08T03:43:10.952Z"
+      "size": 224754,
+      "modified": "2025-12-05T10:24:34.299Z"
     },
     {
       "name": "4 LL.png",
       "path": "/assets/Graphics/06-Client-Projects/HackConcordia/4 LL.png",
-      "size": 971786,
-      "modified": "2024-10-27T18:34:31.968Z"
+      "size": 871701,
+      "modified": "2025-12-05T10:28:37.384Z"
     },
     {
       "name": "5 LL hackHalloween.png",
       "path": "/assets/Graphics/06-Client-Projects/HackConcordia/5 LL hackHalloween.png",
-      "size": 352233,
-      "modified": "2024-10-08T23:13:43.101Z"
+      "size": 319598,
+      "modified": "2025-12-05T10:31:40.380Z"
     },
     {
       "name": "6 Team Poster.jpg",
       "path": "/assets/Graphics/06-Client-Projects/HackConcordia/6 Team Poster.jpg",
-      "size": 96581,
-      "modified": "2024-12-23T08:11:46.323Z"
+      "size": 90352,
+      "modified": "2025-12-05T10:31:41.619Z"
     },
     {
       "name": "7 TEam Poster.jpg",
       "path": "/assets/Graphics/06-Client-Projects/HackConcordia/7 TEam Poster.jpg",
-      "size": 84634,
-      "modified": "2024-12-27T21:16:29.219Z"
+      "size": 78780,
+      "modified": "2025-12-05T10:31:42.634Z"
     },
     {
       "name": "VP Sponsorship (1).png",
       "path": "/assets/Graphics/06-Client-Projects/HackConcordia/VP Sponsorship (1).png",
-      "size": 491868,
-      "modified": "2024-05-30T05:36:12.493Z"
+      "size": 331444,
+      "modified": "2025-12-05T10:35:39.969Z"
     },
     {
       "name": "5519229.png",
       "path": "/assets/Graphics/06-Client-Projects/Rotaract Club of  Dhaka Radiant/5519229.png",
-      "size": 3620272,
-      "modified": "2022-01-02T06:27:20.000Z"
+      "size": 2833454,
+      "modified": "2025-12-05T10:49:13.779Z"
     },
     {
       "name": "panel member poster.png",
       "path": "/assets/Graphics/06-Client-Projects/Rotaract Club of  Dhaka Radiant/panel member poster.png",
-      "size": 516052,
-      "modified": "2025-12-03T05:14:13.781Z"
+      "size": 479963,
+      "modified": "2025-12-05T10:50:05.528Z"
     },
     {
       "name": "Radiant Logo.png",
       "path": "/assets/Graphics/06-Client-Projects/Rotaract Club of  Dhaka Radiant/Radiant Logo.png",
-      "size": 39080,
-      "modified": "2021-09-13T07:57:06.000Z"
+      "size": 24449,
+      "modified": "2025-12-05T10:50:45.610Z"
     },
     {
       "name": "sarc frosh.png",
       "path": "/assets/Graphics/06-Client-Projects/SARC/sarc frosh.png",
-      "size": 272787,
-      "modified": "2024-08-22T05:31:03.969Z"
+      "size": 238694,
+      "modified": "2025-12-05T10:53:34.582Z"
     },
     {
       "name": "sarc hoodie design with Name.jpg",
       "path": "/assets/Graphics/06-Client-Projects/SARC/sarc hoodie design with Name.jpg",
-      "size": 6264491,
-      "modified": "2025-01-29T07:35:31.497Z"
+      "size": 5888625,
+      "modified": "2025-12-05T10:53:48.763Z"
     },
     {
       "name": "sarc hoodie design.jpg",
       "path": "/assets/Graphics/06-Client-Projects/SARC/sarc hoodie design.jpg",
-      "size": 6245377,
-      "modified": "2025-01-29T07:18:00.653Z"
+      "size": 5871152,
+      "modified": "2025-12-05T10:54:03.295Z"
     },
     {
       "name": "Copy of ted2.jpg",
       "path": "/assets/Graphics/06-Client-Projects/TEDx-Concordia/Copy of ted2.jpg",
-      "size": 2370423,
-      "modified": "2025-03-27T02:09:50.932Z"
+      "size": 2053892,
+      "modified": "2025-12-05T10:54:09.133Z"
     },
     {
       "name": "Outside landscape.jpg",
       "path": "/assets/Graphics/06-Client-Projects/TEDx-Concordia/Outside landscape.jpg",
-      "size": 650690,
-      "modified": "2025-03-27T02:04:24.704Z"
+      "size": 589011,
+      "modified": "2025-12-05T10:54:11.082Z"
     },
     {
       "name": "speakers updated.jpg",
       "path": "/assets/Graphics/06-Client-Projects/TEDx-Concordia/speakers updated.jpg",
-      "size": 824427,
-      "modified": "2025-03-19T05:27:53.922Z"
+      "size": 699492,
+      "modified": "2025-12-05T10:54:13.287Z"
     },
     {
       "name": "Stage.jpg",
       "path": "/assets/Graphics/06-Client-Projects/TEDx-Concordia/Stage.jpg",
-      "size": 2357355,
-      "modified": "2025-03-27T01:59:01.671Z"
+      "size": 2013751,
+      "modified": "2025-12-05T10:54:18.858Z"
     },
     {
       "name": "t1.jpg",
       "path": "/assets/Graphics/06-Client-Projects/TEDx-Concordia/t1.jpg",
-      "size": 187319,
-      "modified": "2025-03-14T06:16:19.465Z"
+      "size": 167402,
+      "modified": "2025-12-05T10:54:20.175Z"
     },
     {
       "name": "t2.jpg",
       "path": "/assets/Graphics/06-Client-Projects/TEDx-Concordia/t2.jpg",
-      "size": 1032181,
-      "modified": "2025-03-14T06:13:38.372Z"
+      "size": 916822,
+      "modified": "2025-12-05T10:54:22.403Z"
     },
     {
       "name": "t3.jpg",
       "path": "/assets/Graphics/06-Client-Projects/TEDx-Concordia/t3.jpg",
-      "size": 1016288,
-      "modified": "2025-03-14T06:13:19.043Z"
+      "size": 903069,
+      "modified": "2025-12-05T10:54:24.555Z"
     },
     {
       "name": "t4.jpg",
       "path": "/assets/Graphics/06-Client-Projects/TEDx-Concordia/t4.jpg",
-      "size": 1059057,
-      "modified": "2025-03-14T06:12:56.569Z"
+      "size": 939500,
+      "modified": "2025-12-05T10:54:26.582Z"
     },
     {
       "name": "t5.jpg",
       "path": "/assets/Graphics/06-Client-Projects/TEDx-Concordia/t5.jpg",
-      "size": 1115622,
-      "modified": "2025-03-14T06:12:41.338Z"
+      "size": 989795,
+      "modified": "2025-12-05T10:54:28.927Z"
     },
     {
       "name": "t6.jpg",
       "path": "/assets/Graphics/06-Client-Projects/TEDx-Concordia/t6.jpg",
-      "size": 1144377,
-      "modified": "2025-03-14T06:12:24.928Z"
+      "size": 1023316,
+      "modified": "2025-12-05T10:54:31.295Z"
     },
     {
       "name": "ted date (4).jpg",
       "path": "/assets/Graphics/06-Client-Projects/TEDx-Concordia/ted date (4).jpg",
-      "size": 1038866,
-      "modified": "2025-02-28T05:54:17.066Z"
+      "size": 939373,
+      "modified": "2025-12-05T10:54:33.627Z"
     },
     {
       "name": "ted spons (3).jpg",
       "path": "/assets/Graphics/06-Client-Projects/TEDx-Concordia/ted spons (3).jpg",
-      "size": 127555,
-      "modified": "2025-03-21T03:49:29.361Z"
+      "size": 117148,
+      "modified": "2025-12-05T10:54:34.195Z"
     },
     {
       "name": "ted2 (1).jpg",
       "path": "/assets/Graphics/06-Client-Projects/TEDx-Concordia/ted2 (1).jpg",
-      "size": 834914,
-      "modified": "2025-03-21T03:53:08.973Z"
+      "size": 701202,
+      "modified": "2025-12-05T10:54:36.410Z"
     },
     {
       "name": "tedx.jpg",
       "path": "/assets/Graphics/06-Client-Projects/TEDx-Concordia/tedx.jpg",
-      "size": 139752,
-      "modified": "2025-02-25T20:57:38.582Z"
+      "size": 133953,
+      "modified": "2025-12-05T10:54:38.244Z"
     },
     {
       "name": "0.png",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/0.png",
-      "size": 212680,
-      "modified": "2025-12-03T03:15:14.397Z"
+      "size": 183645,
+      "modified": "2025-12-05T11:01:35.177Z"
     },
     {
       "name": "1.png",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/1.png",
-      "size": 422989,
-      "modified": "2025-12-03T03:17:23.262Z"
+      "size": 323283,
+      "modified": "2025-12-05T11:07:55.527Z"
     },
     {
       "name": "10 .png",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/10 .png",
-      "size": 2052764,
-      "modified": "2025-12-03T03:08:58.912Z"
+      "size": 1531610,
+      "modified": "2025-12-05T11:13:37.666Z"
     },
     {
       "name": "11 .jpg",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/11 .jpg",
-      "size": 272288,
-      "modified": "2025-12-03T03:10:45.763Z"
+      "size": 233247,
+      "modified": "2025-12-05T11:13:39.599Z"
     },
     {
       "name": "12.png",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/12.png",
-      "size": 78307,
-      "modified": "2025-12-03T03:16:05.108Z"
+      "size": 54959,
+      "modified": "2025-12-05T11:15:59.205Z"
     },
     {
       "name": "13.png",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/13.png",
-      "size": 1781600,
-      "modified": "2025-12-03T03:14:37.266Z"
+      "size": 1612371,
+      "modified": "2025-12-05T11:20:48.722Z"
     },
     {
       "name": "14 VOLUNTEER FOR BANGLADESH.png",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/14 VOLUNTEER FOR BANGLADESH.png",
-      "size": 104311,
-      "modified": "2025-12-03T03:15:32.542Z"
+      "size": 66630,
+      "modified": "2025-12-05T11:22:56.411Z"
     },
     {
       "name": "2.png",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/2.png",
-      "size": 791165,
-      "modified": "2025-12-03T03:08:26.714Z"
+      "size": 737705,
+      "modified": "2025-12-05T11:24:17.565Z"
     },
     {
       "name": "3.png",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/3.png",
-      "size": 2766221,
-      "modified": "2025-12-03T03:08:41.660Z"
+      "size": 1270049,
+      "modified": "2025-12-05T11:32:18.672Z"
     },
     {
       "name": "4HAPPY FRIENDSHIP DAY.png",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/4HAPPY FRIENDSHIP DAY.png",
-      "size": 2784676,
-      "modified": "2025-12-03T03:15:03.326Z"
+      "size": 2688780,
+      "modified": "2025-12-05T11:36:05.099Z"
     },
     {
       "name": "5 MONTHLY Schedule PREVIEW.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/5 MONTHLY Schedule PREVIEW.jpg",
-      "size": 299944,
-      "modified": "2025-12-03T03:10:19.325Z"
+      "size": 275063,
+      "modified": "2025-12-05T11:36:07.261Z"
     },
     {
       "name": "6 open for all.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/6 open for all.jpg",
-      "size": 305534,
-      "modified": "2025-12-03T03:08:51.689Z"
+      "size": 279660,
+      "modified": "2025-12-05T11:36:08.688Z"
     },
     {
       "name": "7 Registration Closed.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/7 Registration Closed.jpg",
-      "size": 371932,
-      "modified": "2025-12-03T03:10:32.684Z"
+      "size": 354005,
+      "modified": "2025-12-05T11:36:10.348Z"
     },
     {
       "name": "8 Untitled design (4).jpg",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/8 Untitled design (4).jpg",
-      "size": 384688,
-      "modified": "2025-12-03T03:09:18.218Z"
+      "size": 336435,
+      "modified": "2025-12-05T11:36:12.048Z"
     },
     {
       "name": "9 Untitled design (1).png",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/9 Untitled design (1).png",
-      "size": 274174,
-      "modified": "2025-12-03T03:16:19.252Z"
+      "size": 256333,
+      "modified": "2025-12-05T11:36:47.266Z"
     },
     {
       "name": "fardina election.png",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/fardina election.png",
-      "size": 608961,
-      "modified": "2025-12-03T05:13:28.419Z"
+      "size": 543438,
+      "modified": "2025-12-05T11:38:12.415Z"
     },
     {
       "name": "IMG_20201119_0109561.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/IMG_20201119_0109561.jpg",
-      "size": 3900475,
-      "modified": "2021-01-30T14:46:40.000Z"
+      "size": 3591755,
+      "modified": "2025-12-05T11:38:24.121Z"
     },
     {
       "name": "Sajid election.jpg",
       "path": "/assets/Graphics/06-Client-Projects/Volunteer for Bangladesh (VBD)/Sajid election.jpg",
-      "size": 668134,
-      "modified": "2025-12-03T05:12:50.882Z"
+      "size": 655255,
+      "modified": "2025-12-05T11:38:26.769Z"
     },
     {
       "name": "1.png",
       "path": "/assets/Graphics/06-Client-Projects/Zavy Technologies/Business Card/1.png",
-      "size": 783984,
-      "modified": "2025-12-03T04:02:56.551Z"
+      "size": 675390,
+      "modified": "2025-12-05T11:42:11.394Z"
     },
     {
       "name": "2.png",
       "path": "/assets/Graphics/06-Client-Projects/Zavy Technologies/Business Card/2.png",
-      "size": 912388,
-      "modified": "2025-12-03T04:22:45.541Z"
+      "size": 764915,
+      "modified": "2025-12-05T11:45:41.130Z"
     },
     {
       "name": "a.png",
       "path": "/assets/Graphics/06-Client-Projects/Zavy Technologies/Business Card/a.png",
-      "size": 780326,
-      "modified": "2025-12-03T04:22:25.253Z"
+      "size": 647399,
+      "modified": "2025-12-05T11:49:18.227Z"
     },
     {
       "name": "b.png",
       "path": "/assets/Graphics/06-Client-Projects/Zavy Technologies/Business Card/b.png",
-      "size": 710188,
-      "modified": "2025-12-03T04:22:10.822Z"
+      "size": 580973,
+      "modified": "2025-12-05T11:52:58.462Z"
     },
     {
       "name": "flyer 1.png",
       "path": "/assets/Graphics/06-Client-Projects/Zavy Technologies/Flyer/flyer 1.png",
-      "size": 1252321,
-      "modified": "2022-02-18T08:35:02.000Z"
+      "size": 1024954,
+      "modified": "2025-12-05T11:58:48.990Z"
     },
     {
       "name": "Bunting V2.png",
       "path": "/assets/Graphics/06-Client-Projects/Zavy Technologies/Roll Up Banner/Bunting V2.png",
-      "size": 28346254,
-      "modified": "2022-02-18T07:58:18.000Z"
+      "size": 12173589,
+      "modified": "2025-12-05T12:44:40.361Z"
     },
     {
       "name": "1 Cancer2.1.jpg",
-      "path": "/assets/Graphics/07-Contest-Portfolio/Freelancer-Contests/1 Cancer2.1.jpg",
-      "size": 118863,
-      "modified": "2023-05-31T16:58:48.757Z"
+      "path": "/assets/Graphics/07-Freelancer-Contests/1 Cancer2.1.jpg",
+      "size": 109877,
+      "modified": "2025-12-05T12:44:42.789Z"
     },
     {
       "name": "10 941.jpg",
-      "path": "/assets/Graphics/07-Contest-Portfolio/Freelancer-Contests/10 941.jpg",
-      "size": 4307401,
-      "modified": "2023-05-01T21:44:48.342Z"
+      "path": "/assets/Graphics/07-Freelancer-Contests/10 941.jpg",
+      "size": 4051606,
+      "modified": "2025-12-05T12:44:52.364Z"
     },
     {
       "name": "2 cancer3.1.jpg",
-      "path": "/assets/Graphics/07-Contest-Portfolio/Freelancer-Contests/2 cancer3.1.jpg",
-      "size": 103283,
-      "modified": "2023-05-31T17:00:10.325Z"
+      "path": "/assets/Graphics/07-Freelancer-Contests/2 cancer3.1.jpg",
+      "size": 96462,
+      "modified": "2025-12-05T12:44:53.503Z"
     },
     {
       "name": "3 Cancer 1.1.jpg",
-      "path": "/assets/Graphics/07-Contest-Portfolio/Freelancer-Contests/3 Cancer 1.1.jpg",
-      "size": 1180472,
-      "modified": "2023-05-31T16:59:31.885Z"
+      "path": "/assets/Graphics/07-Freelancer-Contests/3 Cancer 1.1.jpg",
+      "size": 1128468,
+      "modified": "2025-12-05T12:44:55.624Z"
     },
     {
       "name": "4 Halloween Poster 1.jpg",
-      "path": "/assets/Graphics/07-Contest-Portfolio/Freelancer-Contests/4 Halloween Poster 1.jpg",
-      "size": 4842893,
-      "modified": "2023-08-18T22:18:45.013Z"
+      "path": "/assets/Graphics/07-Freelancer-Contests/4 Halloween Poster 1.jpg",
+      "size": 4606456,
+      "modified": "2025-12-05T12:45:06.145Z"
     },
     {
       "name": "5 halloween Poster 2.jpg",
-      "path": "/assets/Graphics/07-Contest-Portfolio/Freelancer-Contests/5 halloween Poster 2.jpg",
-      "size": 3854148,
-      "modified": "2023-08-18T22:59:06.790Z"
+      "path": "/assets/Graphics/07-Freelancer-Contests/5 halloween Poster 2.jpg",
+      "size": 346983,
+      "modified": "2025-12-05T12:45:07.939Z"
     },
     {
       "name": "6 Movie 1.jpg",
-      "path": "/assets/Graphics/07-Contest-Portfolio/Freelancer-Contests/6 Movie 1.jpg",
-      "size": 3598974,
-      "modified": "2023-08-18T20:49:24.168Z"
+      "path": "/assets/Graphics/07-Freelancer-Contests/6 Movie 1.jpg",
+      "size": 3441124,
+      "modified": "2025-12-05T12:45:17.256Z"
     },
     {
       "name": "7 Movie 2.jpg",
-      "path": "/assets/Graphics/07-Contest-Portfolio/Freelancer-Contests/7 Movie 2.jpg",
-      "size": 3048601,
-      "modified": "2023-08-18T21:19:05.534Z"
+      "path": "/assets/Graphics/07-Freelancer-Contests/7 Movie 2.jpg",
+      "size": 2901164,
+      "modified": "2025-12-05T12:45:24.779Z"
     },
     {
       "name": "8 flyer 1.jpg",
-      "path": "/assets/Graphics/07-Contest-Portfolio/Freelancer-Contests/8 flyer 1.jpg",
-      "size": 4264483,
-      "modified": "2023-05-01T21:41:04.711Z"
+      "path": "/assets/Graphics/07-Freelancer-Contests/8 flyer 1.jpg",
+      "size": 4016758,
+      "modified": "2025-12-05T12:45:34.165Z"
     },
     {
       "name": "9 flyer 2.jpg",
-      "path": "/assets/Graphics/07-Contest-Portfolio/Freelancer-Contests/9 flyer 2.jpg",
-      "size": 4367841,
-      "modified": "2023-05-01T21:47:11.435Z"
+      "path": "/assets/Graphics/07-Freelancer-Contests/9 flyer 2.jpg",
+      "size": 4122092,
+      "modified": "2025-12-05T12:45:43.746Z"
     },
     {
       "name": "Freelance1 Edited 1.jpg",
       "path": "/assets/Graphics/08 - Freelancer.com Contest Winning Poster/Freelance1 Edited 1.jpg",
-      "size": 4882886,
-      "modified": "2023-05-12T17:59:18.901Z"
+      "size": 4698868,
+      "modified": "2025-12-05T12:45:54.534Z"
     },
     {
       "name": "Freelance1 Edited 2.jpg",
       "path": "/assets/Graphics/08 - Freelancer.com Contest Winning Poster/Freelance1 Edited 2.jpg",
-      "size": 5159314,
-      "modified": "2023-05-12T18:07:53.145Z"
+      "size": 4969784,
+      "modified": "2025-12-05T12:46:05.729Z"
     },
     {
       "name": "Apollo-18.jpg",
       "path": "/assets/Graphics/09 - University Course Designs/Apollo-18.jpg",
-      "size": 112158,
-      "modified": "2020-11-12T05:03:02.000Z"
+      "size": 105135,
+      "modified": "2025-12-05T12:46:06.747Z"
     },
     {
       "name": "illus 1.jpg",
       "path": "/assets/Graphics/09 - University Course Designs/illus 1.jpg",
-      "size": 310597,
-      "modified": "2025-12-03T05:15:29.126Z"
+      "size": 303557,
+      "modified": "2025-12-05T12:46:08.192Z"
     },
     {
       "name": "illus 2.png",
       "path": "/assets/Graphics/09 - University Course Designs/illus 2.png",
-      "size": 207809,
-      "modified": "2025-12-03T05:16:03.475Z"
+      "size": 191377,
+      "modified": "2025-12-05T12:46:43.662Z"
     },
     {
       "name": "illus 3.jpg",
       "path": "/assets/Graphics/09 - University Course Designs/illus 3.jpg",
-      "size": 222163,
-      "modified": "2025-12-03T05:16:33.917Z"
+      "size": 211838,
+      "modified": "2025-12-05T12:46:45.179Z"
     },
     {
       "name": "Mahimur 110057540 Final Poster.jpg",
       "path": "/assets/Graphics/09 - University Course Designs/Mahimur 110057540 Final Poster.jpg",
-      "size": 10634439,
-      "modified": "2020-11-03T13:57:28.000Z"
+      "size": 9980970,
+      "modified": "2025-12-05T12:47:08.373Z"
     },
     {
       "name": "Mahimur Rahman 110057540 (2) Week 5.jpg",
       "path": "/assets/Graphics/09 - University Course Designs/Mahimur Rahman 110057540 (2) Week 5.jpg",
-      "size": 545971,
-      "modified": "2020-11-06T23:18:58.000Z"
+      "size": 519293,
+      "modified": "2025-12-05T12:47:10.452Z"
     },
     {
       "name": "Mahimur Rahman 110057540 (2).jpg",
       "path": "/assets/Graphics/09 - University Course Designs/Mahimur Rahman 110057540 (2).jpg",
-      "size": 1618813,
-      "modified": "2020-09-27T14:26:50.000Z"
+      "size": 1529706,
+      "modified": "2025-12-05T12:47:13.537Z"
     },
     {
       "name": "Mahimur Rahman 110057540 (3).jpg",
       "path": "/assets/Graphics/09 - University Course Designs/Mahimur Rahman 110057540 (3).jpg",
-      "size": 1527643,
-      "modified": "2020-09-27T14:23:28.000Z"
+      "size": 1442054,
+      "modified": "2025-12-05T12:47:16.893Z"
     },
     {
       "name": "Mahimur Rahman 110057540 (4) Week 5.jpg",
       "path": "/assets/Graphics/09 - University Course Designs/Mahimur Rahman 110057540 (4) Week 5.jpg",
-      "size": 645374,
-      "modified": "2020-11-06T23:20:10.000Z"
+      "size": 609951,
+      "modified": "2025-12-05T12:47:19.319Z"
     },
     {
       "name": "Mahimur Rahman 110057540 Week 5.jpg",
       "path": "/assets/Graphics/09 - University Course Designs/Mahimur Rahman 110057540 Week 5.jpg",
-      "size": 261472,
-      "modified": "2020-11-06T23:18:14.000Z"
+      "size": 231331,
+      "modified": "2025-12-05T12:47:21.171Z"
     },
     {
       "name": "Mahimur Rahman Khan 110057540 Final 1.jpg",
       "path": "/assets/Graphics/09 - University Course Designs/Mahimur Rahman Khan 110057540 Final 1.jpg",
-      "size": 2203897,
-      "modified": "2020-11-15T20:35:12.000Z"
+      "size": 2046885,
+      "modified": "2025-12-05T12:47:26.869Z"
     },
     {
       "name": "Mahimur Rahman Khan 110057540 Final 2.jpg",
       "path": "/assets/Graphics/09 - University Course Designs/Mahimur Rahman Khan 110057540 Final 2.jpg",
-      "size": 2556057,
-      "modified": "2020-11-15T20:43:32.000Z"
+      "size": 2391722,
+      "modified": "2025-12-05T12:47:32.872Z"
     },
     {
       "name": "Week 7.jpg",
       "path": "/assets/Graphics/09 - University Course Designs/Week 7.jpg",
-      "size": 1057359,
-      "modified": "2020-10-24T19:53:08.000Z"
+      "size": 959334,
+      "modified": "2025-12-05T12:47:35.875Z"
     },
     {
       "name": "BOAT _1.png",
       "path": "/assets/Graphics/10 - 3D Modeling/Boat/BOAT _1.png",
-      "size": 1309815,
-      "modified": "2021-06-15T11:45:50.000Z"
+      "size": 956007,
+      "modified": "2025-12-05T13:01:53.553Z"
     },
     {
       "name": "Back Perspective Mahimur.png",
       "path": "/assets/Graphics/10 - 3D Modeling/House/Back Perspective Mahimur.png",
-      "size": 1448160,
-      "modified": "2021-06-30T10:07:32.000Z"
+      "size": 1364532,
+      "modified": "2025-12-05T13:02:54.408Z"
     },
     {
       "name": "Front Mahimur .png",
       "path": "/assets/Graphics/10 - 3D Modeling/House/Front Mahimur .png",
-      "size": 183332,
-      "modified": "2021-06-30T09:32:38.000Z"
+      "size": 165389,
+      "modified": "2025-12-05T13:04:22.357Z"
     },
     {
       "name": "Perspective Mahimur .png",
       "path": "/assets/Graphics/10 - 3D Modeling/House/Perspective Mahimur .png",
-      "size": 1470974,
-      "modified": "2021-06-30T08:48:32.000Z"
+      "size": 1389130,
+      "modified": "2025-12-05T13:05:18.495Z"
     },
     {
       "name": "Reference.jpg",
       "path": "/assets/Graphics/10 - 3D Modeling/House/Reference.jpg",
-      "size": 127488,
-      "modified": "2021-06-30T10:12:58.000Z"
+      "size": 86282,
+      "modified": "2025-12-05T13:05:19.783Z"
     },
     {
       "name": "Side Mahimur .png",
       "path": "/assets/Graphics/10 - 3D Modeling/House/Side Mahimur .png",
-      "size": 361329,
-      "modified": "2021-06-30T09:39:26.000Z"
+      "size": 331143,
+      "modified": "2025-12-05T13:06:28.028Z"
     },
     {
       "name": "Top Mahimur .png",
       "path": "/assets/Graphics/10 - 3D Modeling/House/Top Mahimur .png",
-      "size": 186271,
-      "modified": "2021-06-30T09:45:52.000Z"
+      "size": 164344,
+      "modified": "2025-12-05T13:07:27.663Z"
     }
   ]
 }
