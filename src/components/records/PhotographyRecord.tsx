@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useMemo, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Navigation, Mousewheel } from 'swiper/modules';
@@ -39,7 +39,7 @@ interface SakuraPetalProps {
   swayAmount: number;
 }
 
-const SakuraPetal: React.FC<SakuraPetalProps> = ({ delay, size, duration, xOffset, swayAmount }) => (
+const SakuraPetal: React.FC<SakuraPetalProps> = memo(({ delay, size, duration, xOffset, swayAmount }) => (
   <motion.div
     className="absolute pointer-events-none"
     style={{ width: size, height: size }}
@@ -64,12 +64,11 @@ const SakuraPetal: React.FC<SakuraPetalProps> = ({ delay, size, duration, xOffse
   >
     <div className="w-full h-full bg-gradient-to-r from-pink-300/80 to-pink-500/80 rounded-full transform rotate-45 blur-[0.5px]" />
   </motion.div>
-);
+));
 
 const PhotographyRecord: React.FC = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   const [, setHoveredIdx] = useState<number | null>(null);
@@ -89,12 +88,12 @@ const PhotographyRecord: React.FC = () => {
       });
   }, []);
 
-  useEffect(() => {
-    // Update photos when category is selected
+  // Memoize photos to prevent unnecessary recalculations
+  const photos = useMemo(() => {
     if (selectedCategory && categories.length > 0) {
       const category = categories.find(cat => cat.name === selectedCategory);
       if (category) {
-        const categoryPhotos: Photo[] = category.images.map((img: any) => ({
+        return category.images.map((img: any) => ({
           src: img.path,
           location: img.metadata?.location || 'Unknown Location',
           model: img.metadata?.model,
@@ -102,9 +101,9 @@ const PhotographyRecord: React.FC = () => {
           metadata: img.metadata,
           category: img.category
         }));
-        setPhotos(categoryPhotos);
       }
     }
+    return [];
   }, [selectedCategory, categories]);
 
   const handleKey = useCallback((e: KeyboardEvent) => {
@@ -135,19 +134,24 @@ const PhotographyRecord: React.FC = () => {
     );
   }
 
+  // Memoize sakura petals to prevent recreation on each render
+  const sakuraPetals = useMemo(() =>
+    Array.from({ length: 20 }).map((_, i) => (
+      <SakuraPetal
+        key={i}
+        delay={i * 0.3}
+        size={16 + Math.random() * 16}
+        duration={15 + Math.random() * 20}
+        xOffset={Math.random() * window.innerWidth}
+        swayAmount={Math.random() * 200 - 100}
+      />
+    )), []
+  );
+
   return (
     <div className="relative h-screen bg-deep-charcoal overflow-hidden">
       {/* Enhanced Sakura petals */}
-      {Array.from({ length: 30 }).map((_, i) => (
-        <SakuraPetal
-          key={i}
-          delay={i * 0.3}
-          size={16 + Math.random() * 16}
-          duration={15 + Math.random() * 20}
-          xOffset={Math.random() * window.innerWidth}
-          swayAmount={Math.random() * 200 - 100}
-        />
-      ))}
+      {sakuraPetals}
 
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-deep-charcoal via-cursed-blue/20 to-deep-charcoal" />
@@ -212,6 +216,8 @@ const PhotographyRecord: React.FC = () => {
                       src={category.images[0]?.path}
                       alt={category.name}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                      decoding="async"
                     />
 
                     {/* Gradient Overlay */}
@@ -329,19 +335,19 @@ const PhotographyRecord: React.FC = () => {
 
             {/* Carousel View */}
             {viewMode === 'carousel' && (
-            <div className="flex-1 relative max-h-[calc(100vh-18rem)]">
+            <div className="flex-1 relative max-h-[calc(100vh-18rem)] px-4 md:px-0">
           <Swiper
             effect={'coverflow'}
             grabCursor={true}
             centeredSlides={true}
-            slidesPerView={5}
+            slidesPerView={1.5}
             initialSlide={0}
-            spaceBetween={40}
+            spaceBetween={20}
             coverflowEffect={{
-              rotate: 25,
+              rotate: 15,
               stretch: 0,
-              depth: 300,
-              modifier: 1.5,
+              depth: 200,
+              modifier: 1,
               slideShadows: true,
             }}
             mousewheel={{
@@ -355,27 +361,70 @@ const PhotographyRecord: React.FC = () => {
             }}
             navigation={true}
             modules={[EffectCoverflow, Pagination, Navigation, Mousewheel]}
-            className="h-full"
+            className="h-full w-full"
             onSwiper={() => {}}
             breakpoints={{
               320: {
-                slidesPerView: 3,
-                spaceBetween: 20
+                slidesPerView: 1.2,
+                spaceBetween: 15,
+                coverflowEffect: {
+                  rotate: 10,
+                  stretch: 0,
+                  depth: 150,
+                  modifier: 1,
+                  slideShadows: true,
+                }
+              },
+              480: {
+                slidesPerView: 1.5,
+                spaceBetween: 20,
+                coverflowEffect: {
+                  rotate: 12,
+                  stretch: 0,
+                  depth: 180,
+                  modifier: 1,
+                  slideShadows: true,
+                }
               },
               640: {
-                slidesPerView: 3,
-                spaceBetween: 30
+                slidesPerView: 2.5,
+                spaceBetween: 25,
+                coverflowEffect: {
+                  rotate: 15,
+                  stretch: 0,
+                  depth: 200,
+                  modifier: 1,
+                  slideShadows: true,
+                }
               },
               768: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                coverflowEffect: {
+                  rotate: 20,
+                  stretch: 0,
+                  depth: 250,
+                  modifier: 1.2,
+                  slideShadows: true,
+                }
+              },
+              1024: {
                 slidesPerView: 5,
-                spaceBetween: 40
+                spaceBetween: 40,
+                coverflowEffect: {
+                  rotate: 25,
+                  stretch: 0,
+                  depth: 300,
+                  modifier: 1.5,
+                  slideShadows: true,
+                }
               }
             }}
           >
             {photos.map((photo, idx) => (
-              <SwiperSlide key={idx} className="w-[240px] h-[300px]">
+              <SwiperSlide key={idx} className="h-[350px] sm:h-[400px]">
                 <motion.div
-                  className="relative w-full h-full rounded-lg overflow-hidden cursor-pointer"
+                  className="relative w-full h-full rounded-lg overflow-hidden cursor-pointer shadow-xl"
                   whileHover={{ scale: 1.05, zIndex: 10 }}
                   onClick={() => setOpenIdx(idx)}
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -387,15 +436,16 @@ const PhotographyRecord: React.FC = () => {
                     alt={photo.name}
                     className="w-full h-full object-cover"
                     loading="lazy"
+                    decoding="async"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {photo.model && (
-                      <p className="text-snow-white font-anime text-xs mb-1 flex items-center gap-1">
-                        <User size={12} /> {photo.model}
+                      <p className="text-snow-white font-medium text-sm mb-1">
+                        {photo.model}
                       </p>
                     )}
-                    <p className="text-snow-white font-anime text-sm flex items-center gap-1">
-                      <MapPin size={12} /> {photo.location}
+                    <p className="text-snow-white/80 text-xs">
+                      {photo.location.split(',')[0]}
                     </p>
                   </div>
                 </motion.div>
@@ -413,7 +463,7 @@ const PhotographyRecord: React.FC = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
                   {photos.map((photo, idx) => (
                     <motion.div
                       key={idx}
@@ -432,35 +482,33 @@ const PhotographyRecord: React.FC = () => {
                         alt={photo.name}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         loading="lazy"
+                        decoding="async"
                       />
 
                       {/* Gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                      {/* Info overlay */}
-                      <div className="absolute inset-0 flex flex-col justify-end p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                      {/* Info overlay - Cleaner professional design */}
+                      <div className="absolute inset-0 flex flex-col justify-end p-3 md:p-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
                         {photo.model && (
-                          <motion.p
-                            className="text-snow-white font-anime text-xs mb-1 flex items-center gap-1"
-                            initial={{ y: 10, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 0.1 }}
-                          >
-                            <User size={12} className="text-zenitsu-lightning" /> {photo.model}
-                          </motion.p>
+                          <div className="mb-2">
+                            <p className="text-[10px] uppercase tracking-wider text-zenitsu-lightning/80 font-medium mb-0.5">
+                              Featured
+                            </p>
+                            <p className="text-snow-white font-semibold text-sm md:text-base">
+                              {photo.model}
+                            </p>
+                          </div>
                         )}
-                        <motion.p
-                          className="text-snow-white font-anime text-sm flex items-center gap-1"
-                          initial={{ y: 10, opacity: 0 }}
-                          animate={{ y: 0, opacity: 1 }}
-                          transition={{ delay: 0.15 }}
-                        >
-                          <MapPin size={12} className="text-zenitsu-lightning" /> {photo.location.split(',')[0]}
-                        </motion.p>
+                        <div className="border-t border-white/20 pt-2">
+                          <p className="text-snow-white/70 text-xs font-light">
+                            {photo.location.split(',').slice(0, 2).join(', ')}
+                          </p>
+                        </div>
                       </div>
 
                       {/* Glowing border on hover */}
-                      <div className="absolute inset-0 border-2 border-zenitsu-lightning/0 group-hover:border-zenitsu-lightning/60 transition-all duration-300 rounded-lg" />
+                      <div className="absolute inset-0 border-2 border-zenitsu-lightning/0 group-hover:border-zenitsu-lightning/50 transition-all duration-300 rounded-lg" />
                     </motion.div>
                   ))}
                 </div>
@@ -539,13 +587,14 @@ const PhotographyRecord: React.FC = () => {
                   src={photos[openIdx].src}
                   alt={photos[openIdx].name}
                   className="max-h-[75vh] max-w-[85vw] object-contain rounded-lg shadow-2xl"
+                  loading="eager"
                 />
 
                 {/* Glowing border effect */}
                 <div className="absolute inset-0 rounded-lg border-2 border-zenitsu-lightning/30 shadow-[0_0_30px_rgba(255,215,0,0.3)]" />
               </motion.div>
 
-              {/* Enhanced Info Panel */}
+              {/* Enhanced Info Panel - Professional Redesign */}
               <motion.div
                 className="absolute bottom-8 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4"
                 initial={{ opacity: 0, y: 20 }}
@@ -554,35 +603,39 @@ const PhotographyRecord: React.FC = () => {
               >
                 <div className="bg-gradient-to-r from-deep-charcoal/95 to-ghost-black/95 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden">
                   <div className="p-6">
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                       {photos[openIdx].model && (
                         <motion.div
-                          className="flex items-center gap-3 text-snow-white"
+                          className="flex items-start gap-3 text-snow-white"
                           initial={{ x: -20, opacity: 0 }}
                           animate={{ x: 0, opacity: 1 }}
                           transition={{ delay: 0.5 }}
                         >
-                          <div className="w-10 h-10 rounded-full bg-zenitsu-lightning/20 flex items-center justify-center border border-zenitsu-lightning/50">
-                            <User size={18} className="text-zenitsu-lightning" />
+                          <div className="mt-0.5">
+                            <User size={20} className="text-zenitsu-lightning" />
                           </div>
                           <div>
-                            <p className="text-xs text-snow-white/60 font-medium">In Frame</p>
-                            <p className="text-lg font-bold">{photos[openIdx].model}</p>
+                            <p className="text-[10px] uppercase tracking-wider text-zenitsu-lightning/70 font-medium mb-1">
+                              Featured Model
+                            </p>
+                            <p className="text-lg md:text-xl font-semibold">{photos[openIdx].model}</p>
                           </div>
                         </motion.div>
                       )}
                       <motion.div
-                        className="flex items-center gap-3 text-snow-white"
+                        className={`flex items-start gap-3 text-snow-white ${!photos[openIdx].model ? 'w-full' : ''}`}
                         initial={{ x: -20, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ delay: 0.6 }}
                       >
-                        <div className="w-10 h-10 rounded-full bg-zenitsu-lightning/20 flex items-center justify-center border border-zenitsu-lightning/50">
-                          <MapPin size={18} className="text-zenitsu-lightning" />
+                        <div className="mt-0.5">
+                          <MapPin size={20} className="text-zenitsu-lightning" />
                         </div>
                         <div>
-                          <p className="text-xs text-snow-white/60 font-medium">Location</p>
-                          <p className="text-lg font-anime">{photos[openIdx].location}</p>
+                          <p className="text-[10px] uppercase tracking-wider text-zenitsu-lightning/70 font-medium mb-1">
+                            Location
+                          </p>
+                          <p className="text-base md:text-lg font-light">{photos[openIdx].location}</p>
                         </div>
                       </motion.div>
                     </div>
