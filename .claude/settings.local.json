@@ -12,7 +12,8 @@
       "Bash(node scripts/organize-graphics.js:*)",
       "Bash(cat:*)",
       "Bash(dir:*)",
-      "Bash(findstr:*)"
+      "Bash(findstr:*)",
+      "Bash(node scripts/generate-photography-manifest.js:*)"
     ],
     "deny": [],
     "ask": []

@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "graphics:setup": "node scripts/setup-graphics-folders.js",
     "graphics:organize": "node scripts/organize-graphics.js",
-    "graphics:manifest": "node scripts/generate-graphics-manifest.js"
+    "graphics:manifest": "node scripts/generate-graphics-manifest.js",
+    "photography:manifest": "node scripts/generate-photography-manifest.js"
   },
   "dependencies": {
     "@fontsource/mochiy-pop-one": "^5.2.5",
