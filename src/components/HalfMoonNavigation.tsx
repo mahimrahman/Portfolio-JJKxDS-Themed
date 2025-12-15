@@ -97,7 +97,7 @@ export default function HalfMoonNavigation() {
 
   // Calculate position for half-moon arc (LEFT side of X button, mirrored)
   const getNavItemPosition = (index: number, total: number) => {
-    const radius = isMobile ? 160 : 220; // Increased radius for better spacing
+    const radius = isMobile ? 180 : 220; // Increased radius for better spacing
     const startAngle = -70; // Wider arc for proper distribution
     const endAngle = 70; // Wider arc for proper distribution
     const angleStep = (endAngle - startAngle) / (total - 1);
@@ -239,9 +239,9 @@ export default function HalfMoonNavigation() {
                 transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                 className="relative pointer-events-auto"
                 style={{
-                  width: isMobile ? '100vw' : 'min(120vh, 90vw)',
-                  height: isMobile ? '100vh' : 'min(120vh, 90vw)',
-                  marginRight: isMobile ? '-25vw' : 'calc(-60vh + 16.67vw)',
+                  width: isMobile ? '150vw' : 'min(120vh, 90vw)',
+                  height: isMobile ? '150vw' : 'min(120vh, 90vw)',
+                  marginRight: isMobile ? '-60vw' : 'calc(-60vh + 16.67vw)',
                 }}
               >
                 {/* Half-moon circle background - Black with Gojo purple Domain Expansion */}
@@ -353,17 +353,17 @@ export default function HalfMoonNavigation() {
                       const Icon = item.icon;
 
                       // Calculate label angle and position for proper half-moon layout
-                      const radius = isMobile ? 160 : 220;
+                      const radius = isMobile ? 180 : 220;
                       const startAngle = -70;
                       const endAngle = 70;
                       const angleStep = (endAngle - startAngle) / (navItems.length - 1);
                       const angle = startAngle + angleStep * index;
 
                       // Special label distance for Education (index 4), Summon (index 7), Download CV (index 8)
-                      let labelDistance = isMobile ? 58 : 75;
-                      if (index === 4) labelDistance = isMobile ? 70 : 95; // Education
-                      if (index === 7) labelDistance = isMobile ? 75 : 105; // Summon
-                      if (index === 8) labelDistance = isMobile ? 90 : 125; // Download CV
+                      let labelDistance = isMobile ? 65 : 75;
+                      if (index === 4) labelDistance = isMobile ? 80 : 95; // Education
+                      if (index === 7) labelDistance = isMobile ? 85 : 105; // Summon
+                      if (index === 8) labelDistance = isMobile ? 100 : 125; // Download CV
 
                       // Calculate label position - pointing outward from the icon
                       const labelAngleRad = angle * (Math.PI / 180);
