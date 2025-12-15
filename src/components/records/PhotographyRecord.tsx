@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useMemo, memo } from 'react';
+import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Navigation, Mousewheel } from 'swiper/modules';
@@ -87,9 +87,6 @@ const PhotographyRecord: React.FC = () => {
 
   return (
     <div className="relative h-screen bg-deep-charcoal overflow-hidden">
-      {/* Enhanced Sakura petals */}
-      {sakuraPetals}
-
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-deep-charcoal via-cursed-blue/20 to-deep-charcoal" />
       <div
