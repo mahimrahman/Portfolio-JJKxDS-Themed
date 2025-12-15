@@ -363,12 +363,24 @@ export default function HalfMoonNavigation() {
                       let labelDistance = isMobile ? 58 : 75;
                       if (index === 4) labelDistance = isMobile ? 70 : 95; // Education
                       if (index === 7) labelDistance = isMobile ? 75 : 105; // Summon
-                      if (index === 8) labelDistance = isMobile ? 80 : 110; // Download CV
+                      if (index === 8) labelDistance = isMobile ? 90 : 125; // Download CV
 
                       // Calculate label position - pointing outward from the icon
                       const labelAngleRad = angle * (Math.PI / 180);
                       const labelOffsetX = Math.cos(labelAngleRad) * labelDistance * -1;
-                      const labelOffsetY = Math.sin(labelAngleRad) * labelDistance;
+                      let labelOffsetY = Math.sin(labelAngleRad) * labelDistance;
+
+                      // Vertical adjustments to center-align labels with icons
+                      const yAdjust = isMobile ? 8 : 12;
+                      if (index === 0) labelOffsetY += yAdjust; // Domain - down
+                      if (index === 1) labelOffsetY += yAdjust; // Path - down
+                      if (index === 2) labelOffsetY += yAdjust; // Missions - down
+                      if (index === 3) labelOffsetY += yAdjust; // Records - down
+                      if (index === 4) labelOffsetY += yAdjust * 0.7; // Education - slightly down
+                      if (index === 5) labelOffsetY += yAdjust * 0.7; // Skills - slightly down
+                      if (index === 6) labelOffsetY += yAdjust * 0.7; // Blog - slightly down
+                      if (index === 7) labelOffsetY -= yAdjust; // Summon - up
+                      if (index === 8) labelOffsetY -= yAdjust * 1.8; // Download CV - further up
 
                       return (
                         <motion.button
