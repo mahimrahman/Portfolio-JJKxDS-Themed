@@ -62,7 +62,7 @@ const PhotographyRecord: React.FC = () => {
 
   useEffect(() => {
     // Load photography manifest
-    fetch('/assets/Pic/photography-manifest.json')
+    fetch('/assets/Photography/photography-manifest.json')
       .then(res => res.json())
       .then((data) => {
         setCategories(data.categories);

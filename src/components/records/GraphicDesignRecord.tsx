@@ -130,7 +130,20 @@ const GraphicDesignRecord: React.FC = () => {
             // Extract unique subfolder names
             const subfolderSet = new Set<string>();
             folderImages.forEach((img: ImageData) => {
-              const pathParts = img.path.replace('/assets/Graphics/', '').split('/');
+              // Handle both local paths and Cloudinary URLs
+              let pathToProcess = img.path;
+              if (pathToProcess.includes('cloudinary.com')) {
+                // Extract path from Cloudinary URL: .../Portfolio/Graphic Design/folder/subfolder/image.jpg
+                const urlParts = decodeURIComponent(pathToProcess).split('/Portfolio/Graphic Design/');
+                if (urlParts.length > 1) {
+                  pathToProcess = urlParts[1];
+                }
+              } else {
+                // Local path
+                pathToProcess = pathToProcess.replace('/assets/Graphics/', '');
+              }
+              
+              const pathParts = pathToProcess.split('/');
               if (pathParts.length > 1) {
                 subfolderSet.add(pathParts[1]); // Get the immediate subfolder
               }
