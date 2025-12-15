@@ -353,7 +353,6 @@ export default function HalfMoonNavigation() {
                       const Icon = item.icon;
 
                       // Calculate label angle and position for proper half-moon layout
-                      const radius = isMobile ? 180 : 220;
                       const startAngle = -70;
                       const endAngle = 70;
                       const angleStep = (endAngle - startAngle) / (navItems.length - 1);
