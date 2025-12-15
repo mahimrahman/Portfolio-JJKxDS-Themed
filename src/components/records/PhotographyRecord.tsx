@@ -127,23 +127,23 @@ const PhotographyRecord: React.FC = () => {
         {/* Category Selection */}
         {!selectedCategory ? (
           <motion.div
-            className="flex-1 flex items-center justify-center px-4"
+            className="flex-1 flex items-center justify-center px-4 md:px-8 overflow-y-auto"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl w-full">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-7xl w-full my-auto">
               {categories.map((category, idx) => (
                 <motion.div
                   key={category.name}
                   className="relative group cursor-pointer"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: idx * 0.15 }}
-                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  whileHover={{ scale: 1.03 }}
                   onClick={() => setSelectedCategory(category.name)}
                 >
-                  <div className="relative h-[400px] rounded-2xl overflow-hidden border-2 border-white/20 group-hover:border-zenitsu-lightning transition-all duration-300 shadow-2xl">
+                  <div className="relative h-[350px] md:h-[420px] rounded-2xl overflow-hidden border-2 border-white/20 group-hover:border-zenitsu-lightning transition-all duration-300 shadow-2xl">
                     {/* Category Cover Image */}
                     <img
                       src={category.images[0]?.path}
@@ -151,6 +151,7 @@ const PhotographyRecord: React.FC = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
                       decoding="async"
+                      fetchPriority="low"
                     />
 
                     {/* Gradient Overlay */}

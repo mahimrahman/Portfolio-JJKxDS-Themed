@@ -3,14 +3,14 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const navItems = [
-  { name: 'Domain', href: '#home' },
-  { name: 'Path', href: '#about' },
-  { name: 'Missions', href: '#experience' },
-  { name: 'Records', href: '#portfolio' },
-  { name: 'Education', href: '#education' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Blog', href: '#blog' },
-  { name: 'Summon', href: '#contact' },
+  { name: 'Home', href: '#home', icon: '🏠' },
+  { name: 'About', href: '#about', icon: '👤' },
+  { name: 'Experience', href: '#experience', icon: '💼' },
+  { name: 'Portfolio', href: '#portfolio', icon: '📁' },
+  { name: 'Education', href: '#education', icon: '🎓' },
+  { name: 'Skills', href: '#skills', icon: '⚡' },
+  { name: 'Blog', href: '#blog', icon: '📝' },
+  { name: 'Contact', href: '#contact', icon: '📧' },
 ];
 
 export interface NavigationProps {
@@ -53,22 +53,22 @@ const Navigation = ({ mobileOpen, setMobileOpen, handleNavClick }: NavigationPro
     return () => document.body.classList.remove('overflow-hidden');
   }, [mobileOpen]);
 
-  // Animate hamburger/X icon state
+  // Animate hamburger/X icon state - optimized for performance
   const hamburgerVariants = {
     closed: { rotate: 0 },
     open: { rotate: 90 },
   };
   const line1 = {
-    closed: { rotate: 0, y: 0 },
-    open: { rotate: 45, y: 8 },
+    closed: { rotate: 0, y: 0, x: 0 },
+    open: { rotate: 45, y: 8, x: 0 },
   };
   const line2 = {
-    closed: { opacity: 1, scaleX: 1 },
-    open: { opacity: 0, scaleX: 0.5 },
+    closed: { opacity: 1, scaleX: 1, x: 0 },
+    open: { opacity: 0, scaleX: 0.5, x: 0 },
   };
   const line3 = {
-    closed: { rotate: 0, y: 0 },
-    open: { rotate: -45, y: -8 },
+    closed: { rotate: 0, y: 0, x: 0 },
+    open: { rotate: -45, y: -8, x: 0 },
   };
 
   return (
@@ -111,13 +111,14 @@ const Navigation = ({ mobileOpen, setMobileOpen, handleNavClick }: NavigationPro
         >
           Download CV
         </a>
-        {/* Hamburger (Mobile) */}
+        {/* Hamburger (Mobile) - Optimized for smoothness */}
         <button
-          className="md:hidden flex items-center justify-center p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60 shadow-lg border-2 border-zenitsu-lightning/40 bg-gradient-to-br from-domain-violet/60 to-rengoku-flame/40 hover:from-rengoku-flame/80 hover:to-domain-violet/60 transition-all duration-300 group"
+          className="md:hidden flex items-center justify-center p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60 shadow-lg border-2 border-zenitsu-lightning/40 bg-gradient-to-br from-domain-violet/60 to-rengoku-flame/40 hover:from-rengoku-flame/80 hover:to-domain-violet/60 transition-all duration-200 group will-change-transform"
           aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
           onClick={() => setMobileOpen((v: boolean) => !v)}
+          style={{ transform: 'translateZ(0)' }}
         >
           {/* Animated Hamburger/X Icon */}
           <motion.svg
@@ -127,40 +128,29 @@ const Navigation = ({ mobileOpen, setMobileOpen, handleNavClick }: NavigationPro
             initial={false}
             animate={mobileOpen ? 'open' : 'closed'}
             variants={hamburgerVariants}
+            style={{ willChange: 'transform' }}
           >
             <motion.rect
               x="6" y="10" width="20" height="3" rx="1.5"
               fill="#FFF"
               variants={line1}
-              transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+              transition={{ type: 'spring', stiffness: 500, damping: 35, mass: 0.5 }}
+              style={{ willChange: 'transform' }}
             />
             <motion.rect
               x="6" y="14.5" width="20" height="3" rx="1.5"
               fill="#FFF"
               variants={line2}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.15, ease: 'easeInOut' }}
+              style={{ willChange: 'opacity, transform' }}
             />
             <motion.rect
               x="6" y="19" width="20" height="3" rx="1.5"
               fill="#FFF"
               variants={line3}
-              transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+              transition={{ type: 'spring', stiffness: 500, damping: 35, mass: 0.5 }}
+              style={{ willChange: 'transform' }}
             />
-            {/* Glow effect */}
-            <motion.rect
-              x="4" y="8" width="24" height="16" rx="8"
-              fill="url(#glow-gradient)"
-              style={{ filter: 'blur(8px)' }}
-              initial={{ opacity: 0.3 }}
-              animate={mobileOpen ? { opacity: 0.6 } : { opacity: 0.3 }}
-              transition={{ duration: 0.3 }}
-            />
-            <defs>
-              <radialGradient id="glow-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                <stop offset="0%" stopColor="#FFD000" stopOpacity="0.7" />
-                <stop offset="100%" stopColor="#7B61FF" stopOpacity="0.2" />
-              </radialGradient>
-            </defs>
           </motion.svg>
         </button>
       </div>
@@ -175,11 +165,11 @@ export const MobileMenuOverlay = ({ mobileOpen, setMobileOpen, handleNavClick, l
     animate={mobileOpen ? 'open' : 'closed'}
     variants={{
       open: { opacity: 1, pointerEvents: 'auto', y: 0, scale: 1 },
-      closed: { opacity: 0, pointerEvents: 'none', y: -40, scale: 0.98 },
+      closed: { opacity: 0, pointerEvents: 'none', y: 0, scale: 1 },
     }}
-    transition={{ duration: 0.35, type: 'spring', stiffness: 120, damping: 18 }}
-    className="fixed inset-0 w-full h-full bg-gradient-to-br from-domain-violet/95 via-deep-charcoal/95 to-rengoku-flame/90 backdrop-blur-2xl z-[9999] flex flex-col items-center md:hidden shadow-2xl border-t-4 border-zenitsu-lightning/30 px-4 pt-8 pb-8 overflow-y-hidden"
-    style={{ display: mobileOpen ? 'flex' : 'none', position: 'fixed' }}
+    transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+    className="fixed inset-0 w-full h-full bg-gradient-to-br from-domain-violet/95 via-deep-charcoal/95 to-rengoku-flame/90 backdrop-blur-2xl z-[9999] flex flex-col items-center md:hidden shadow-2xl border-t-4 border-zenitsu-lightning/30 px-4 pt-8 pb-8 overflow-y-hidden will-change-transform"
+    style={{ display: mobileOpen ? 'flex' : 'none', position: 'fixed', transform: 'translateZ(0)' }}
     tabIndex={-1}
     aria-modal="true"
     role="dialog"
@@ -188,11 +178,12 @@ export const MobileMenuOverlay = ({ mobileOpen, setMobileOpen, handleNavClick, l
     <motion.button
       onClick={() => setMobileOpen(false)}
       aria-label="Close navigation menu"
-      className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-full border-2 border-zenitsu-lightning bg-gradient-to-br from-domain-violet/80 to-rengoku-flame/80 shadow-xl focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60 hover:scale-105 transition-all duration-200 z-50"
+      className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-full border-2 border-zenitsu-lightning bg-gradient-to-br from-domain-violet/80 to-rengoku-flame/80 shadow-xl focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60 hover:scale-105 transition-transform duration-150 z-50 will-change-transform"
       tabIndex={mobileOpen ? 0 : -1}
       initial={false}
-      animate={mobileOpen ? { rotate: 180, scale: 1.1 } : { rotate: 0, scale: 1 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+      animate={mobileOpen ? { rotate: 90, scale: 1 } : { rotate: 0, scale: 1 }}
+      transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+      style={{ transform: 'translateZ(0)' }}
     >
       <motion.svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <motion.line x1="8" y1="8" x2="24" y2="24" stroke="#FFD000" strokeWidth="3" strokeLinecap="round" />
@@ -202,9 +193,9 @@ export const MobileMenuOverlay = ({ mobileOpen, setMobileOpen, handleNavClick, l
     {/* Profile Section */}
     <motion.div
       className="flex flex-col items-center mt-16 mb-8"
-      initial={{ opacity: 0, y: 30 }}
-      animate={mobileOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ delay: 0.1, duration: 0.5, type: 'spring' }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={mobileOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ delay: 0.05, duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
     >
       <div className="w-24 h-24 rounded-full border-4 border-zenitsu-lightning shadow-lg overflow-hidden mb-4 bg-snow-white/10">
         <img
@@ -225,32 +216,33 @@ export const MobileMenuOverlay = ({ mobileOpen, setMobileOpen, handleNavClick, l
       animate={mobileOpen ? "open" : "closed"}
       variants={{
         closed: {},
-        open: { transition: { staggerChildren: 0.07, delayChildren: 0.2 } },
+        open: { transition: { staggerChildren: 0.03, delayChildren: 0.1 } },
       }}
     >
-      {navItems.map((item, idx) => (
+      {navItems.map((item) => (
         <motion.a
           key={item.name}
           href={item.href}
           onClick={e => handleNavClick(e, item.href)}
-          className={`w-full text-center text-lg font-semibold px-2 py-2 rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60
-            ${location.hash === item.href ? 'text-zenitsu-lightning font-bold' : 'text-snow-white hover:text-zenitsu-lightning/80'}
+          className={`w-full text-center text-lg font-semibold px-4 py-3 rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-zenitsu-lightning/60 will-change-transform flex items-center justify-center gap-3
+            ${location.hash === item.href ? 'text-zenitsu-lightning font-bold bg-zenitsu-lightning/10' : 'text-snow-white hover:text-zenitsu-lightning/80 hover:bg-white/5'}
           `}
           tabIndex={mobileOpen ? 0 : -1}
-          style={{ transitionDelay: mobileOpen ? `${idx * 0.05 + 0.1}s` : '0s' }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={mobileOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.4, type: 'spring' }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={mobileOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+          transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+          style={{ transform: 'translateZ(0)' }}
         >
-          {item.name}
+          <span className="text-2xl">{item.icon}</span>
+          <span>{item.name}</span>
         </motion.a>
       ))}
     </motion.nav>
     <motion.div
       className="w-full flex flex-col items-center gap-8 mb-8"
-      initial={{ opacity: 0, y: 20 }}
-      animate={mobileOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ delay: 0.3, duration: 0.5, type: 'spring' }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={mobileOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+      transition={{ delay: 0.15, duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
     >
       <a
         href="/assets/CV/Mahim.pdf"

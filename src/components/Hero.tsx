@@ -222,8 +222,8 @@ const Hero = () => {
     return '/1.mp4';
   });
 
-  // Reduce particle count for better performance
-  const particles = useMemo(() => Array.from({ length: 4 }, (_, i) => i), []);
+  // Reduce particle count to 0 for better performance - removed animations
+  const particles = useMemo(() => [], []);
 
   const handleVideoLoad = useCallback(() => {
     setVideoLoaded(true);
@@ -235,7 +235,7 @@ const Hero = () => {
     setVideoLoaded(false);
   }, []);
 
-  // Timeout mechanism for slow loading videos - reduced to 5 seconds
+  // Timeout mechanism for slow loading videos - reduced to 3 seconds for faster fallback
   useEffect(() => {
     if (!videoLoaded && !videoError) {
       const timeout = setTimeout(() => {
@@ -243,7 +243,7 @@ const Hero = () => {
           console.warn('Video loading timeout, showing fallback background');
           setVideoError(true);
         }
-      }, 5000); // 5 second timeout for faster fallback
+      }, 3000); // 3 second timeout for faster fallback
 
       return () => clearTimeout(timeout);
     }
@@ -317,134 +317,27 @@ const Hero = () => {
             {...fadeInUpDelayed(0.2)}
             style={{ perspective: '1000px' }}
           >
-            {/* Domain Expansion Circle Effect */}
-            <motion.div
-              className="absolute inset-0 z-[25]"
-              style={{
-                background: 'radial-gradient(circle, rgba(127, 0, 255, 0.4) 0%, transparent 70%)',
-              }}
-              animate={{
-                scale: [1, 1.3, 1],
-                opacity: [0.3, 0.6, 0.3],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-            
-            {/* Expanding Ring Effect */}
-            <motion.div
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[25]"
-              style={{
-                width: '100%',
-                height: '100%',
-                border: '2px solid rgba(127, 0, 255, 0.3)',
-                borderRadius: '50%',
-              }}
-              animate={{
-                scale: [0.8, 1.5, 0.8],
-                opacity: [0.6, 0, 0.6],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeOut"
-              }}
-            />
-            
-            {/* Second Expanding Ring */}
-            <motion.div
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[25]"
-              style={{
-                width: '100%',
-                height: '100%',
-                border: '2px solid rgba(127, 0, 255, 0.2)',
-                borderRadius: '50%',
-              }}
-              animate={{
-                scale: [0.8, 1.5, 0.8],
-                opacity: [0.4, 0, 0.4],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeOut",
-                delay: 1.5
-              }}
-            />
             
             {/* Name - First Line with subtle gradient */}
-            <motion.span 
+            <span
               className="block relative text-snow-white"
               style={{
                 textShadow: '0 0 30px rgba(127, 0, 255, 0.5), 0 0 60px rgba(127, 0, 255, 0.3)',
               }}
-              animate={{
-                letterSpacing: ['0em', '0.05em', '0em'],
-                textShadow: [
-                  '0 0 30px rgba(127, 0, 255, 0.5), 0 0 60px rgba(127, 0, 255, 0.3)',
-                  '0 0 40px rgba(127, 0, 255, 0.7), 0 0 80px rgba(127, 0, 255, 0.4)',
-                  '0 0 30px rgba(127, 0, 255, 0.5), 0 0 60px rgba(127, 0, 255, 0.3)',
-                ],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
             >
               MAHIMUR
-            </motion.span>
-            
+            </span>
+
             {/* Name - Second Line with subtle gradient */}
-            <motion.span 
+            <span
               className="block relative text-snow-white mt-1 sm:mt-2"
               style={{
                 textShadow: '0 0 30px rgba(127, 0, 255, 0.5), 0 0 60px rgba(127, 0, 255, 0.3)',
               }}
-              animate={{
-                letterSpacing: ['0em', '0.05em', '0em'],
-                textShadow: [
-                  '0 0 30px rgba(127, 0, 255, 0.5), 0 0 60px rgba(127, 0, 255, 0.3)',
-                  '0 0 40px rgba(127, 0, 255, 0.7), 0 0 80px rgba(127, 0, 255, 0.4)',
-                  '0 0 30px rgba(127, 0, 255, 0.5), 0 0 60px rgba(127, 0, 255, 0.3)',
-                ],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 0.2
-              }}
             >
               RAHMAN KHAN
-            </motion.span>
+            </span>
             
-            {/* Subtle Energy Particles - reduced for performance */}
-            {[...Array(3)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-1 h-1 bg-domain-violet rounded-full z-[25]"
-                style={{
-                  left: `${20 + i * 15}%`,
-                  top: `${30 + (i % 2) * 40}%`,
-                }}
-                animate={{
-                  scale: [0, 1, 0],
-                  opacity: [0, 0.6, 0],
-                  x: [0, (i % 2 === 0 ? 20 : -20)],
-                  y: [0, (i % 3 === 0 ? -20 : 20)],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeOut",
-                  delay: i * 0.3
-                }}
-              />
-            ))}
           </motion.h1>
           
           {/* Animated Underline */}
@@ -522,26 +415,6 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.8 }}
-        >
-          <span className="text-xs text-ash-gray/60 uppercase tracking-wider">Scroll</span>
-          <motion.div
-            className="w-6 h-10 rounded-full border-2 border-domain-violet/30 flex items-start justify-center p-2"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <motion.div
-              className="w-1.5 h-1.5 rounded-full bg-domain-violet"
-              animate={{ opacity: [1, 0.3, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            />
-          </motion.div>
-        </motion.div>
       </div>
 
       {/* Decorative Elements - Redesigned */}

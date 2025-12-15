@@ -27,6 +27,20 @@
   }
 }
 
+@layer components {
+  /* Consistent Section Title Styling */
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-12 lg:mb-16;
+    @apply bg-gradient-to-r from-snow-white/90 via-ash-gray/80 to-snow-white/90 bg-clip-text text-transparent;
+    @apply tracking-tight leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-xl md:text-2xl font-semibold mb-6 md:mb-8;
+    @apply text-ash-gray/70;
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

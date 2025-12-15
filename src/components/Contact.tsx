@@ -164,7 +164,7 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-6"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-rengoku-flame via-domain-violet to-cursed-blue bg-clip-text text-transparent">
+          <h2 className="section-title">
             Domain Invitation
           </h2>
 

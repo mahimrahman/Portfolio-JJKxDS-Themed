@@ -119,7 +119,7 @@ const Education: React.FC = () => {
         viewport={{ once: true }}
         className="relative z-30 text-center mb-6"
       >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent drop-shadow-lg tracking-wider anime-heading">
+        <h2 className="section-title">
           Innate Domain: Forged Knowledge
         </h2>
         <p className="text-center text-base md:text-lg text-ash-gray mb-3 max-w-2xl mx-auto">

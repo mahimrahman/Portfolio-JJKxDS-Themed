@@ -136,7 +136,7 @@ const AboutBase = () =>
           viewport={{ once: true }}
           className="h-px bg-gradient-to-r from-transparent via-domain-violet to-transparent mb-3"
         />
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-domain-violet via-cursed-blue to-rengoku-flame bg-clip-text text-transparent">
+        <h2 className="section-title">
           The Story of the Slayer
         </h2>
         <motion.div

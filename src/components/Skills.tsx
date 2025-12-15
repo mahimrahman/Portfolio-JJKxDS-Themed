@@ -310,7 +310,7 @@ const Skills = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent">
+          <h2 className="section-title">
             Technical Skills
           </h2>
           <div className="flex justify-center items-center gap-2 mb-6">
