@@ -1,0 +1,694 @@
+{
+  "categories": [
+    {
+      "name": "Landscapes",
+      "path": "Portfolio/Photography/Landscapes",
+      "imageCount": 28,
+      "images": [
+        {
+          "name": "1 Old Port, Montreal, Canada (2).jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773382/Portfolio/Photography/Landscapes/1_Old_Port_Montreal_Canada_2.jpg",
+          "size": 7064026,
+          "modified": "2025-12-10T15:22:31.005Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/1_Old_Port_Montreal_Canada_2"
+        },
+        {
+          "name": "10 Mont -Blanc ,Quebec .jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773385/Portfolio/Photography/Landscapes/10_Mont_-Blanc_Quebec.jpg",
+          "size": 5533136,
+          "modified": "2025-12-10T15:22:32.114Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/10_Mont_-Blanc_Quebec"
+        },
+        {
+          "name": "11 Lac Saint-Joseph, ,Quebec (3).jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773388/Portfolio/Photography/Landscapes/11_Lac_Saint-Joseph_Quebec_3.jpg",
+          "size": 7022052,
+          "modified": "2025-12-10T15:22:32.147Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/11_Lac_Saint-Joseph_Quebec_3"
+        },
+        {
+          "name": "12 Lac Saint-Joseph, Quebec (2).jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773391/Portfolio/Photography/Landscapes/12_Lac_Saint-Joseph_Quebec_2.jpg",
+          "size": 4465716,
+          "modified": "2025-12-10T15:22:32.163Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/12_Lac_Saint-Joseph_Quebec_2"
+        },
+        {
+          "name": "13 French Vilage, Malaysia.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773393/Portfolio/Photography/Landscapes/13_French_Vilage_Malaysia.jpg",
+          "size": 141690,
+          "modified": "2025-12-10T15:22:32.176Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/13_French_Vilage_Malaysia"
+        },
+        {
+          "name": "14 Bandarban, Bangladesh (3).jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773394/Portfolio/Photography/Landscapes/14_Bandarban_Bangladesh_3.jpg",
+          "size": 157511,
+          "modified": "2025-12-10T15:22:32.178Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/14_Bandarban_Bangladesh_3"
+        },
+        {
+          "name": "15 Montreal, Canada (3).jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773396/Portfolio/Photography/Landscapes/15_Montreal_Canada_3.jpg",
+          "size": 956269,
+          "modified": "2025-12-10T15:22:32.188Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/15_Montreal_Canada_3"
+        },
+        {
+          "name": "16 Montreal, Canada (4).jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773398/Portfolio/Photography/Landscapes/16_Montreal_Canada_4.jpg",
+          "size": 2337807,
+          "modified": "2025-12-10T15:22:32.202Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/16_Montreal_Canada_4"
+        },
+        {
+          "name": "17 Old Port, Montreal, Canada.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773400/Portfolio/Photography/Landscapes/17_Old_Port_Montreal_Canada.jpg",
+          "size": 2460824,
+          "modified": "2025-12-10T15:22:32.223Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/17_Old_Port_Montreal_Canada"
+        },
+        {
+          "name": "18 Lankawi, Malaysia.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773401/Portfolio/Photography/Landscapes/18_Lankawi_Malaysia.jpg",
+          "size": 91916,
+          "modified": "2025-12-10T15:22:32.223Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/18_Lankawi_Malaysia"
+        },
+        {
+          "name": "19 Chottogram, Bangladesh.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773408/Portfolio/Photography/Landscapes/19_Chottogram_Bangladesh.jpg",
+          "size": 4251945,
+          "modified": "2025-12-10T15:22:32.256Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/19_Chottogram_Bangladesh"
+        },
+        {
+          "name": "2 Montreal, Canada (7).jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773410/Portfolio/Photography/Landscapes/2_Montreal_Canada_7.jpg",
+          "size": 2294219,
+          "modified": "2025-12-10T15:22:32.273Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/2_Montreal_Canada_7"
+        },
+        {
+          "name": "20 Nilgiri, Bangladesh (2).jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773411/Portfolio/Photography/Landscapes/20_Nilgiri_Bangladesh_2.jpg",
+          "size": 428022,
+          "modified": "2025-12-10T15:22:32.275Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/20_Nilgiri_Bangladesh_2"
+        },
+        {
+          "name": "21 Montreal, Canada (5).jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773416/Portfolio/Photography/Landscapes/21_Montreal_Canada_5.jpg",
+          "size": 5273240,
+          "modified": "2025-12-10T15:22:32.306Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/21_Montreal_Canada_5"
+        },
+        {
+          "name": "23 Sylhet, Bangladesh.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773418/Portfolio/Photography/Landscapes/23_Sylhet_Bangladesh.jpg",
+          "size": 3194588,
+          "modified": "2025-12-10T15:22:32.323Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/23_Sylhet_Bangladesh"
+        },
+        {
+          "name": "24 Montreal, Canada (6).jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773420/Portfolio/Photography/Landscapes/24_Montreal_Canada_6.jpg",
+          "size": 2321134,
+          "modified": "2025-12-10T15:22:32.340Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/24_Montreal_Canada_6"
+        },
+        {
+          "name": "25 Lac Saint-Joseph, Quebec (4).jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773423/Portfolio/Photography/Landscapes/25_Lac_Saint-Joseph_Quebec_4.jpg",
+          "size": 4148743,
+          "modified": "2025-12-10T15:22:32.366Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/25_Lac_Saint-Joseph_Quebec_4"
+        },
+        {
+          "name": "26 Cyberjya, Malaysia.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773424/Portfolio/Photography/Landscapes/26_Cyberjya_Malaysia.jpg",
+          "size": 113435,
+          "modified": "2025-12-10T15:22:32.367Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/26_Cyberjya_Malaysia"
+        },
+        {
+          "name": "27 Cyberjaya Malaysia.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773425/Portfolio/Photography/Landscapes/27_Cyberjaya_Malaysia.jpg",
+          "size": 97284,
+          "modified": "2025-12-10T15:22:32.367Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/27_Cyberjaya_Malaysia"
+        },
+        {
+          "name": "28 Montreal, Canada (2).jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773427/Portfolio/Photography/Landscapes/28_Montreal_Canada_2.jpg",
+          "size": 1800464,
+          "modified": "2025-12-10T15:22:32.381Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/28_Montreal_Canada_2"
+        },
+        {
+          "name": "29 Lalbagh, Old Dhaka, BAngladesh.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773428/Portfolio/Photography/Landscapes/29_Lalbagh_Old_Dhaka_BAngladesh.jpg",
+          "size": 236754,
+          "modified": "2025-12-10T15:22:32.383Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/29_Lalbagh_Old_Dhaka_BAngladesh"
+        },
+        {
+          "name": "30 Montreal, Canada.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773433/Portfolio/Photography/Landscapes/30_Montreal_Canada.jpg",
+          "size": 3295677,
+          "modified": "2025-12-10T15:22:32.457Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/30_Montreal_Canada"
+        },
+        {
+          "name": "4 Sylhet, Bangladesh (2).jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773436/Portfolio/Photography/Landscapes/4_Sylhet_Bangladesh_2.jpg",
+          "size": 6115982,
+          "modified": "2025-12-10T15:22:32.490Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/4_Sylhet_Bangladesh_2"
+        },
+        {
+          "name": "5 Mont -Blanc, ,Quebec (3).jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773439/Portfolio/Photography/Landscapes/5_Mont_-Blanc_Quebec_3.jpg",
+          "size": 4646897,
+          "modified": "2025-12-10T15:22:32.520Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/5_Mont_-Blanc_Quebec_3"
+        },
+        {
+          "name": "6 Bandarban, Bangladesh.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773441/Portfolio/Photography/Landscapes/6_Bandarban_Bangladesh.jpg",
+          "size": 85500,
+          "modified": "2025-12-10T15:22:32.522Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/6_Bandarban_Bangladesh"
+        },
+        {
+          "name": "7 Cyberjaya, Malaysia.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773442/Portfolio/Photography/Landscapes/7_Cyberjaya_Malaysia.jpg",
+          "size": 172670,
+          "modified": "2025-12-10T15:22:32.524Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/7_Cyberjaya_Malaysia"
+        },
+        {
+          "name": "8 Marche Atwater, Montreal, Canada.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773444/Portfolio/Photography/Landscapes/8_Marche_Atwater_Montreal_Canada.jpg",
+          "size": 3762114,
+          "modified": "2025-12-10T15:22:32.749Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/8_Marche_Atwater_Montreal_Canada"
+        },
+        {
+          "name": "9 Lac Saint-Joseph, Quebec.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773447/Portfolio/Photography/Landscapes/9_Lac_Saint-Joseph_Quebec.jpg",
+          "size": 4682313,
+          "modified": "2025-12-10T15:22:32.931Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Landscapes/9_Lac_Saint-Joseph_Quebec"
+        }
+      ]
+    },
+    {
+      "name": "Portraits",
+      "path": "Portfolio/Photography/Portraits",
+      "imageCount": 23,
+      "images": [
+        {
+          "name": "1 Model-Elizabeth, Concordia University, Montreal.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773449/Portfolio/Photography/Portraits/1_Model-Elizabeth_Concordia_University_Montreal.jpg",
+          "size": 3618601,
+          "modified": "2025-12-10T15:22:32.978Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/1_Model-Elizabeth_Concordia_University_Montreal"
+        },
+        {
+          "name": "11 Model-Elizabeth, Concordia University, Montreal.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773456/Portfolio/Photography/Portraits/11_Model-Elizabeth_Concordia_University_Montreal.jpg",
+          "size": 105191,
+          "modified": "2025-12-10T15:22:32.986Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/11_Model-Elizabeth_Concordia_University_Montreal"
+        },
+        {
+          "name": "12 Model-Elizabeth, Concordia University, Montreal.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773457/Portfolio/Photography/Portraits/12_Model-Elizabeth_Concordia_University_Montreal.jpg",
+          "size": 95788,
+          "modified": "2025-12-10T15:22:32.986Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/12_Model-Elizabeth_Concordia_University_Montreal"
+        },
+        {
+          "name": "12 Model-Nafees, Cameroon Heighlands, Malaysia.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773458/Portfolio/Photography/Portraits/12_Model-Nafees_Cameroon_Heighlands_Malaysia.jpg",
+          "size": 140844,
+          "modified": "2025-12-10T15:22:32.994Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/12_Model-Nafees_Cameroon_Heighlands_Malaysia"
+        },
+        {
+          "name": "13 Model-Nandini, Meerut, India.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773459/Portfolio/Photography/Portraits/13_Model-Nandini_Meerut_India.jpg",
+          "size": 203269,
+          "modified": "2025-12-10T15:22:32.994Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/13_Model-Nandini_Meerut_India"
+        },
+        {
+          "name": "14 Model-Rhea, Mont Sutton, Quebec.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773464/Portfolio/Photography/Portraits/14_Model-Rhea_Mont_Sutton_Quebec.jpg",
+          "size": 4945103,
+          "modified": "2025-12-10T15:22:33.042Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/14_Model-Rhea_Mont_Sutton_Quebec"
+        },
+        {
+          "name": "15 Model-Younes, Le Gym, Montreal..jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773465/Portfolio/Photography/Portraits/15_Model-Younes_Le_Gym_Montreal..jpg",
+          "size": 345152,
+          "modified": "2025-12-10T15:22:33.047Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/15_Model-Younes_Le_Gym_Montreal."
+        },
+        {
+          "name": "2 Model-Rayne, Cyberjaya, Malaysia.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773466/Portfolio/Photography/Portraits/2_Model-Rayne_Cyberjaya_Malaysia.jpg",
+          "size": 119393,
+          "modified": "2025-12-10T15:22:33.047Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/2_Model-Rayne_Cyberjaya_Malaysia"
+        },
+        {
+          "name": "3.1  Model-Sanjana, Otterburn Park, Quebec.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773468/Portfolio/Photography/Portraits/3.1_Model-Sanjana_Otterburn_Park_Quebec.jpg",
+          "size": 3106626,
+          "modified": "2025-12-10T15:22:33.069Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/3.1_Model-Sanjana_Otterburn_Park_Quebec"
+        },
+        {
+          "name": "3.2 Model-Sabine, Linkedin Shoot, Montreal..jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773470/Portfolio/Photography/Portraits/3.2_Model-Sabine_Linkedin_Shoot_Montreal..jpg",
+          "size": 3295354,
+          "modified": "2025-12-10T15:22:33.469Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/3.2_Model-Sabine_Linkedin_Shoot_Montreal."
+        },
+        {
+          "name": "4  Model-Abel Makkonen Tesfaye, Park Jean Drapeu, Montreal.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773471/Portfolio/Photography/Portraits/4_Model-Abel_Makkonen_Tesfaye_Park_Jean_Drapeu_Montreal.jpg",
+          "size": 1748398,
+          "modified": "2025-12-10T15:22:33.484Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/4_Model-Abel_Makkonen_Tesfaye_Park_Jean_Drapeu_Montreal"
+        },
+        {
+          "name": "5 .1Model-Abel Makkonen Tesfaye, Park Jean Drapeu, Montreal.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773473/Portfolio/Photography/Portraits/5.1Model-Abel_Makkonen_Tesfaye_Park_Jean_Drapeu_Montreal.jpg",
+          "size": 1929169,
+          "modified": "2025-12-10T15:22:33.500Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/5.1Model-Abel_Makkonen_Tesfaye_Park_Jean_Drapeu_Montreal"
+        },
+        {
+          "name": "5 Model-Abel Makkonen Tesfaye, Park Jean Drapeu, Montreal.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773475/Portfolio/Photography/Portraits/5_Model-Abel_Makkonen_Tesfaye_Park_Jean_Drapeu_Montreal.jpg",
+          "size": 2400664,
+          "modified": "2025-12-10T15:22:33.804Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/5_Model-Abel_Makkonen_Tesfaye_Park_Jean_Drapeu_Montreal"
+        },
+        {
+          "name": "5 Model-Younes,Le Gym, Montreal..jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773477/Portfolio/Photography/Portraits/5_Model-Younes_Le_Gym_Montreal..jpg",
+          "size": 346869,
+          "modified": "2025-12-10T15:22:33.811Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/5_Model-Younes_Le_Gym_Montreal."
+        },
+        {
+          "name": "6 Model-Fahin, Cameroon Heighlands, Malaysia.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773479/Portfolio/Photography/Portraits/6_Model-Fahin_Cameroon_Heighlands_Malaysia.jpg",
+          "size": 122967,
+          "modified": "2025-12-10T15:22:33.813Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/6_Model-Fahin_Cameroon_Heighlands_Malaysia"
+        },
+        {
+          "name": "7 Model-Bhavya, Montreal.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773481/Portfolio/Photography/Portraits/7_Model-Bhavya_Montreal.jpg",
+          "size": 2319563,
+          "modified": "2025-12-10T15:22:33.835Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/7_Model-Bhavya_Montreal"
+        },
+        {
+          "name": "7 Model-Elizabeth, Concordia University, Montreal.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773483/Portfolio/Photography/Portraits/7_Model-Elizabeth_Concordia_University_Montreal.jpg",
+          "size": 108347,
+          "modified": "2025-12-10T15:22:33.835Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/7_Model-Elizabeth_Concordia_University_Montreal"
+        },
+        {
+          "name": "7Model-Nandini, Meerut, India.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773484/Portfolio/Photography/Portraits/7Model-Nandini_Meerut_India.jpg",
+          "size": 183927,
+          "modified": "2025-12-10T15:22:33.835Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/7Model-Nandini_Meerut_India"
+        },
+        {
+          "name": "8 Model-Elizabeth, Concordia University, Montreal.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773486/Portfolio/Photography/Portraits/8_Model-Elizabeth_Concordia_University_Montreal.jpg",
+          "size": 73995,
+          "modified": "2025-12-10T15:22:33.962Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/8_Model-Elizabeth_Concordia_University_Montreal"
+        },
+        {
+          "name": "8 Model-Moksh, Old Port, Montreal.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773489/Portfolio/Photography/Portraits/8_Model-Moksh_Old_Port_Montreal.jpg",
+          "size": 3655524,
+          "modified": "2025-12-10T15:22:33.989Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/8_Model-Moksh_Old_Port_Montreal"
+        },
+        {
+          "name": "8 Model-Nandini, Meerut, India.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773490/Portfolio/Photography/Portraits/8_Model-Nandini_Meerut_India.jpg",
+          "size": 109310,
+          "modified": "2025-12-10T15:22:33.989Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/8_Model-Nandini_Meerut_India"
+        },
+        {
+          "name": "8Model-Elizabeth, Concordia University, Montreal.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773497/Portfolio/Photography/Portraits/8Model-Elizabeth_Concordia_University_Montreal.jpg",
+          "size": 3878887,
+          "modified": "2025-12-10T15:22:34.029Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/8Model-Elizabeth_Concordia_University_Montreal"
+        },
+        {
+          "name": "9 Model-Elizabeth, Concordia University, Montreal.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773499/Portfolio/Photography/Portraits/9_Model-Elizabeth_Concordia_University_Montreal.jpg",
+          "size": 100577,
+          "modified": "2025-12-10T15:22:34.288Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Portraits/9_Model-Elizabeth_Concordia_University_Montreal"
+        }
+      ]
+    },
+    {
+      "name": "Product Shoot",
+      "path": "Portfolio/Photography/Product Shoot",
+      "imageCount": 32,
+      "images": [
+        {
+          "name": "1.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773500/Portfolio/Photography/Product%20Shoot/1.jpg",
+          "size": 673329,
+          "modified": "2025-12-13T05:59:01.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/1"
+        },
+        {
+          "name": "10.png",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773501/Portfolio/Photography/Product%20Shoot/10.png",
+          "size": 361726,
+          "modified": "2022-03-10T06:56:50.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/10"
+        },
+        {
+          "name": "11.png",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773503/Portfolio/Photography/Product%20Shoot/11.png",
+          "size": 6459072,
+          "modified": "2025-12-15T02:34:36.722Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/11"
+        },
+        {
+          "name": "12.png",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773506/Portfolio/Photography/Product%20Shoot/12.png",
+          "size": 7197658,
+          "modified": "2025-12-15T02:34:58.910Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/12"
+        },
+        {
+          "name": "13.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773509/Portfolio/Photography/Product%20Shoot/13.jpg",
+          "size": 6363971,
+          "modified": "2025-12-13T06:14:53.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/13"
+        },
+        {
+          "name": "14.1.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773511/Portfolio/Photography/Product%20Shoot/14.1.jpg",
+          "size": 401068,
+          "modified": "2025-12-13T06:45:21.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/14.1"
+        },
+        {
+          "name": "14.2.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773512/Portfolio/Photography/Product%20Shoot/14.2.jpg",
+          "size": 349350,
+          "modified": "2025-12-13T06:47:45.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/14.2"
+        },
+        {
+          "name": "14.3.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773513/Portfolio/Photography/Product%20Shoot/14.3.jpg",
+          "size": 443628,
+          "modified": "2025-12-13T06:43:09.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/14.3"
+        },
+        {
+          "name": "14.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773514/Portfolio/Photography/Product%20Shoot/14.jpg",
+          "size": 499073,
+          "modified": "2025-12-13T06:33:02.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/14"
+        },
+        {
+          "name": "15.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773516/Portfolio/Photography/Product%20Shoot/15.jpg",
+          "size": 4639552,
+          "modified": "2025-12-13T06:21:28.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/15"
+        },
+        {
+          "name": "16.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773520/Portfolio/Photography/Product%20Shoot/16.jpg",
+          "size": 5865795,
+          "modified": "2025-12-13T06:18:41.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/16"
+        },
+        {
+          "name": "17.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773522/Portfolio/Photography/Product%20Shoot/17.jpg",
+          "size": 1426489,
+          "modified": "2025-12-13T06:07:06.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/17"
+        },
+        {
+          "name": "18.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773525/Portfolio/Photography/Product%20Shoot/18.jpg",
+          "size": 6909521,
+          "modified": "2025-12-13T06:04:53.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/18"
+        },
+        {
+          "name": "19.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773528/Portfolio/Photography/Product%20Shoot/19.jpg",
+          "size": 5834936,
+          "modified": "2025-12-13T06:03:37.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/19"
+        },
+        {
+          "name": "2.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773530/Portfolio/Photography/Product%20Shoot/2.jpg",
+          "size": 573864,
+          "modified": "2025-12-13T05:45:52.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/2"
+        },
+        {
+          "name": "20.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773531/Portfolio/Photography/Product%20Shoot/20.jpg",
+          "size": 1347049,
+          "modified": "2025-12-13T06:41:05.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/20"
+        },
+        {
+          "name": "21.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773533/Portfolio/Photography/Product%20Shoot/21.jpg",
+          "size": 904828,
+          "modified": "2025-12-13T06:38:55.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/21"
+        },
+        {
+          "name": "22.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773534/Portfolio/Photography/Product%20Shoot/22.jpg",
+          "size": 1054719,
+          "modified": "2025-12-13T06:34:54.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/22"
+        },
+        {
+          "name": "23.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773540/Portfolio/Photography/Product%20Shoot/23.jpg",
+          "size": 835415,
+          "modified": "2025-12-13T06:51:06.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/23"
+        },
+        {
+          "name": "24.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773542/Portfolio/Photography/Product%20Shoot/24.jpg",
+          "size": 858572,
+          "modified": "2025-12-13T06:58:09.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/24"
+        },
+        {
+          "name": "25.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773543/Portfolio/Photography/Product%20Shoot/25.jpg",
+          "size": 923715,
+          "modified": "2025-12-13T06:36:04.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/25"
+        },
+        {
+          "name": "26.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773544/Portfolio/Photography/Product%20Shoot/26.jpg",
+          "size": 440961,
+          "modified": "2025-12-13T06:38:05.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/26"
+        },
+        {
+          "name": "27.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773546/Portfolio/Photography/Product%20Shoot/27.jpg",
+          "size": 1206027,
+          "modified": "2025-12-13T06:36:53.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/27"
+        },
+        {
+          "name": "28.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773547/Portfolio/Photography/Product%20Shoot/28.jpg",
+          "size": 1119573,
+          "modified": "2025-12-13T06:52:50.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/28"
+        },
+        {
+          "name": "29.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773549/Portfolio/Photography/Product%20Shoot/29.jpg",
+          "size": 1208397,
+          "modified": "2025-12-13T06:54:13.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/29"
+        },
+        {
+          "name": "3.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773551/Portfolio/Photography/Product%20Shoot/3.jpg",
+          "size": 803663,
+          "modified": "2025-12-13T05:57:30.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/3"
+        },
+        {
+          "name": "4.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773552/Portfolio/Photography/Product%20Shoot/4.jpg",
+          "size": 587904,
+          "modified": "2025-12-13T05:52:28.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/4"
+        },
+        {
+          "name": "5.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773553/Portfolio/Photography/Product%20Shoot/5.jpg",
+          "size": 859763,
+          "modified": "2025-12-13T05:51:35.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/5"
+        },
+        {
+          "name": "6.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773555/Portfolio/Photography/Product%20Shoot/6.jpg",
+          "size": 653055,
+          "modified": "2025-12-13T05:48:30.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/6"
+        },
+        {
+          "name": "7.jpg",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773556/Portfolio/Photography/Product%20Shoot/7.jpg",
+          "size": 819134,
+          "modified": "2025-12-13T05:54:13.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/7"
+        },
+        {
+          "name": "8.png",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773558/Portfolio/Photography/Product%20Shoot/8.png",
+          "size": 457635,
+          "modified": "2022-03-10T05:05:00.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/8"
+        },
+        {
+          "name": "9.png",
+          "path": "https://res.cloudinary.com/dacbxyltq/image/upload/v1765773560/Portfolio/Photography/Product%20Shoot/9.png",
+          "size": 238018,
+          "modified": "2022-03-10T05:11:18.000Z",
+          "cloudinaryUrl": true,
+          "publicId": "Portfolio/Photography/Product Shoot/9"
+        }
+      ]
+    }
+  ],
+  "totalCategories": 3,
+  "totalImages": 83,
+  "cloudinaryEnabled": true,
+  "cloudName": "dacbxyltq",
+  "lastGenerated": "2025-12-15T04:55:12.329Z"
+}

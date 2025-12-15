@@ -17,41 +17,6 @@ interface Category {
   images: any[];
 }
 
-interface SakuraPetalProps {
-  delay: number;
-  size: number;
-  duration: number;
-  xOffset: number;
-  swayAmount: number;
-}
-
-const SakuraPetal: React.FC<SakuraPetalProps> = memo(({ delay, size, duration, xOffset, swayAmount }) => (
-  <motion.div
-    className="absolute pointer-events-none"
-    style={{ width: size, height: size }}
-    initial={{
-      x: xOffset,
-      y: -20,
-      rotate: 0,
-      opacity: 0.6
-    }}
-    animate={{
-      y: window.innerHeight + 20,
-      x: xOffset + swayAmount,
-      rotate: 360,
-      opacity: 0
-    }}
-    transition={{
-      duration,
-      delay,
-      repeat: Infinity,
-      ease: "linear"
-    }}
-  >
-    <div className="w-full h-full bg-gradient-to-r from-pink-300/80 to-pink-500/80 rounded-full transform rotate-45 blur-[0.5px]" />
-  </motion.div>
-));
-
 const PhotographyRecord: React.FC = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -91,20 +56,6 @@ const PhotographyRecord: React.FC = () => {
     }
     return [];
   }, [selectedCategory, categories]);
-
-  // Memoize sakura petals to prevent recreation on each render
-  const sakuraPetals = useMemo(() =>
-    Array.from({ length: 20 }).map((_, i) => (
-      <SakuraPetal
-        key={i}
-        delay={i * 0.3}
-        size={16 + Math.random() * 16}
-        duration={15 + Math.random() * 20}
-        xOffset={Math.random() * window.innerWidth}
-        swayAmount={Math.random() * 200 - 100}
-      />
-    )), []
-  );
 
   const handleKey = useCallback((e: KeyboardEvent) => {
     if (openIdx === null) return;
@@ -150,9 +101,6 @@ const PhotographyRecord: React.FC = () => {
         {/* Back to Portfolio Button - Only show when no category selected */}
         {!selectedCategory && (
           <motion.div
-            className="absolute top-6 left-6 z-40"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
             <Link

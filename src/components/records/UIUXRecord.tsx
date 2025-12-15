@@ -33,7 +33,7 @@ const projects: Project[] = [
     tagline: 'Modern Fitness Management System',
     shortDescription: 'Comprehensive gym management mobile app for Concordia University',
     fullDescription: 'A sophisticated mobile application designed for gym management at Concordia University. The app provides seamless user experience for gym members to book equipment, track workouts, manage memberships, and access fitness resources. Features include real-time equipment availability, personalized workout plans, and social fitness tracking.',
-    thumbnail: 'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_1.jpg',
+    thumbnail: 'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773616/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_1.png',
     category: 'Mobile App',
     tools: ['Figma', 'Adobe XD', 'Sketch', 'Principle'],
     role: ['UX Research', 'UI Design', 'Prototyping', 'User Testing'],
@@ -44,16 +44,16 @@ const projects: Project[] = [
       { step: 'Test', description: 'Usability testing with student focus groups' }
     ],
     screenshots: [
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_1.jpg',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_2.jpg',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_3.jpg',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_4.jpg',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_5.jpg',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_6.jpg',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_7.jpg',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_8.jpg',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_9.jpg',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_10.jpg'
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773616/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_1.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773634/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_2.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773636/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_3.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773637/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_4.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773638/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_5.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773639/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_6.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773641/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_7.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773642/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_8.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773644/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_9.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773617/Portfolio/UI%20UX/LeGym/LeGym_UI_Design_10.png'
     ]
   },
   {
@@ -62,7 +62,7 @@ const projects: Project[] = [
     tagline: 'Elegant Art Gallery Experience',
     shortDescription: 'Sophisticated web interface for contemporary art gallery',
     fullDescription: 'An elegant and immersive web interface designed for Artemis Arthouse, showcasing contemporary art collections with a focus on visual storytelling. The design emphasizes clean aesthetics, intuitive navigation, and seamless artwork browsing experience. Features include virtual gallery tours, artist portfolios, and exhibition management.',
-    thumbnail: 'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Artemis%20Arthouse/artemis1.png',
+    thumbnail: 'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773561/Portfolio/UI%20UX/Artemis%20Arthouse/artemis1.png',
     category: 'Web App',
     tools: ['Figma', 'Adobe Creative Suite', 'Webflow'],
     role: ['UI Design', 'Visual Design', 'Art Direction'],
@@ -73,15 +73,15 @@ const projects: Project[] = [
       { step: 'Test', description: 'A/B testing for optimal artwork display layouts' }
     ],
     screenshots: [
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Artemis%20Arthouse/artemis1.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Artemis%20Arthouse/artemis2.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Artemis%20Arthouse/artemis3.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Artemis%20Arthouse/artemis4.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Artemis%20Arthouse/artemis5.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Artemis%20Arthouse/artemis6.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Artemis%20Arthouse/artemis7.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Artemis%20Arthouse/artemis8.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Artemis%20Arthouse/artemis9.png'
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773561/Portfolio/UI%20UX/Artemis%20Arthouse/artemis1.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773562/Portfolio/UI%20UX/Artemis%20Arthouse/artemis2.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773564/Portfolio/UI%20UX/Artemis%20Arthouse/artemis3.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773565/Portfolio/UI%20UX/Artemis%20Arthouse/artemis4.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773566/Portfolio/UI%20UX/Artemis%20Arthouse/artemis5.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773567/Portfolio/UI%20UX/Artemis%20Arthouse/artemis6.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773574/Portfolio/UI%20UX/Artemis%20Arthouse/artemis7.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773575/Portfolio/UI%20UX/Artemis%20Arthouse/artemis8.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773577/Portfolio/UI%20UX/Artemis%20Arthouse/artemis9.png'
     ]
   },
   {
@@ -90,7 +90,7 @@ const projects: Project[] = [
     tagline: 'Community-Centered Digital Platform',
     shortDescription: 'Comprehensive platform for graduate student community engagement',
     fullDescription: 'A community-focused digital platform designed for the Bangladeshi Graduate Students\' Association, facilitating member connections, event management, and cultural activities. The interface prioritizes accessibility and cultural relevance while providing modern functionality for student networking, event coordination, and resource sharing.',
-    thumbnail: 'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/BDGSA/bdgsa1.png',
+    thumbnail: 'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773578/Portfolio/UI%20UX/BDGSA/bdgsa1.png',
     category: 'Web Platform',
     tools: ['Figma', 'Sketch', 'InVision', 'Adobe XD'],
     role: ['UX Research', 'UI Design', 'Community Analysis'],
@@ -101,14 +101,14 @@ const projects: Project[] = [
       { step: 'Test', description: 'Community feedback integration and accessibility testing' }
     ],
     screenshots: [
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/BDGSA/bdgsa1.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/BDGSA/bdgsa2.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/BDGSA/bdgsa3.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/BDGSA/bdgsa4.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/BDGSA/bdgsa5.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/BDGSA/bdgsa6.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/BDGSA/bdgsa7.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/BDGSA/bdgsa8.png'
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773578/Portfolio/UI%20UX/BDGSA/bdgsa1.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773580/Portfolio/UI%20UX/BDGSA/bdgsa2.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773581/Portfolio/UI%20UX/BDGSA/bdgsa3.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773582/Portfolio/UI%20UX/BDGSA/bdgsa4.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773583/Portfolio/UI%20UX/BDGSA/bdgsa5.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773584/Portfolio/UI%20UX/BDGSA/bdgsa6.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773586/Portfolio/UI%20UX/BDGSA/bdgsa7.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773587/Portfolio/UI%20UX/BDGSA/bdgsa8.png'
     ]
   },
   {
@@ -117,7 +117,7 @@ const projects: Project[] = [
     tagline: 'Clean & Appetizing Menu Interface',
     shortDescription: 'Responsive cafe menu design focusing on user-friendly food ordering',
     fullDescription: 'A clean and appetizing cafe menu interface developed as part of FreeCodeCamp curriculum. The design emphasizes readability, visual hierarchy, and mobile-first responsive design. Features include categorized menu items, pricing display, and optimized food photography presentation for enhanced user experience.',
-    thumbnail: 'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Codecamp%20Cafe/cafe1.png',
+    thumbnail: 'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773588/Portfolio/UI%20UX/Codecamp%20Cafe/cafe1.png',
     category: 'Web Design',
     tools: ['HTML', 'CSS', 'Figma', 'Responsive Design'],
     role: ['Frontend Development', 'UI Design', 'Responsive Design'],
@@ -128,15 +128,15 @@ const projects: Project[] = [
       { step: 'Test', description: 'Cross-device compatibility and usability testing' }
     ],
     screenshots: [
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Codecamp%20Cafe/cafe1.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Codecamp%20Cafe/cafe2.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Codecamp%20Cafe/cafe3.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Codecamp%20Cafe/cafe4.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Codecamp%20Cafe/cafe5.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Codecamp%20Cafe/cafe6.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Codecamp%20Cafe/cafe7.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Codecamp%20Cafe/cafe8.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Codecamp%20Cafe/cafe9.png'
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773588/Portfolio/UI%20UX/Codecamp%20Cafe/cafe1.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773589/Portfolio/UI%20UX/Codecamp%20Cafe/cafe2.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773590/Portfolio/UI%20UX/Codecamp%20Cafe/cafe3.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773591/Portfolio/UI%20UX/Codecamp%20Cafe/cafe4.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773593/Portfolio/UI%20UX/Codecamp%20Cafe/cafe5.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773594/Portfolio/UI%20UX/Codecamp%20Cafe/cafe6.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773595/Portfolio/UI%20UX/Codecamp%20Cafe/cafe7.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773596/Portfolio/UI%20UX/Codecamp%20Cafe/cafe8.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773597/Portfolio/UI%20UX/Codecamp%20Cafe/cafe9.png'
     ]
   },
   {
@@ -145,7 +145,7 @@ const projects: Project[] = [
     tagline: 'Trendy Fashion Discovery Platform',
     shortDescription: 'Modern fashion app for style discovery and shopping',
     fullDescription: 'A contemporary mobile application designed for fashion enthusiasts to discover trends, create style profiles, and shop curated collections. The interface combines visual appeal with functional design, featuring personalized style recommendations, outfit coordination tools, and seamless shopping experiences.',
-    thumbnail: 'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/fashionista/fashionista_1.png',
+    thumbnail: 'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773603/Portfolio/UI%20UX/fashionista/fashionista_1.png',
     category: 'Mobile App',
     tools: ['Figma', 'Adobe XD', 'Principle', 'Sketch'],
     role: ['UI Design', 'UX Research', 'Fashion Analysis'],
@@ -156,16 +156,16 @@ const projects: Project[] = [
       { step: 'Test', description: 'Style preference testing and user feedback' }
     ],
     screenshots: [
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/fashionista/fashionista_1.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/fashionista/fashionista_3.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/fashionista/fashionista_4.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/fashionista/fashionista_5.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/fashionista/fashionista_6.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/fashionista/fashionista_7.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/fashionista/fashionista_8.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/fashionista/fashionista_9.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/fashionista/fashionista_10.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/fashionista/fashionista_11.png'
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773603/Portfolio/UI%20UX/fashionista/fashionista_1.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773607/Portfolio/UI%20UX/fashionista/fashionista_3.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773609/Portfolio/UI%20UX/fashionista/fashionista_4.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773610/Portfolio/UI%20UX/fashionista/fashionista_5.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773611/Portfolio/UI%20UX/fashionista/fashionista_6.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773613/Portfolio/UI%20UX/fashionista/fashionista_7.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773614/Portfolio/UI%20UX/fashionista/fashionista_8.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773615/Portfolio/UI%20UX/fashionista/fashionista_9.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773604/Portfolio/UI%20UX/fashionista/fashionista_10.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773606/Portfolio/UI%20UX/fashionista/fashionista_11.png'
     ]
   },
   {
@@ -174,7 +174,7 @@ const projects: Project[] = [
     tagline: 'Heartfelt Digital Memorial',
     shortDescription: 'Emotional tribute website celebrating friendship bonds',
     fullDescription: 'A heartfelt digital tribute website designed to celebrate and commemorate meaningful friendships. The design focuses on emotional storytelling through visual elements, creating an intimate and personal browsing experience. Features include photo galleries, memory sharing, and interactive timeline of friendship milestones.',
-    thumbnail: 'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Simple%20Friendship%20Tribute%20Page/friendshiptribute1.png',
+    thumbnail: 'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773645/Portfolio/UI%20UX/Simple%20Friendship%20Tribute%20Page/friendshiptribute1.png',
     category: 'Web Design',
     tools: ['HTML', 'CSS', 'JavaScript', 'Figma'],
     role: ['Web Development', 'UI Design', 'Content Strategy'],
@@ -185,11 +185,11 @@ const projects: Project[] = [
       { step: 'Test', description: 'Emotional impact assessment and user feedback' }
     ],
     screenshots: [
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Simple%20Friendship%20Tribute%20Page/friendshiptribute1.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Simple%20Friendship%20Tribute%20Page/friendshiptribute2.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Simple%20Friendship%20Tribute%20Page/friendshiptribute3.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Simple%20Friendship%20Tribute%20Page/friendshiptribute4.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/Simple%20Friendship%20Tribute%20Page/friendshiptribute5.png'
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773645/Portfolio/UI%20UX/Simple%20Friendship%20Tribute%20Page/friendshiptribute1.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773647/Portfolio/UI%20UX/Simple%20Friendship%20Tribute%20Page/friendshiptribute2.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773648/Portfolio/UI%20UX/Simple%20Friendship%20Tribute%20Page/friendshiptribute3.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773650/Portfolio/UI%20UX/Simple%20Friendship%20Tribute%20Page/friendshiptribute4.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773651/Portfolio/UI%20UX/Simple%20Friendship%20Tribute%20Page/friendshiptribute5.png'
     ]
   },
   {
@@ -198,7 +198,7 @@ const projects: Project[] = [
     tagline: 'Luxury E-commerce Experience',
     shortDescription: 'Premium online shopping platform for luxury fashion',
     fullDescription: 'An elegant e-commerce platform designed for Soul Couture, focusing on luxury fashion retail. The interface combines sophisticated aesthetics with intuitive shopping functionality, featuring premium product showcases, personalized styling recommendations, and streamlined checkout processes for high-end fashion consumers.',
-    thumbnail: 'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/SoulCouture%20Shopping/shopping_1.png',
+    thumbnail: 'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773652/Portfolio/UI%20UX/SoulCouture%20Shopping/shopping_1.png',
     category: 'E-commerce',
     tools: ['Figma', 'Adobe Creative Suite', 'Sketch', 'InVision'],
     role: ['UI Design', 'E-commerce UX', 'Luxury Brand Strategy'],
@@ -209,13 +209,13 @@ const projects: Project[] = [
       { step: 'Test', description: 'Luxury market user testing and conversion optimization' }
     ],
     screenshots: [
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/SoulCouture%20Shopping/shopping_1.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/SoulCouture%20Shopping/shopping_2.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/SoulCouture%20Shopping/shopping_3.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/SoulCouture%20Shopping/shopping_4.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/SoulCouture%20Shopping/shopping_5.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/SoulCouture%20Shopping/shopping_6.png',
-      'https://res.cloudinary.com/dykwfe7z3/image/upload/Portfolio/UI%20UX/SoulCouture%20Shopping/shopping_7.png'
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773652/Portfolio/UI%20UX/SoulCouture%20Shopping/shopping_1.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773653/Portfolio/UI%20UX/SoulCouture%20Shopping/shopping_2.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773654/Portfolio/UI%20UX/SoulCouture%20Shopping/shopping_3.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773655/Portfolio/UI%20UX/SoulCouture%20Shopping/shopping_4.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773656/Portfolio/UI%20UX/SoulCouture%20Shopping/shopping_5.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773663/Portfolio/UI%20UX/SoulCouture%20Shopping/shopping_6.png',
+      'https://res.cloudinary.com/dacbxyltq/image/upload/v1765773665/Portfolio/UI%20UX/SoulCouture%20Shopping/shopping_7.png'
     ]
   }
 ];
