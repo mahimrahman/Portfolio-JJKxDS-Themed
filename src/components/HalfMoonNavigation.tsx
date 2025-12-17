@@ -192,31 +192,28 @@ export default function HalfMoonNavigation() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ duration: 0.15, ease: 'easeOut' }}
               className="fixed inset-0 z-[90]"
               onClick={() => setIsOpen(false)}
+              style={{ willChange: 'opacity' }}
             >
-              {/* Gradient backdrop - Darker with less blur */}
-              <div className="absolute inset-0 bg-gradient-to-br from-black/95 via-purple-950/95 to-black/95 backdrop-blur-sm" />
+              {/* Gradient backdrop - Low opacity with purple glow, no blur */}
+              <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-purple-950/50 to-black/40" />
 
-              {/* Domain expansion ripples - Infinite Void purple effect */}
+              {/* Domain expansion ripples - Reduced and optimized */}
               <motion.div
-                className="absolute right-[10%] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-purple-500/70"
+                className="absolute right-[10%] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-purple-500/70 will-change-transform"
                 initial={{ scale: 0, opacity: 1 }}
-                animate={{ scale: 120, opacity: 0 }}
-                transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+                animate={{ scale: 80, opacity: 0 }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                style={{ transform: 'translate3d(0, 0, 0)' }}
               />
               <motion.div
-                className="absolute right-[10%] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-violet-400/60"
-                initial={{ scale: 0, opacity: 0.8 }}
-                animate={{ scale: 150, opacity: 0 }}
-                transition={{ duration: 1.4, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
-              />
-              <motion.div
-                className="absolute right-[10%] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border border-fuchsia-400/50"
-                initial={{ scale: 0, opacity: 0.6 }}
-                animate={{ scale: 180, opacity: 0 }}
-                transition={{ duration: 1.8, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
+                className="absolute right-[10%] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border border-violet-400/50 will-change-transform"
+                initial={{ scale: 0, opacity: 0.7 }}
+                animate={{ scale: 100, opacity: 0 }}
+                transition={{ duration: 0.7, ease: 'easeOut', delay: 0.05 }}
+                style={{ transform: 'translate3d(0, 0, 0)' }}
               />
             </motion.div>
 
@@ -226,22 +223,25 @@ export default function HalfMoonNavigation() {
               animate={{ clipPath: 'circle(100% at 90% 50%)' }}
               exit={{ clipPath: 'circle(0% at 90% 50%)' }}
               transition={{
-                duration: 0.6,
-                ease: [0.4, 0, 0.2, 1],
+                duration: 0.4,
+                ease: 'easeInOut',
               }}
               className="fixed inset-0 z-[95] pointer-events-none flex items-center justify-end"
+              style={{ willChange: 'clip-path', transform: 'translate3d(0, 0, 0)' }}
             >
               {/* Large circular background on right side - PROPERLY CENTERED */}
               <motion.div
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0, opacity: 0 }}
-                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
                 className="relative pointer-events-auto"
                 style={{
                   width: isMobile ? '150vw' : 'min(120vh, 90vw)',
                   height: isMobile ? '150vw' : 'min(120vh, 90vw)',
                   marginRight: isMobile ? '-60vw' : 'calc(-60vh + 16.67vw)',
+                  willChange: 'transform, opacity',
+                  transform: 'translate3d(0, 0, 0)',
                 }}
               >
                 {/* Half-moon circle background - Black with Gojo purple Domain Expansion */}
@@ -250,57 +250,58 @@ export default function HalfMoonNavigation() {
                   style={{
                     background:
                       'linear-gradient(135deg, #000000 0%, #1a0033 30%, #2d0052 60%, #4a0080 100%)',
-                    backdropFilter: 'blur(40px)',
                     boxShadow:
-                      '0 0 100px rgba(168, 85, 247, 0.6), inset 0 0 120px rgba(147, 51, 234, 0.4)',
+                      '0 0 80px rgba(168, 85, 247, 0.5), inset 0 0 100px rgba(147, 51, 234, 0.3)',
                     border: '1px solid rgba(168, 85, 247, 0.4)',
+                    willChange: 'transform',
+                    transform: 'translate3d(0, 0, 0)',
                   }}
                 >
-                  {/* Animated gradient overlay - Infinite Void purple effect */}
+                  {/* Animated gradient overlay - Infinite Void purple effect - Optimized */}
                   <motion.div
-                    className="absolute inset-0 opacity-35"
+                    className="absolute inset-0 opacity-30 will-change-opacity"
                     animate={{
                       background: [
-                        'radial-gradient(circle at 30% 30%, rgba(168, 85, 247, 0.5), transparent 50%)',
-                        'radial-gradient(circle at 70% 70%, rgba(147, 51, 234, 0.5), transparent 50%)',
-                        'radial-gradient(circle at 50% 50%, rgba(192, 132, 252, 0.5), transparent 50%)',
-                        'radial-gradient(circle at 30% 30%, rgba(168, 85, 247, 0.5), transparent 50%)',
+                        'radial-gradient(circle at 30% 30%, rgba(168, 85, 247, 0.4), transparent 50%)',
+                        'radial-gradient(circle at 70% 70%, rgba(147, 51, 234, 0.4), transparent 50%)',
+                        'radial-gradient(circle at 30% 30%, rgba(168, 85, 247, 0.4), transparent 50%)',
                       ],
                     }}
                     transition={{
-                      duration: 7,
+                      duration: 6,
                       repeat: Infinity,
                       ease: 'linear',
                     }}
+                    style={{ transform: 'translate3d(0, 0, 0)' }}
                   />
 
-                  {/* Infinite Void purple particles */}
-                  {[...Array(35)].map((_, i) => (
+                  {/* Infinite Void purple particles - Optimized */}
+                  {[...Array(isMobile ? 12 : 18)].map((_, i) => (
                     <motion.div
                       key={i}
-                      className="absolute rounded-full"
+                      className="absolute rounded-full will-change-transform"
                       style={{
-                        width: Math.random() * 4 + 1,
-                        height: Math.random() * 4 + 1,
+                        width: Math.random() * 3 + 1,
+                        height: Math.random() * 3 + 1,
                         left: `${Math.random() * 100}%`,
                         top: `${Math.random() * 100}%`,
                         background: [
-                          'rgba(168, 85, 247, 0.8)',
-                          'rgba(147, 51, 234, 0.8)',
-                          'rgba(192, 132, 252, 0.8)',
-                          'rgba(216, 180, 254, 0.7)',
-                        ][Math.floor(Math.random() * 4)],
+                          'rgba(168, 85, 247, 0.7)',
+                          'rgba(147, 51, 234, 0.7)',
+                          'rgba(192, 132, 252, 0.7)',
+                        ][Math.floor(Math.random() * 3)],
+                        transform: 'translate3d(0, 0, 0)',
                       }}
                       animate={{
-                        opacity: [0, 0.9, 0],
-                        scale: [0, 1.6, 0],
-                        y: [0, -55, -110],
+                        opacity: [0, 0.8, 0],
+                        scale: [0, 1.4, 0],
+                        y: [0, -40, -80],
                       }}
                       transition={{
-                        duration: 2.3 + Math.random() * 1.8,
+                        duration: 2 + Math.random() * 1.5,
                         repeat: Infinity,
-                        delay: Math.random() * 2,
-                        ease: [0.4, 0, 0.2, 1],
+                        delay: Math.random() * 1.5,
+                        ease: 'linear',
                       }}
                     />
                   ))}
@@ -314,12 +315,13 @@ export default function HalfMoonNavigation() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0 }}
                     transition={{
-                      duration: 0.35,
-                      delay: 0.25,
-                      ease: [0.34, 1.56, 0.64, 1],
+                      duration: 0.2,
+                      delay: 0.1,
+                      ease: 'easeOut',
                     }}
                     onClick={() => setIsOpen(false)}
                     className="absolute -right-8 -top-8 sm:-right-10 sm:-top-10 group"
+                    style={{ willChange: 'transform, opacity' }}
                   >
                     <motion.div
                       className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center bg-gradient-to-br from-purple-600 via-violet-700 to-black border-2 border-purple-400/60 shadow-2xl shadow-purple-500/70"
@@ -388,9 +390,9 @@ export default function HalfMoonNavigation() {
                           animate={{ opacity: 1, scale: 1, x, y }}
                           exit={{ opacity: 0, scale: 0, x: 0, y: 0 }}
                           transition={{
-                            duration: 0.4,
-                            delay: 0.35 + index * 0.035,
-                            ease: [0.34, 1.56, 0.64, 1],
+                            duration: 0.25,
+                            delay: 0.15 + index * 0.02,
+                            ease: 'easeOut',
                           }}
                           onClick={() => handleNavClick(item)}
                           onMouseEnter={() => setHoveredIndex(index)}
@@ -399,6 +401,8 @@ export default function HalfMoonNavigation() {
                           style={{
                             left: '-24px',
                             top: '-24px',
+                            willChange: 'transform, opacity',
+                            transform: 'translate3d(0, 0, 0)',
                           }}
                           title={item.name}
                         >
@@ -464,16 +468,17 @@ export default function HalfMoonNavigation() {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0 }}
                             transition={{
-                              duration: 0.4,
-                              delay: 0.45 + index * 0.035,
-                              ease: [0.34, 1.56, 0.64, 1],
+                              duration: 0.25,
+                              delay: 0.2 + index * 0.02,
+                              ease: 'easeOut',
                             }}
                             className="absolute pointer-events-none"
                             style={{
                               left: `${labelOffsetX}px`,
                               top: `${labelOffsetY}px`,
-                              transform: `translate(-50%, -50%) rotate(${angle}deg)`,
+                              transform: `translate(-50%, -50%) rotate(${angle}deg) translate3d(0, 0, 0)`,
                               transformOrigin: 'center',
+                              willChange: 'transform, opacity',
                             }}
                           >
                             <span
