@@ -390,3 +390,15 @@ section, .section-transition {
 .seal-face-back {
   transform: rotateY(180deg);
 }
+
+/* Twinkling stars animation for Experience section */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}

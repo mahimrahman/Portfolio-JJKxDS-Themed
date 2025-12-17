@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { createPortal } from 'react-dom';
+import { motion } from 'framer-motion';
 import SmokeBackground from './SmokeBackground';
 import SectionMerge from './SectionMerge';
 
@@ -48,6 +49,22 @@ const experienceData: ExperienceItem[] = [
   // Canada - Current and Recent Positions
   {
     id: 1,
+    title: "Software Engineer",
+    company: "Bassili Group",
+    location: "Canada",
+    duration: "2023 – 2024",
+    description: [
+      "Developed and deployed BassiliChat AI, an advanced conversational AI platform serving enterprise clients",
+      "Architected and built BassiliTrade, a comprehensive trading platform with real-time market data integration",
+      "Implemented scalable backend solutions using modern frameworks and cloud technologies",
+      "Collaborated with cross-functional teams to deliver high-quality software solutions on schedule",
+      "Optimized application performance and user experience across both flagship products"
+    ],
+    position: { top: '25%', left: '15%' },
+    mobilePosition: { top: '18%', left: '12%' },
+  },
+  {
+    id: 2,
     title: "VP – Marketing",
     company: "HackConcordia, Concordia University",
     location: "Canada",
@@ -59,10 +76,10 @@ const experienceData: ExperienceItem[] = [
       "Collaborate with cross-functional teams to drive community engagement and event success"
     ],
     position: { top: '18%', left: '75%' },
-    mobilePosition: { top: '12%', left: '80%' },
+    mobilePosition: { top: '28%', left: '80%' },
   },
   {
-    id: 2,
+    id: 3,
     title: "Graduate Teaching Assistant",
     company: "SOEN 6431, Gina Cody School of Engineering",
     location: "Canada",
@@ -74,10 +91,10 @@ const experienceData: ExperienceItem[] = [
       "Support course coordination and maintain high academic standards"
     ],
     position: { top: '45%', left: '25%' },
-    mobilePosition: { top: '32%', left: '20%' },
+    mobilePosition: { top: '38%', left: '20%' },
   },
   {
-    id: 3,
+    id: 4,
     title: "Director",
     company: "Graduate Students' Association (GSA)",
     location: "Canada",
@@ -89,10 +106,10 @@ const experienceData: ExperienceItem[] = [
       "Foster partnerships between administration and student body to address academic concerns"
     ],
     position: { top: '72%', left: '82%' },
-    mobilePosition: { top: '52%', left: '85%' },
+    mobilePosition: { top: '58%', left: '85%' },
   },
   {
-    id: 4,
+    id: 5,
     title: "Student Facilitator",
     company: "Homeroom, Dean of Students Office",
     location: "Canada",
@@ -103,11 +120,11 @@ const experienceData: ExperienceItem[] = [
       "Create inclusive environments that promote student engagement and community building",
       "Coordinate with Dean of Students Office to enhance student support services"
     ],
-    position: { top: '12%', left: '18%' },
-    mobilePosition: { top: '8%', left: '15%' },
+    position: { top: '12%', left: '48%' },
+    mobilePosition: { top: '8%', left: '45%' },
   },
   {
-    id: 5,
+    id: 6,
     title: "Marketing/Communications",
     company: "TEDx Concordia University 2025",
     location: "Canada",
@@ -119,12 +136,12 @@ const experienceData: ExperienceItem[] = [
       "Design promotional materials and coordinate speaker announcements"
     ],
     position: { top: '88%', left: '58%' },
-    mobilePosition: { top: '72%', left: '65%' },
+    mobilePosition: { top: '78%', left: '65%' },
   },
 
   // Malaysia - Professional Experience
   {
-    id: 6,
+    id: 7,
     title: "Web Developer & Designer",
     company: "Zavy Technologies Sdn Bhd",
     location: "Malaysia",
@@ -136,10 +153,10 @@ const experienceData: ExperienceItem[] = [
       "Managed ERP systems to enhance operational efficiency and client satisfaction"
     ],
     position: { top: '62%', left: '12%' },
-    mobilePosition: { top: '42%', left: '10%' },
+    mobilePosition: { top: '48%', left: '10%' },
   },
   {
-    id: 7,
+    id: 8,
     title: "General Secretary",
     company: "Bangladeshi Student Association – LUCT",
     location: "Malaysia",
@@ -151,12 +168,12 @@ const experienceData: ExperienceItem[] = [
       "Facilitated cross-cultural exchange and community building among international students"
     ],
     position: { top: '35%', left: '88%' },
-    mobilePosition: { top: '22%', left: '90%' },
+    mobilePosition: { top: '68%', left: '90%' },
   },
 
   // Bangladesh - Volunteer and Community Service
   {
-    id: 8,
+    id: 9,
     title: "Senior Member",
     company: "Connecting Youth for Change (CYC)",
     location: "Bangladesh",
@@ -168,10 +185,10 @@ const experienceData: ExperienceItem[] = [
       "Coordinated cross-organizational partnerships to maximize social impact and community reach"
     ],
     position: { top: '55%', left: '65%' },
-    mobilePosition: { top: '62%', left: '75%' },
+    mobilePosition: { top: '88%', left: '75%' },
   },
   {
-    id: 9,
+    id: 10,
     title: "Member",
     company: "Bangladesh Scouts",
     location: "Bangladesh",
@@ -182,8 +199,8 @@ const experienceData: ExperienceItem[] = [
       "Promoted values of civic responsibility, resilience, and volunteerism through active engagement in scout activities",
       "Engaged in character building and skill development through outdoor activities and community service"
     ],
-    position: { top: '28%', left: '35%' },
-    mobilePosition: { top: '82%', left: '30%' },
+    position: { top: '38%', left: '35%' },
+    mobilePosition: { top: '92%', left: '30%' },
   },
 ];
 
@@ -275,14 +292,13 @@ const ExperienceStar = ({ experience, onClick, isVisible }: {
       <div className="relative flex flex-col items-center">
         {/* Hexagonal Domain Expansion Marker - Professional JJK inspired */}
         <div className="relative">
-          {/* Outer rotating hexagon ring - Domain expansion barrier */}
-          <div className="absolute -inset-3 sm:-inset-4 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out">
-            <svg 
-              className="w-full h-full animate-spin" 
-              style={{ 
-                animationDuration: '8s',
-                animationTimingFunction: 'linear',
-              }} 
+          {/* Outer rotating hexagon ring - Domain expansion barrier - Optimized */}
+          <div className="absolute -inset-3 sm:-inset-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <svg
+              className="w-full h-full will-change-transform"
+              style={{
+                animation: 'spin 8s linear infinite',
+              }}
               viewBox="0 0 100 100"
             >
               <defs>
@@ -296,18 +312,16 @@ const ExperienceStar = ({ experience, onClick, isVisible }: {
                 fill="none"
                 stroke={`url(#hex-grad-${experience.id})`}
                 strokeWidth="2"
-                className="animate-cursed-pulse"
               />
             </svg>
           </div>
 
-          {/* Middle breathing technique aura ring */}
+          {/* Middle breathing technique aura ring - Optimized */}
           <div
-            className="absolute -inset-2 sm:-inset-3 rounded-full opacity-40 group-hover:opacity-80 transition-all duration-500 ease-out animate-pulse"
+            className="absolute -inset-2 sm:-inset-3 rounded-full opacity-30 group-hover:opacity-60 transition-opacity duration-300 will-change-opacity"
             style={{
               background: `radial-gradient(circle, ${colorTheme.glow} 0%, transparent 70%)`,
-              filter: 'blur(8px)',
-              animationDuration: '3s',
+              filter: 'blur(6px)',
             }}
           />
 
@@ -363,18 +377,18 @@ const ExperienceStar = ({ experience, onClick, isVisible }: {
               />
             </svg>
 
-            {/* Cursed energy particles on hover */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              {[...Array(4)].map((_, i) => (
+            {/* Cursed energy particles on hover - Reduced for performance */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              {[...Array(3)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute w-1 h-1 rounded-full animate-ping"
+                  className="absolute w-1 h-1 rounded-full will-change-transform"
                   style={{
                     background: colorTheme.primary,
                     top: `${25 + Math.cos((i * Math.PI) / 2) * 15}%`,
                     left: `${25 + Math.sin((i * Math.PI) / 2) * 15}%`,
+                    animation: `ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite`,
                     animationDelay: `${i * 0.2}s`,
-                    animationDuration: '2s',
                   }}
                 />
               ))}
@@ -487,21 +501,22 @@ const ExperienceModal = ({ experience, onClose, isVisible }: {
         isolation: 'isolate', // Creates new stacking context
       }}
     >
-      {/* Enhanced backdrop with breathing effect */}
-      <div 
-        className={`absolute inset-0 bg-black/90 backdrop-blur-lg transition-opacity duration-500 ${
+      {/* Enhanced backdrop - Optimized, no blur for performance */}
+      <div
+        className={`absolute inset-0 bg-black/92 transition-opacity duration-300 ${
           isOpening ? 'opacity-0' : 'opacity-100'
         }`}
+        style={{ willChange: 'opacity' }}
       >
-        {/* Subtle domain expansion circles in background */}
+        {/* Subtle domain expansion circles in background - Reduced */}
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(3)].map((_, i) => (
+          {[...Array(2)].map((_, i) => (
             <div
               key={i}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border opacity-10"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border opacity-8 will-change-transform"
               style={{
-                width: `${(i + 1) * 300}px`,
-                height: `${(i + 1) * 300}px`,
+                width: `${(i + 1) * 250}px`,
+                height: `${(i + 1) * 250}px`,
                 borderColor: colorTheme.primary,
                 animation: `pulse ${3 + i}s ease-in-out infinite`,
                 animationDelay: `${i * 0.3}s`,
@@ -734,60 +749,76 @@ const Experience = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-deep-charcoal/95 via-ghost-black/95 to-black/95 backdrop-blur-sm z-0"></div>
       {/* Smoke Effect Background */}
       <SmokeBackground />
-      {/* Simplified cosmic background - Reduced for performance */}
-      <div className="absolute inset-0 z-5">
-        {/* Single subtle domain circle */}
-        <div className="absolute inset-0 opacity-15 flex items-center justify-center">
+      {/* Starry Sky Background - Optimized */}
+      <div className="absolute inset-0 z-5 overflow-hidden">
+        {/* Twinkling stars */}
+        {[...Array(80)].map((_, i) => (
           <div
-            className="absolute rounded-full border border-domain-violet/20"
+            key={i}
+            className="absolute rounded-full bg-white will-change-opacity"
             style={{
-              width: '600px',
-              height: '600px',
-              animation: 'pulse 10s ease-in-out infinite',
+              width: Math.random() * 2 + 0.5 + 'px',
+              height: Math.random() * 2 + 0.5 + 'px',
+              top: Math.random() * 100 + '%',
+              left: Math.random() * 100 + '%',
+              opacity: Math.random() * 0.7 + 0.3,
+              animation: `twinkle ${Math.random() * 3 + 2}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 3}s`,
+              boxShadow: `0 0 ${Math.random() * 3 + 1}px rgba(255, 255, 255, 0.8)`,
             }}
           />
-        </div>
+        ))}
+        {/* Subtle constellation lines */}
+        <svg className="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="constellation-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#7F00FF" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#3A86FF" stopOpacity="0.3" />
+            </linearGradient>
+          </defs>
+          <line x1="10%" y1="20%" x2="30%" y2="40%" stroke="url(#constellation-gradient)" strokeWidth="1" />
+          <line x1="30%" y1="40%" x2="50%" y2="30%" stroke="url(#constellation-gradient)" strokeWidth="1" />
+          <line x1="50%" y1="30%" x2="70%" y2="60%" stroke="url(#constellation-gradient)" strokeWidth="1" />
+          <line x1="70%" y1="60%" x2="85%" y2="45%" stroke="url(#constellation-gradient)" strokeWidth="1" />
+          <line x1="20%" y1="70%" x2="40%" y2="80%" stroke="url(#constellation-gradient)" strokeWidth="1" />
+          <line x1="40%" y1="80%" x2="65%" y2="85%" stroke="url(#constellation-gradient)" strokeWidth="1" />
+        </svg>
       </div>
       
       {/* Foreground Content - Brought Forward */}
       <div className="relative z-30 text-center w-full max-w-6xl mx-auto px-3 sm:px-4">
 
-        {/* Title with breathing technique accent */}
-        <div className="text-center mb-4 sm:mb-5 lg:mb-6">
-          <h1
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight pb-2 sm:pb-3 lg:pb-4 leading-tight px-2 animate-fade-in relative"
-            style={{
-              animation: 'fadeInUp 0.8s ease-out',
-            }}
-          >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rengoku-flame via-domain-violet to-cursed-blue">
-              Constellation of Experience
-            </span>
-            {/* Subtle breathing lines under title */}
-            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 flex gap-1">
-              {[...Array(7)].map((_, i) => (
-                <div
-                  key={i}
-                  className="w-1 h-0.5 rounded-full animate-pulse"
-                  style={{
-                    background: i % 3 === 0 ? locationColors.Canada.primary : i % 3 === 1 ? locationColors.Malaysia.primary : locationColors.Bangladesh.primary,
-                    animationDelay: `${i * 0.1}s`,
-                  }}
-                />
-              ))}
-            </div>
-          </h1>
+        {/* Title - Matching About section style */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-6 md:mb-8"
+        >
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="h-px bg-gradient-to-r from-transparent via-domain-violet to-transparent mb-3"
+          />
+          <h2 className="section-title">
+            Constellation of Experience
+          </h2>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="h-px bg-gradient-to-r from-transparent via-rengoku-flame to-transparent mt-3"
+          />
           <p
-            className="text-sm sm:text-base md:text-lg lg:text-xl text-purple-300 max-w-xs sm:max-w-2xl lg:max-w-3xl mx-auto mt-3 sm:mt-4 mb-2 sm:mb-3 font-medium leading-relaxed px-2 animate-fade-in-delay-1"
+            className="text-sm sm:text-base md:text-lg text-snow-white/80 max-w-xs sm:max-w-2xl lg:max-w-3xl mx-auto mt-4 font-medium leading-relaxed px-2"
           >
             A celestial map of professional achievements across continents.
           </p>
-          <p
-            className="text-xs sm:text-sm md:text-base lg:text-lg text-purple-200 font-medium leading-relaxed px-2 animate-fade-in-delay-2"
-          >
-            Navigate the domain expansion to discover the journey.
-          </p>
-        </div>
+        </motion.div>
 
         {/* Enhanced Filter Buttons with breathing technique design */}
         <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-5 sm:mb-7">
