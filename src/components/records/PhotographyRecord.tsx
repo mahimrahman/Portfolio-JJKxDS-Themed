@@ -48,9 +48,10 @@ const PhotographyRecord: React.FC = () => {
           src: img.path,
           location: img.metadata?.location || 'Unknown Location',
           model: img.metadata?.model,
+          client: img.metadata?.client,
           name: img.name,
           metadata: img.metadata,
-          category: img.category
+          category: selectedCategory
         }));
       }
     }
@@ -377,12 +378,17 @@ const PhotographyRecord: React.FC = () => {
                   />
                   {/* Always visible subtle info overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/70 to-transparent">
+                    {photo.client && (
+                      <p className="text-white/70 text-[10px] font-light mb-0.5">Client: {photo.client}</p>
+                    )}
                     {photo.model && (
                       <p className="text-white/70 text-[10px] font-light mb-0.5">{photo.model}</p>
                     )}
-                    <p className="text-white/60 text-[9px] font-light">
-                      {photo.location.split(',').slice(0, 2).join(', ')}
-                    </p>
+                    {(!photo.client || selectedCategory !== 'Product Shoot') && (
+                      <p className="text-white/60 text-[9px] font-light">
+                        {photo.location.split(',').slice(0, 2).join(', ')}
+                      </p>
+                    )}
                   </div>
                 </motion.div>
               </SwiperSlide>
@@ -423,12 +429,17 @@ const PhotographyRecord: React.FC = () => {
                       {/* Simple dark overlay on hover */}
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
                         <div className="text-center px-3">
+                          {photo.client && (
+                            <p className="text-white text-xs md:text-sm font-medium mb-1">{photo.client}</p>
+                          )}
                           {photo.model && (
                             <p className="text-white text-xs md:text-sm font-medium mb-1">{photo.model}</p>
                           )}
-                          <p className="text-white/80 text-[10px] md:text-xs">
-                            {photo.location.split(',')[0]}
-                          </p>
+                          {(!photo.client || selectedCategory !== 'Product Shoot') && (
+                            <p className="text-white/80 text-[10px] md:text-xs">
+                              {photo.location.split(',')[0]}
+                            </p>
+                          )}
                         </div>
                       </div>
                     </motion.div>
@@ -524,6 +535,22 @@ const PhotographyRecord: React.FC = () => {
                 transition={{ delay: 0.4 }}
               >
                 <div className="bg-deep-charcoal/90 backdrop-blur-md border border-white/20 rounded-lg px-4 md:px-5 py-3 md:py-4 space-y-2 md:space-y-3">
+                  {photos[openIdx].client && (
+                    <motion.div
+                      className="flex items-start gap-2 md:gap-3"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.5 }}
+                    >
+                      <User size={16} className="text-zenitsu-lightning mt-0.5 md:mt-1 flex-shrink-0" />
+                      <div>
+                        <p className="text-[9px] md:text-[10px] uppercase tracking-wider text-snow-white/50 mb-0.5 md:mb-1">Client</p>
+                        <p className="text-snow-white text-sm md:text-base lg:text-lg font-medium">
+                          {photos[openIdx].client}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
                   {photos[openIdx].model && (
                     <motion.div
                       className="flex items-start gap-2 md:gap-3"
@@ -540,20 +567,22 @@ const PhotographyRecord: React.FC = () => {
                       </div>
                     </motion.div>
                   )}
-                  <motion.div
-                    className="flex items-start gap-2 md:gap-3"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.6 }}
-                  >
-                    <MapPin size={16} className="text-zenitsu-lightning mt-0.5 md:mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="text-[9px] md:text-[10px] uppercase tracking-wider text-snow-white/50 mb-0.5 md:mb-1">Location</p>
-                      <p className="text-snow-white/90 text-xs md:text-sm lg:text-base">
-                        {photos[openIdx].location}
-                      </p>
-                    </div>
-                  </motion.div>
+                  {(selectedCategory !== 'Product Shoot' || !photos[openIdx].client) && (
+                    <motion.div
+                      className="flex items-start gap-2 md:gap-3"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.6 }}
+                    >
+                      <MapPin size={16} className="text-zenitsu-lightning mt-0.5 md:mt-1 flex-shrink-0" />
+                      <div>
+                        <p className="text-[9px] md:text-[10px] uppercase tracking-wider text-snow-white/50 mb-0.5 md:mb-1">Location</p>
+                        <p className="text-snow-white/90 text-xs md:text-sm lg:text-base">
+                          {photos[openIdx].location}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
                 </div>
               </motion.div>
 

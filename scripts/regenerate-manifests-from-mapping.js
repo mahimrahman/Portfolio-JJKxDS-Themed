@@ -26,18 +26,43 @@ const photographyImages = {
   'Product Shoot': []
 };
 
+// Helper function to extract numeric prefix from filename for sorting
+const extractNumericPrefix = (filename) => {
+  const match = filename.match(/^(\d+\.?\d*)/);
+  return match ? parseFloat(match[1]) : 999;
+};
+
+// Helper function to parse location and model from Portrait filenames
+const parsePortraitMetadata = (filename) => {
+  // Pattern: "1 Model-Elizabeth, Concordia University, Montreal.jpg"
+  const match = filename.match(/Model-([^,]+),\s*([^,]+(?:,\s*[^.]+)?)/i);
+  if (match) {
+    return {
+      model: match[1].trim(),
+      location: match[2].trim()
+    };
+  }
+  return { model: null, location: 'Unknown Location' };
+};
+
 uploadMapping.forEach(item => {
   const localPath = item.local.replace(/\\/g, '/');
+  const fullPath = path.join(__dirname, '../public/assets', item.local);
+  
+  // Check if file exists locally, otherwise use default values
+  let fileStats = { size: 0, mtime: new Date() };
+  if (fs.existsSync(fullPath)) {
+    fileStats = fs.statSync(fullPath);
+  }
   
   if (localPath.startsWith('Graphics/')) {
     const filename = path.basename(item.local);
-    const stats = fs.statSync(path.join(__dirname, '../public/assets', item.local));
     
     graphicsImages.push({
       name: filename,
       path: item.cloudinary,
-      size: stats.size,
-      modified: stats.mtime,
+      size: fileStats.size,
+      modified: fileStats.mtime,
       cloudinaryUrl: true,
       publicId: item.publicId
     });
@@ -45,17 +70,38 @@ uploadMapping.forEach(item => {
     const parts = localPath.split('/');
     const category = parts[1]; // Landscapes, Portraits, or Product Shoot
     const filename = path.basename(item.local);
-    const stats = fs.statSync(path.join(__dirname, '../public/assets', item.local));
     
     if (photographyImages[category]) {
-      photographyImages[category].push({
+      const imageData = {
         name: filename,
         path: item.cloudinary,
-        size: stats.size,
-        modified: stats.mtime,
+        size: fileStats.size,
+        modified: fileStats.mtime,
         cloudinaryUrl: true,
-        publicId: item.publicId
-      });
+        publicId: item.publicId,
+        sortKey: extractNumericPrefix(filename)
+      };
+
+      // Add metadata based on category
+      if (category === 'Portraits') {
+        const metadata = parsePortraitMetadata(filename);
+        imageData.metadata = metadata;
+      } else if (category === 'Product Shoot') {
+        imageData.metadata = {
+          client: 'Alfio Raldo'
+        };
+      } else if (category === 'Landscapes') {
+        // Extract location from landscape filenames
+        // Pattern: "1 Old Port, Montreal, Canada (2).jpg"
+        const locationMatch = filename.match(/^\d+\.?\d*\s+(.+?)(?:\s*\(\d+\))?\.\w+$/);
+        if (locationMatch) {
+          imageData.metadata = {
+            location: locationMatch[1].trim()
+          };
+        }
+      }
+
+      photographyImages[category].push(imageData);
     }
   }
 });
@@ -79,12 +125,19 @@ console.log(`📄 Saved to: ${graphicsManifestPath}\n`);
 console.log('📸 Generating Photography manifest...');
 const photographyCategories = Object.entries(photographyImages)
   .filter(([_, images]) => images.length > 0)
-  .map(([name, images]) => ({
-    name,
-    path: `Portfolio/Photography/${name}`,
-    imageCount: images.length,
-    images: images
-  }));
+  .map(([name, images]) => {
+    // Sort images by their numeric prefix to maintain sequential order
+    const sortedImages = images.sort((a, b) => a.sortKey - b.sortKey);
+    // Remove sortKey from final output
+    sortedImages.forEach(img => delete img.sortKey);
+    
+    return {
+      name,
+      path: `Portfolio/Photography/${name}`,
+      imageCount: sortedImages.length,
+      images: sortedImages
+    };
+  });
 
 const photographyManifest = {
   categories: photographyCategories,
