@@ -148,21 +148,6 @@ const Hero: React.FC = () => {
 
       <VisualEffects theme={activeTheme} />
 
-      {/* Top Status Bar */}
-      <div className="absolute top-4 lg:top-6 left-1/2 -translate-x-1/2 z-50 flex flex-col lg:flex-row items-center gap-3 w-full px-6 lg:w-auto">
-        <div className="flex items-center space-x-2 bg-black/60 backdrop-blur-xl border border-white/10 px-4 py-1.5 rounded-full shadow-2xl">
-          <div className={`w-1.5 h-1.5 rounded-full ${loading ? 'bg-yellow-400 animate-pulse' : 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]'}`} />
-          <span className="text-[8px] lg:text-[9px] font-black tracking-[0.3em] uppercase opacity-60 whitespace-nowrap">
-            System Status: {loading ? 'Syncing' : 'Linked'}
-          </span>
-        </div>
-
-        <button className="group flex items-center space-x-2 bg-white/5 hover:bg-white/10 border border-white/5 px-4 py-1.5 rounded-full transition-all backdrop-blur-md">
-          <span className="text-[8px] lg:text-[9px] font-black tracking-[0.3em] uppercase text-white/40 group-hover:text-white transition-colors whitespace-nowrap">
-            Personalize API
-          </span>
-        </button>
-      </div>
 
       {/* Vertical Role Strips (Desktop Only) */}
       <div className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col space-y-12 z-20">
@@ -193,10 +178,10 @@ const Hero: React.FC = () => {
               style={{ backgroundColor: currentConfig.accent }}
             />
 
-            <h1 className="text-5xl md:text-7xl lg:text-[11rem] font-black leading-[0.85] lg:leading-[0.75] tracking-tighter select-none relative transition-all duration-500">
-              <span className="block text-white mix-blend-difference">MAHIMUR</span>
-              <span className="block stroke-text text-transparent" style={{ WebkitTextStroke: `1px ${currentConfig.accent}44` }}>RAHMAN</span>
-              <span className={`block bg-clip-text text-transparent bg-gradient-to-r ${currentConfig.color} animate-gradient-flow`}>
+            <h1 className="text-4xl md:text-5xl lg:text-[7rem] font-light leading-[0.85] lg:leading-[0.75] tracking-tight select-none relative transition-all duration-500">
+              <span className="block text-white mix-blend-difference font-extralight">MAHIMUR</span>
+              <span className="block stroke-text text-transparent font-extralight" style={{ WebkitTextStroke: `1px ${currentConfig.accent}44` }}>RAHMAN</span>
+              <span className={`block bg-clip-text text-transparent bg-gradient-to-r ${currentConfig.color} animate-gradient-flow font-light`}>
                 KHAN
               </span>
             </h1>
@@ -229,7 +214,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Right: Manga Panel (Video) */}
-        <div className="relative w-full max-w-[340px] md:max-w-md lg:max-w-xl group">
+        <div className="relative w-full max-w-[400px] md:max-w-lg lg:max-w-2xl group">
           <div
             className="relative z-10 bg-black p-3 lg:p-4 transition-all duration-500 group-hover:scale-[1.02] group-hover:-translate-y-2"
             style={{
