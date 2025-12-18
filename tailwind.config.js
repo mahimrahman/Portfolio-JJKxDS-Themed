@@ -17,8 +17,11 @@ export default {
         'ghost-black': '#1A1A2E',
       },
       fontFamily: {
-        'anime': ['Noto Sans JP', 'sans-serif'],
+        'anime': ['Bangers', 'cursive'],
         'mochiy': ['"Mochiy Pop One"', 'sans-serif'],
+        'outfit': ['Outfit', 'sans-serif'],
+        'space': ['"Space Grotesk"', 'sans-serif'],
+        'jp': ['"Noto Sans JP"', 'sans-serif'],
       },
       animation: {
         'cursed-pulse': 'cursedPulse 2s infinite',

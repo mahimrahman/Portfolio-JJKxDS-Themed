@@ -11,7 +11,6 @@ import {
   User
 } from 'lucide-react';
 import VisualEffects from './VisualEffects';
-import SectionMerge from './SectionMerge';
 
 // Types
 export enum ThemeMode {
@@ -41,7 +40,7 @@ interface HeroContent {
 const THEME_CONFIGS: Record<ThemeMode, CharacterConfig> = {
   [ThemeMode.YUJI]: {
     name: "YUJI",
-    professionalRole: "SOFTWARE ENGINEER",
+    professionalRole: "DEV",
     color: "from-[#F5A7B8] via-[#B22222] to-[#1B263B]",
     accent: "#F5A7B8",
     kanji: "呪力",
@@ -50,7 +49,7 @@ const THEME_CONFIGS: Record<ThemeMode, CharacterConfig> = {
   },
   [ThemeMode.GOJO]: {
     name: "GOJO",
-    professionalRole: "UI/UX DESIGNER",
+    professionalRole: "UI",
     color: "from-[#1A1A1A] via-[#F2F2F2] to-[#A1C4FD]",
     accent: "#A1C4FD",
     kanji: "六眼",
@@ -59,7 +58,7 @@ const THEME_CONFIGS: Record<ThemeMode, CharacterConfig> = {
   },
   [ThemeMode.TANJIRO]: {
     name: "TANJIRO",
-    professionalRole: "BUSINESS ANALYST",
+    professionalRole: "BA",
     color: "from-[#00A19D] via-[#2B2B2B] to-[#8B0000]",
     accent: "#00A19D",
     kanji: "全集中",
@@ -68,7 +67,7 @@ const THEME_CONFIGS: Record<ThemeMode, CharacterConfig> = {
   },
   [ThemeMode.ZENITSU]: {
     name: "ZENITSU",
-    professionalRole: "PERFORMANCE OPTIMIZATION",
+    professionalRole: "OPT",
     color: "from-[#FFD700] via-[#FF8C00] to-[#FDF5E6]",
     accent: "#FFD700",
     kanji: "霹靂一閃",
@@ -77,7 +76,7 @@ const THEME_CONFIGS: Record<ThemeMode, CharacterConfig> = {
   },
   [ThemeMode.INOSUKE]: {
     name: "INOSUKE",
-    professionalRole: "CREATIVE TECHNOLOGIST",
+    professionalRole: "CRT",
     color: "from-[#3F51B5] via-[#5D4037] to-[#E0AC69]",
     accent: "#3F51B5",
     kanji: "突撃",
@@ -110,7 +109,7 @@ const FALLBACK_CONTENT: Record<ThemeMode, HeroContent> = {
   }
 };
 
-const Hero: React.FC = () => {
+const NewHero: React.FC = () => {
   const [activeTheme, setActiveTheme] = useState<ThemeMode>(ThemeMode.TANJIRO);
   const [content, setContent] = useState<HeroContent | null>(null);
   const [loading, setLoading] = useState(false);
@@ -128,72 +127,53 @@ const Hero: React.FC = () => {
   const currentConfig = THEME_CONFIGS[activeTheme];
 
   const characterOptions = [
-    { mode: ThemeMode.YUJI, icon: <Shield />, label: "DEV" },
-    { mode: ThemeMode.GOJO, icon: <Sparkles />, label: "UX" },
     { mode: ThemeMode.TANJIRO, icon: <Swords />, label: "BIZ" },
     { mode: ThemeMode.ZENITSU, icon: <Zap />, label: "OPT" },
     { mode: ThemeMode.INOSUKE, icon: <User />, label: "CRT" },
+    { mode: ThemeMode.GOJO, icon: <Sparkles />, label: "UX" },
+    { mode: ThemeMode.YUJI, icon: <Shield />, label: "DEV" },
   ];
 
   const roles = [
-    { label: "SOFTWARE ENGINEER", icon: <Code2 size={14} /> },
-    { label: "UI/UX DESIGNER", icon: <Layout size={14} /> },
-    { label: "BUSINESS ANALYST", icon: <BarChart3 size={14} /> }
+    { label: "DEV", icon: <Code2 size={16} /> },
+    { label: "UI", icon: <Layout size={16} /> },
+    { label: "BA", icon: <BarChart3 size={16} /> }
   ];
 
   return (
     <div className="relative min-h-screen w-screen flex flex-col bg-[#030303] overflow-x-hidden overflow-y-auto lg:overflow-hidden">
-      {/* Subtle Section Merge Overlay - bottom only for Hero */}
-      <SectionMerge position="bottom" intensity="light" />
-
       <VisualEffects theme={activeTheme} />
 
-      {/* Top Status Bar */}
-      <div className="absolute top-4 lg:top-6 left-1/2 -translate-x-1/2 z-50 flex flex-col lg:flex-row items-center gap-3 w-full px-6 lg:w-auto">
-        <div className="flex items-center space-x-2 bg-black/60 backdrop-blur-xl border border-white/10 px-4 py-1.5 rounded-full shadow-2xl">
-          <div className={`w-1.5 h-1.5 rounded-full ${loading ? 'bg-yellow-400 animate-pulse' : 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]'}`} />
-          <span className="text-[8px] lg:text-[9px] font-black tracking-[0.3em] uppercase opacity-60 whitespace-nowrap">
-            System Status: {loading ? 'Syncing' : 'Linked'}
-          </span>
-        </div>
-
-        <button className="group flex items-center space-x-2 bg-white/5 hover:bg-white/10 border border-white/5 px-4 py-1.5 rounded-full transition-all backdrop-blur-md">
-          <span className="text-[8px] lg:text-[9px] font-black tracking-[0.3em] uppercase text-white/40 group-hover:text-white transition-colors whitespace-nowrap">
-            Personalize API
-          </span>
-        </button>
-      </div>
-
       {/* Vertical Role Strips (Desktop Only) */}
-      <div className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col space-y-12 z-20">
+      <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col space-y-8 z-20">
         {roles.map((role, i) => (
-          <div key={i} className="flex items-center space-x-4 rotate-180" style={{ writingMode: 'vertical-rl' }}>
-            <span className={`text-[10px] font-black tracking-[0.5em] transition-colors duration-500 uppercase ${currentConfig.professionalRole === role.label ? 'text-white shadow-[0_0_10px_white]' : 'text-white/20'}`}>
+          <div key={i} className="flex items-center space-x-3 rotate-180" style={{ writingMode: 'vertical-rl' }}>
+            <span className={`text-sm font-bold tracking-[0.2em] transition-colors duration-500 ${currentConfig.professionalRole.includes(role.label) ? 'text-white' : 'text-white/30'}`}>
               {role.label}
             </span>
-            <div className={`w-px h-12 transition-colors duration-500 ${currentConfig.professionalRole === role.label ? 'bg-white shadow-[0_0_10px_white]' : 'bg-white/10'}`} />
+            <div className={`w-px h-8 transition-colors duration-500 ${currentConfig.professionalRole.includes(role.label) ? 'bg-white' : 'bg-white/20'}`} />
           </div>
         ))}
       </div>
 
-      <main className="relative z-10 flex-1 flex flex-col lg:flex-row items-center justify-center px-6 lg:px-24 pt-24 pb-32 lg:py-0 gap-10 lg:gap-20 max-w-7xl mx-auto w-full">
+      <main className="relative z-10 flex-1 flex flex-col lg:flex-row items-center justify-center px-6 lg:px-16 pt-20 pb-28 lg:py-0 gap-8 lg:gap-12 max-w-6xl mx-auto w-full">
 
         {/* Left: Identity Section */}
         <div className="w-full lg:flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
-          <div className="relative mb-4 lg:mb-6">
-            <div className="px-4 py-1 border-l-4 lg:border-l-4 font-bold text-[8px] lg:text-[10px] tracking-[0.4em] lg:tracking-[0.5em] uppercase opacity-60 flex items-center space-x-3" style={{ borderColor: currentConfig.accent }}>
+          <div className="relative mb-3 lg:mb-4">
+            <div className="px-3 py-0.5 border-l-2 font-bold text-[7px] lg:text-[8px] tracking-[0.3em] uppercase opacity-50 flex items-center space-x-2" style={{ borderColor: currentConfig.accent }}>
               <span>DOMAIN PROTOCOL // {activeTheme}</span>
             </div>
           </div>
 
-          {/* Name Logo */}
+          {/* Name Logo - Smaller */}
           <div className="relative group w-fit">
             <div
-              className="absolute -inset-8 lg:-inset-12 blur-[60px] lg:blur-[100px] opacity-10 transition-all duration-1000 group-hover:opacity-20"
+              className="absolute -inset-4 lg:-inset-6 blur-[40px] lg:blur-[60px] opacity-10 transition-all duration-1000 group-hover:opacity-15"
               style={{ backgroundColor: currentConfig.accent }}
             />
 
-            <h1 className="text-5xl md:text-7xl lg:text-[11rem] font-black leading-[0.85] lg:leading-[0.75] tracking-tighter select-none relative transition-all duration-500">
+            <h1 className="font-outfit text-4xl md:text-5xl lg:text-7xl font-black leading-[0.9] tracking-tighter select-none relative transition-all duration-500">
               <span className="block text-white mix-blend-difference">MAHIMUR</span>
               <span className="block stroke-text text-transparent" style={{ WebkitTextStroke: `1px ${currentConfig.accent}44` }}>RAHMAN</span>
               <span className={`block bg-clip-text text-transparent bg-gradient-to-r ${currentConfig.color} animate-gradient-flow`}>
@@ -214,24 +194,24 @@ const Hero: React.FC = () => {
             ))}
           </div>
 
-          {/* Technique Section */}
-          <div className="mt-8 lg:mt-12 flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-10 items-center">
-            <div className="font-jp text-5xl lg:text-7xl text-white/5 select-none hover:text-white/10 transition-colors cursor-default">
+          {/* Technique Section - Smaller */}
+          <div className="mt-4 lg:mt-6 flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-6 items-center">
+            <div className="font-jp text-3xl lg:text-5xl text-white/5 select-none hover:text-white/10 transition-colors cursor-default">
               {currentConfig.kanji}
             </div>
-            <div className="lg:max-w-xs lg:border-l border-white/10 lg:pl-6 text-center lg:text-left">
-              <div className="text-[8px] lg:text-[10px] font-black tracking-[0.3em] text-white/40 uppercase mb-1">Special Grade Technique</div>
-              <div className="text-lg lg:text-2xl font-anime tracking-wider transition-colors duration-500" style={{ color: currentConfig.accent }}>
+            <div className="lg:max-w-xs lg:border-l border-white/10 lg:pl-4 text-center lg:text-left">
+              <div className="text-[7px] lg:text-[8px] font-black tracking-[0.2em] text-white/40 uppercase mb-0.5">Special Grade Technique</div>
+              <div className="text-sm lg:text-lg font-anime tracking-wide transition-colors duration-500" style={{ color: currentConfig.accent }}>
                 {currentConfig.techniqueName}
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right: Manga Panel (Video) */}
-        <div className="relative w-full max-w-[340px] md:max-w-md lg:max-w-xl group">
+        {/* Right: Manga Panel (Video) - Wider with smaller text */}
+        <div className="relative w-full max-w-[380px] md:max-w-lg lg:max-w-2xl xl:max-w-3xl group">
           <div
-            className="relative z-10 bg-black p-3 lg:p-4 transition-all duration-500 group-hover:scale-[1.02] group-hover:-translate-y-2"
+            className="relative z-10 bg-black p-2 lg:p-3 transition-all duration-500 group-hover:scale-[1.02] group-hover:-translate-y-2"
             style={{
               border: `6px solid white`,
               borderStyle: 'solid',
@@ -246,36 +226,36 @@ const Hero: React.FC = () => {
                 key={activeTheme}
                 autoPlay muted loop playsInline
                 className="w-full h-full object-cover opacity-80 group-hover/video:opacity-100 transition-opacity duration-700"
-                src="/1.mp4"
+                src={`https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4#t=10`}
               />
 
-              <div className="absolute inset-0 border-[12px] lg:border-[20px] border-black/20 pointer-events-none" />
+              <div className="absolute inset-0 border-[8px] lg:border-[12px] border-black/20 pointer-events-none" />
 
-              {/* Internal HUD */}
-              <div className="absolute top-4 left-4 lg:top-6 lg:left-6 flex flex-col space-y-1 bg-black/40 p-1.5 lg:p-2 backdrop-blur-sm">
-                <div className="text-[7px] lg:text-[8px] font-mono text-white/40 tracking-widest uppercase">SYNC_ID</div>
-                <div className="text-[8px] lg:text-[10px] font-black text-white tracking-widest">{activeTheme}_v01</div>
+              {/* Internal HUD - Smaller */}
+              <div className="absolute top-2 left-2 lg:top-3 lg:left-3 flex flex-col space-y-0.5 bg-black/40 p-1 lg:p-1.5 backdrop-blur-sm">
+                <div className="text-[6px] lg:text-[7px] font-mono text-white/40 tracking-widest uppercase">SYNC_ID</div>
+                <div className="text-[7px] lg:text-[8px] font-black text-white tracking-widest">{activeTheme}_v01</div>
               </div>
 
-              <div className="absolute bottom-4 right-4 lg:bottom-6 lg:right-6 font-jp text-2xl lg:text-4xl text-white/20 select-none">
+              <div className="absolute bottom-2 right-2 lg:bottom-3 lg:right-3 font-jp text-xl lg:text-3xl text-white/20 select-none">
                 {currentConfig.kanji}
               </div>
             </div>
 
-            {/* Content & Action */}
-            <div className="mt-6 lg:mt-8 flex flex-col space-y-4 lg:space-y-6 px-1 lg:px-2 pb-2">
-              <h2 className={`text-xl lg:text-3xl font-black tracking-tighter uppercase italic leading-none transition-all duration-700 ${loading ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
+            {/* Content & Action - Smaller */}
+            <div className="mt-3 lg:mt-4 flex flex-col space-y-2 lg:space-y-3 px-1 pb-1">
+              <h2 className={`text-base lg:text-xl font-black tracking-tighter uppercase leading-none transition-all duration-700 ${loading ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
                 {content?.professionalTitle || "INITIATING DOMAIN"}
               </h2>
 
-              <button className="relative w-full py-4 lg:py-6 group/btn overflow-hidden bg-white text-black transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+              <button className="relative w-full py-2 lg:py-3 group/btn overflow-hidden bg-white text-black transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]">
                 <div
                   className="absolute inset-0 translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500"
                   style={{ background: `linear-gradient(to right, ${currentConfig.accent}, white)` }}
                 />
-                <div className="relative flex items-center justify-center space-x-4 lg:space-x-6 text-[10px] lg:text-xs font-black tracking-[0.5em] lg:tracking-[0.7em] uppercase">
+                <div className="relative flex items-center justify-center space-x-2 lg:space-x-3 text-[8px] lg:text-[10px] font-black tracking-[0.3em] uppercase">
                   <span>{content?.actionCall || "EXPAND DOMAIN"}</span>
-                  <ArrowRight size={16} className="group-hover/btn:translate-x-2 transition-transform" />
+                  <ArrowRight size={12} className="group-hover/btn:translate-x-2 transition-transform" />
                 </div>
               </button>
             </div>
@@ -361,4 +341,4 @@ const Hero: React.FC = () => {
   );
 };
 
-export default Hero;
+export default NewHero;
