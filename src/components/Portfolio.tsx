@@ -257,7 +257,7 @@ const Portfolio = () => {
           viewport={{ once: true }}
           className="text-center mb-6 md:mb-8"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-title uppercase tracking-tighter mb-2">
+          <h2 className="section-title mb-2">
             Battle Records
           </h2>
           <p className="text-xs md:text-sm font-body text-ash-gray">

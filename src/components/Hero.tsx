@@ -189,12 +189,12 @@ const Hero: React.FC = () => {
 
           {/* Technique Section */}
           <div className="mt-6 sm:mt-8 lg:mt-12 flex flex-col lg:flex-row space-y-3 sm:space-y-4 lg:space-y-0 lg:space-x-10 items-center">
-            <div className="font-jp text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white/5 select-none hover:text-white/10 transition-colors cursor-default">
+            <div className="font-title text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white/5 select-none hover:text-white/10 transition-colors cursor-default">
               {currentConfig.kanji}
             </div>
             <div className="lg:max-w-xs lg:border-l border-white/10 lg:pl-6 text-center lg:text-left">
               <div className="text-[8px] sm:text-[9px] lg:text-[10px] font-black tracking-[0.3em] text-white/40 uppercase mb-1">Special Grade Technique</div>
-              <div className="text-base sm:text-lg lg:text-xl xl:text-2xl font-anime tracking-wider transition-colors duration-500" style={{ color: currentConfig.accent }}>
+              <div className="text-base sm:text-lg lg:text-xl xl:text-2xl font-subtitle tracking-wider transition-colors duration-500" style={{ color: currentConfig.accent }}>
                 {currentConfig.techniqueName}
               </div>
             </div>
@@ -226,11 +226,11 @@ const Hero: React.FC = () => {
 
               {/* Internal HUD */}
               <div className="absolute top-4 left-4 lg:top-6 lg:left-6 flex flex-col space-y-1 bg-black/40 p-1.5 lg:p-2 backdrop-blur-sm">
-                <div className="text-[7px] lg:text-[8px] font-mono text-white/40 tracking-widest uppercase">SYNC_ID</div>
+                <div className="text-[7px] lg:text-[8px] font-subtitle text-white/40 tracking-widest uppercase">SYNC_ID</div>
                 <div className="text-[8px] lg:text-[10px] font-black text-white tracking-widest">{activeTheme}_v01</div>
               </div>
 
-              <div className="absolute bottom-4 right-4 lg:bottom-6 lg:right-6 font-jp text-2xl lg:text-4xl text-white/20 select-none">
+              <div className="absolute bottom-4 right-4 lg:bottom-6 lg:right-6 font-title text-2xl lg:text-4xl text-white/20 select-none">
                 {currentConfig.kanji}
               </div>
             </div>
@@ -315,15 +315,6 @@ const Hero: React.FC = () => {
           50% { transform: translateY(-4px); }
         }
         .animate-bounce-slow { animation: bounce-slow 2.5s infinite ease-in-out; }
-
-        .font-jp {
-          font-family: 'Noto Sans JP', sans-serif;
-        }
-
-        .font-anime {
-          font-family: 'Bangers', cursive;
-          letter-spacing: 0.05em;
-        }
 
         .halftone {
           background-image: radial-gradient(circle, currentColor 1px, transparent 1px);

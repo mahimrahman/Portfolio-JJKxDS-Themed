@@ -49,20 +49,20 @@ const DetailPanel: React.FC<Props> = ({ node, onClose }) => {
           <div className="mb-8">
             <div className="flex items-baseline space-x-4 mb-2">
                <span
-                 className="px-2 py-0.5 text-[10px] font-tech uppercase tracking-widest border rounded text-white"
+                 className="px-2 py-0.5 text-[10px] font-subtitle uppercase tracking-widest border rounded text-white"
                  style={{ borderColor: node.color, color: node.color }}
                >
                  {node.region}
                </span>
-               <span className="text-gray-500 font-tech text-xs tracking-widest uppercase">
+               <span className="text-gray-500 font-subtitle text-xs tracking-widest uppercase">
                  {node.date}
                </span>
             </div>
 
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-white tracking-tight mb-2 drop-shadow-lg">
+            <h2 className="text-3xl md:text-5xl font-title font-bold text-white tracking-tight mb-2 drop-shadow-lg">
               {node.role}
             </h2>
-            <h3 className="text-xl md:text-2xl font-tech text-gray-400 uppercase tracking-widest">
+            <h3 className="text-xl md:text-2xl font-subtitle text-gray-400 uppercase tracking-widest">
               {node.company}
             </h3>
           </div>
@@ -92,7 +92,7 @@ const DetailPanel: React.FC<Props> = ({ node, onClose }) => {
                 {node.skills.map((skill, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1 bg-white/5 border border-white/10 text-gray-300 text-xs font-tech hover:bg-white/10 hover:border-white/30 transition-all cursor-default"
+                    className="px-3 py-1 bg-white/5 border border-white/10 text-gray-300 text-xs font-subtitle hover:bg-white/10 hover:border-white/30 transition-all cursor-default"
                   >
                     {skill}
                   </span>
@@ -105,7 +105,7 @@ const DetailPanel: React.FC<Props> = ({ node, onClose }) => {
         </div>
 
         {/* Footer Status Bar */}
-        <div className="bg-black/40 p-3 flex justify-between items-center text-[10px] font-tech uppercase text-gray-600 tracking-wider">
+          <div className="bg-black/40 p-3 flex justify-between items-center text-[10px] font-subtitle uppercase text-gray-600 tracking-wider">
            <span>System: Online</span>
            <span>Data Integrity: 100%</span>
            <span>ID: {node.id}</span>

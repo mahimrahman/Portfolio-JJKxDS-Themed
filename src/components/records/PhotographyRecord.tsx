@@ -117,7 +117,7 @@ const PhotographyRecord: React.FC = () => {
         )}
 
         <motion.h2
-          className="text-4xl md:text-5xl font-mochiy text-snow-white py-8 text-center"
+          className="text-4xl md:text-5xl font-title text-snow-white py-8 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -161,13 +161,13 @@ const PhotographyRecord: React.FC = () => {
                     {/* Category Info */}
                     <div className="absolute inset-0 flex flex-col items-center justify-end p-8">
                       <motion.h3
-                        className="text-4xl md:text-5xl font-mochiy text-snow-white mb-3 group-hover:text-zenitsu-lightning transition-colors duration-300"
+                        className="text-4xl md:text-5xl font-title text-snow-white mb-3 group-hover:text-zenitsu-lightning transition-colors duration-300"
                         whileHover={{ scale: 1.1 }}
                       >
                         {category.name}
                       </motion.h3>
                       <div className="flex items-center gap-2 text-snow-white/80 text-lg">
-                        <span className="font-anime">{category.imageCount} Photos</span>
+                        <span className="font-body">{category.imageCount} Photos</span>
                       </div>
                       <motion.div
                         className="mt-4 px-6 py-2 bg-zenitsu-lightning/20 backdrop-blur-sm border border-zenitsu-lightning/50 rounded-full text-snow-white font-medium group-hover:bg-zenitsu-lightning/30 transition-all duration-300"

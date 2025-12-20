@@ -19,14 +19,9 @@ export default {
         'jjk-purple': '#6d28d9',
       },
       fontFamily: {
-        'anime': ['Bangers', 'cursive'],
-        'mochiy': ['"Mochiy Pop One"', 'sans-serif'],
-        'outfit': ['Outfit', 'sans-serif'],
-        'space': ['"Space Grotesk"', 'sans-serif'],
-        'jp': ['"Noto Sans JP"', 'sans-serif'],
-        'display': ['Outfit', 'sans-serif'],
-        'body': ['Inter', 'system-ui', 'sans-serif'],
-        'tech': ['"Space Grotesk"', 'monospace'],
+        title: ['"Mochiy Pop One"', 'system-ui', 'sans-serif'],
+        subtitle: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
         'cursed-pulse': 'cursedPulse 2s infinite',

@@ -139,7 +139,7 @@ const AboutBase = () => {
               <div className="flex items-start gap-3 sm:gap-4 mb-6 sm:mb-8">
                 <div className="w-1 sm:w-1.5 h-10 sm:h-12 bg-white/10" />
                 <div>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-title text-white italic tracking-tighter uppercase leading-none">{ABOUT_ME.title}</h2>
+                  <h2 className="section-title mb-0">{ABOUT_ME.title}</h2>
                   <span className="text-[9px] sm:text-[10px] md:text-[11px] font-subtitle text-white/40 tracking-[0.4em] uppercase mt-2 block">{ABOUT_ME.subtitle}</span>
                 </div>
               </div>

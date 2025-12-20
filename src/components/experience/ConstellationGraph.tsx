@@ -186,7 +186,7 @@ const ConstellationGraph: React.FC<Props> = ({ data, activeRegion, onNodeSelect,
       .text(d => d.role)
       .attr("text-anchor", "middle")
       .attr("y", 5)
-      .attr("class", "text-[11px] font-display font-bold fill-white pointer-events-none") // Increased from 10px
+      .attr("class", "text-[11px] font-title font-bold fill-white pointer-events-none") // Increased from 10px
       .style("text-shadow", "0 2px 4px rgba(0,0,0,0.9)");
 
     // Simulation Tick

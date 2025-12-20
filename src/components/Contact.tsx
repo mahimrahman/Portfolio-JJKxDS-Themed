@@ -131,11 +131,7 @@ const Contact = () => {
             <div className="space-y-3 sm:space-y-4">
               {/* Manga-style header */}
               <div className="relative inline-block">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-title tracking-tighter uppercase leading-none transform -skew-x-6"
-                  style={{
-                    textShadow: '3px 3px 0px #000, -2px -2px 0px rgba(188, 19, 254, 0.3)'
-                  }}
-                >
+                <h2 className="section-title mb-0" style={{ textShadow: '3px 3px 0px #000, -2px -2px 0px rgba(188, 19, 254, 0.3)' }}>
                   Inquire
                 </h2>
                 {/* Action line effect */}
@@ -153,11 +149,7 @@ const Contact = () => {
                 />
               </div>
 
-              <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-title tracking-tighter uppercase leading-none transform -skew-x-6 ${accentClass}`}
-                style={{
-                  textShadow: '3px 3px 0px #000'
-                }}
-              >
+              <h2 className={`section-title mb-0 ${accentClass}`} style={{ textShadow: '3px 3px 0px #000' }}>
                 Directly
               </h2>
 

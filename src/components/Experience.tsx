@@ -30,20 +30,18 @@ const Experience: React.FC = () => {
       {/* 1. Background Layer */}
       <ParticleBackground />
 
-      {/* 2. Header / Title - Centered */}
-      <div className="absolute top-0 left-0 w-full p-6 z-10 pointer-events-none flex justify-center items-start">
-        <div className="flex flex-col items-center">
-            <h1 className="text-4xl md:text-5xl font-title text-white tracking-tighter drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
-              CHRONICLES
-            </h1>
-            <p className="text-sm font-subtitle text-blue-400 tracking-[0.3em] uppercase opacity-80 mt-1">
-              A Celestial Map of Professional Achievements
-            </p>
-        </div>
-      </div>
+      {/* 2. Header / Title - Centered (flow layout to avoid overlaps) */}
+      <header className="relative z-10 pt-8 md:pt-10 px-6 flex flex-col items-center text-center">
+        <h1 className="section-title mb-0">
+          Constellation of Experience
+        </h1>
+        <p className="text-sm font-subtitle text-blue-400 tracking-[0.3em] uppercase opacity-80 mt-2">
+          A Celestial Map of Professional Achievements
+        </p>
+      </header>
 
       {/* Reset Button - Separate positioning */}
-      <div className="absolute top-6 right-12 z-10">
+      <div className="absolute top-6 right-6 md:right-12 z-10">
         <button
           onClick={handleReset}
           className="pointer-events-auto group flex items-center gap-2 px-4 py-2.5 border-2 border-red-500/40 bg-black/30 backdrop-blur-md text-red-400 text-[10px] font-subtitle uppercase tracking-widest hover:bg-red-500/20 hover:border-red-500 hover:text-red-100 shadow-[0_0_20px_rgba(239,68,68,0.3)] hover:shadow-[0_0_30px_rgba(239,68,68,0.6)] transition-all duration-300"
@@ -54,7 +52,7 @@ const Experience: React.FC = () => {
       </div>
 
       {/* 3. Filter Controls (JJK/DS Style Tabs) */}
-      <div className="absolute top-24 left-0 w-full z-10 flex justify-center px-4 pointer-events-auto">
+      <div className="relative z-10 mt-6 flex justify-center px-4 pointer-events-auto">
         <div className="flex flex-wrap justify-center gap-2 md:gap-6 bg-black/40 backdrop-blur-sm p-2 rounded-full border border-gray-800">
           {Object.values(Region).map((region) => (
             <button
@@ -79,7 +77,7 @@ const Experience: React.FC = () => {
 
       {/* 4. Main Constellation Canvas */}
       {/* Constrain the graph to the visible content rectangle (below header/tabs, above footer hint). */}
-      <div className="absolute inset-x-0 top-40 bottom-24 z-[1]">
+      <div className="absolute inset-x-0 top-56 md:top-60 bottom-24 z-[1]">
         <ConstellationGraph
           key={resetKey}
           data={initialData}
@@ -106,7 +104,7 @@ const Experience: React.FC = () => {
 
       {/* 6. Footer Hint */}
       <div className="absolute bottom-8 left-0 w-full text-center pointer-events-none z-10">
-        <p className="text-[11px] text-gray-400 font-tech uppercase tracking-[0.15em] opacity-90">
+        <p className="text-[11px] text-gray-400 font-subtitle uppercase tracking-[0.15em] opacity-90">
           Drag nodes to explore • Click to expand domain
         </p>
       </div>

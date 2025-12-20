@@ -119,7 +119,7 @@ const Education: React.FC = () => {
         viewport={{ once: true }}
         className="relative z-30 text-center mb-6"
       >
-        <h2 className="section-title">
+        <h2 className="section-title mb-0">
           Innate Domain: Forged Knowledge
         </h2>
         <p className="text-center text-base md:text-lg text-ash-gray mb-3 max-w-2xl mx-auto">

@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Outfit:wght@900&family=Space+Grotesk:wght@300;500;700&family=Noto+Sans+JP:wght@900&display=swap');
-@import '@fontsource/mochiy-pop-one';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Mochiy+Pop+One&family=Space+Grotesk:wght@300;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,7 +9,7 @@
     background-color: #0a0a0a;
   }
   body {
-    @apply bg-deep-charcoal text-snow-white font-anime;
+    @apply bg-deep-charcoal text-snow-white font-body;
     background: linear-gradient(135deg, #121212 40%, #1A1A2E 100%),
       radial-gradient(circle at 70% 30%, #3A86FF33 0%, transparent 55%),
       radial-gradient(circle at 20% 80%, #7F00FF33 0%, transparent 60%),
@@ -21,8 +20,12 @@
     margin: 0;
     padding: 0;
   }
-  h1, h2, h3, .anime-heading {
-    @apply font-mochiy;
+  h1, h2, .anime-heading {
+    @apply font-title;
+    letter-spacing: 0.01em;
+  }
+  h3, h4, h5, h6 {
+    @apply font-subtitle;
     letter-spacing: 0.01em;
   }
 }
@@ -30,13 +33,15 @@
 @layer components {
   /* Consistent Section Title Styling */
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-12 lg:mb-16;
+    @apply font-title text-3xl md:text-4xl lg:text-5xl font-black mb-8 md:mb-12 lg:mb-16;
     @apply bg-gradient-to-r from-snow-white/90 via-ash-gray/80 to-snow-white/90 bg-clip-text text-transparent;
-    @apply tracking-tight leading-tight;
+    /* Prevent glyph descenders (e.g. 'g') from getting clipped */
+    @apply inline-block pb-1;
+    @apply tracking-tight leading-snug;
   }
 
   .section-subtitle {
-    @apply text-xl md:text-2xl font-semibold mb-6 md:mb-8;
+    @apply font-subtitle text-xl md:text-2xl font-semibold mb-6 md:mb-8;
     @apply text-ash-gray/70;
   }
 }

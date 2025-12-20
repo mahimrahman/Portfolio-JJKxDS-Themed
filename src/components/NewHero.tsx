@@ -173,7 +173,7 @@ const NewHero: React.FC = () => {
               style={{ backgroundColor: currentConfig.accent }}
             />
 
-            <h1 className="font-outfit text-4xl md:text-5xl lg:text-7xl font-black leading-[0.9] tracking-tighter select-none relative transition-all duration-500">
+            <h1 className="font-title text-4xl md:text-5xl lg:text-7xl font-black leading-[0.9] tracking-tighter select-none relative transition-all duration-500">
               <span className="block text-white mix-blend-difference">MAHIMUR</span>
               <span className="block stroke-text text-transparent" style={{ WebkitTextStroke: `1px ${currentConfig.accent}44` }}>RAHMAN</span>
               <span className={`block bg-clip-text text-transparent bg-gradient-to-r ${currentConfig.color} animate-gradient-flow`}>
@@ -196,12 +196,12 @@ const NewHero: React.FC = () => {
 
           {/* Technique Section - Smaller */}
           <div className="mt-4 lg:mt-6 flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-6 items-center">
-            <div className="font-jp text-3xl lg:text-5xl text-white/5 select-none hover:text-white/10 transition-colors cursor-default">
+            <div className="font-title text-3xl lg:text-5xl text-white/5 select-none hover:text-white/10 transition-colors cursor-default">
               {currentConfig.kanji}
             </div>
             <div className="lg:max-w-xs lg:border-l border-white/10 lg:pl-4 text-center lg:text-left">
               <div className="text-[7px] lg:text-[8px] font-black tracking-[0.2em] text-white/40 uppercase mb-0.5">Special Grade Technique</div>
-              <div className="text-sm lg:text-lg font-anime tracking-wide transition-colors duration-500" style={{ color: currentConfig.accent }}>
+              <div className="text-sm lg:text-lg font-subtitle tracking-wide transition-colors duration-500" style={{ color: currentConfig.accent }}>
                 {currentConfig.techniqueName}
               </div>
             </div>
@@ -233,11 +233,11 @@ const NewHero: React.FC = () => {
 
               {/* Internal HUD - Smaller */}
               <div className="absolute top-2 left-2 lg:top-3 lg:left-3 flex flex-col space-y-0.5 bg-black/40 p-1 lg:p-1.5 backdrop-blur-sm">
-                <div className="text-[6px] lg:text-[7px] font-mono text-white/40 tracking-widest uppercase">SYNC_ID</div>
+                <div className="text-[6px] lg:text-[7px] font-subtitle text-white/40 tracking-widest uppercase">SYNC_ID</div>
                 <div className="text-[7px] lg:text-[8px] font-black text-white tracking-widest">{activeTheme}_v01</div>
               </div>
 
-              <div className="absolute bottom-2 right-2 lg:bottom-3 lg:right-3 font-jp text-xl lg:text-3xl text-white/20 select-none">
+              <div className="absolute bottom-2 right-2 lg:bottom-3 lg:right-3 font-title text-xl lg:text-3xl text-white/20 select-none">
                 {currentConfig.kanji}
               </div>
             </div>
@@ -322,15 +322,6 @@ const NewHero: React.FC = () => {
           50% { transform: translateY(-4px); }
         }
         .animate-bounce-slow { animation: bounce-slow 2.5s infinite ease-in-out; }
-
-        .font-jp {
-          font-family: 'Noto Sans JP', sans-serif;
-        }
-
-        .font-anime {
-          font-family: 'Bangers', cursive;
-          letter-spacing: 0.05em;
-        }
 
         .halftone {
           background-image: radial-gradient(circle, currentColor 1px, transparent 1px);

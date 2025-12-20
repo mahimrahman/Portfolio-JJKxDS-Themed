@@ -746,7 +746,7 @@ const UIUXRecord: React.FC = () => {
           className="text-center py-20 px-4"
           style={{ y, opacity }}
         >
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent drop-shadow-lg tracking-wider anime-heading">
+          <h1 className="section-title mb-4">
             UI/UX Design
           </h1>
           <span className="block w-24 h-1 mx-auto mt-2 bg-zenitsu-lightning rounded-full animate-pulse" />
