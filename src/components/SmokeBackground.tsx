@@ -12,7 +12,11 @@ interface SmokeParticle {
   colorIndex: number;
 }
 
-const SmokeBackground = memo(() => {
+interface SmokeBackgroundProps {
+  disableMouseTracking?: boolean;
+}
+
+const SmokeBackground = memo(({ disableMouseTracking = false }: SmokeBackgroundProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>();
   const particlesRef = useRef<SmokeParticle[]>([]);
@@ -130,15 +134,17 @@ const SmokeBackground = memo(() => {
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
 
-        // Simplified mouse influence (less calculations)
-        const dx = mouse.x - p.x;
-        const dy = mouse.y - p.y;
-        const distSq = dx * dx + dy * dy;
-        if (distSq < 250000) { // Only calculate if close enough (500px)
-          const distance = Math.sqrt(distSq);
-          const influence = Math.min(30 / (distance + 1), 0.2);
-          p.vx += (dx / distance) * influence * 0.008;
-          p.vy += (dy / distance) * influence * 0.008;
+        // Simplified mouse influence (less calculations) - only if not disabled
+        if (!disableMouseTracking) {
+          const dx = mouse.x - p.x;
+          const dy = mouse.y - p.y;
+          const distSq = dx * dx + dy * dy;
+          if (distSq < 250000) { // Only calculate if close enough (500px)
+            const distance = Math.sqrt(distSq);
+            const influence = Math.min(30 / (distance + 1), 0.2);
+            p.vx += (dx / distance) * influence * 0.008;
+            p.vy += (dy / distance) * influence * 0.008;
+          }
         }
 
         // Reduced turbulence for performance
@@ -208,7 +214,7 @@ const SmokeBackground = memo(() => {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, []);
+  }, [disableMouseTracking]);
 
   return (
     <canvas

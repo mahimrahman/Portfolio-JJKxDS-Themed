@@ -14,7 +14,8 @@
       "Bash(dir:*)",
       "Bash(findstr:*)",
       "Bash(node scripts/generate-photography-manifest.js:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(npm install:*)"
     ],
     "deny": [],
     "ask": []

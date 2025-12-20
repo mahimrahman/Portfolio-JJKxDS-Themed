@@ -2,8 +2,8 @@ import { useEffect, useRef, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import HalfMoonNavigation from './components/HalfMoonNavigation';
 import Hero from './components/Hero';
-import InteractiveSmoke from './components/InteractiveSmoke';
 import { Analytics } from "@vercel/analytics/react"
+import { ThemeProvider } from './context/ThemeContext';
 
 // Import critical sections immediately for smooth transitions
 import About from './components/About';
@@ -122,8 +122,6 @@ const AppContent = () => {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#121212] to-[#1a1a1a]">
-      {/* Simple colored smoke effect - Forward and visible */}
-      <InteractiveSmoke />
       <HalfMoonNavigation />
       <main className="relative z-10">
         <Routes>
@@ -178,8 +176,10 @@ const App = () => {
 
   return (
     <Router>
-      <AppContent />
-      <Analytics />
+      <ThemeProvider>
+        <AppContent />
+        <Analytics />
+      </ThemeProvider>
     </Router>
   );
 };

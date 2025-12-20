@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>Experience Constellation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'jjk-dark': '#0a0a0f',
+              'jjk-purple': '#6d28d9',
+              'jjk-blue': '#06b6d4',
+              'ds-red': '#ef4444',
+              'ds-orange': '#f97316',
+            },
+            fontFamily: {
+              'display': ['Cinzel', 'serif'],
+              'tech': ['Orbitron', 'sans-serif'],
+              'body': ['Rajdhani', 'sans-serif'],
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'twinkle': 'twinkle 3s ease-in-out infinite alternate',
+              'domain-expand': 'domainExpand 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              twinkle: {
+                '0%': { opacity: '0.7', transform: 'scale(1)' },
+                '100%': { opacity: '1', transform: 'scale(1.2)' },
+              },
+              domainExpand: {
+                '0%': { opacity: '0', transform: 'scale(0.9) translateY(20px)' },
+                '100%': { opacity: '1', transform: 'scale(1) translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #050508;
+        color: white;
+        overflow: hidden; /* Prevent scroll on main body for canvas */
+      }
+      /* Custom Scrollbar for details panel */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4c1d95; 
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6d28d9; 
+      }
+      .star-flare {
+        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "d3": "https://esm.sh/d3@^7.9.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
