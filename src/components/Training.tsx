@@ -4,7 +4,7 @@ const degrees = [
   {
     title: 'MEng in Software Engineering',
     institution: 'Concordia University',
-    period: 'Sep 2023 – Present',
+    period: 'Sep 2023 – Aug 2025',
     courses: [
       'Software Project Management',
       'Total Quality Project Management',

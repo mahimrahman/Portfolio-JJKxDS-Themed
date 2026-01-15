@@ -32,7 +32,7 @@ export const EDUCATION_DATA: EducationEntry[] = [
     technique: "Sun Breathing: Hinokami Kagura",
     institution: "Concordia University",
     duration: "Sep 2023 – Aug 2025",
-    description: "Mastering advanced software engineering techniques, focusing on project management, software comprehension, and human-computer interaction.",
+    description: "Graduated Aug 2025. Completed advanced software engineering studies with a focus on project management, software comprehension, and human-computer interaction.",
     theme: {
       pattern: "bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zenitsu-lightning/50 via-ghost-black to-deep-charcoal",
       glowColor: "shadow-zenitsu-lightning/40",
