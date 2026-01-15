@@ -127,7 +127,7 @@ const Contact = () => {
       </div>
 
       <main className="relative z-10 py-12 sm:py-16 px-4 sm:px-6">
-        <div className="w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 items-start">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-7 items-start">
 
           {/* LEFT: INFO & SOCIALS */}
           <div className="space-y-3 sm:space-y-4 lg:pr-4">
@@ -279,7 +279,8 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Share your thoughts..."
-                  className={`${inputClasses} resize-none`}
+                  className={`${inputClasses} resize-none text-white`}
+                  style={{ color: '#ffffff' }}
                   required
                 />
               </div>
