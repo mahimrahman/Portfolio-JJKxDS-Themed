@@ -31,7 +31,7 @@ export const EDUCATION_DATA: EducationEntry[] = [
     degree: "MEng in Software Engineering",
     technique: "Sun Breathing: Hinokami Kagura",
     institution: "Concordia University",
-    duration: "Sep 2023 – Present",
+    duration: "Sep 2023 – Aug 2025",
     description: "Mastering advanced software engineering techniques, focusing on project management, software comprehension, and human-computer interaction.",
     theme: {
       pattern: "bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zenitsu-lightning/50 via-ghost-black to-deep-charcoal",

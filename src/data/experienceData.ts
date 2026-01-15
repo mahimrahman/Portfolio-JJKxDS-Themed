@@ -101,6 +101,17 @@ const nodes: ExperienceNode[] = [
   // Bangladesh Nodes (Red/Orange Theme - Fire/Sun Breathing)
   {
     id: 'n9',
+    role: 'PR Team Member',
+    company: 'JAAGO Foundation',
+    region: Region.BANGLADESH,
+    description: "Worked with JAAGO Foundation's youth wing to develop and implement campaigns from the UN Sustainable Development Goals (SDGs) that promote quality education, gender equality, and climate awareness. Recipient of multiple awards for leadership and innovation.",
+    skills: ['Public Relations', 'Social Media', 'Campaign Development', 'Youth Advocacy', 'Community Outreach'],
+    date: 'May 2015 - July 2019',
+    type: 'leadership',
+    color: '#ef4444'
+  },
+  {
+    id: 'n10',
     role: 'Senior Member',
     company: 'Connecting Youth for Change',
     region: Region.BANGLADESH,
@@ -111,7 +122,7 @@ const nodes: ExperienceNode[] = [
     color: '#ef4444'
   },
   {
-    id: 'n10',
+    id: 'n11',
     role: 'Member',
     company: 'Bangladesh Scouts',
     region: Region.BANGLADESH,
@@ -120,6 +131,52 @@ const nodes: ExperienceNode[] = [
     date: '2011 - 2019',
     type: 'leadership',
     color: '#f97316'
+  },
+
+  // New Canada Nodes
+  {
+    id: 'n12',
+    role: 'VP - Events',
+    company: 'Best Buddies Concordia',
+    region: Region.CANADA,
+    description: 'Plan and execute inclusive events for the Best Buddies Concordia Chapter, promoting friendships and social inclusion for individuals with intellectual and developmental disabilities.',
+    skills: ['Event Planning', 'Inclusive Design', 'Community Engagement', 'Team Collaboration'],
+    date: 'Jan 2024 - May 2025',
+    type: 'leadership',
+    color: '#3b82f6'
+  },
+  {
+    id: 'n13',
+    role: 'Peer Ambassador',
+    company: 'SARC - Concordia',
+    region: Region.CANADA,
+    description: 'Provide compassionate support and connect survivors of sexual assault to essential resources. Raise awareness about sexual violence through prevention initiatives and advocacy.',
+    skills: ['Peer Support', 'Advocacy', 'Prevention Education', 'Community Building'],
+    date: 'Aug 2024 - Present',
+    type: 'leadership',
+    color: '#3b82f6'
+  },
+  {
+    id: 'n14',
+    role: 'Finance Portfolio',
+    company: 'AIESEC Concordia',
+    region: Region.CANADA,
+    description: 'Manage and oversee financial activities, including budgeting, financial planning, and expense tracking.',
+    skills: ['Financial Management', 'Budgeting', 'Financial Planning', 'Expense Tracking'],
+    date: 'July 2024 - Aug 2025',
+    type: 'leadership',
+    color: '#3b82f6'
+  },
+  {
+    id: 'n15',
+    role: 'Project Manager',
+    company: 'TECH-NEST',
+    region: Region.CANADA,
+    description: 'Led TECH-NEST as Project Manager for the Forces AVENIR Competition, overseeing a multidisciplinary team and project execution from concept to delivery.',
+    skills: ['Project Management', 'Team Leadership', 'Stakeholder Engagement', 'Strategic Planning'],
+    date: 'Jan 2025 - Aug 2025',
+    type: 'leadership',
+    color: '#3b82f6'
   },
 ];
 
@@ -136,10 +193,18 @@ const links: ExperienceLink[] = [
   // Connection to Bangladesh
   { source: 'n8', target: 'n9', value: 2 },
   { source: 'n9', target: 'n10', value: 1 },
+  { source: 'n10', target: 'n11', value: 1 },
+  // New Canada connections
+  { source: 'n6', target: 'n12', value: 1 },
+  { source: 'n12', target: 'n13', value: 1 },
+  { source: 'n13', target: 'n14', value: 1 },
+  { source: 'n14', target: 'n15', value: 1 },
   // Cross connections for stability and aesthetics
   { source: 'n1', target: 'n3', value: 3 },
   { source: 'n2', target: 'n4', value: 3 },
   { source: 'n7', target: 'n9', value: 3 },
+  { source: 'n2', target: 'n12', value: 3 },
+  { source: 'n4', target: 'n13', value: 3 },
 ];
 
 export const initialData: GraphData = { nodes, links };
