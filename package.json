@@ -10,7 +10,10 @@
     "graphics:setup": "node scripts/setup-graphics-folders.js",
     "graphics:organize": "node scripts/organize-graphics.js",
     "graphics:manifest": "node scripts/generate-graphics-manifest.js",
-    "photography:manifest": "node scripts/generate-photography-manifest.js"
+    "photography:manifest": "node scripts/generate-photography-manifest.js",
+    "uiux:upload-records": "node scripts/upload-uiux-records-to-cloudinary.js",
+    "uiux:prune-records": "node scripts/prune-local-uiux-records.js",
+    "uiux:sync-records": "node scripts/upload-uiux-records-to-cloudinary.js && node scripts/prune-local-uiux-records.js --verify --yes"
   },
   "dependencies": {
     "@fontsource/mochiy-pop-one": "^5.2.5",
@@ -34,6 +37,7 @@
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "@vitejs/plugin-react": "^4.7.0",
+    "dotenv": "^16.6.1",
     "typescript": "^5.3.3",
     "vite": "^5.4.21"
   }

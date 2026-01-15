@@ -26,7 +26,137 @@ interface Project {
   screenshots: string[];
 }
 
+const CLOUDINARY_CLOUD_NAME = 'dacbxyltq';
+
+const cloudinaryImageUrl = (publicPath: string) => {
+  const encoded = publicPath
+    .split('/')
+    .map((part) => encodeURIComponent(part))
+    .join('/');
+
+  return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/${encoded}`;
+};
+
+const uiuxScreens = (folderPath: string, start: number, end: number, extension: string = 'png') =>
+  Array.from({ length: end - start + 1 }, (_, index) =>
+    cloudinaryImageUrl(`${folderPath}/${start + index}.${extension}`)
+  );
+
 const projects: Project[] = [
+  {
+    id: 'apptracka',
+    title: 'Apptracka – Application Tracking UI',
+    tagline: 'Clean, task-focused tracking experience',
+    shortDescription: 'UI screens for an application tracking product, designed for clarity and quick scanning.',
+    fullDescription: 'A UI/UX design exploration for an application tracking workflow. The screens prioritize clear information hierarchy, fast navigation, and a minimal visual system to keep focus on the user\'s progress and tasks.',
+    thumbnail: cloudinaryImageUrl('Portfolio/UI UX/Apptracka Application Tracking App/1.png'),
+    category: 'Product UI',
+    tools: ['Figma', 'UI Design', 'UX Flow'],
+    role: ['UI Design', 'UX Design', 'Prototyping'],
+    process: [
+      { step: 'Research', description: 'Review common tracking flows and user needs' },
+      { step: 'Wireframe', description: 'Define layout, hierarchy, and key components' },
+      { step: 'Design', description: 'Apply a consistent visual system and spacing rules' },
+      { step: 'Refine', description: 'Iterate based on readability and interaction clarity' }
+    ],
+    screenshots: uiuxScreens('Portfolio/UI UX/Apptracka Application Tracking App', 1, 9)
+  },
+  {
+    id: 'bangla-editor-panel',
+    title: 'BANGLA Editor Panel – Dashboard UI',
+    tagline: 'Efficient editorial workflow dashboard',
+    shortDescription: 'Admin/editor panel UI screens designed for content operations and management.',
+    fullDescription: 'A dashboard UI concept for an editor/admin panel. The design emphasizes fast navigation, clear status visibility, and scalable components for managing content and editorial tasks.',
+    thumbnail: cloudinaryImageUrl('Portfolio/UI UX/BANGLA Editor Panel/1.png'),
+    category: 'Dashboard',
+    tools: ['Figma', 'Design System', 'UX'],
+    role: ['UI Design', 'Information Architecture', 'Component Design'],
+    process: [
+      { step: 'Structure', description: 'Define sidebar navigation and primary sections' },
+      { step: 'Components', description: 'Design tables, forms, and status indicators' },
+      { step: 'Visual', description: 'Apply spacing, typography, and color tokens' },
+      { step: 'Polish', description: 'Refine states, empty screens, and micro-details' }
+    ],
+    screenshots: uiuxScreens('Portfolio/UI UX/BANGLA Editor Panel', 1, 6)
+  },
+  {
+    id: 'bassilichat-ai',
+    title: 'BassiliChat AI – UI Redesign',
+    tagline: 'Before/after redesign with improved hierarchy',
+    shortDescription: 'A UI redesign comparing the original interface with an updated, cleaner design.',
+    fullDescription: 'This project documents a UI redesign: improving layout structure, readability, and visual hierarchy while keeping the product intent intact. The gallery includes both the redesigned UI and the original UI for comparison.',
+    thumbnail: cloudinaryImageUrl('Portfolio/UI UX/BassiliChat AI/The UI I redesigned/1.png'),
+    category: 'Web App',
+    tools: ['Figma', 'UI Redesign', 'UX Audit'],
+    role: ['UI Design', 'UX Improvement', 'Visual Refinement'],
+    process: [
+      { step: 'Audit', description: 'Identify friction points and visual inconsistencies' },
+      { step: 'Redesign', description: 'Rebuild layout and typography for clarity' },
+      { step: 'Consistency', description: 'Standardize spacing and component patterns' },
+      { step: 'Compare', description: 'Present redesigned screens alongside original UI' }
+    ],
+    screenshots: [
+      ...uiuxScreens('Portfolio/UI UX/BassiliChat AI/The UI I redesigned', 1, 6),
+      ...uiuxScreens('Portfolio/UI UX/BassiliChat AI/Old UI', 1, 4)
+    ]
+  },
+  {
+    id: 'bassilichat-inc-website',
+    title: 'BassiliChat Inc – Website UI',
+    tagline: 'Marketing site layout and visual direction',
+    shortDescription: 'Website UI screens focusing on messaging, layout, and clean presentation.',
+    fullDescription: 'A website UI concept for BassiliChat Inc. The layout focuses on strong messaging blocks, a clear content hierarchy, and a modern visual tone suitable for a product/company landing experience.',
+    thumbnail: cloudinaryImageUrl('Portfolio/UI UX/BassiliChat Inc Website/1.png'),
+    category: 'Website',
+    tools: ['Figma', 'Web UI', 'Visual Design'],
+    role: ['UI Design', 'Visual Design', 'Layout Design'],
+    process: [
+      { step: 'Content', description: 'Define sections and message hierarchy' },
+      { step: 'Layout', description: 'Design responsive-friendly page structure' },
+      { step: 'Style', description: 'Apply typography and color direction' },
+      { step: 'Refine', description: 'Polish spacing, alignment, and component rhythm' }
+    ],
+    screenshots: uiuxScreens('Portfolio/UI UX/BassiliChat Inc Website', 1, 6)
+  },
+  {
+    id: 'bassilitrade',
+    title: 'BassiliTrade – Trading Platform UI',
+    tagline: 'Data-dense UI with readable structure',
+    shortDescription: 'Trading/product UI screens designed to present data clearly and reduce cognitive load.',
+    fullDescription: 'A UI design set for a trading platform interface. The focus is on readable data presentation, consistent component patterns, and visual grouping to help users scan and act quickly.',
+    thumbnail: cloudinaryImageUrl('Portfolio/UI UX/BassiliTrade/1.png'),
+    category: 'Web Platform',
+    tools: ['Figma', 'UI Design', 'Data UI'],
+    role: ['UI Design', 'UX Structure', 'Component Design'],
+    process: [
+      { step: 'Structure', description: 'Define data groupings and navigation model' },
+      { step: 'Components', description: 'Design cards, tables, and key widgets' },
+      { step: 'Hierarchy', description: 'Tune typography and contrast for scanning' },
+      { step: 'Iteration', description: 'Refine based on density and readability checks' }
+    ],
+    screenshots: uiuxScreens('Portfolio/UI UX/BassiliTrade', 1, 7)
+  },
+  {
+    id: 'monheure',
+    title: 'MonHeure – Mobile App UI',
+    tagline: 'Mobile flow with consistent UI patterns',
+    shortDescription: 'A mobile UI design set demonstrating key screens and user flow continuity.',
+    fullDescription: 'A mobile UI/UX design set for MonHeure. The screens focus on consistent interaction patterns, clean layouts, and flow continuity across core tasks within the app.',
+    thumbnail: cloudinaryImageUrl('Portfolio/UI UX/MonHeure Mobile App/1.jpg'),
+    category: 'Mobile App',
+    tools: ['Figma', 'Mobile UI', 'UX Flow'],
+    role: ['UI Design', 'UX Design', 'Prototype Flow'],
+    process: [
+      { step: 'Flow', description: 'Map key tasks and navigation structure' },
+      { step: 'Screens', description: 'Design reusable patterns and components' },
+      { step: 'Visual', description: 'Apply consistent spacing and typography' },
+      { step: 'Review', description: 'Check accessibility and interaction consistency' }
+    ],
+    screenshots: [
+      cloudinaryImageUrl('Portfolio/UI UX/MonHeure Mobile App/1.jpg'),
+      ...uiuxScreens('Portfolio/UI UX/MonHeure Mobile App', 2, 13, 'png')
+    ]
+  },
   {
     id: 'legym',
     title: 'LeGym Concordia Mobile Application UI',
