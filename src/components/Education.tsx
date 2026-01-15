@@ -72,12 +72,12 @@ const BackgroundEffects = memo(() => (
 // Memoized glass morphism instruction box
 const InstructionBox = memo(() => (
   <motion.div
-    className="mb-4 max-w-md mx-auto"
+    className="mb-2 max-w-sm mx-auto"
     initial={{ opacity: 0, y: 10 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: 0.3 }}
   >
-    <div className="bg-gradient-to-r from-zenitsu-lightning/5 to-domain-violet/5 rounded-xl p-3 border border-zenitsu-lightning/10 backdrop-blur-sm shadow-lg relative overflow-hidden">
+    <div className="bg-gradient-to-r from-zenitsu-lightning/5 to-domain-violet/5 rounded-lg p-2 border border-zenitsu-lightning/10 backdrop-blur-sm shadow-lg relative overflow-hidden">
       {/* Glass morphism background pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/2 to-transparent rounded-xl"></div>
       <div className="absolute inset-0 bg-gradient-to-tl from-domain-violet/2 to-transparent rounded-xl"></div>
@@ -105,7 +105,7 @@ const Education: React.FC = () => {
   );
 
   return (
-    <section id="education" className="min-h-screen py-12 px-6 md:px-8 lg:px-12 relative overflow-hidden flex flex-col">
+    <section id="education" className="py-12 px-4 sm:px-6 relative overflow-hidden">
       {/* Subtle Section Merge Overlays */}
       <SectionMerge position="top" intensity="light" />
       <SectionMerge position="bottom" intensity="light" />
@@ -122,12 +122,12 @@ const Education: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="relative z-30 text-center mb-4"
+        className="relative z-30 text-center mb-6 mt-4"
       >
-        <h2 className="section-title mb-0">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-0">
           Innate Domain: Forged Knowledge
         </h2>
-        <p className="text-center text-base md:text-lg text-ash-gray mb-2 max-w-2xl mx-auto">
+        <p className="text-center text-sm md:text-base text-ash-gray mb-2 max-w-xl mx-auto">
           Each fundamental technique, a pillar of power. When manifested together, they form a domain of unparalleled expertise.
         </p>
         
@@ -136,8 +136,8 @@ const Education: React.FC = () => {
         <span className="block w-24 h-1 mx-auto bg-zenitsu-lightning rounded-full animate-pulse" />
       </motion.div>
       
-      <div className="relative z-30 w-full max-w-6xl mx-auto px-4 flex-1 flex items-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10 items-center justify-items-center w-full">
+      <div className="relative z-30 w-full max-w-5xl mx-auto px-4 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 justify-items-center w-full">
           {educationSeals}
         </div>
       </div>
