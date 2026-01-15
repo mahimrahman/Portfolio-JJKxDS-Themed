@@ -26,7 +26,7 @@ const DevelopmentRecord: React.FC = () => (
       </Link>
     </motion.div>
 
-    <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent text-center drop-shadow-lg animate-pulse">
+    <h1 className="section-title mb-0 text-center animate-pulse">
       Development
     </h1>
   </section>

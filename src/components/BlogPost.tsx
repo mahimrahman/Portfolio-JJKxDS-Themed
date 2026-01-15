@@ -18,7 +18,7 @@ const blogData = {
         </blockquote>
       </div>
 
-      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-checkered-green via-cursed-blue to-domain-violet bg-clip-text text-transparent">Understanding User Needs First</h2>
+      <h2 class="mt-12">Understanding User Needs First</h2>
       <p class="mb-6 text-lg leading-relaxed">Before diving into visual design, I always start with understanding the user's context, goals, and pain points. This foundation ensures that every design decision serves a purpose beyond aesthetics.</p>
 
       <div class="my-12">
@@ -26,7 +26,7 @@ const blogData = {
         <p class="text-center text-ash-gray mt-4">User research forms the foundation of meaningful design</p>
       </div>
 
-      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-checkered-green via-cursed-blue to-domain-violet bg-clip-text text-transparent">The Five Pillars of Meaningful Design</h2>
+      <h2 class="mt-12">The Five Pillars of Meaningful Design</h2>
       <p class="mb-6 text-lg leading-relaxed">Through my work on projects like LeGym and Artemis Arthouse, I've identified five key principles that transform good-looking designs into meaningful experiences:</p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-12">
@@ -46,7 +46,7 @@ const blogData = {
         </div>
       </div>
 
-      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-checkered-green via-cursed-blue to-domain-violet bg-clip-text text-transparent">Practical Application</h2>
+      <h2 class="mt-12">Practical Application</h2>
       <p class="mb-6 text-lg leading-relaxed">When designing the LeGym mobile app, I didn't start with colors or layouts. I began by understanding how students actually use gym facilities, what frustrates them, and what would make their experience better. This led to features like real-time equipment availability and personalized workout tracking - solutions that addressed real pain points.</p>
 
       <div class="my-12 p-6 bg-checkered-green/10 rounded-xl border border-checkered-green/30 backdrop-blur-sm">
@@ -84,7 +84,7 @@ const blogData = {
         </blockquote>
       </div>
 
-      <h2 class="text-3xl font-bold mb-6 mt-12 bg-gradient-to-r from-checkered-green via-cursed-blue to-domain-violet bg-clip-text text-transparent">The Power of Low-Fidelity Thinking</h2>
+      <h2 class="mt-12">The Power of Low-Fidelity Thinking</h2>
       <p class="mb-6 text-lg leading-relaxed">Wireframes force you to focus on what matters most: structure, hierarchy, and user flow. When you remove colors, fonts, and fancy graphics, you're left with the pure essence of your design solution.</p>
 
       <div class="my-12">
@@ -185,7 +185,7 @@ export const BlogPost = () => {
     return (
       <div className="min-h-screen bg-deep-charcoal flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-snow-white mb-4">404 - Post Not Found</h1>
+          <h1 className="section-title mb-4">404 - Post Not Found</h1>
           <button
             onClick={handleBack}
             className="px-6 py-3 rounded-full bg-gradient-to-r from-cursed-blue to-domain-violet text-snow-white font-bold shadow-lg hover:opacity-90 transition-all duration-300"
@@ -200,9 +200,22 @@ export const BlogPost = () => {
   const colors = categoryColors[post.category] || categoryColors.Design;
 
   return (
-    <article className="min-h-screen py-8 px-4 bg-deep-charcoal relative overflow-hidden">
+    <article className="min-h-screen py-10 px-4 bg-deep-charcoal relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-domain-violet/5 via-deep-charcoal to-cursed-blue/5 pointer-events-none" />
+
+      {/* Manga halftone */}
+      <div
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.35) 1px, transparent 1px)',
+          backgroundSize: '30px 30px',
+        }}
+      />
+
+      {/* Manga panel bars */}
+      <div className="absolute top-0 left-0 right-0 h-2 bg-snow-white/5 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-2 bg-snow-white/5 pointer-events-none" />
 
       {/* Floating Particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -235,13 +248,27 @@ export const BlogPost = () => {
           className="relative mb-12"
         >
           {/* Hero Image with Hexagonal Overlay */}
-          <div className="relative aspect-video rounded-2xl overflow-hidden mb-8 border-2 border-snow-white/10">
+          <div
+            className="relative aspect-video rounded-xl overflow-hidden mb-8 border-2 border-snow-white/15"
+            style={{ boxShadow: '12px 12px 0 rgba(0,0,0,0.55)' }}
+          >
+            {/* Inner frame */}
+            <div className="absolute inset-2 border-2 border-white/10 rounded-lg pointer-events-none" />
             <img
               src={post.image}
               alt={post.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover grayscale contrast-150 brightness-90"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-deep-charcoal via-deep-charcoal/60 to-transparent" />
+
+            {/* Halftone overlay for manga feel */}
+            <div
+              className="absolute inset-0 opacity-[0.10] pointer-events-none"
+              style={{
+                backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.35) 1px, transparent 1px)',
+                backgroundSize: '7px 7px',
+              }}
+            />
 
             {/* Hexagonal Corner Decorations */}
             <svg className="absolute top-0 left-0 w-20 h-20 opacity-20" viewBox="0 0 100 100">
@@ -263,14 +290,11 @@ export const BlogPost = () => {
               />
             </svg>
 
-            {/* Category Badge */}
-            <div className="absolute bottom-6 left-6">
+            {/* Category Badge (manga label) */}
+            <div className="absolute bottom-5 left-5">
               <span
-                className="px-4 py-2 rounded-full text-sm font-bold text-deep-charcoal backdrop-blur-md shadow-lg"
-                style={{
-                  background: `linear-gradient(135deg, ${colors.primary}, ${colors.secondary})`,
-                  boxShadow: `0 8px 25px rgba(${colors.glow}, 0.4)`,
-                }}
+                className="px-4 py-2 text-sm font-black text-deep-charcoal border-2 border-white/20 bg-snow-white/90"
+                style={{ boxShadow: '4px 4px 0 rgba(0,0,0,0.6)' }}
               >
                 {post.category}
               </span>
@@ -283,8 +307,29 @@ export const BlogPost = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-ghost-black/40 rounded-2xl p-8 md:p-12 backdrop-blur-md border border-snow-white/10 shadow-2xl relative overflow-hidden"
+          className="bg-ghost-black/40 rounded-2xl p-8 md:p-12 backdrop-blur-md border-2 border-snow-white/15 shadow-2xl relative overflow-hidden"
+          style={{ boxShadow: `14px 14px 0 rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06)` }}
         >
+          {/* Inner panel frame */}
+          <div className="absolute inset-3 rounded-xl border border-white/10 pointer-events-none" />
+
+          {/* Speed lines */}
+          <svg className="absolute -right-10 -top-10 w-56 h-56 opacity-[0.06] pointer-events-none" viewBox="0 0 100 100" fill="none">
+            <path d="M10 90 L90 10" stroke="white" strokeWidth="2" />
+            <path d="M20 95 L95 20" stroke="white" strokeWidth="2" />
+            <path d="M5 75 L75 5" stroke="white" strokeWidth="2" />
+          </svg>
+
+          {/* Corner tag */}
+          <div className="absolute top-4 left-4">
+            <div
+              className="px-3 py-1 text-[10px] font-subtitle font-black uppercase tracking-widest border-2 border-white/15 bg-black/60 backdrop-blur-sm"
+              style={{ color: colors.primary, boxShadow: '4px 4px 0 rgba(0,0,0,0.5)' }}
+            >
+              FILE // {post.category}
+            </div>
+          </div>
+
           {/* Domain Expansion Effect */}
           <div className="absolute -top-20 -right-20 w-40 h-40 opacity-5 pointer-events-none">
             <svg viewBox="0 0 100 100">
@@ -311,10 +356,7 @@ export const BlogPost = () => {
 
           {/* Title */}
           <h1
-            className="text-3xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent font-['Mochiy_Pop_One']"
-            style={{
-              backgroundImage: `linear-gradient(135deg, ${colors.primary}, ${colors.secondary})`,
-            }}
+            className="section-title mb-6 mt-10"
           >
             {post.title}
           </h1>
@@ -345,7 +387,7 @@ export const BlogPost = () => {
 
           {/* Content */}
           <div
-            className="prose prose-invert prose-lg max-w-none prose-headings:font-['Mochiy_Pop_One'] prose-p:text-ash-gray prose-p:leading-relaxed prose-a:text-cursed-blue prose-a:no-underline hover:prose-a:text-checkered-green prose-strong:text-snow-white prose-code:text-zenitsu-lightning prose-code:bg-ghost-black/50 prose-code:px-2 prose-code:py-1 prose-code:rounded"
+            className="prose prose-invert prose-lg max-w-none prose-headings:font-title prose-headings:font-black prose-headings:tracking-tight prose-h2:text-2xl md:prose-h2:text-3xl prose-p:text-ash-gray prose-p:leading-relaxed prose-a:text-cursed-blue prose-a:no-underline hover:prose-a:text-checkered-green prose-strong:text-snow-white prose-blockquote:border-l-4 prose-blockquote:border-snow-white/20 prose-blockquote:text-snow-white/80 prose-code:text-zenitsu-lightning prose-code:bg-ghost-black/50 prose-code:px-2 prose-code:py-1 prose-code:rounded"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
@@ -373,7 +415,7 @@ export const BlogPost = () => {
           {/* Related Posts */}
           {post.relatedPosts && post.relatedPosts.length > 0 && (
             <div className="mt-12 pt-8 border-t border-snow-white/10">
-              <h3 className="text-2xl font-bold mb-6 text-snow-white font-['Mochiy_Pop_One']">Related Articles</h3>
+              <h3 className="text-2xl font-black mb-6 text-snow-white font-title">Related Articles</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {post.relatedPosts.map((relatedPost, idx) => {
                   const relatedId = (Object.keys(blogData) as Array<keyof typeof blogData>).find(

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Navigation Component
+ * @description Traditional navbar with responsive mobile menu and animated hamburger icon
+ * @deprecated Consider using HalfMoonNavigation for the primary navigation
+ */
 import { useState, useEffect, MouseEvent, Dispatch, SetStateAction } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -8,7 +13,6 @@ const navItems = [
   { name: 'Experience', href: '#experience', icon: '💼' },
   { name: 'Portfolio', href: '#portfolio', icon: '📁' },
   { name: 'Education', href: '#education', icon: '🎓' },
-  { name: 'Skills', href: '#skills', icon: '⚡' },
   { name: 'Blog', href: '#blog', icon: '📝' },
   { name: 'Contact', href: '#contact', icon: '📧' },
 ];

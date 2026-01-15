@@ -385,7 +385,7 @@ const GraphicDesignRecord: React.FC = () => {
       </motion.div>
 
       <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-rengoku-flame to-domain-violet bg-clip-text text-transparent drop-shadow-lg tracking-wider anime-heading">
+        <h1 className="section-title mb-4">
           Graphic Design
         </h1>
         <p className="text-snow-white/70 text-lg mb-2">

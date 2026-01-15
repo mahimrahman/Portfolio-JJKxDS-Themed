@@ -1,3 +1,9 @@
+/**
+ * @fileoverview Cloudinary URL Migration Script
+ * @description Converts local asset paths in manifest files to Cloudinary CDN URLs
+ * for optimized image delivery and reduced repository size
+ * @usage npm run cloudinary:update
+ */
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';

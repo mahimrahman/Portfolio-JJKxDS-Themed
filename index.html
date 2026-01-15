@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5, user-scalable=yes" />
     <meta name="theme-color" content="#0A0A0A" />
     <meta
       name="description"
@@ -19,6 +19,32 @@
       /* Critical CSS - prevent white flash */
       html, body { background-color: #0a0a0a; margin: 0; padding: 0; }
       #root { min-height: 100vh; background-color: #0a0a0a; }
+
+      /* Responsive zoom fixes */
+      * {
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+
+      /* Ensure consistent box-sizing */
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      /* Prevent layout shift on zoom */
+      @media (max-width: 1024px) {
+        html {
+          font-size: clamp(12px, 2vw, 16px);
+        }
+      }
+
+      @media (min-width: 1025px) {
+        html {
+          font-size: clamp(14px, 1vw, 16px);
+        }
+      }
     </style>
   </head>
   <body style="background-color: #0a0a0a; margin: 0; padding: 0;">

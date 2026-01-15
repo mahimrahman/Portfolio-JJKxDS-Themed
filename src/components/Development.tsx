@@ -290,7 +290,7 @@ const Development = () => {
         >
           {/* Animated Title */}
           <div className="relative inline-block mb-6">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-violet-400 via-fuchsia-400 to-rose-400 bg-clip-text text-transparent">
+            <h1 className="section-title mb-0">
               Development Projects
             </h1>
             <motion.div

@@ -1,16 +1,20 @@
+/**
+ * @fileoverview Main Application Component
+ * @description Root component handling routing, theme context, scroll management,
+ * and lazy loading for the anime-themed portfolio application
+ */
 import { useEffect, useRef, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import HalfMoonNavigation from './components/HalfMoonNavigation';
 import Hero from './components/Hero';
-import InteractiveSmoke from './components/InteractiveSmoke';
 import { Analytics } from "@vercel/analytics/react"
+import { ThemeProvider } from './context/ThemeContext';
 
 // Import critical sections immediately for smooth transitions
 import About from './components/About';
 import Experience from './components/Experience';
 import Portfolio from './components/Portfolio';
 import Education from './components/Education';
-import Skills from './components/Skills';
 import Contact from './components/Contact';
 
 // Lazy load only less critical sections
@@ -122,8 +126,6 @@ const AppContent = () => {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#121212] to-[#1a1a1a]">
-      {/* Simple colored smoke effect - Forward and visible */}
-      <InteractiveSmoke />
       <HalfMoonNavigation />
       <main className="relative z-10">
         <Routes>
@@ -143,9 +145,6 @@ const AppContent = () => {
               </section>
               <section id="education" className="relative z-10 section-transition">
                 <Education />
-              </section>
-              <section id="skills" className="relative z-10 section-transition">
-                <Skills />
               </section>
               <Suspense fallback={null}>
                 <section id="blog" className="relative z-10 section-transition">
@@ -178,8 +177,10 @@ const App = () => {
 
   return (
     <Router>
-      <AppContent />
-      <Analytics />
+      <ThemeProvider>
+        <AppContent />
+        <Analytics />
+      </ThemeProvider>
     </Router>
   );
 };

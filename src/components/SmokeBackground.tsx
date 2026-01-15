@@ -1,5 +1,13 @@
+/**
+ * @fileoverview Smoke Background Effect Component
+ * @description High-performance canvas-based animated smoke particles
+ * with optional mouse tracking and theme-colored particles
+ */
 import { useRef, useEffect, memo } from 'react';
 
+/**
+ * Smoke particle state for animation
+ */
 interface SmokeParticle {
   x: number;
   y: number;
@@ -12,7 +20,20 @@ interface SmokeParticle {
   colorIndex: number;
 }
 
-const SmokeBackground = memo(() => {
+/**
+ * Props for SmokeBackground component
+ */
+interface SmokeBackgroundProps {
+  /** When true, particles won't react to mouse movement */
+  disableMouseTracking?: boolean;
+}
+
+/**
+ * Smoke Background Component
+ * Renders animated smoke particles on a canvas with performance optimizations
+ * including intersection observer pausing and frame rate limiting
+ */
+const SmokeBackground = memo(({ disableMouseTracking = false }: SmokeBackgroundProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>();
   const particlesRef = useRef<SmokeParticle[]>([]);
@@ -130,15 +151,17 @@ const SmokeBackground = memo(() => {
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
 
-        // Simplified mouse influence (less calculations)
-        const dx = mouse.x - p.x;
-        const dy = mouse.y - p.y;
-        const distSq = dx * dx + dy * dy;
-        if (distSq < 250000) { // Only calculate if close enough (500px)
-          const distance = Math.sqrt(distSq);
-          const influence = Math.min(30 / (distance + 1), 0.2);
-          p.vx += (dx / distance) * influence * 0.008;
-          p.vy += (dy / distance) * influence * 0.008;
+        // Simplified mouse influence (less calculations) - only if not disabled
+        if (!disableMouseTracking) {
+          const dx = mouse.x - p.x;
+          const dy = mouse.y - p.y;
+          const distSq = dx * dx + dy * dy;
+          if (distSq < 250000) { // Only calculate if close enough (500px)
+            const distance = Math.sqrt(distSq);
+            const influence = Math.min(30 / (distance + 1), 0.2);
+            p.vx += (dx / distance) * influence * 0.008;
+            p.vy += (dy / distance) * influence * 0.008;
+          }
         }
 
         // Reduced turbulence for performance
@@ -208,7 +231,7 @@ const SmokeBackground = memo(() => {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, []);
+  }, [disableMouseTracking]);
 
   return (
     <canvas

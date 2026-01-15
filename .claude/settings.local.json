@@ -13,7 +13,9 @@
       "Bash(cat:*)",
       "Bash(dir:*)",
       "Bash(findstr:*)",
-      "Bash(node scripts/generate-photography-manifest.js:*)"
+      "Bash(node scripts/generate-photography-manifest.js:*)",
+      "Bash(git checkout:*)",
+      "Bash(npm install:*)"
     ],
     "deny": [],
     "ask": []

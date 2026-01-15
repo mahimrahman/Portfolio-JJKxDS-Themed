@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Half Moon Navigation Component
+ * @description Floating draggable navigation button that expands into a half-moon
+ * radial menu with domain expansion visual effects inspired by Jujutsu Kaisen
+ */
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useDragControls } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -7,7 +12,6 @@ import {
   Briefcase,
   FolderKanban,
   GraduationCap,
-  Sparkles,
   ScrollText,
   Send,
   X,
@@ -52,7 +56,6 @@ export default function HalfMoonNavigation() {
     { name: 'Missions', href: '#experience', icon: Briefcase },
     { name: 'Records', href: '#portfolio', icon: FolderKanban },
     { name: 'Education', href: '#education', icon: GraduationCap },
-    { name: 'Skills', href: '#skills', icon: Sparkles },
     { name: 'Blog', href: '#blog', icon: ScrollText },
     { name: 'Summon', href: '#contact', icon: Send },
     { name: 'Download CV', href: '', icon: FileDown, action: handleDownloadCV },
@@ -360,11 +363,11 @@ export default function HalfMoonNavigation() {
                       const angleStep = (endAngle - startAngle) / (navItems.length - 1);
                       const angle = startAngle + angleStep * index;
 
-                      // Special label distance for Education (index 4), Summon (index 7), Download CV (index 8)
+                      // Special label distance tweaks (avoid brittle index coupling)
                       let labelDistance = isMobile ? 65 : 75;
-                      if (index === 4) labelDistance = isMobile ? 80 : 95; // Education
-                      if (index === 7) labelDistance = isMobile ? 85 : 105; // Summon
-                      if (index === 8) labelDistance = isMobile ? 100 : 125; // Download CV
+                      if (item.name === 'Education') labelDistance = isMobile ? 80 : 95;
+                      if (item.name === 'Summon') labelDistance = isMobile ? 85 : 105;
+                      if (item.name === 'Download CV') labelDistance = isMobile ? 100 : 125;
 
                       // Calculate label position - pointing outward from the icon
                       const labelAngleRad = angle * (Math.PI / 180);
@@ -373,15 +376,14 @@ export default function HalfMoonNavigation() {
 
                       // Vertical adjustments to center-align labels with icons
                       const yAdjust = isMobile ? 8 : 12;
-                      if (index === 0) labelOffsetY += yAdjust; // Domain - down
-                      if (index === 1) labelOffsetY += yAdjust; // Path - down
-                      if (index === 2) labelOffsetY += yAdjust; // Missions - down
-                      if (index === 3) labelOffsetY += yAdjust; // Records - down
-                      if (index === 4) labelOffsetY += yAdjust * 0.7; // Education - slightly down
-                      if (index === 5) labelOffsetY += yAdjust * 0.7; // Skills - slightly down
-                      if (index === 6) labelOffsetY += yAdjust * 0.7; // Blog - slightly down
-                      if (index === 7) labelOffsetY -= yAdjust; // Summon - up
-                      if (index === 8) labelOffsetY -= yAdjust * 1.8; // Download CV - further up
+                      if (item.name === 'Domain') labelOffsetY += yAdjust;
+                      if (item.name === 'Path') labelOffsetY += yAdjust;
+                      if (item.name === 'Missions') labelOffsetY += yAdjust;
+                      if (item.name === 'Records') labelOffsetY += yAdjust;
+                      if (item.name === 'Education') labelOffsetY += yAdjust * 0.7;
+                      if (item.name === 'Blog') labelOffsetY += yAdjust * 0.7;
+                      if (item.name === 'Summon') labelOffsetY -= yAdjust;
+                      if (item.name === 'Download CV') labelOffsetY -= yAdjust * 1.8;
 
                       return (
                         <motion.button
