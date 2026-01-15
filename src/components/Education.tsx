@@ -105,7 +105,7 @@ const Education: React.FC = () => {
   );
 
   return (
-    <section id="education" className="h-screen py-8 px-6 md:px-8 lg:px-12 relative overflow-hidden flex flex-col">
+    <section id="education" className="min-h-screen py-12 px-6 md:px-8 lg:px-12 relative overflow-hidden flex flex-col">
       {/* Subtle Section Merge Overlays */}
       <SectionMerge position="top" intensity="light" />
       <SectionMerge position="bottom" intensity="light" />
@@ -122,12 +122,12 @@ const Education: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="relative z-30 text-center mb-6"
+        className="relative z-30 text-center mb-4"
       >
         <h2 className="section-title mb-0">
           Innate Domain: Forged Knowledge
         </h2>
-        <p className="text-center text-base md:text-lg text-ash-gray mb-3 max-w-2xl mx-auto">
+        <p className="text-center text-base md:text-lg text-ash-gray mb-2 max-w-2xl mx-auto">
           Each fundamental technique, a pillar of power. When manifested together, they form a domain of unparalleled expertise.
         </p>
         

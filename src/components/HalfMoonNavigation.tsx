@@ -12,7 +12,6 @@ import {
   Briefcase,
   FolderKanban,
   GraduationCap,
-  ScrollText,
   Send,
   X,
   FileDown,
@@ -56,7 +55,6 @@ export default function HalfMoonNavigation() {
     { name: 'Missions', href: '#experience', icon: Briefcase },
     { name: 'Records', href: '#portfolio', icon: FolderKanban },
     { name: 'Education', href: '#education', icon: GraduationCap },
-    { name: 'Blog', href: '#blog', icon: ScrollText },
     { name: 'Summon', href: '#contact', icon: Send },
     { name: 'Download CV', href: '', icon: FileDown, action: handleDownloadCV },
   ];
@@ -381,7 +379,6 @@ export default function HalfMoonNavigation() {
                       if (item.name === 'Missions') labelOffsetY += yAdjust;
                       if (item.name === 'Records') labelOffsetY += yAdjust;
                       if (item.name === 'Education') labelOffsetY += yAdjust * 0.7;
-                      if (item.name === 'Blog') labelOffsetY += yAdjust * 0.7;
                       if (item.name === 'Summon') labelOffsetY -= yAdjust;
                       if (item.name === 'Download CV') labelOffsetY -= yAdjust * 1.8;
 

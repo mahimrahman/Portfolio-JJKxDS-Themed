@@ -74,16 +74,16 @@ const Contact = () => {
     setFormData({ name: '', email: '', message: '' });
   };
 
-  const accentClass = theme === ThemeMode.JUJUTSU ? 'text-[#bc13fe]' : 'text-[#10b981]';
-  const inputClasses = `w-full bg-white/[0.02] border-b-4 py-3 px-2 transition-all duration-500 outline-none text-sm font-body placeholder:text-slate-600 ${
+  const accentClass = theme === ThemeMode.JUJUTSU ? 'text-cyan-400' : 'text-[#10b981]';
+  const inputClasses = `w-full bg-gradient-to-br from-white/[0.08] to-white/[0.03] border-2 rounded-lg py-3 px-4 transition-all duration-300 outline-none text-sm font-body placeholder:text-slate-500 ${
     theme === ThemeMode.JUJUTSU
-      ? 'border-slate-800 focus:border-[#bc13fe] text-purple-50'
-      : 'border-slate-800 focus:border-[#10b981] text-emerald-50'
+      ? 'border-cyan-500/30 focus:border-cyan-400 focus:bg-white/[0.12] text-slate-100 focus:shadow-lg focus:shadow-cyan-500/20'
+      : 'border-emerald-500/30 focus:border-emerald-400 focus:bg-white/[0.12] text-emerald-50 focus:shadow-lg focus:shadow-emerald-500/20'
   }`;
-  const labelClasses = 'text-xs font-subtitle uppercase tracking-[0.25em] opacity-50 mb-2 block';
+  const labelClasses = 'text-xs font-subtitle uppercase tracking-[0.2em] text-cyan-300 mb-2 block font-semibold';
 
   return (
-    <div className="min-h-screen w-full transition-colors duration-1000 flex flex-col bg-[#0a0510] overflow-x-hidden">
+    <div className="min-h-screen w-full transition-colors duration-1000 flex flex-col bg-gradient-to-br from-[#0a0f1a] via-[#0f1520] to-[#050a15] overflow-x-hidden">
       {/* Manga-Style Background FX */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         {/* Speed lines */}
@@ -117,7 +117,7 @@ const Contact = () => {
         }}></div>
 
         {/* Large cursed energy glow */}
-        <div className="absolute -right-40 -bottom-40 w-[50vw] h-[50vw] rounded-full blur-[200px] opacity-[0.04] bg-[#bc13fe]"></div>
+        <div className="absolute -right-40 -bottom-40 w-[50vw] h-[50vw] rounded-full blur-[200px] opacity-[0.08] bg-cyan-600"></div>
 
         {/* Comic panel borders effect */}
         <div className="absolute inset-0 opacity-10">
@@ -136,12 +136,15 @@ const Contact = () => {
             <div className="space-y-3 sm:space-y-4">
               {/* Manga-style header */}
               <div className="relative inline-block">
-                <h2 className="section-title mb-0" style={{ textShadow: '3px 3px 0px #000, -2px -2px 0px rgba(188, 19, 254, 0.3)' }}>
+                <h2 className="section-title mb-1" style={{ textShadow: '3px 3px 0px #000, -2px -2px 0px rgba(34, 211, 238, 0.4)' }}>
                   Inquire
+                </h2>
+                <h2 className={`section-title mb-0 ${accentClass}`} style={{ textShadow: '3px 3px 0px #000' }}>
+                  Directly
                 </h2>
                 {/* Action line effect */}
                 <motion.div
-                  className="absolute -right-8 top-1/2 w-20 h-1 bg-[#bc13fe]"
+                  className="absolute -right-8 top-1/2 w-20 h-1 bg-cyan-500"
                   animate={{
                     scaleX: [0, 1, 0],
                     x: [0, 30, 0]
@@ -154,11 +157,7 @@ const Contact = () => {
                 />
               </div>
 
-              <h2 className={`section-title mb-0 ${accentClass}`} style={{ textShadow: '3px 3px 0px #000' }}>
-                Directly
-              </h2>
-
-              <div className="relative pl-3 sm:pl-4 border-l-3 sm:border-l-4 border-[#bc13fe]">
+              <div className="relative pl-3 sm:pl-4 border-l-3 sm:border-l-4 border-cyan-500">
                 <p className="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed font-body max-w-md">
                   {theme === ThemeMode.JUJUTSU
                     ? "Establishing a direct link to the cursed realm. Hollow purple energy verified."
@@ -179,13 +178,13 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     whileHover={{ y: -6, rotate: 5 }}
                     whileTap={{ scale: 0.9 }}
-                    className={`w-10 h-10 sm:w-12 sm:h-12 border-2 sm:border-3 flex items-center justify-center transition-all duration-300 relative ${
+                    className={`w-10 h-10 sm:w-12 sm:h-12 border-2 sm:border-3 rounded-lg flex items-center justify-center transition-all duration-300 relative group ${
                       theme === ThemeMode.JUJUTSU
-                        ? 'border-slate-800 hover:border-[#bc13fe] text-[#bc13fe]/60 hover:text-[#bc13fe]'
-                        : 'border-slate-800 hover:border-[#10b981] text-[#10b981]/60 hover:text-[#10b981]'
+                        ? 'border-cyan-500/40 hover:border-cyan-400 bg-cyan-950/20 hover:bg-cyan-900/30 text-cyan-400 hover:text-cyan-300 hover:shadow-lg hover:shadow-cyan-500/30'
+                        : 'border-emerald-500/40 hover:border-emerald-400 bg-emerald-950/20 hover:bg-emerald-900/30 text-emerald-400 hover:text-emerald-300 hover:shadow-lg hover:shadow-emerald-500/30'
                     }`}
                     style={{
-                      boxShadow: '3px 3px 0px #000'
+                      boxShadow: '3px 3px 0px rgba(0, 0, 0, 0.3)'
                     }}
                   >
                     <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -209,16 +208,16 @@ const Contact = () => {
 
             {/* AI Helper - Manga Style */}
             <div className="pt-4">
-              <div className={`p-4 border-l-4 transition-all duration-500 bg-white/[0.03] relative ${
-                theme === ThemeMode.JUJUTSU ? 'border-[#bc13fe]/50' : 'border-[#10b981]/50'
+              <div className={`p-4 rounded-lg border-2 transition-all duration-500 relative ${
+                theme === ThemeMode.JUJUTSU ? 'border-cyan-500/40 bg-gradient-to-br from-cyan-950/40 to-cyan-900/20 shadow-lg shadow-cyan-900/20' : 'border-emerald-500/40 bg-gradient-to-br from-emerald-950/40 to-emerald-900/20 shadow-lg shadow-emerald-900/20'
               }`}
                 style={{
                   boxShadow: '6px 6px 0px rgba(0,0,0,0.3)'
                 }}
               >
                 <div className="flex gap-3 items-center">
-                  <div className={`w-10 h-10 border-3 border-white/20 flex items-center justify-center text-lg font-black ${
-                    theme === ThemeMode.JUJUTSU ? 'text-[#bc13fe]' : 'text-[#10b981]'
+                  <div className={`w-10 h-10 rounded-full border-2 flex items-center justify-center text-lg font-black ${
+                    theme === ThemeMode.JUJUTSU ? 'border-cyan-400/50 bg-cyan-500/20 text-cyan-400' : 'border-emerald-400/50 bg-emerald-500/20 text-emerald-400'
                   }`}>
                     {theme === ThemeMode.JUJUTSU ? '●' : '▲'}
                   </div>
@@ -230,22 +229,22 @@ const Contact = () => {
                   </div>
                 </div>
                 {/* Comic panel corner */}
-                <div className="absolute top-0 right-0 w-0 h-0 border-t-[20px] border-r-[20px] border-t-[#bc13fe] border-r-transparent opacity-30"></div>
+                <div className="absolute top-0 right-0 w-0 h-0 border-t-[20px] border-r-[20px] border-t-cyan-500 border-r-transparent opacity-20"></div>
               </div>
             </div>
           </div>
 
           {/* RIGHT: MANGA-STYLE FORM */}
-          <div className={`form-container p-4 sm:p-6 md:p-8 border-3 sm:border-4 transition-all duration-500 relative bg-black/40 ${
-            theme === ThemeMode.JUJUTSU ? 'border-[#bc13fe]/30' : 'border-[#10b981]/30'
+          <div className={`form-container p-4 sm:p-6 md:p-8 rounded-xl border-2 transition-all duration-500 relative ${
+            theme === ThemeMode.JUJUTSU ? 'border-cyan-500/40 bg-gradient-to-br from-cyan-950/30 to-black/60 shadow-2xl shadow-cyan-900/20' : 'border-emerald-500/40 bg-gradient-to-br from-emerald-950/30 to-black/60 shadow-2xl shadow-emerald-900/20'
           }`}
             style={{
               boxShadow: '6px 6px 0px rgba(0,0,0,0.5)'
             }}
           >
             {/* Corner accent */}
-            <div className="absolute top-0 left-0 w-0 h-0 border-t-[20px] sm:border-t-[30px] border-l-[20px] sm:border-l-[30px] border-t-[#bc13fe] border-l-transparent opacity-40"></div>
-            <div className="absolute bottom-0 right-0 w-0 h-0 border-b-[20px] sm:border-b-[30px] border-r-[20px] sm:border-r-[30px] border-b-[#bc13fe] border-r-transparent opacity-40"></div>
+            <div className="absolute top-0 left-0 w-0 h-0 border-t-[20px] sm:border-t-[30px] border-l-[20px] sm:border-l-[30px] border-t-cyan-500 border-l-transparent opacity-30"></div>
+            <div className="absolute bottom-0 right-0 w-0 h-0 border-b-[20px] sm:border-b-[30px] border-r-[20px] sm:border-r-[30px] border-b-cyan-500 border-r-transparent opacity-30"></div>
 
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 relative z-10">
               <div>
@@ -292,19 +291,18 @@ const Contact = () => {
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className={`w-full py-3 sm:py-4 text-xs sm:text-sm font-subtitle uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-500 border-3 sm:border-4 relative overflow-hidden ${
+                className={`w-full py-3 sm:py-4 rounded-lg text-xs sm:text-sm font-subtitle uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-300 border-2 relative overflow-hidden font-bold ${
                   isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
                 } ${
                   theme === ThemeMode.JUJUTSU
-                    ? 'bg-[#bc13fe] border-[#bc13fe] text-black hover:bg-[#bc13fe]/90'
-                    : 'bg-[#10b981] border-[#10b981] text-black hover:bg-[#10b981]/90'
+                    ? 'bg-gradient-to-r from-cyan-600 to-cyan-500 border-cyan-400 text-white hover:from-cyan-500 hover:to-cyan-400 shadow-lg shadow-cyan-900/50'
+                    : 'bg-gradient-to-r from-emerald-600 to-emerald-500 border-emerald-400 text-white hover:from-emerald-500 hover:to-emerald-400 shadow-lg shadow-emerald-900/50'
                 }`}
                 style={{
-                  boxShadow: '4px 4px 0px #000',
-                  transform: isSubmitting ? 'none' : 'skew(-6deg)'
+                  boxShadow: '4px 4px 0px rgba(0, 0, 0, 0.4)'
                 }}
               >
-                <span className="relative z-10 inline-block" style={{ transform: 'skew(6deg)' }}>
+                <span className="relative z-10">
                   {isSubmitting ? 'SYNCING...' : '⚡ TRANSMIT ⚡'}
                 </span>
                 {/* Action effect */}
