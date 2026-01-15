@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Main Application Component
+ * @description Root component handling routing, theme context, scroll management,
+ * and lazy loading for the anime-themed portfolio application
+ */
 import { useEffect, useRef, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import HalfMoonNavigation from './components/HalfMoonNavigation';

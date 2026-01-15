@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Portfolio Section Component
+ * @description Showcases portfolio categories (Development, UI/UX, Graphic Design, Photography)
+ * with animated hexagonal icons and navigation to detailed record pages
+ */
 import { useState, memo } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';

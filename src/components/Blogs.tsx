@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Blog Section Component
+ * @description Displays blog post previews in manga-style cards with category filtering
+ * and hover effects. Links to individual blog post pages.
+ */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SmokeBackground from './SmokeBackground';

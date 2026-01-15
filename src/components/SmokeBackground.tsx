@@ -1,5 +1,13 @@
+/**
+ * @fileoverview Smoke Background Effect Component
+ * @description High-performance canvas-based animated smoke particles
+ * with optional mouse tracking and theme-colored particles
+ */
 import { useRef, useEffect, memo } from 'react';
 
+/**
+ * Smoke particle state for animation
+ */
 interface SmokeParticle {
   x: number;
   y: number;
@@ -12,10 +20,19 @@ interface SmokeParticle {
   colorIndex: number;
 }
 
+/**
+ * Props for SmokeBackground component
+ */
 interface SmokeBackgroundProps {
+  /** When true, particles won't react to mouse movement */
   disableMouseTracking?: boolean;
 }
 
+/**
+ * Smoke Background Component
+ * Renders animated smoke particles on a canvas with performance optimizations
+ * including intersection observer pausing and frame rate limiting
+ */
 const SmokeBackground = memo(({ disableMouseTracking = false }: SmokeBackgroundProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>();

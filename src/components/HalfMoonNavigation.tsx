@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Half Moon Navigation Component
+ * @description Floating draggable navigation button that expands into a half-moon
+ * radial menu with domain expansion visual effects inspired by Jujutsu Kaisen
+ */
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useDragControls } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';

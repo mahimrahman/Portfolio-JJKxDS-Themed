@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Education Section Component
+ * @description Displays academic achievements as interactive "mastery seal" cards
+ * with flip animations and anime-inspired styling
+ */
 import React, { memo, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { EDUCATION_DATA } from '../constants/education';

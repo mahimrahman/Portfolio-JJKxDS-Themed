@@ -1,5 +1,13 @@
+/**
+ * @fileoverview Experience Section Type Definitions
+ * @description TypeScript interfaces for the interactive constellation-style
+ * experience timeline visualization using D3.js force simulation
+ */
 import { SimulationNodeDatum, SimulationLinkDatum } from 'd3';
 
+/**
+ * Geographic regions for filtering experience nodes
+ */
 export enum Region {
   ALL = 'All Regions',
   CANADA = 'Canada',
@@ -7,6 +15,10 @@ export enum Region {
   BANGLADESH = 'Bangladesh'
 }
 
+/**
+ * Experience node representing a work, education, or leadership position
+ * Extends D3's SimulationNodeDatum for force-directed graph layout
+ */
 export interface ExperienceNode extends SimulationNodeDatum {
   id: string;
   role: string;

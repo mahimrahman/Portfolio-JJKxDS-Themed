@@ -1,13 +1,14 @@
+/**
+ * @fileoverview Visual Effects Component
+ * @description Theme-based animated visual effects including halftone patterns,
+ * action lines, glows, and theme-specific decorative elements
+ */
 import React from 'react';
+import { ThemeMode } from '../context/ThemeContext';
 
-export enum ThemeMode {
-  YUJI = 'YUJI',
-  GOJO = 'GOJO',
-  TANJIRO = 'TANJIRO',
-  ZENITSU = 'ZENITSU',
-  INOSUKE = 'INOSUKE'
-}
-
+/**
+ * Character configuration for visual effect theming
+ */
 interface CharacterConfig {
   name: string;
   professionalRole: string;
@@ -66,10 +67,18 @@ const THEME_CONFIGS: Record<ThemeMode, CharacterConfig> = {
   }
 };
 
+/**
+ * Props for VisualEffects component
+ */
 interface VisualEffectsProps {
+  /** Current theme mode to apply visual effects */
   theme: ThemeMode;
 }
 
+/**
+ * Visual Effects Component
+ * Renders theme-specific animated backgrounds, patterns, and decorative elements
+ */
 const VisualEffects: React.FC<VisualEffectsProps> = ({ theme }) => {
   const config = THEME_CONFIGS[theme];
 

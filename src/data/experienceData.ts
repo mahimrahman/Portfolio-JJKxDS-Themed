@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Experience Data Configuration
+ * @description Static data for the experience constellation graph including
+ * work history, leadership roles, and education across multiple regions
+ */
 import { ExperienceNode, ExperienceLink, Region, GraphData } from '../types/experience';
 
 const nodes: ExperienceNode[] = [

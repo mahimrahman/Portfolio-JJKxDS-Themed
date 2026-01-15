@@ -1,3 +1,8 @@
+/**
+ * @fileoverview About Section Component
+ * @description Displays personal information and skill categories in a grid layout
+ * with anime-inspired styling and 3D card hover effects
+ */
 import { memo, useState } from 'react';
 import { motion } from 'framer-motion';
 import SmokeBackground from './SmokeBackground';

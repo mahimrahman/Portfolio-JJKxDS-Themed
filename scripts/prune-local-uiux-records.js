@@ -1,3 +1,9 @@
+/**
+ * @fileoverview UI/UX Records Local File Pruning Script
+ * @description Removes local UI/UX record images after confirming they've been
+ * uploaded to Cloudinary. Verifies URLs before deletion to prevent data loss.
+ * @usage npm run uiux:prune-records [--yes] [--verify]
+ */
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';

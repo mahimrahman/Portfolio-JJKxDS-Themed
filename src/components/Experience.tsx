@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Experience Section Component
+ * @description Interactive constellation-style visualization of professional experience
+ * using D3.js force-directed graph with draggable nodes and detail panels
+ */
 import React, { useState } from 'react';
 import ParticleBackground from './experience/ParticleBackground';
 import ConstellationGraph from './experience/ConstellationGraph';
@@ -6,6 +11,10 @@ import { initialData } from '../data/experienceData';
 import { Region, ExperienceNode } from '../types/experience';
 import SectionMerge from './SectionMerge';
 
+/**
+ * Experience Section Component
+ * Displays professional experience as an interactive constellation graph
+ */
 const Experience: React.FC = () => {
   const [activeRegion, setActiveRegion] = useState<Region>(Region.ALL);
   const [selectedNode, setSelectedNode] = useState<ExperienceNode | null>(null);

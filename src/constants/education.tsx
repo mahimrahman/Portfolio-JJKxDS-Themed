@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Education Data Configuration
+ * @description Static data for education entries with anime-themed styling,
+ * including custom SVG crests for each degree
+ */
 import { EducationEntry } from '../types/education';
 
 const WaterBreathingCrest = () => (

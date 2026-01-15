@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Contact Section Component
+ * @description Contact form with manga/anime-styled visual effects,
+ * social media links, and form validation
+ */
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 

@@ -1,3 +1,10 @@
+/**
+ * @fileoverview Tailwind CSS Configuration
+ * @description Custom theme configuration with JJK/Demon Slayer inspired colors,
+ * custom animations, and extended utilities for anime-themed portfolio
+ * @see https://tailwindcss.com/docs/configuration
+ */
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
