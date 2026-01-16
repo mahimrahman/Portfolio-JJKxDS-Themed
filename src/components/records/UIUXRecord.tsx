@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Link, useSearchParams } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
+
+interface ScreenshotGroup {
+  label: string;
+  images: string[];
+}
 
 interface Project {
   id: string;
@@ -18,6 +23,7 @@ interface Project {
     description: string;
   }[];
   screenshots: string[];
+  screenshotGroups?: ScreenshotGroup[]; // For projects with multiple mockup groups
 }
 
 // Helper to check if a project is a mobile app
@@ -141,9 +147,16 @@ const projects: Project[] = [
       { step: 'Consistency', description: 'Standardize spacing and component patterns' },
       { step: 'Compare', description: 'Present redesigned screens alongside original UI' }
     ],
-    screenshots: [
-      ...uiuxScreens('Portfolio/UI UX/BassiliChat AI/The UI I redesigned', 1, 6),
-      ...uiuxScreens('Portfolio/UI UX/BassiliChat AI/Old UI', 1, 4)
+    screenshots: uiuxScreens('Portfolio/UI UX/BassiliChat AI/The UI I redesigned', 1, 6),
+    screenshotGroups: [
+      {
+        label: 'New Redesigned UI',
+        images: uiuxScreens('Portfolio/UI UX/BassiliChat AI/The UI I redesigned', 1, 6)
+      },
+      {
+        label: 'Old UI',
+        images: uiuxScreens('Portfolio/UI UX/BassiliChat AI/Old UI', 1, 4)
+      }
     ]
   },
   {
@@ -398,6 +411,11 @@ const projects: Project[] = [
 
 // Note: SakuraPetal component removed as it's not used in the current design
 
+// Helper to get URL-friendly project name
+const getProjectUrl = (title: string): string => {
+  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') + '.com';
+};
+
 // Project card component with mockup display
 interface ProjectCardProps {
   project: Project;
@@ -458,7 +476,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
                 </div>
                 {/* URL Bar */}
                 <div className="flex-1 bg-[#0d1117] rounded-md px-3 py-1 border border-white/10">
-                  <span className="text-[10px] text-ash-gray/60 font-mono truncate">mahimrahman.com</span>
+                  <span className="text-[10px] text-ash-gray/60 font-mono truncate">{getProjectUrl(project.title)}</span>
                 </div>
               </div>
               {/* Browser Content */}
@@ -533,8 +551,59 @@ interface ProjectDetailProps {
 }
 
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
+  const [activeGroupIndex, setActiveGroupIndex] = useState<number>(0);
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
   const isMobile = isMobileApp(project.category);
+  
+  // Determine if project has multiple groups
+  const hasGroups = project.screenshotGroups && project.screenshotGroups.length > 0;
+  const currentGroup = hasGroups ? project.screenshotGroups![activeGroupIndex] : null;
+  const currentImages = hasGroups ? currentGroup!.images : project.screenshots;
+  const currentLabel = hasGroups ? currentGroup!.label : project.title;
+  
+  // Navigation functions
+  const goToNext = useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % currentImages.length);
+  }, [currentImages.length]);
+  
+  const goToPrev = useCallback(() => {
+    setActiveIndex((prev) => (prev === 0 ? currentImages.length - 1 : prev - 1));
+  }, [currentImages.length]);
+
+  // Auto-play every 3 seconds
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(() => {
+      goToNext();
+    }, 3000);
+    
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, goToNext]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') {
+        goToNext();
+        setIsAutoPlaying(false);
+      } else if (e.key === 'ArrowLeft') {
+        goToPrev();
+        setIsAutoPlaying(false);
+      } else if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [goToNext, goToPrev, onClose]);
+
+  // Reset active index when switching groups
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [activeGroupIndex]);
 
   return (
     <motion.div
@@ -703,65 +772,139 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
           >
             <h3 className="text-2xl md:text-3xl font-title font-bold text-snow-white mb-8 text-center">Project Gallery</h3>
             
-            {/* Main Mockup Display */}
+            {/* Group Tabs (if multiple groups exist) */}
+            {hasGroups && (
+              <div className="flex justify-center gap-4 mb-8">
+                {project.screenshotGroups!.map((group, idx) => (
+                  <motion.button
+                    key={idx}
+                    onClick={() => {
+                      setActiveGroupIndex(idx);
+                      setIsAutoPlaying(false);
+                    }}
+                    className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                      activeGroupIndex === idx
+                        ? 'bg-gradient-to-r from-zenitsu-lightning to-rengoku-flame text-deep-charcoal'
+                        : 'bg-white/10 text-ash-gray hover:bg-white/20 hover:text-snow-white'
+                    }`}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {group.label}
+                  </motion.button>
+                ))}
+              </div>
+            )}
+            
+            {/* Main Mockup Display with Navigation Arrows */}
             <div className="flex flex-col items-center">
-              {isMobile ? (
-                // Fixed Mobile Phone Mockup
-                <div className="relative bg-[#1c1c1e] rounded-[3rem] p-3 shadow-2xl border-4 border-[#3a3a3c] max-w-[280px] mx-auto">
-                  {/* Dynamic Island */}
-                  <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-full z-10"></div>
-                  {/* Screen */}
-                  <div className="w-full bg-black rounded-[2.4rem] overflow-hidden">
-                    <motion.img 
-                      key={activeIndex}
-                      src={project.screenshots[activeIndex]} 
-                      alt={`${project.title} screenshot ${activeIndex + 1}`}
-                      className="w-full h-auto object-cover"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </div>
-                  {/* Home Indicator */}
-                  <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 w-28 h-1.5 bg-white/30 rounded-full"></div>
-                </div>
-              ) : (
-                // Fixed Browser Window Mockup
-                <div className="relative bg-[#0d1117] rounded-2xl overflow-hidden shadow-2xl border border-white/10 max-w-4xl w-full mx-auto">
-                  {/* Browser Top Bar */}
-                  <div className="bg-[#161b22] px-5 py-3.5 flex items-center gap-4">
-                    {/* Traffic lights */}
-                    <div className="flex items-center gap-2">
-                      <div className="w-3.5 h-3.5 rounded-full bg-[#ff5f57]"></div>
-                      <div className="w-3.5 h-3.5 rounded-full bg-[#febc2e]"></div>
-                      <div className="w-3.5 h-3.5 rounded-full bg-[#28c840]"></div>
+              <div className="relative w-full flex items-center justify-center gap-4">
+                {/* Left Arrow */}
+                <motion.button
+                  onClick={() => {
+                    goToPrev();
+                    setIsAutoPlaying(false);
+                  }}
+                  className="absolute left-0 md:left-4 lg:left-8 z-10 w-12 h-12 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center text-snow-white hover:bg-white/20 transition-all duration-300 border border-white/20"
+                  whileHover={{ scale: 1.1, x: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <ChevronLeft size={24} />
+                </motion.button>
+
+                {isMobile ? (
+                  // Fixed Mobile Phone Mockup
+                  <div className="relative bg-[#1c1c1e] rounded-[3rem] p-3 shadow-2xl border-4 border-[#3a3a3c] max-w-[280px] mx-auto">
+                    {/* Dynamic Island */}
+                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-full z-10"></div>
+                    {/* Screen */}
+                    <div className="w-full bg-black rounded-[2.4rem] overflow-hidden">
+                      <motion.img 
+                        key={`${activeGroupIndex}-${activeIndex}`}
+                        src={currentImages[activeIndex]} 
+                        alt={`${project.title} screenshot ${activeIndex + 1}`}
+                        className="w-full h-auto object-cover"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      />
                     </div>
-                    {/* URL Bar */}
-                    <div className="flex-1 bg-[#0d1117] rounded-lg px-4 py-2 border border-white/10">
-                      <span className="text-sm text-ash-gray/70 font-mono">mahimrahman.com/design</span>
+                    {/* Home Indicator */}
+                    <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 w-28 h-1.5 bg-white/30 rounded-full"></div>
+                  </div>
+                ) : (
+                  // Fixed Browser Window Mockup
+                  <div className="relative bg-[#0d1117] rounded-2xl overflow-hidden shadow-2xl border border-white/10 max-w-4xl w-full mx-16">
+                    {/* Browser Top Bar */}
+                    <div className="bg-[#161b22] px-5 py-3.5 flex items-center gap-4">
+                      {/* Traffic lights */}
+                      <div className="flex items-center gap-2">
+                        <div className="w-3.5 h-3.5 rounded-full bg-[#ff5f57]"></div>
+                        <div className="w-3.5 h-3.5 rounded-full bg-[#febc2e]"></div>
+                        <div className="w-3.5 h-3.5 rounded-full bg-[#28c840]"></div>
+                      </div>
+                      {/* URL Bar */}
+                      <div className="flex-1 bg-[#0d1117] rounded-lg px-4 py-2 border border-white/10">
+                        <span className="text-sm text-ash-gray/70 font-mono">{getProjectUrl(hasGroups ? currentLabel : project.title)}</span>
+                      </div>
+                    </div>
+                    {/* Browser Content */}
+                    <div className="relative">
+                      <motion.img 
+                        key={`${activeGroupIndex}-${activeIndex}`}
+                        src={currentImages[activeIndex]} 
+                        alt={`${project.title} screenshot ${activeIndex + 1}`}
+                        className="w-full h-auto object-cover"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      />
                     </div>
                   </div>
-                  {/* Browser Content */}
-                  <div className="relative">
-                    <motion.img 
-                      key={activeIndex}
-                      src={project.screenshots[activeIndex]} 
-                      alt={`${project.title} screenshot ${activeIndex + 1}`}
-                      className="w-full h-auto object-cover"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </div>
-                </div>
-              )}
+                )}
+
+                {/* Right Arrow */}
+                <motion.button
+                  onClick={() => {
+                    goToNext();
+                    setIsAutoPlaying(false);
+                  }}
+                  className="absolute right-0 md:right-4 lg:right-8 z-10 w-12 h-12 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center text-snow-white hover:bg-white/20 transition-all duration-300 border border-white/20"
+                  whileHover={{ scale: 1.1, x: 2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <ChevronRight size={24} />
+                </motion.button>
+              </div>
+
+              {/* Auto-play indicator & controls */}
+              <div className="flex items-center gap-4 mt-6">
+                <motion.button
+                  onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                    isAutoPlaying 
+                      ? 'bg-zenitsu-lightning/20 text-zenitsu-lightning border border-zenitsu-lightning/30' 
+                      : 'bg-white/10 text-ash-gray border border-white/10 hover:bg-white/20'
+                  }`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {isAutoPlaying ? '⏸ Auto-playing' : '▶ Auto-play'}
+                </motion.button>
+                <span className="text-ash-gray/60 text-sm">
+                  Use ← → arrow keys to navigate
+                </span>
+              </div>
 
               {/* Thumbnail Navigation */}
-              <div className="flex flex-wrap justify-center gap-3 mt-8 max-w-4xl">
-                {project.screenshots.map((screenshot, index) => (
+              <div className="flex flex-wrap justify-center gap-3 mt-6 max-w-4xl">
+                {currentImages.map((screenshot, index) => (
                   <motion.button
                     key={index}
-                    onClick={() => setActiveIndex(index)}
+                    onClick={() => {
+                      setActiveIndex(index);
+                      setIsAutoPlaying(false);
+                    }}
                     className={`relative overflow-hidden rounded-lg transition-all duration-300 ${
                       activeIndex === index 
                         ? 'ring-2 ring-zenitsu-lightning ring-offset-2 ring-offset-deep-charcoal scale-105' 
@@ -804,7 +947,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
 
               {/* Image Counter */}
               <div className="mt-4 text-ash-gray/60 text-sm">
-                {activeIndex + 1} / {project.screenshots.length}
+                {activeIndex + 1} / {currentImages.length}
+                {hasGroups && <span className="ml-2">• {currentLabel}</span>}
               </div>
             </div>
           </motion.div>
