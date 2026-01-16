@@ -16,7 +16,7 @@ const nodes: ExperienceNode[] = [
     skills: ['React', 'Node.js', 'AI Development', 'Trading Platform', 'Cloud Technologies', 'TypeScript'],
     date: '2023 - 2024',
     type: 'work',
-    color: '#3A86FF'
+    color: '#3F51B5'
   },
   {
     id: 'n2',
@@ -27,7 +27,7 @@ const nodes: ExperienceNode[] = [
     skills: ['Marketing Strategy', 'Social Media', 'Event Planning', 'Community Engagement'],
     date: 'May 2024 - Present',
     type: 'leadership',
-    color: '#3A86FF'
+    color: '#3F51B5'
   },
   {
     id: 'n3',

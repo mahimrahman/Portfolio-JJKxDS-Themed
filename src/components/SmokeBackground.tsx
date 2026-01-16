@@ -43,10 +43,10 @@ const SmokeBackground = memo(({ disableMouseTracking = false }: SmokeBackgroundP
 
   // Theme colors matching the portfolio - pre-calculated
   const smokeColors = [
-    [127, 0, 255],   // domain-violet
-    [58, 134, 255],  // cursed-blue
+    [168, 85, 247],  // domain-violet
+    [63, 81, 181],   // cursed-blue
     [255, 78, 0],    // rengoku-flame
-    [255, 208, 0],   // zenitsu-lightning
+    [244, 197, 66],  // zenitsu-lightning
   ];
 
   // Optimized: Use Intersection Observer to pause when not visible

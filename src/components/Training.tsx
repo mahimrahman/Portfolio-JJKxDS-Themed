@@ -112,10 +112,10 @@ const Training = () => (
               className="inline-block w-full mb-4 px-4 py-3 text-xs md:text-base bg-gradient-to-br from-rengoku-flame to-domain-violet text-snow-white rounded-2xl shadow-lg font-bold flex items-center justify-center select-none transition-all duration-200 border border-domain-violet/30 cursor-pointer anime-heading break-words whitespace-normal min-w-0"
               whileHover={{
                 scale: 1.08,
-                background: 'linear-gradient(135deg, #FFD000 0%, #3A86FF 100%)',
+                background: 'linear-gradient(135deg, #F4C542 0%, #3F51B5 100%)',
                 color: '#fff',
-                boxShadow: '0 0 16px #FFD00055',
-                borderColor: '#FFD000',
+                boxShadow: '0 0 16px #F4C54255',
+                borderColor: '#F4C542',
               }}
               style={{ color: 'inherit' }}
             >

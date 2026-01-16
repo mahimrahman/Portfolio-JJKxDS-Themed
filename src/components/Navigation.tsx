@@ -189,8 +189,8 @@ export const MobileMenuOverlay = ({ mobileOpen, setMobileOpen, handleNavClick, l
       style={{ transform: 'translateZ(0)' }}
     >
       <motion.svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <motion.line x1="8" y1="8" x2="24" y2="24" stroke="#FFD000" strokeWidth="3" strokeLinecap="round" />
-        <motion.line x1="24" y1="8" x2="8" y2="24" stroke="#FFD000" strokeWidth="3" strokeLinecap="round" />
+        <motion.line x1="8" y1="8" x2="24" y2="24" stroke="#F4C542" strokeWidth="3" strokeLinecap="round" />
+        <motion.line x1="24" y1="8" x2="8" y2="24" stroke="#F4C542" strokeWidth="3" strokeLinecap="round" />
       </motion.svg>
     </motion.button>
     {/* Profile Section */}
