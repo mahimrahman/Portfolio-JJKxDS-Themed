@@ -6,12 +6,6 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 
-// ThemeMode enum matching reference
-enum ThemeMode {
-  JUJUTSU = 'JUJUTSU',
-  SLAYER = 'SLAYER'
-}
-
 interface SocialLink {
   name: string;
   url: string;
@@ -26,9 +20,6 @@ interface MessageData {
 }
 
 const Contact = () => {
-  // Using JUJUTSU theme by default (matching portfolio theme)
-  const theme = ThemeMode.JUJUTSU;
-
   const [formData, setFormData] = useState<MessageData>({
     name: '',
     email: '',
@@ -75,7 +66,7 @@ const Contact = () => {
   };
 
   const accentClass = 'text-purple-300';
-  const inputClasses = `w-full bg-gradient-to-br from-purple-50/10 to-white/[0.05] border-2 rounded-lg py-2 px-3 transition-all duration-300 outline-none text-sm font-body placeholder:text-purple-200/50 border-purple-400/40 focus:border-purple-300 focus:bg-purple-50/15 text-white focus:shadow-lg focus:shadow-purple-400/30`;
+  const inputClasses = `w-full bg-white/95 border-2 rounded-lg py-2 px-3 transition-all duration-300 outline-none text-sm font-body text-purple-900 caret-purple-700 placeholder:text-purple-400 border-purple-400/40 focus:border-purple-300 focus:bg-white focus:shadow-lg focus:shadow-purple-400/30`;
   const labelClasses = 'text-xs font-subtitle uppercase tracking-[0.2em] text-purple-200 mb-2 block font-semibold';
 
   return (
@@ -279,8 +270,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Share your thoughts..."
-                  className={`${inputClasses} resize-none text-white`}
-                  style={{ color: '#ffffff' }}
+                  className={`${inputClasses} resize-none`}
                   required
                 />
               </div>
