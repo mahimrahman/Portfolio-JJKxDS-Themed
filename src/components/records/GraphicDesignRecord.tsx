@@ -413,7 +413,7 @@ const GraphicDesignRecord: React.FC = () => {
             <motion.button
               key={category.id}
               onClick={() => handleOpen(idx)}
-              whileHover={{ scale: 1.06, boxShadow: '0 0 32px 8px #FFD00055' }}
+              whileHover={{ scale: 1.06, boxShadow: '0 0 32px 8px #F4C54255' }}
               whileTap={{ scale: 0.98 }}
               className={`group relative bg-gradient-to-br ${folderColors[idx % folderColors.length]} rounded-2xl p-0 flex flex-col items-center justify-center shadow-lg border-4 border-zenitsu-lightning/20 hover:border-zenitsu-lightning/60 transition-all duration-300 cursor-pointer overflow-hidden`}
               style={{ minHeight: 240 }}

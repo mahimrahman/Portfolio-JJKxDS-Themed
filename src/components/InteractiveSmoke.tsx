@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 
 // Simple theme colors for smoke - Dark theme with vibrant colors
 const smokeColors = [
-  { color: '#3A86FF', opacity: 0.35 }, // cursed-blue - more visible
-  { color: '#7F00FF', opacity: 0.35 }, // domain-violet
+  { color: '#3F51B5', opacity: 0.35 }, // cursed-blue (Inosuke blue)
+  { color: '#A855F7', opacity: 0.35 }, // domain-violet (contact purple)
   { color: '#FF4E00', opacity: 0.32 }, // rengoku-flame
-  { color: '#FFD000', opacity: 0.30 }, // zenitsu-lightning
-  { color: '#00A676', opacity: 0.33 }, // checkered-green
+  { color: '#F4C542', opacity: 0.30 }, // zenitsu-lightning (softer)
+  { color: '#00A19D', opacity: 0.33 }, // checkered-green (Tanjiro green)
   { color: '#FF006E', opacity: 0.30 }, // magenta accent
 ];
 

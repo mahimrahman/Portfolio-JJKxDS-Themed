@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 import { Link, useSearchParams } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
+
+interface ScreenshotGroup {
+  label: string;
+  images: string[];
+}
 
 interface Project {
   id: string;
@@ -24,7 +23,14 @@ interface Project {
     description: string;
   }[];
   screenshots: string[];
+  screenshotGroups?: ScreenshotGroup[]; // For projects with multiple mockup groups
 }
+
+// Helper to check if a project is a mobile app
+const isMobileApp = (category: string): boolean => {
+  return category === 'Mobile App';
+};
+
 
 const CLOUDINARY_CLOUD_NAME = 'dacbxyltq';
 
@@ -95,9 +101,16 @@ const projects: Project[] = [
       { step: 'Consistency', description: 'Standardize spacing and component patterns' },
       { step: 'Compare', description: 'Present redesigned screens alongside original UI' }
     ],
-    screenshots: [
-      ...uiuxScreens('Portfolio/UI UX/BassiliChat AI/The UI I redesigned', 1, 6),
-      ...uiuxScreens('Portfolio/UI UX/BassiliChat AI/Old UI', 1, 4)
+    screenshots: uiuxScreens('Portfolio/UI UX/BassiliChat AI/The UI I redesigned', 1, 6),
+    screenshotGroups: [
+      {
+        label: 'New Redesigned UI',
+        images: uiuxScreens('Portfolio/UI UX/BassiliChat AI/The UI I redesigned', 1, 6)
+      },
+      {
+        label: 'Old UI',
+        images: uiuxScreens('Portfolio/UI UX/BassiliChat AI/Old UI', 1, 4)
+      }
     ]
   },
   {
@@ -352,20 +365,27 @@ const projects: Project[] = [
 
 // Note: SakuraPetal component removed as it's not used in the current design
 
-// Project card component
+// Helper to get URL-friendly project name
+const getProjectUrl = (title: string): string => {
+  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') + '.com';
+};
+
+// Project card component with mockup display
 interface ProjectCardProps {
   project: Project;
   onClick: () => void;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
+  const isMobile = isMobileApp(project.category);
+  
   return (
     <motion.div
-      className="group relative bg-gradient-to-br from-deep-charcoal via-ghost-black to-deep-charcoal rounded-3xl overflow-hidden shadow-2xl border border-zenitsu-lightning/30 hover:border-zenitsu-lightning/80 transition-all duration-500 cursor-pointer"
+      className="group relative bg-gradient-to-br from-deep-charcoal via-ghost-black to-deep-charcoal rounded-3xl overflow-hidden shadow-2xl border border-white/10 hover:border-zenitsu-lightning/50 transition-all duration-500 cursor-pointer"
       whileHover={{ 
-        scale: 1.05, 
-        y: -10,
-        boxShadow: "0 25px 50px -12px rgba(255, 208, 0, 0.25)"
+        scale: 1.02, 
+        y: -8,
+        boxShadow: "0 25px 50px -12px rgba(255, 208, 0, 0.15)"
       }}
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
@@ -374,44 +394,85 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
       transition={{ duration: 0.6 }}
     >
       {/* Glow effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-zenitsu-lightning/10 via-transparent to-domain-violet/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-br from-zenitsu-lightning/5 via-transparent to-domain-violet/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
-      {/* Project thumbnail */}
-      <div className="relative h-64 overflow-hidden">
-        <img 
-          src={project.thumbnail}
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-deep-charcoal/80 via-transparent to-transparent" />
+      {/* Project thumbnail with mockup */}
+      <div className="relative h-64 overflow-hidden bg-gradient-to-br from-[#0d1117] to-[#161b22] flex items-center justify-center p-4">
+        {isMobile ? (
+          // Mobile Phone Mockup - Card View
+          <div className="relative h-full flex items-center justify-center">
+            <div className="relative bg-[#1c1c1e] rounded-[1.8rem] p-1.5 shadow-2xl border-2 border-[#3a3a3c] h-[95%] aspect-[9/19]">
+              {/* Dynamic Island */}
+              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-14 h-4 bg-black rounded-full z-10"></div>
+              {/* Screen */}
+              <div className="w-full h-full bg-black rounded-[1.5rem] overflow-hidden">
+                <img 
+                  src={project.thumbnail}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              {/* Home Indicator */}
+              <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-12 h-1 bg-white/30 rounded-full"></div>
+            </div>
+          </div>
+        ) : (
+          // Browser Window Mockup - Card View
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="relative bg-[#0d1117] rounded-xl overflow-hidden shadow-2xl w-[95%] h-[92%] border border-white/10">
+              {/* Browser Top Bar */}
+              <div className="bg-[#161b22] px-3 py-2 flex items-center gap-3">
+                {/* Traffic lights */}
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]"></div>
+                </div>
+                {/* URL Bar */}
+                <div className="flex-1 bg-[#0d1117] rounded-md px-3 py-1 border border-white/10">
+                  <span className="text-[10px] text-ash-gray/60 font-mono truncate">{getProjectUrl(project.title)}</span>
+                </div>
+              </div>
+              {/* Browser Content */}
+              <div className="relative h-[calc(100%-36px)] overflow-hidden">
+                <img 
+                  src={project.thumbnail}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-deep-charcoal/90 via-deep-charcoal/20 to-transparent pointer-events-none" />
         
         {/* Category badge */}
-        <div className="absolute top-4 right-4 px-3 py-1 bg-gradient-to-r from-zenitsu-lightning to-rengoku-flame text-deep-charcoal text-xs font-bold rounded-full">
+        <div className="absolute top-4 right-4 px-2.5 py-1 bg-gradient-to-r from-zenitsu-lightning/90 to-rengoku-flame/90 text-deep-charcoal text-[10px] font-bold rounded-full shadow-lg">
           {project.category}
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-6 relative z-10">
-        <h3 className="text-xl font-bold text-snow-white mb-2 group-hover:text-zenitsu-lightning transition-colors duration-300">
+      <div className="p-5 relative z-10">
+        <h3 className="text-lg font-bold text-snow-white mb-2 group-hover:text-zenitsu-lightning transition-colors duration-300 line-clamp-1">
           {project.title}
         </h3>
-        <p className="text-ash-gray text-sm mb-4 line-clamp-2">
+        <p className="text-ash-gray text-sm mb-3 line-clamp-2">
           {project.shortDescription}
         </p>
         
         {/* Tools */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-1.5 mb-3">
           {project.tools.slice(0, 3).map((tool, index) => (
             <span 
               key={index}
-              className="px-2 py-1 bg-domain-violet/20 text-domain-violet text-xs rounded-lg border border-domain-violet/30"
+              className="px-2 py-0.5 bg-domain-violet/15 text-domain-violet/90 text-[10px] rounded border border-domain-violet/20"
             >
               {tool}
             </span>
           ))}
           {project.tools.length > 3 && (
-            <span className="px-2 py-1 bg-ash-gray/20 text-ash-gray text-xs rounded-lg">
+            <span className="px-2 py-0.5 bg-ash-gray/10 text-ash-gray/70 text-[10px] rounded">
               +{project.tools.length - 3}
             </span>
           )}
@@ -419,13 +480,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
 
         {/* CTA */}
         <div className="flex items-center justify-between">
-          <span className="text-zenitsu-lightning text-sm font-medium">View Details</span>
+          <span className="text-zenitsu-lightning/80 text-xs font-medium">View Details</span>
           <motion.div
-            className="w-8 h-8 bg-gradient-to-r from-zenitsu-lightning to-rengoku-flame rounded-full flex items-center justify-center"
+            className="w-7 h-7 bg-gradient-to-r from-zenitsu-lightning to-rengoku-flame rounded-full flex items-center justify-center"
             whileHover={{ rotate: 45 }}
             transition={{ duration: 0.3 }}
           >
-            <svg className="w-4 h-4 text-deep-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-3.5 h-3.5 text-deep-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </motion.div>
@@ -444,41 +505,59 @@ interface ProjectDetailProps {
 }
 
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [activeGroupIndex, setActiveGroupIndex] = useState<number>(0);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
+  const isMobile = isMobileApp(project.category);
+  
+  // Determine if project has multiple groups
+  const hasGroups = project.screenshotGroups && project.screenshotGroups.length > 0;
+  const currentGroup = hasGroups ? project.screenshotGroups![activeGroupIndex] : null;
+  const currentImages = hasGroups ? currentGroup!.images : project.screenshots;
+  const currentLabel = hasGroups ? currentGroup!.label : project.title;
+  
+  // Navigation functions
+  const goToNext = useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % currentImages.length);
+  }, [currentImages.length]);
+  
+  const goToPrev = useCallback(() => {
+    setActiveIndex((prev) => (prev === 0 ? currentImages.length - 1 : prev - 1));
+  }, [currentImages.length]);
 
-  const handleImageClick = (index: number) => {
-    setLightboxIndex(index);
-  };
-
-  const handleLightboxClose = () => {
-    setLightboxIndex(null);
-  };
-
-  const handleLightboxNext = () => {
-    if (lightboxIndex !== null) {
-      setLightboxIndex((lightboxIndex + 1) % project.screenshots.length);
-    }
-  };
-
-  const handleLightboxPrev = () => {
-    if (lightboxIndex !== null) {
-      setLightboxIndex(lightboxIndex === 0 ? project.screenshots.length - 1 : lightboxIndex - 1);
-    }
-  };
-
-  // Keyboard controls for carousel overlay
+  // Auto-play every 3 seconds
   useEffect(() => {
-    if (lightboxIndex === null) return;
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(() => {
+      goToNext();
+    }, 3000);
+    
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, goToNext]);
 
+  // Keyboard navigation
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') handleLightboxClose();
-      if (e.key === 'ArrowLeft') handleLightboxPrev();
-      if (e.key === 'ArrowRight') handleLightboxNext();
+      if (e.key === 'ArrowRight') {
+        goToNext();
+        setIsAutoPlaying(false);
+      } else if (e.key === 'ArrowLeft') {
+        goToPrev();
+        setIsAutoPlaying(false);
+      } else if (e.key === 'Escape') {
+        onClose();
+      }
     };
-
+    
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightboxIndex]);
+  }, [goToNext, goToPrev, onClose]);
+
+  // Reset active index when switching groups
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [activeGroupIndex]);
 
   return (
     <motion.div
@@ -516,7 +595,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
           {/* Header */}
           <div className="text-center mb-12">
             <motion.h1 
-              className="text-4xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-zenitsu-lightning to-rengoku-flame bg-clip-text text-transparent drop-shadow-lg"
+              className="section-title mb-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -560,7 +639,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <h3 className="text-2xl font-bold text-snow-white mb-4">Project Overview</h3>
+                <h3 className="text-xl md:text-2xl font-title font-bold text-snow-white mb-4">Project Overview</h3>
                 <p className="text-ash-gray leading-relaxed text-lg">
           {project.fullDescription}
                 </p>
@@ -573,7 +652,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                <h3 className="text-2xl font-bold text-snow-white mb-6">Design Process</h3>
+                <h3 className="text-xl md:text-2xl font-title font-bold text-snow-white mb-6">Design Process</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   {project.process.map((step, index) => (
                     <motion.div
@@ -605,7 +684,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <h4 className="font-bold text-snow-white mb-4">Tools & Technologies</h4>
+                <h4 className="text-lg font-title font-bold text-snow-white mb-4">Tools & Technologies</h4>
                 <div className="flex flex-wrap gap-2">
                   {project.tools.map((tool, index) => (
                     <span 
@@ -625,7 +704,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                <h4 className="font-bold text-snow-white mb-4">My Role</h4>
+                <h4 className="text-lg font-title font-bold text-snow-white mb-4">My Role</h4>
                 <div className="space-y-2">
                   {project.role.map((role, index) => (
                     <div key={index} className="flex items-center gap-2">
@@ -638,157 +717,193 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
             </div>
           </div>
 
-          {/* Screenshots Gallery */}
+          {/* Screenshots Gallery - Fixed Mockup with Thumbnails */}
           <motion.div
             className="mb-12 relative"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <h3 className="text-3xl font-bold text-snow-white mb-8 text-center">Project Gallery</h3>
+            <h3 className="text-2xl md:text-3xl font-title font-bold text-snow-white mb-8 text-center">Project Gallery</h3>
             
-            <div className="relative">
-        <Swiper
-                modules={[EffectCoverflow, Pagination, Navigation]}
-                effect="coverflow"
-          grabCursor={true}
-          centeredSlides={true}
-                slidesPerView="auto"
-                coverflowEffect={{
-                  rotate: 50,
-                  stretch: 0,
-                  depth: 100,
-                  modifier: 1,
-                  slideShadows: true,
-                }}
-                pagination={{
-                  clickable: true,
-                  dynamicBullets: true,
-                }}
-          navigation={true}
-                className="project-swiper"
-                style={{
-                  paddingBottom: '50px',
-                }}
-              >
-                {project.screenshots.map((screenshot, index) => (
-                  <SwiperSlide key={index} style={{ width: 'auto', maxWidth: '400px' }}>
-                    <motion.div
-                      className="relative rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.3 }}
-                      onClick={() => handleImageClick(index)}
-                    >
-                      <img 
-                        src={screenshot} 
-                        alt={`${project.title} screenshot ${index + 1}`}
-                        className="w-full h-auto object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-deep-charcoal/20 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
-                      
-                      {/* Click indicator */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                        <div className="w-12 h-12 bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center">
-                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                          </svg>
-                        </div>
-                      </div>
-              </motion.div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-              {/* Carousel Overlay Lightbox */}
-      <AnimatePresence>
-                {lightboxIndex !== null && (
-                  <motion.div
-                    className="absolute inset-0 bg-black/90 backdrop-blur-xl rounded-2xl z-50 flex items-center justify-center p-4"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    onClick={(e) => {
-                      if (e.target === e.currentTarget) {
-                        handleLightboxClose();
-                      }
+            {/* Group Tabs (if multiple groups exist) */}
+            {hasGroups && (
+              <div className="flex justify-center gap-4 mb-8">
+                {project.screenshotGroups!.map((group, idx) => (
+                  <motion.button
+                    key={idx}
+                    onClick={() => {
+                      setActiveGroupIndex(idx);
+                      setIsAutoPlaying(false);
                     }}
+                    className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                      activeGroupIndex === idx
+                        ? 'bg-gradient-to-r from-zenitsu-lightning to-rengoku-flame text-deep-charcoal'
+                        : 'bg-white/10 text-ash-gray hover:bg-white/20 hover:text-snow-white'
+                    }`}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    {/* Close button */}
-                    <motion.button
-                      onClick={handleLightboxClose}
-                      className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors shadow-lg touch-manipulation"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.1 }}
-                    >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </motion.button>
+                    {group.label}
+                  </motion.button>
+                ))}
+              </div>
+            )}
+            
+            {/* Main Mockup Display with Navigation Arrows */}
+            <div className="flex flex-col items-center">
+              <div className="relative w-full flex items-center justify-center gap-4">
+                {/* Left Arrow */}
+                <motion.button
+                  onClick={() => {
+                    goToPrev();
+                    setIsAutoPlaying(false);
+                  }}
+                  className="absolute left-0 md:left-4 lg:left-8 z-10 w-12 h-12 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center text-snow-white hover:bg-white/20 transition-all duration-300 border border-white/20"
+                  whileHover={{ scale: 1.1, x: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <ChevronLeft size={24} />
+                </motion.button>
 
-                    {/* Navigation buttons */}
-                    {project.screenshots.length > 1 && (
-                      <>
-                        <motion.button
-                          onClick={() => handleLightboxPrev()}
-                          className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors z-10 shadow-lg"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.2 }}
-                        >
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                          </svg>
-                        </motion.button>
-                        <motion.button
-                          onClick={() => handleLightboxNext()}
-                          className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors z-10 shadow-lg"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.2 }}
-                        >
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </motion.button>
-                      </>
-                    )}
-
-                    {/* Image counter */}
-                    <motion.div 
-                      className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 bg-white/20 backdrop-blur-xl rounded-full text-white text-sm font-medium shadow-lg"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 }}
-                    >
-                      {lightboxIndex + 1} / {project.screenshots.length}
-                    </motion.div>
-
-                    {/* Main image container */}
-                    <div className="relative max-w-[80%] max-h-[80%] flex items-center justify-center">
-                      <motion.img
-                        key={lightboxIndex}
-                        src={project.screenshots[lightboxIndex]}
-                        alt={`Screenshot ${lightboxIndex + 1}`}
-                        className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-                        initial={{ scale: 0.8, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        exit={{ scale: 0.8, opacity: 0 }}
+                {isMobile ? (
+                  // Fixed Mobile Phone Mockup
+                  <div className="relative bg-[#1c1c1e] rounded-[3rem] p-3 shadow-2xl border-4 border-[#3a3a3c] max-w-[280px] mx-auto">
+                    {/* Dynamic Island */}
+                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-full z-10"></div>
+                    {/* Screen */}
+                    <div className="w-full bg-black rounded-[2.4rem] overflow-hidden">
+                      <motion.img 
+                        key={`${activeGroupIndex}-${activeIndex}`}
+                        src={currentImages[activeIndex]} 
+                        alt={`${project.title} screenshot ${activeIndex + 1}`}
+                        className="w-full h-auto object-cover"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
                         transition={{ duration: 0.3 }}
-                        onClick={(e) => e.stopPropagation()}
-                        draggable={false}
                       />
                     </div>
-                  </motion.div>
-        )}
-      </AnimatePresence>
+                    {/* Home Indicator */}
+                    <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 w-28 h-1.5 bg-white/30 rounded-full"></div>
+                  </div>
+                ) : (
+                  // Fixed Browser Window Mockup
+                  <div className="relative bg-[#0d1117] rounded-2xl overflow-hidden shadow-2xl border border-white/10 max-w-4xl w-full mx-16">
+                    {/* Browser Top Bar */}
+                    <div className="bg-[#161b22] px-5 py-3.5 flex items-center gap-4">
+                      {/* Traffic lights */}
+                      <div className="flex items-center gap-2">
+                        <div className="w-3.5 h-3.5 rounded-full bg-[#ff5f57]"></div>
+                        <div className="w-3.5 h-3.5 rounded-full bg-[#febc2e]"></div>
+                        <div className="w-3.5 h-3.5 rounded-full bg-[#28c840]"></div>
+                      </div>
+                      {/* URL Bar */}
+                      <div className="flex-1 bg-[#0d1117] rounded-lg px-4 py-2 border border-white/10">
+                        <span className="text-sm text-ash-gray/70 font-mono">{getProjectUrl(hasGroups ? currentLabel : project.title)}</span>
+                      </div>
+                    </div>
+                    {/* Browser Content */}
+                    <div className="relative">
+                      <motion.img 
+                        key={`${activeGroupIndex}-${activeIndex}`}
+                        src={currentImages[activeIndex]} 
+                        alt={`${project.title} screenshot ${activeIndex + 1}`}
+                        className="w-full h-auto object-cover"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Right Arrow */}
+                <motion.button
+                  onClick={() => {
+                    goToNext();
+                    setIsAutoPlaying(false);
+                  }}
+                  className="absolute right-0 md:right-4 lg:right-8 z-10 w-12 h-12 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center text-snow-white hover:bg-white/20 transition-all duration-300 border border-white/20"
+                  whileHover={{ scale: 1.1, x: 2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <ChevronRight size={24} />
+                </motion.button>
+              </div>
+
+              {/* Auto-play indicator & controls */}
+              <div className="flex items-center gap-4 mt-6">
+                <motion.button
+                  onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                    isAutoPlaying 
+                      ? 'bg-zenitsu-lightning/20 text-zenitsu-lightning border border-zenitsu-lightning/30' 
+                      : 'bg-white/10 text-ash-gray border border-white/10 hover:bg-white/20'
+                  }`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {isAutoPlaying ? '⏸ Auto-playing' : '▶ Auto-play'}
+                </motion.button>
+                <span className="text-ash-gray/60 text-sm">
+                  Use ← → arrow keys to navigate
+                </span>
+              </div>
+
+              {/* Thumbnail Navigation */}
+              <div className="flex flex-wrap justify-center gap-3 mt-6 max-w-4xl">
+                {currentImages.map((screenshot, index) => (
+                  <motion.button
+                    key={index}
+                    onClick={() => {
+                      setActiveIndex(index);
+                      setIsAutoPlaying(false);
+                    }}
+                    className={`relative overflow-hidden rounded-lg transition-all duration-300 ${
+                      activeIndex === index 
+                        ? 'ring-2 ring-zenitsu-lightning ring-offset-2 ring-offset-deep-charcoal scale-105' 
+                        : 'opacity-60 hover:opacity-100'
+                    }`}
+                    whileHover={{ scale: activeIndex === index ? 1.05 : 1.08 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {isMobile ? (
+                      // Mini Phone Thumbnail
+                      <div className="relative bg-[#1c1c1e] rounded-lg p-0.5 w-14 h-28 border border-[#3a3a3c]">
+                        <div className="w-full h-full bg-black rounded-md overflow-hidden">
+                          <img 
+                            src={screenshot} 
+                            alt={`Thumbnail ${index + 1}`}
+                            className="w-full h-full object-cover object-top"
+                          />
+                        </div>
+                      </div>
+                    ) : (
+                      // Mini Browser Thumbnail
+                      <div className="relative bg-[#0d1117] rounded-lg overflow-hidden w-24 h-16 border border-white/10">
+                        <div className="bg-[#161b22] px-1.5 py-1 flex items-center gap-1">
+                          <div className="flex items-center gap-0.5">
+                            <div className="w-1 h-1 rounded-full bg-[#ff5f57]"></div>
+                            <div className="w-1 h-1 rounded-full bg-[#febc2e]"></div>
+                            <div className="w-1 h-1 rounded-full bg-[#28c840]"></div>
+                          </div>
+                        </div>
+                        <img 
+                          src={screenshot} 
+                          alt={`Thumbnail ${index + 1}`}
+                          className="w-full h-[calc(100%-14px)] object-cover object-top"
+                        />
+                      </div>
+                    )}
+                  </motion.button>
+                ))}
+              </div>
+
+              {/* Image Counter */}
+              <div className="mt-4 text-ash-gray/60 text-sm">
+                {activeIndex + 1} / {currentImages.length}
+                {hasGroups && <span className="ml-2">• {currentLabel}</span>}
+              </div>
             </div>
           </motion.div>
         </motion.div>

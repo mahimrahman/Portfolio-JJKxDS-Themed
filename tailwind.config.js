@@ -14,11 +14,11 @@ export default {
     extend: {
       colors: {
         'deep-charcoal': '#121212',
-        'checkered-green': '#00A676',
-        'cursed-blue': '#3A86FF',
+        'checkered-green': '#00A19D',
+        'cursed-blue': '#3F51B5',
         'rengoku-flame': '#FF4E00',
-        'domain-violet': '#7F00FF',
-        'zenitsu-lightning': '#FFD000',
+        'domain-violet': '#A855F7',
+        'zenitsu-lightning': '#F4C542',
         'snow-white': '#F9F9F9',
         'ash-gray': '#B0B0B0',
         'ghost-black': '#1A1A2E',
@@ -67,8 +67,8 @@ export default {
           '50%': { opacity: 0.7, transform: 'scale(0.8)' },
         },
         starPulse: {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(127, 0, 255, 0.4)' },
-          '50%': { boxShadow: '0 0 0 10px rgba(127, 0, 255, 0)' },
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(168, 85, 247, 0.4)' },
+          '50%': { boxShadow: '0 0 0 10px rgba(168, 85, 247, 0)' },
         },
         meteor: {
           '0%': {

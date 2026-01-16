@@ -4,43 +4,43 @@ import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
 // 3D-like radial gradients for blobs - More vibrant colors
 const gradients = [
   [
-    { offset: '0%', color: '#3A86FF', opacity: 1 },
-    { offset: '40%', color: '#7F00FF', opacity: 0.95 },
+    { offset: '0%', color: '#3F51B5', opacity: 1 },
+    { offset: '40%', color: '#A855F7', opacity: 0.95 },
     { offset: '100%', color: '#121212', opacity: 0.0 },
   ],
   [
-    { offset: '0%', color: '#7F00FF', opacity: 1 },
+    { offset: '0%', color: '#A855F7', opacity: 1 },
     { offset: '40%', color: '#FF4E00', opacity: 0.95 },
     { offset: '100%', color: '#121212', opacity: 0.0 },
   ],
   [
-    { offset: '0%', color: '#FFD000', opacity: 1 },
-    { offset: '40%', color: '#3A86FF', opacity: 0.95 },
+    { offset: '0%', color: '#F4C542', opacity: 1 },
+    { offset: '40%', color: '#3F51B5', opacity: 0.95 },
     { offset: '100%', color: '#121212', opacity: 0.0 },
   ],
   [
-    { offset: '0%', color: '#00A676', opacity: 1 },
-    { offset: '40%', color: '#7F00FF', opacity: 0.95 },
+    { offset: '0%', color: '#00A19D', opacity: 1 },
+    { offset: '40%', color: '#A855F7', opacity: 0.95 },
     { offset: '100%', color: '#121212', opacity: 0.0 },
   ],
   [
     { offset: '0%', color: '#FF4E00', opacity: 1 },
-    { offset: '40%', color: '#FFD000', opacity: 0.95 },
+    { offset: '40%', color: '#F4C542', opacity: 0.95 },
     { offset: '100%', color: '#121212', opacity: 0.0 },
   ],
   [
-    { offset: '0%', color: '#3A86FF', opacity: 1 },
-    { offset: '40%', color: '#00A676', opacity: 0.95 },
+    { offset: '0%', color: '#3F51B5', opacity: 1 },
+    { offset: '40%', color: '#00A19D', opacity: 0.95 },
     { offset: '100%', color: '#121212', opacity: 0.0 },
   ],
 ];
 
 const baseGradients = [
   // More vibrant and colorful base gradients for different scroll positions
-  'radial-gradient(ellipse at 60% 20%, #3A86FF44 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, #7F00FF44 0%, transparent 70%), radial-gradient(ellipse at 80% 60%, #FF4E0033 0%, transparent 50%), linear-gradient(135deg, #1A1A2E 40%, #3A86FF22 100%)',
-  'radial-gradient(ellipse at 40% 30%, #7F00FF44 0%, transparent 60%), radial-gradient(ellipse at 80% 70%, #FFD00044 0%, transparent 70%), radial-gradient(ellipse at 20% 50%, #00A67633 0%, transparent 50%), linear-gradient(135deg, #1A1A2E 40%, #7F00FF22 100%)',
-  'radial-gradient(ellipse at 70% 40%, #00A67644 0%, transparent 60%), radial-gradient(ellipse at 30% 80%, #3A86FF44 0%, transparent 70%), radial-gradient(ellipse at 50% 20%, #FF4E0033 0%, transparent 50%), linear-gradient(135deg, #1A1A2E 40%, #00A67622 100%)',
-  'radial-gradient(ellipse at 50% 50%, #FF4E0044 0%, transparent 60%), radial-gradient(ellipse at 10% 30%, #FFD00044 0%, transparent 70%), radial-gradient(ellipse at 90% 70%, #7F00FF33 0%, transparent 50%), linear-gradient(135deg, #1A1A2E 40%, #FF4E0022 100%)',
+  'radial-gradient(ellipse at 60% 20%, #3F51B544 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, #A855F744 0%, transparent 70%), radial-gradient(ellipse at 80% 60%, #FF4E0033 0%, transparent 50%), linear-gradient(135deg, #1A1A2E 40%, #3F51B522 100%)',
+  'radial-gradient(ellipse at 40% 30%, #A855F744 0%, transparent 60%), radial-gradient(ellipse at 80% 70%, #F4C54244 0%, transparent 70%), radial-gradient(ellipse at 20% 50%, #00A19D33 0%, transparent 50%), linear-gradient(135deg, #1A1A2E 40%, #A855F722 100%)',
+  'radial-gradient(ellipse at 70% 40%, #00A19D44 0%, transparent 60%), radial-gradient(ellipse at 30% 80%, #3F51B544 0%, transparent 70%), radial-gradient(ellipse at 50% 20%, #FF4E0033 0%, transparent 50%), linear-gradient(135deg, #1A1A2E 40%, #00A19D22 100%)',
+  'radial-gradient(ellipse at 50% 50%, #FF4E0044 0%, transparent 60%), radial-gradient(ellipse at 10% 30%, #F4C54244 0%, transparent 70%), radial-gradient(ellipse at 90% 70%, #A855F733 0%, transparent 50%), linear-gradient(135deg, #1A1A2E 40%, #FF4E0022 100%)',
 ];
 
 // Blob shapes (SVG paths)
@@ -140,11 +140,11 @@ const AnimatedBlobBackground = () => {
         }}
         animate={{
           background: [
-            'radial-gradient(circle at 30% 30%, #3A86FF88 0%, transparent 40%)',
-            'radial-gradient(circle at 70% 30%, #7F00FF88 0%, transparent 40%)',
+            'radial-gradient(circle at 30% 30%, #3F51B588 0%, transparent 40%)',
+            'radial-gradient(circle at 70% 30%, #A855F788 0%, transparent 40%)',
             'radial-gradient(circle at 70% 70%, #FF4E0088 0%, transparent 40%)',
-            'radial-gradient(circle at 30% 70%, #FFD00088 0%, transparent 40%)',
-            'radial-gradient(circle at 30% 30%, #3A86FF88 0%, transparent 40%)',
+            'radial-gradient(circle at 30% 70%, #F4C54288 0%, transparent 40%)',
+            'radial-gradient(circle at 30% 30%, #3F51B588 0%, transparent 40%)',
           ],
         }}
         transition={{

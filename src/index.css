@@ -11,8 +11,8 @@
   body {
     @apply bg-deep-charcoal text-snow-white font-body;
     background: linear-gradient(135deg, #121212 40%, #1A1A2E 100%),
-      radial-gradient(circle at 70% 30%, #3A86FF33 0%, transparent 55%),
-      radial-gradient(circle at 20% 80%, #7F00FF33 0%, transparent 60%),
+      radial-gradient(circle at 70% 30%, #3F51B533 0%, transparent 55%),
+      radial-gradient(circle at 20% 80%, #A855F733 0%, transparent 60%),
       radial-gradient(circle at 50% 50%, #FF4E0022 0%, transparent 70%);
     background-blend-mode: screen, normal;
     background-color: #0a0a0a;

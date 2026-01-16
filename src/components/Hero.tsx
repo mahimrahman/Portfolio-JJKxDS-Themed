@@ -105,7 +105,57 @@ const Hero: React.FC = () => {
   const { activeTheme, setActiveTheme } = useTheme();
   const [content, setContent] = useState<HeroContent | null>(null);
   const [loading, setLoading] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const themeRef = useRef<ThemeMode>(activeTheme);
+
+  // Theme order for rotation
+  const themeOrder = [
+    ThemeMode.YUJI,
+    ThemeMode.GOJO,
+    ThemeMode.TANJIRO,
+    ThemeMode.ZENITSU,
+    ThemeMode.INOSUKE
+  ];
+
+  // Function to switch to next character with animation
+  const switchToNextCharacter = () => {
+    setIsTransitioning(true);
+    const currentIndex = themeOrder.indexOf(activeTheme);
+    const nextIndex = (currentIndex + 1) % themeOrder.length;
+    
+    setTimeout(() => {
+      setActiveTheme(themeOrder[nextIndex]);
+      setTimeout(() => setIsTransitioning(false), 300);
+    }, 200);
+  };
+
+  useEffect(() => {
+    themeRef.current = activeTheme;
+  }, [activeTheme]);
+
+  // Auto-rotate every 5 seconds
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setIsTransitioning(true);
+      const currentTheme = themeRef.current;
+      const currentIndex = themeOrder.indexOf(currentTheme);
+      const nextIndex = (currentIndex + 1) % themeOrder.length;
+      const nextTheme = themeOrder[nextIndex];
+      themeRef.current = nextTheme;
+      setActiveTheme(nextTheme);
+      setTimeout(() => setIsTransitioning(false), 500);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  // Pause auto-rotate on hover, resume on leave
+  const handleMouseEnter = () => setIsPaused(true);
+  const handleMouseLeave = () => setIsPaused(false);
 
   useEffect(() => {
     // Load fallback content for the selected theme
@@ -119,11 +169,11 @@ const Hero: React.FC = () => {
   const currentConfig = THEME_CONFIGS[activeTheme];
 
   const characterOptions = [
-    { mode: ThemeMode.YUJI, icon: <Shield />, label: "DEV" },
+    { mode: ThemeMode.YUJI, icon: <Shield />, label: "Dev" },
     { mode: ThemeMode.GOJO, icon: <Sparkles />, label: "UX" },
-    { mode: ThemeMode.TANJIRO, icon: <Swords />, label: "BIZ" },
-    { mode: ThemeMode.ZENITSU, icon: <Zap />, label: "OPT" },
-    { mode: ThemeMode.INOSUKE, icon: <User />, label: "CRT" },
+    { mode: ThemeMode.TANJIRO, icon: <Swords />, label: "BA" },
+    { mode: ThemeMode.ZENITSU, icon: <Zap />, label: "Pic" },
+    { mode: ThemeMode.INOSUKE, icon: <User />, label: "PM" },
   ];
 
   const roles = [
@@ -152,7 +202,7 @@ const Hero: React.FC = () => {
       <main className="relative z-10 flex-1 flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-20 sm:pt-24 pb-28 sm:pb-32 lg:py-0 gap-8 sm:gap-10 lg:gap-20 max-w-7xl mx-auto w-full">
 
         {/* Left: Identity Section */}
-        <div className="w-full lg:flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+        <div className={`w-full lg:flex-1 flex flex-col items-center lg:items-start text-center lg:text-left transition-all duration-500 ${isTransitioning ? 'opacity-0 translate-x-[-20px]' : 'opacity-100 translate-x-0'}`}>
           <div className="relative mb-4 lg:mb-6">
             <div className="px-4 py-1 border-l-4 lg:border-l-4 font-bold text-[8px] lg:text-[10px] tracking-[0.4em] lg:tracking-[0.5em] uppercase opacity-60 flex items-center space-x-3" style={{ borderColor: currentConfig.accent }}>
               <span>DOMAIN PROTOCOL // {activeTheme}</span>
@@ -202,7 +252,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Right: Manga Panel (Video) */}
-        <div className="relative w-full max-w-[350px] sm:max-w-[400px] md:max-w-lg lg:max-w-xl xl:max-w-2xl group">
+        <div className={`relative w-full max-w-[350px] sm:max-w-[400px] md:max-w-lg lg:max-w-xl xl:max-w-2xl group transition-all duration-500 ${isTransitioning ? 'opacity-0 translate-x-[20px] scale-95' : 'opacity-100 translate-x-0 scale-100'}`}>
           <div
             className="relative z-10 bg-black p-2 sm:p-3 lg:p-4 transition-all duration-500 group-hover:scale-[1.02] group-hover:-translate-y-2"
             style={{
@@ -241,7 +291,10 @@ const Hero: React.FC = () => {
                 {content?.professionalTitle || "INITIATING DOMAIN"}
               </h2>
 
-              <button className="relative w-full py-3 sm:py-4 lg:py-6 group/btn overflow-hidden bg-white text-black transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+              <button 
+                onClick={switchToNextCharacter}
+                className="relative w-full py-3 sm:py-4 lg:py-6 group/btn overflow-hidden bg-white text-black transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] active:scale-95"
+              >
                 <div
                   className="absolute inset-0 translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500"
                   style={{ background: `linear-gradient(to right, ${currentConfig.accent}, white)` }}
@@ -262,8 +315,23 @@ const Hero: React.FC = () => {
       {/* Footer Dock */}
       <div className="fixed bottom-0 left-0 w-full z-40 px-3 sm:px-4 pb-3 sm:pb-4 lg:pb-8 xl:pb-12 pointer-events-none">
         <div className="max-w-xl mx-auto flex flex-col items-center pointer-events-auto">
+          {/* Auto-rotate progress bar */}
+          <div className="w-full max-w-xs mb-2 h-0.5 bg-white/10 rounded-full overflow-hidden">
+            <div 
+              key={`${activeTheme}-${isPaused}`}
+              className={`h-full transition-all ease-linear ${isPaused ? 'bg-yellow-400/50' : 'bg-white/40'}`}
+              style={{ 
+                width: isPaused ? '100%' : '0%',
+                animation: isPaused ? 'none' : 'progress 5s linear forwards'
+              }}
+            />
+          </div>
           <div className="flex w-full lg:w-auto overflow-x-auto lg:overflow-visible no-scrollbar bg-[#0a0a0a]/95 backdrop-blur-3xl border border-white/10 p-1.5 sm:p-2 rounded-xl sm:rounded-2xl lg:rounded-[2.5rem] shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
-            <div className="flex min-w-full lg:min-w-0 items-center justify-center space-x-1 sm:space-x-1.5 lg:space-x-2">
+            <div
+              className="flex min-w-full lg:min-w-0 items-center justify-center space-x-2 sm:space-x-3 lg:space-x-4"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
               {characterOptions.map((opt) => (
                 <button
                   key={opt.mode}
@@ -275,7 +343,7 @@ const Hero: React.FC = () => {
                   }`}
                 >
                   <div className={`mb-0.5 transition-transform duration-500 ${activeTheme === opt.mode ? 'scale-110' : ''}`}>
-                    {React.cloneElement(opt.icon as React.ReactElement<any>, { size: 16, className: "sm:w-[18px] sm:h-[18px]" })}
+                    {React.cloneElement(opt.icon as React.ReactElement<any>, { size: 20, className: "sm:w-[22px] sm:h-[22px]" })}
                   </div>
                   <span className="text-[5px] sm:text-[6px] lg:text-[7px] font-black tracking-[0.1em]">{opt.label}</span>
 
@@ -320,6 +388,23 @@ const Hero: React.FC = () => {
           background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
           background-size: 8px 8px;
         }
+        
+        @keyframes progress {
+          0% { width: 0%; }
+          100% { width: 100%; }
+        }
+        
+        @keyframes pulse-glow {
+          0%, 100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
+          50% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.4); }
+        }
+        
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+        
+        .animate-float { animation: float 3s ease-in-out infinite; }
       `}</style>
     </div>
   );

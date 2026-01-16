@@ -18,8 +18,6 @@ import Education from './components/Education';
 import Contact from './components/Contact';
 
 // Lazy load only less critical sections
-const Blog = lazy(() => import('./components/Blogs'));
-const BlogPost = lazy(() => import('./components/BlogPost'));
 const Development = lazy(() => import('./components/Development'));
 const GraphicDesignRecord = lazy(() => import('./components/records/GraphicDesignRecord'));
 const PhotographyRecord = lazy(() => import('./components/records/PhotographyRecord'));
@@ -146,11 +144,6 @@ const AppContent = () => {
               <section id="education" className="relative z-10 section-transition">
                 <Education />
               </section>
-              <Suspense fallback={null}>
-                <section id="blog" className="relative z-10 section-transition">
-                  <Blog />
-                </section>
-              </Suspense>
               <section id="contact" className="relative z-10 section-transition">
                 <Contact />
               </section>
@@ -160,7 +153,6 @@ const AppContent = () => {
           <Route path="/records/graphic-design" element={<Suspense fallback={null}><GraphicDesignRecord /></Suspense>} />
           <Route path="/records/photography" element={<Suspense fallback={null}><PhotographyRecord /></Suspense>} />
           <Route path="/records/uiux" element={<Suspense fallback={null}><UIUXRecord /></Suspense>} />
-          <Route path="/blog/:slug" element={<Suspense fallback={null}><BlogPost /></Suspense>} />
         </Routes>
       </main>
     </div>

@@ -6,12 +6,6 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 
-// ThemeMode enum matching reference
-enum ThemeMode {
-  JUJUTSU = 'JUJUTSU',
-  SLAYER = 'SLAYER'
-}
-
 interface SocialLink {
   name: string;
   url: string;
@@ -26,16 +20,13 @@ interface MessageData {
 }
 
 const Contact = () => {
-  // Using JUJUTSU theme by default (matching portfolio theme)
-  const theme = ThemeMode.JUJUTSU;
-
   const [formData, setFormData] = useState<MessageData>({
     name: '',
     email: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [aiMessage, setAiMessage] = useState<string>("Detecting cursors. Ready.");
+  const [aiMessage, setAiMessage] = useState<string>("Available and ready to connect!");
 
   const socials: SocialLink[] = [
     {
@@ -70,39 +61,36 @@ const Contact = () => {
     setIsSubmitting(true);
     await new Promise(resolve => setTimeout(resolve, 1500));
     setIsSubmitting(false);
-    setAiMessage('Message received. Domain acknowledged.');
+    setAiMessage('Message received! I\'ll get back to you soon.');
     setFormData({ name: '', email: '', message: '' });
   };
 
-  const accentClass = theme === ThemeMode.JUJUTSU ? 'text-[#bc13fe]' : 'text-[#10b981]';
-  const inputClasses = `w-full bg-white/[0.02] border-b-4 py-3 px-2 transition-all duration-500 outline-none text-sm font-body placeholder:text-slate-600 ${
-    theme === ThemeMode.JUJUTSU
-      ? 'border-slate-800 focus:border-[#bc13fe] text-purple-50'
-      : 'border-slate-800 focus:border-[#10b981] text-emerald-50'
-  }`;
-  const labelClasses = 'text-xs font-subtitle uppercase tracking-[0.25em] opacity-50 mb-2 block';
+  const accentClass = 'text-purple-300';
+  const inputClasses = `w-full bg-white/95 border-2 rounded-lg py-2 px-3 transition-all duration-300 outline-none text-sm font-body text-purple-900 caret-purple-700 placeholder:text-purple-400 border-purple-400/40 focus:border-purple-300 focus:bg-white focus:shadow-lg focus:shadow-purple-400/30`;
+  const labelClasses = 'text-xs font-subtitle uppercase tracking-[0.2em] text-purple-200 mb-2 block font-semibold';
 
   return (
-    <div className="min-h-screen w-full transition-colors duration-1000 flex flex-col bg-[#0a0510] overflow-x-hidden">
-      {/* Manga-Style Background FX */}
+    <div className="w-full transition-colors duration-1000 bg-gradient-to-br from-[#1a0a2e] via-[#2d1b4e] to-[#16213e] overflow-x-hidden">
+      {/* Anime-Style Background FX */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        {/* Speed lines */}
+        {/* Floating sakura petals / anime particles */}
         <div className="absolute inset-0">
           {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 bg-white/5"
+              className="absolute w-2 h-2 rounded-full bg-purple-300/20"
               style={{
-                height: `${Math.random() * 200 + 100}px`,
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                transform: `rotate(${Math.random() * 360}deg)`
               }}
               animate={{
-                opacity: [0, 0.3, 0],
+                y: [0, Math.random() * 100 + 50],
+                x: [0, Math.random() * 50 - 25],
+                opacity: [0.3, 0.7, 0.3],
+                scale: [1, 1.5, 1],
               }}
               transition={{
-                duration: Math.random() * 3 + 2,
+                duration: Math.random() * 5 + 3,
                 repeat: Infinity,
                 delay: Math.random() * 2
               }}
@@ -110,41 +98,45 @@ const Contact = () => {
           ))}
         </div>
 
-        {/* Halftone pattern */}
-        <div className="absolute inset-0 opacity-30" style={{
-          backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.08) 1.5px, transparent 1.5px)`,
-          backgroundSize: '24px 24px'
+        {/* Soft anime glow pattern */}
+        <div className="absolute inset-0 opacity-20" style={{
+          backgroundImage: `radial-gradient(circle, rgba(216,180,254,0.15) 2px, transparent 2px)`,
+          backgroundSize: '30px 30px'
         }}></div>
 
-        {/* Large cursed energy glow */}
-        <div className="absolute -right-40 -bottom-40 w-[50vw] h-[50vw] rounded-full blur-[200px] opacity-[0.04] bg-[#bc13fe]"></div>
+        {/* Large purple magical glow */}
+        <div className="absolute -right-40 -bottom-40 w-[50vw] h-[50vw] rounded-full blur-[250px] opacity-[0.15] bg-purple-500"></div>
+        <div className="absolute -left-40 -top-40 w-[40vw] h-[40vw] rounded-full blur-[200px] opacity-[0.1] bg-pink-400"></div>
 
-        {/* Comic panel borders effect */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 right-0 h-2 bg-white"></div>
-          <div className="absolute bottom-0 left-0 right-0 h-2 bg-white"></div>
-          <div className="absolute top-0 bottom-0 left-0 w-2 bg-white"></div>
-          <div className="absolute top-0 bottom-0 right-0 w-2 bg-white"></div>
+        {/* Anime border effects - softer */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 left-0 right-0 h-1 bg-purple-300"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-purple-300"></div>
+          <div className="absolute top-0 bottom-0 left-0 w-1 bg-purple-300"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-1 bg-purple-300"></div>
         </div>
       </div>
 
-      <main className="relative z-10 flex-1 flex items-center justify-center py-8 sm:py-10 md:py-12 px-4 sm:px-6 md:px-8">
-        <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-start">
+      <main className="relative z-10 py-12 sm:py-16 px-4 sm:px-6">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-7 items-start">
 
           {/* LEFT: INFO & SOCIALS */}
-          <div className="space-y-5 sm:space-y-6 lg:pr-8">
-            <div className="space-y-3 sm:space-y-4">
-              {/* Manga-style header */}
+          <div className="space-y-3 sm:space-y-4 lg:pr-4">
+            <div className="space-y-2 sm:space-y-3">
+              {/* Anime-style header */}
               <div className="relative inline-block">
-                <h2 className="section-title mb-0" style={{ textShadow: '3px 3px 0px #000, -2px -2px 0px rgba(188, 19, 254, 0.3)' }}>
-                  Inquire
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-0.5" style={{ textShadow: '2px 2px 8px rgba(168, 85, 247, 0.6), 0px 0px 20px rgba(216, 180, 254, 0.3)' }}>
+                  Let's
                 </h2>
-                {/* Action line effect */}
+                <h2 className={`text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-0 ${accentClass}`} style={{ textShadow: '2px 2px 8px rgba(168, 85, 247, 0.6), 0px 0px 20px rgba(216, 180, 254, 0.4)' }}>
+                  Connect
+                </h2>
+                {/* Magical sparkle effect */}
                 <motion.div
-                  className="absolute -right-8 top-1/2 w-20 h-1 bg-[#bc13fe]"
+                  className="absolute -right-8 top-1/2 w-3 h-3 rounded-full bg-purple-400"
                   animate={{
-                    scaleX: [0, 1, 0],
-                    x: [0, 30, 0]
+                    scale: [0.5, 1.2, 0.5],
+                    opacity: [0.3, 1, 0.3],
                   }}
                   transition={{
                     duration: 2,
@@ -154,51 +146,41 @@ const Contact = () => {
                 />
               </div>
 
-              <h2 className={`section-title mb-0 ${accentClass}`} style={{ textShadow: '3px 3px 0px #000' }}>
-                Directly
-              </h2>
-
-              <div className="relative pl-3 sm:pl-4 border-l-3 sm:border-l-4 border-[#bc13fe]">
-                <p className="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed font-body max-w-md">
-                  {theme === ThemeMode.JUJUTSU
-                    ? "Establishing a direct link to the cursed realm. Hollow purple energy verified."
-                    : "A message delivered through the forest. The Tanjiro spirit resolve is active."}
+              <div className="relative pl-2 sm:pl-3 border-l-2 sm:border-l-3 border-purple-400">
+                <p className="text-xs sm:text-sm text-purple-100 leading-relaxed font-body max-w-md">
+                  Ready to collaborate and bring your ideas to life. Let's create something amazing together!
                 </p>
               </div>
             </div>
 
-            {/* Manga-style Social Grid */}
+            {/* Anime-style Social Grid */}
             <div>
-              <p className="text-[10px] sm:text-xs font-subtitle uppercase tracking-[0.25em] opacity-40 mb-2 sm:mb-3">/// CONNECT</p>
-              <div className="flex gap-3 sm:gap-4">
+              <p className="text-[10px] sm:text-xs font-subtitle uppercase tracking-[0.25em] text-purple-300/60 mb-1.5 sm:mb-2">✦ Find Me On</p>
+              <div className="flex gap-2 sm:gap-3">
                 {socials.map((social) => (
                   <motion.a
                     key={social.name}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ y: -6, rotate: 5 }}
-                    whileTap={{ scale: 0.9 }}
-                    className={`w-10 h-10 sm:w-12 sm:h-12 border-2 sm:border-3 flex items-center justify-center transition-all duration-300 relative ${
-                      theme === ThemeMode.JUJUTSU
-                        ? 'border-slate-800 hover:border-[#bc13fe] text-[#bc13fe]/60 hover:text-[#bc13fe]'
-                        : 'border-slate-800 hover:border-[#10b981] text-[#10b981]/60 hover:text-[#10b981]'
-                    }`}
+                    whileHover={{ y: -4, scale: 1.08 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-9 h-9 sm:w-10 sm:h-10 border-2 rounded-lg flex items-center justify-center transition-all duration-300 relative group border-purple-400/50 hover:border-purple-300 bg-purple-900/30 hover:bg-purple-800/40 text-purple-300 hover:text-purple-200 hover:shadow-lg hover:shadow-purple-500/40"
                     style={{
-                      boxShadow: '3px 3px 0px #000'
+                      boxShadow: '0 4px 15px rgba(168, 85, 247, 0.2)'
                     }}
                   >
                     <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d={social.icon} />
                     </svg>
-                    {/* Speed line on hover */}
+                    {/* Magical glow on hover */}
                     <motion.div
-                      className="absolute -right-2 top-1/2 w-8 h-0.5 bg-current opacity-0 group-hover:opacity-100"
+                      className="absolute inset-0 rounded-xl bg-purple-400 opacity-0 group-hover:opacity-20 blur-md"
                       animate={{
-                        scaleX: [0, 1, 0],
+                        scale: [1, 1.2, 1],
                       }}
                       transition={{
-                        duration: 0.5,
+                        duration: 1.5,
                         repeat: Infinity
                       }}
                     />
@@ -207,81 +189,87 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* AI Helper - Manga Style */}
-            <div className="pt-4">
-              <div className={`p-4 border-l-4 transition-all duration-500 bg-white/[0.03] relative ${
-                theme === ThemeMode.JUJUTSU ? 'border-[#bc13fe]/50' : 'border-[#10b981]/50'
-              }`}
+            {/* Status Card - Anime Style */}
+            <div className="pt-2">
+              <div className="p-3 rounded-xl border-2 transition-all duration-500 relative border-purple-400/50 bg-gradient-to-br from-purple-900/40 to-purple-950/20 shadow-lg shadow-purple-900/30"
                 style={{
-                  boxShadow: '6px 6px 0px rgba(0,0,0,0.3)'
+                  boxShadow: '0 8px 32px rgba(168, 85, 247, 0.2)'
                 }}
               >
-                <div className="flex gap-3 items-center">
-                  <div className={`w-10 h-10 border-3 border-white/20 flex items-center justify-center text-lg font-black ${
-                    theme === ThemeMode.JUJUTSU ? 'text-[#bc13fe]' : 'text-[#10b981]'
-                  }`}>
-                    {theme === ThemeMode.JUJUTSU ? '●' : '▲'}
+                <div className="flex gap-2 items-center">
+                  <div className="w-8 h-8 rounded-full border-2 flex items-center justify-center text-base border-purple-400/50 bg-purple-500/20 text-purple-300">
+                    ✦
                   </div>
                   <div className="flex-1">
-                    <p className="text-[10px] font-subtitle tracking-[0.3em] opacity-40 mb-1 uppercase">/// LOCATION: CANADA</p>
-                    <p className="text-sm font-body leading-tight text-slate-200">
+                    <p className="text-[10px] font-subtitle tracking-[0.3em] text-purple-300/60 mb-1 uppercase">✦ Based in Canada</p>
+                    <p className="text-sm font-body leading-tight text-purple-100">
                       {aiMessage}
                     </p>
                   </div>
                 </div>
-                {/* Comic panel corner */}
-                <div className="absolute top-0 right-0 w-0 h-0 border-t-[20px] border-r-[20px] border-t-[#bc13fe] border-r-transparent opacity-30"></div>
+                {/* Soft sparkle corner */}
+                <motion.div 
+                  className="absolute top-2 right-2 w-2 h-2 rounded-full bg-purple-300"
+                  animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.2, 0.8] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
               </div>
             </div>
           </div>
 
-          {/* RIGHT: MANGA-STYLE FORM */}
-          <div className={`form-container p-4 sm:p-6 md:p-8 border-3 sm:border-4 transition-all duration-500 relative bg-black/40 ${
-            theme === ThemeMode.JUJUTSU ? 'border-[#bc13fe]/30' : 'border-[#10b981]/30'
-          }`}
+          {/* RIGHT: ANIME-STYLE FORM */}
+          <div className="form-container p-4 sm:p-5 rounded-xl border-2 transition-all duration-500 relative border-purple-400/50 bg-gradient-to-br from-purple-900/40 to-indigo-950/50 shadow-2xl shadow-purple-900/30"
             style={{
-              boxShadow: '6px 6px 0px rgba(0,0,0,0.5)'
+              boxShadow: '0 10px 40px rgba(168, 85, 247, 0.3)'
             }}
           >
-            {/* Corner accent */}
-            <div className="absolute top-0 left-0 w-0 h-0 border-t-[20px] sm:border-t-[30px] border-l-[20px] sm:border-l-[30px] border-t-[#bc13fe] border-l-transparent opacity-40"></div>
-            <div className="absolute bottom-0 right-0 w-0 h-0 border-b-[20px] sm:border-b-[30px] border-r-[20px] sm:border-r-[30px] border-b-[#bc13fe] border-r-transparent opacity-40"></div>
+            {/* Soft corner sparkles */}
+            <motion.div 
+              className="absolute top-4 left-4 w-3 h-3 rounded-full bg-purple-300/50"
+              animate={{ opacity: [0.3, 0.8, 0.3], scale: [0.8, 1.2, 0.8] }}
+              transition={{ duration: 3, repeat: Infinity, delay: 0 }}
+            />
+            <motion.div 
+              className="absolute bottom-4 right-4 w-3 h-3 rounded-full bg-pink-300/50"
+              animate={{ opacity: [0.3, 0.8, 0.3], scale: [0.8, 1.2, 0.8] }}
+              transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
+            />
 
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 relative z-10">
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 relative z-10">
               <div>
-                <label className={labelClasses}>/// IDENTITY</label>
+                <label className={labelClasses}>✦ Your Name</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="ENTER NAME"
+                  placeholder="Enter your name..."
                   className={inputClasses}
                   required
                 />
               </div>
 
               <div>
-                <label className={labelClasses}>/// CHANNEL</label>
+                <label className={labelClasses}>✦ Your Email</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="ENTER EMAIL"
+                  placeholder="Enter your email..."
                   className={inputClasses}
                   required
                 />
               </div>
 
               <div>
-                <label className={labelClasses}>/// INTEL</label>
+                <label className={labelClasses}>✦ Your Message</label>
                 <textarea
                   name="message"
                   rows={3}
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="TYPE MESSAGE..."
+                  placeholder="Share your thoughts..."
                   className={`${inputClasses} resize-none`}
                   required
                 />
@@ -290,22 +278,17 @@ const Contact = () => {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className={`w-full py-3 sm:py-4 text-xs sm:text-sm font-subtitle uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-500 border-3 sm:border-4 relative overflow-hidden ${
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className={`w-full py-2.5 sm:py-3 rounded-lg text-xs sm:text-sm font-subtitle uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-300 border-2 relative overflow-hidden font-bold ${
                   isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
-                } ${
-                  theme === ThemeMode.JUJUTSU
-                    ? 'bg-[#bc13fe] border-[#bc13fe] text-black hover:bg-[#bc13fe]/90'
-                    : 'bg-[#10b981] border-[#10b981] text-black hover:bg-[#10b981]/90'
-                }`}
+                } bg-gradient-to-r from-purple-600 to-pink-600 border-purple-400 text-white hover:from-purple-500 hover:to-pink-500 shadow-lg shadow-purple-900/60`}
                 style={{
-                  boxShadow: '4px 4px 0px #000',
-                  transform: isSubmitting ? 'none' : 'skew(-6deg)'
+                  boxShadow: '0 8px 30px rgba(168, 85, 247, 0.4)'
                 }}
               >
-                <span className="relative z-10 inline-block" style={{ transform: 'skew(6deg)' }}>
-                  {isSubmitting ? 'SYNCING...' : '⚡ TRANSMIT ⚡'}
+                <span className="relative z-10">
+                  {isSubmitting ? '✦ Sending...' : '✦ Send Message ✦'}
                 </span>
                 {/* Action effect */}
                 {!isSubmitting && (
@@ -323,9 +306,9 @@ const Contact = () => {
         </div>
       </main>
 
-      <footer className="relative z-50 p-3 sm:p-4 text-center">
-        <div className="inline-block border-2 sm:border-3 md:border-4 border-white/10 px-4 sm:px-6 py-1.5 sm:py-2" style={{ boxShadow: '3px 3px 0px rgba(0,0,0,0.3)' }}>
-          <p className="text-[8px] sm:text-[9px] md:text-[10px] font-subtitle uppercase tracking-[0.2em] sm:tracking-[0.3em] opacity-30">/// CONTACT NODE SYNC ACTIVE ///</p>
+      <footer className="relative z-50 p-2 sm:p-3 pb-6 text-center">
+        <div className="inline-block border-2 border-purple-400/20 bg-purple-900/10 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full" style={{ boxShadow: '0 4px 20px rgba(168, 85, 247, 0.15)' }}>
+          <p className="text-[8px] sm:text-[9px] md:text-[10px] font-subtitle uppercase tracking-[0.2em] sm:tracking-[0.3em] text-purple-300/50">✦ Open for Collaboration ✦</p>
         </div>
       </footer>
     </div>
