@@ -31,52 +31,6 @@ const isMobileApp = (category: string): boolean => {
   return category === 'Mobile App';
 };
 
-// Browser Window Mockup Component for Web designs
-const BrowserMockup: React.FC<{ children: React.ReactNode; url?: string; className?: string }> = ({ 
-  children, 
-  url = 'mahimrahman.com/design',
-  className = '' 
-}) => (
-  <div className={`relative bg-[#0d1117] rounded-2xl overflow-hidden shadow-2xl border border-white/10 ${className}`}>
-    {/* Browser Top Bar */}
-    <div className="bg-[#161b22] px-4 py-3 flex items-center gap-4">
-      {/* Traffic lights */}
-      <div className="flex items-center gap-2">
-        <div className="w-3 h-3 rounded-full bg-[#ff5f57] shadow-sm"></div>
-        <div className="w-3 h-3 rounded-full bg-[#febc2e] shadow-sm"></div>
-        <div className="w-3 h-3 rounded-full bg-[#28c840] shadow-sm"></div>
-      </div>
-      {/* URL Bar */}
-      <div className="flex-1 bg-[#0d1117] rounded-lg px-4 py-2 border border-white/10">
-        <span className="text-sm text-ash-gray/70 font-mono">{url}</span>
-      </div>
-    </div>
-    {/* Browser Content */}
-    <div className="relative">
-      {children}
-    </div>
-  </div>
-);
-
-// Mobile Phone Mockup Component for Mobile Apps
-const PhoneMockup: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <div className={`relative ${className}`}>
-    {/* Phone Frame - iPhone style */}
-    <div className="relative bg-[#1c1c1e] rounded-[3rem] p-3 shadow-2xl border-[3px] border-[#2c2c2e]">
-      {/* Dynamic Island */}
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-8 bg-black rounded-full z-10 flex items-center justify-center gap-2">
-        <div className="w-3 h-3 rounded-full bg-[#1c1c1e]"></div>
-      </div>
-      {/* Phone Screen */}
-      <div className="relative bg-black rounded-[2.5rem] overflow-hidden">
-        {/* Screen Content */}
-        {children}
-      </div>
-      {/* Home Indicator */}
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-36 h-1.5 bg-white/30 rounded-full"></div>
-    </div>
-  </div>
-);
 
 const CLOUDINARY_CLOUD_NAME = 'dacbxyltq';
 
