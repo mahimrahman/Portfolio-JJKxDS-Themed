@@ -10,11 +10,11 @@ const nodes: ExperienceNode[] = [
   {
     id: 'n1',
     role: 'Software Engineer',
-    company: 'Bassili Group',
+    company: 'Bassilichat Inc.',
     region: Region.CANADA,
     description: 'Developed and deployed BassiliChat AI and BassiliTrade platforms. Architected scalable backend solutions using modern frameworks and cloud technologies. Optimized application performance across both flagship products.',
     skills: ['React', 'Node.js', 'AI Development', 'Trading Platform', 'Cloud Technologies', 'TypeScript'],
-    date: '2023 - 2024',
+    date: 'Sep 2025 - Present',
     type: 'work',
     color: '#3F51B5'
   },
@@ -47,7 +47,7 @@ const nodes: ExperienceNode[] = [
     region: Region.CANADA,
     description: 'Elected Director representing graduate student interests university-wide. Participated in Student Handbook and Healthcare Committee initiatives.',
     skills: ['Leadership', 'Student Advocacy', 'Policy Development', 'Committee Management'],
-    date: 'June 2024 - Present',
+    date: 'June 2024 - May 2025',
     type: 'leadership',
     color: '#3b82f6'
   },
@@ -58,7 +58,7 @@ const nodes: ExperienceNode[] = [
     region: Region.CANADA,
     description: 'Facilitated peer-led discussions and collaborative learning activities for new students. Provided mentorship and guidance to support academic transition.',
     skills: ['Mentorship', 'Facilitation', 'Student Support', 'Community Building'],
-    date: 'Sep 2024 - Present',
+    date: 'Sep 2024 - Aug 2025',
     type: 'education',
     color: '#06b6d4'
   },
